@@ -1,20 +1,47 @@
 {
   "private": true,
-  "name": "sanity-gatsby-blog",
-  "version": "1.0.10",
+  "name": "@bluebird/website",
+  "version": "0.1.0",
   "scripts": {
     "build": "lerna run build --parallel",
-    "dev": "lerna run dev --parallel",
-    "format": "lerna run format",
-    "build-studio": "lerna bootstrap && cd studio && npm run build",
-    "build-web": "lerna bootstrap && (cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",
-    "graphql-deploy": "lerna run graphql-deploy",
-    "lint": "lerna run lint",
+    "start": "lerna run start --parallel",
+    "lint": "lerna run lint --parallel",
     "postinstall": "lerna bootstrap",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lerna run test --parallel"
   },
   "devDependencies": {
     "@sanity/cli": "^1.149.6",
-    "lerna": "^3.13.1"
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "husky": "^4.2.3",
+    "lerna": "^3.13.1",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+      "jsx-a11y"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,js,jsx,ts,tsx,css,scss,md,mdx,yml}": "prettier --write"
   }
 }

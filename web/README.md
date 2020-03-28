@@ -1,1 +1,1 @@
-# bluebird-sanity-gatsby-blog-web
+# Bluebird Web

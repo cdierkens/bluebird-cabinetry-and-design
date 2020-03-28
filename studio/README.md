@@ -1,1 +1,1 @@
-# bluebird-sanity-gatsby-blog-studio
+# Bluebird Studio
