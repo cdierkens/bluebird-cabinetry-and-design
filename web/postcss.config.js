@@ -1,3 +1,8 @@
+const purgecss = require("@fullhuman/postcss-purgecss")({
+  content: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.tsx"],
+  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+});
+
 module.exports = () => ({
   plugins: [
     require("postcss-import"),
@@ -14,5 +19,7 @@ module.exports = () => ({
         },
       },
     }),
+    require("tailwindcss"),
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
   ],
 });

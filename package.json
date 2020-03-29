@@ -57,6 +57,9 @@
       "stylelint-config-standard",
       "stylelint-config-css-modules"
     ],
+    "ignoreFiles": [
+      "**/*.js"
+    ],
     "rules": {
       "value-keyword-case": [
         "lower",
@@ -64,6 +67,18 @@
           "ignoreProperties": [
             "composes",
             "/(\\-\\-)*font-family\\-*[a-z]*/"
+          ]
+        }
+      ],
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "tailwind",
+            "apply",
+            "variants",
+            "responsive",
+            "screen"
           ]
         }
       ]

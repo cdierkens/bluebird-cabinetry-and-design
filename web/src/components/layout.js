@@ -1,18 +1,14 @@
 import React from "react";
-import Header from "./header";
-
 import "../styles/layout.css";
+import Header from "./header";
 import styles from "./layout.module.css";
 
-const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
+const Layout = ({ children }) => (
   <>
-    <Header
-      siteTitle={siteTitle}
-      onHideNav={onHideNav}
-      onShowNav={onShowNav}
-      showNav={showNav}
-    />
-    <div className={styles.content}>{children}</div>
+    <Header />
+
+    <main className={styles.content}>{children}</main>
+
     <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.siteInfo}>
