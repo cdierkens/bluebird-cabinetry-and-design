@@ -7,7 +7,6 @@
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",
-    "lint": "eslint .",
     "test": "sanity check"
   },
   "dependencies": {

@@ -2,6 +2,7 @@
 @import "../styles/custom-properties.css";
 
 .root {
+  /* empty */
 }
 
 .title {
@@ -29,7 +30,6 @@
 .grid {
   @media (--media-min-medium) {
     display: grid;
-    grid-template-columns: 1fr;
     grid-column-gap: 2em;
     grid-template-columns: 3fr 1fr;
   }
@@ -61,6 +61,7 @@
 }
 
 .metaContent {
+  /* empty */
 }
 
 .publishedAt {
