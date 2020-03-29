@@ -1,8 +1,8 @@
 import { graphql } from "gatsby";
 import React from "react";
+import { toPlainText } from "src/lib/helpers";
 import BlogPost from "../components/blog-post";
 import Layout from "../Layout";
-import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {

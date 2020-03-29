@@ -1,12 +1,12 @@
 import { graphql } from "gatsby";
 import React from "react";
-import BlogPostPreviewList from "../components/blog-post-preview-list";
-import Layout from "../Layout";
 import {
   filterOutDocsPublishedInTheFuture,
   filterOutDocsWithoutSlugs,
   mapEdgesToNodes,
-} from "../lib/helpers";
+} from "src/lib/helpers";
+import BlogPostPreviewList from "../components/blog-post-preview-list";
+import Layout from "../Layout";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {

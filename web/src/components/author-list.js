@@ -1,7 +1,6 @@
 import React from "react";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
-
+import { buildImageObj } from "src/lib/helpers";
+import { imageUrlFor } from "src/lib/image-url";
 import styles from "./author-list.module.css";
 
 function AuthorList({ items, title }) {
