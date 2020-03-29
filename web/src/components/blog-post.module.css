@@ -1,18 +1,16 @@
-@import "../styles/custom-media.css";
-@import "../styles/custom-properties.css";
-
 .root {
   /* empty */
 }
 
 .title {
-  composes: responsiveTitle1 from "./typography.module.css";
+  @apply font-bold uppercase;
 }
 
 .mainImage {
+  @apply bg-gray-200;
+
   display: block;
   position: relative;
-  background: var(--color-very-light-gray);
   padding-bottom: calc(9 / 16 * 100%);
 
   @nest & img {
@@ -28,7 +26,7 @@
 }
 
 .grid {
-  @media (--media-min-medium) {
+  @screen md {
     display: grid;
     grid-column-gap: 2em;
     grid-template-columns: 3fr 1fr;
@@ -37,7 +35,7 @@
 
 .mainContent {
   @nest & a {
-    color: var(--color-accent);
+    @apply text-blue-700;
 
     @media (hover: hover) {
       @nest &:hover {
@@ -65,13 +63,13 @@
 }
 
 .publishedAt {
-  composes: small from "./typography.module.css";
   margin: 2rem 0 3rem;
   color: var(--color-gray);
 }
 
 .categories {
-  border-top: 1px solid var(--color-very-light-gray);
+  @apply border-b border-gray-200;
+
   margin: 2rem 0 3rem;
 
   @nest & ul {
@@ -86,6 +84,5 @@
 }
 
 .categoriesHeadline {
-  composes: base from "./typography.module.css";
   margin: 0.5rem 0 0;
 }

@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "bradlc.vscode-tailwindcss",
     "bungcip.better-toml",
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",

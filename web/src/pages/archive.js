@@ -1,12 +1,8 @@
 import { graphql } from "gatsby";
 import React from "react";
+import { mapEdgesToNodes } from "src/lib";
 import BlogPostPreviewGrid from "../components/blog-post-preview-grid";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import { responsiveTitle1 } from "../components/typography.module.css";
-import { mapEdgesToNodes } from "../lib/helpers";
+import Layout from "../Layout";
 
 export const query = graphql`
   query ArchivePageQuery {
@@ -36,25 +32,13 @@ export const query = graphql`
 const ArchivePage = (props) => {
   const { data, errors } = props;
 
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
-  const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
+  const postNodes = data?.posts && mapEdgesToNodes(data.posts);
 
   return (
-    <Layout>
-      <SEO title="Archive" />
-      <Container>
-        <h1 className={responsiveTitle1}>Archive</h1>
-        {postNodes && postNodes.length > 0 && (
-          <BlogPostPreviewGrid nodes={postNodes} />
-        )}
-      </Container>
+    <Layout title="Archive" errors={errors}>
+      <h1>Archive</h1>
+
+      {postNodes?.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
     </Layout>
   );
 };

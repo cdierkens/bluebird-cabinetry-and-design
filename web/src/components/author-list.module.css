@@ -1,12 +1,10 @@
-@import "../styles/custom-properties.css";
-
 .root {
+  @apply border-gray-200;
+
   margin: 2rem 0 3rem;
-  border-top: 1px solid var(--color-very-light-gray);
 }
 
 .headline {
-  composes: base from "./typography.module.css";
   font-weight: 600;
   margin: 0.5rem 0 0;
 }
@@ -18,7 +16,8 @@
 }
 
 .listItem {
-  font-size: var(--font-small-size);
+  @apply text-sm;
+
   margin: 1rem 0;
   display: flex;
   justify-content: center;
@@ -31,10 +30,11 @@
 }
 
 .avatar {
+  @apply bg-gray-200;
+
   position: relative;
   width: 3em;
   height: 3em;
-  background: var(--color-very-light-gray);
   border-radius: 50%;
   overflow: hidden;
 

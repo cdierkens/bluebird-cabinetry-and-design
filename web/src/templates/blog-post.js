@@ -1,10 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import BlogPost from "../components/blog-post";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../Layout";
 import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
@@ -59,24 +56,17 @@ export const query = graphql`
 
 const BlogPostTemplate = (props) => {
   const { data, errors } = props;
-  const post = data && data.post;
+  const post = data?.post;
+  const description = post ? toPlainText(post._rawExcerpt) : "";
+  const image = post?.mainImage;
+
   return (
-    <Layout>
-      {errors && <SEO title="GraphQL Error" />}
-      {post && (
-        <SEO
-          title={post.title || "Untitled"}
-          description={toPlainText(post._rawExcerpt)}
-          image={post.mainImage}
-        />
-      )}
-
-      {errors && (
-        <Container>
-          <GraphQLErrorList errors={errors} />
-        </Container>
-      )}
-
+    <Layout
+      errors={errors}
+      title={post.title || "Untitled"}
+      description={description}
+      image={image}
+    >
       {post && <BlogPost {...post} />}
     </Layout>
   );

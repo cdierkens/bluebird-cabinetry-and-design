@@ -1,0 +1,34 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+html {
+  @apply font-serif leading-normal;
+
+  font-size: 16px;
+}
+
+body {
+  @apply bg-white font-black;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code,
+pre {
+  @apply font-mono;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif;
+}
