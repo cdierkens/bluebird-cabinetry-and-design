@@ -5,6 +5,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 // document schemas
 import author from "./documents/author";
 import category from "./documents/category";
+import certification from "./documents/certification";
 import post from "./documents/post";
 import siteSettings from "./documents/siteSettings";
 import authorReference from "./objects/authorReference";
@@ -32,6 +33,7 @@ export default createSchema({
     bodyPortableText,
     bioPortableText,
     excerptPortableText,
+    certification,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

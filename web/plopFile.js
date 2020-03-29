@@ -1,4 +1,5 @@
 const fuzzypath = require("inquirer-fuzzy-path");
+const path = require("path");
 
 module.exports = function (plop) {
   plop.setHelper("bracket", function (options) {
@@ -24,7 +25,7 @@ module.exports = function (plop) {
         itemType: "directory",
         rootPath: "src",
         message: "Select a target directory for your component:",
-        default: "src/components",
+        default: path.join("src", "components"),
         suggestOnly: true,
         depthLimit: 5,
       },
