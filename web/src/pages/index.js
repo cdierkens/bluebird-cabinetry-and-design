@@ -1,15 +1,15 @@
-import React from "react";
 import { graphql } from "gatsby";
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture,
-} from "../lib/helpers";
+import React from "react";
 import BlogPostPreviewList from "../components/blog-post-preview-list";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
+import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import {
+  filterOutDocsPublishedInTheFuture,
+  filterOutDocsWithoutSlugs,
+  mapEdgesToNodes,
+} from "../lib/helpers";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
