@@ -1,15 +1,12 @@
 import { graphql } from "gatsby";
 import React from "react";
-import BlogPostPreviewList from "../components/blog-post-preview-list";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
 import {
   filterOutDocsPublishedInTheFuture,
   filterOutDocsWithoutSlugs,
   mapEdgesToNodes,
-} from "../lib/helpers";
+} from "src/lib/helpers";
+import BlogPostPreviewList from "../components/blog-post-preview-list";
+import Layout from "../Layout";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {
@@ -67,16 +64,8 @@ export const query = graphql`
 const IndexPage = (props) => {
   const { data, errors } = props;
 
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    );
-  }
-
-  const site = (data || {}).site;
-  const postNodes = (data || {}).posts
+  const site = data?.site;
+  const postNodes = data?.posts
     ? mapEdgesToNodes(data.posts)
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
@@ -89,22 +78,21 @@ const IndexPage = (props) => {
   }
 
   return (
-    <Layout>
-      <SEO
-        title={site.title}
-        description={site.description}
-        keywords={site.keywords}
-      />
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
-          <BlogPostPreviewList
-            title="Latest blog posts"
-            nodes={postNodes}
-            browseMoreHref="/archive/"
-          />
-        )}
-      </Container>
+    <Layout
+      errors={errors}
+      title={site.title}
+      description={site.description}
+      keywords={site.keywords}
+    >
+      <h1 hidden>Welcome to {site.title}</h1>
+
+      {postNodes && (
+        <BlogPostPreviewList
+          title="Latest blog posts"
+          nodes={postNodes}
+          browseMoreHref="/archive/"
+        />
+      )}
     </Layout>
   );
 };

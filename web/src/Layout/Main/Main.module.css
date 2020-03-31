@@ -1,0 +1,10 @@
+.Main {
+  box-sizing: border-box;
+  max-width: 960px;
+  padding: 1.5em;
+  margin: 0 auto;
+
+  @screen sm {
+    padding: 2em;
+  }
+}
