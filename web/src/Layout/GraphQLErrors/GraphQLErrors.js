@@ -1,7 +1,8 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styles from "./GraphQLErrors.module.css";
 
-const GraphQLErrors = (errors) => (
+const GraphQLErrors = ({ errors }) => (
   <div className={styles.GraphQLErrors}>
     <h1>GraphQL Error</h1>
     {errors.map((error) => (
@@ -9,5 +10,17 @@ const GraphQLErrors = (errors) => (
     ))}
   </div>
 );
+
+GraphQLErrors.propTypes = {
+  errors: PropTypes.arrayOf(
+    PropTypes.shape({
+      message: PropTypes.string,
+    })
+  ),
+};
+
+GraphQLErrors.defaultProps = {
+  errors: [],
+};
 
 export default GraphQLErrors;
