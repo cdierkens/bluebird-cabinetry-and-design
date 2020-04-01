@@ -1,5 +1,7 @@
 # Bluebird Web
 
+React front-end for Bluebird Cabinetry and Design
+
 ## Commands
 
 ### `npm start`

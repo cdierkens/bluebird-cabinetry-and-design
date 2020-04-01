@@ -8,9 +8,9 @@ import category from "./documents/category";
 import certification from "./documents/certification";
 import post from "./documents/post";
 import siteSettings from "./documents/siteSettings";
+// Object types
 import authorReference from "./objects/authorReference";
 import bioPortableText from "./objects/bioPortableText";
-// Object types
 import bodyPortableText from "./objects/bodyPortableText";
 import excerptPortableText from "./objects/excerptPortableText";
 import mainImage from "./objects/mainImage";
