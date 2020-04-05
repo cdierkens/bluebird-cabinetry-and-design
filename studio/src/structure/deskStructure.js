@@ -4,7 +4,7 @@ import MdSettings from "react-icons/lib/md/settings";
 import IframePreview from "../previews/IframePreview";
 
 // Web preview configuration
-const remoteURL = "https://bluebird-sanity-gatsby-blog.netlify.com";
+const remoteURL = "https://bluebird-cabinetry-and-design.netlify.com";
 const localURL = "http://localhost:8000";
 const previewURL =
   window.location.hostname === "localhost" ? localURL : remoteURL;

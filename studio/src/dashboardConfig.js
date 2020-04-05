@@ -14,13 +14,13 @@ export default {
                 {
                   buildHookId: "5e7ab8e3bb4b68438d43eeed",
                   title: "Sanity Studio",
-                  name: "bluebird-sanity-gatsby-blog-studio",
+                  name: "bluebird-cabinetry-and-design-studio",
                   apiId: "f4baa358-88e2-43a7-b49c-1288b8df1a5c",
                 },
                 {
                   buildHookId: "5e7ab8e3a7ddb5a8ac2a2b8d",
                   title: "Blog Website",
-                  name: "bluebird-sanity-gatsby-blog",
+                  name: "bluebird-cabinetry-and-design",
                   apiId: "2d3f1802-9d49-4dcb-80ff-24b828ff82e7",
                 },
               ],
@@ -30,12 +30,12 @@ export default {
         data: [
           {
             title: "GitHub repo",
-            value: "https://github.com/sonofab1rd/bluebird-sanity-gatsby-blog",
+            value: "https://github.com/cdierkens/bluebird-cabinetry-and-design",
             category: "Code",
           },
           {
             title: "Frontend",
-            value: "https://bluebird-sanity-gatsby-blog.netlify.com",
+            value: "https://bluebird-cabinetry-and-design.netlify.com",
             category: "apps",
           },
         ],
