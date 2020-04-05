@@ -12,16 +12,16 @@ export default {
                 "NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.",
               sites: [
                 {
-                  buildHookId: "5e7ab8e3bb4b68438d43eeed",
+                  buildHookId: "5e8a66785ab22f9c57277b1f",
                   title: "Sanity Studio",
-                  name: "bluebird-sanity-gatsby-blog-studio",
-                  apiId: "f4baa358-88e2-43a7-b49c-1288b8df1a5c",
+                  name: "bluebird-cabinetry-and-design-studio",
+                  apiId: "35a21933-0638-4df5-a6fc-757529bdc61b",
                 },
                 {
-                  buildHookId: "5e7ab8e3a7ddb5a8ac2a2b8d",
+                  buildHookId: "5e8a677d2c6796d747536869",
                   title: "Blog Website",
-                  name: "bluebird-sanity-gatsby-blog",
-                  apiId: "2d3f1802-9d49-4dcb-80ff-24b828ff82e7",
+                  name: "bluebird-cabinetry-and-design",
+                  apiId: "0bc8e9e2-da18-4e15-aac5-5f2246548f33",
                 },
               ],
             },
@@ -30,12 +30,12 @@ export default {
         data: [
           {
             title: "GitHub repo",
-            value: "https://github.com/sonofab1rd/bluebird-sanity-gatsby-blog",
+            value: "https://github.com/cdierkens/bluebird-cabinetry-and-design",
             category: "Code",
           },
           {
             title: "Frontend",
-            value: "https://bluebird-sanity-gatsby-blog.netlify.com",
+            value: "https://bluebird-cabinetry-and-design.netlify.com",
             category: "apps",
           },
         ],

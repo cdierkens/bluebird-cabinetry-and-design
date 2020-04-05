@@ -11,25 +11,25 @@
     "graphql-deploy": "sanity graphql deploy --playground"
   },
   "dependencies": {
-    "@sanity/base": "^1.149.7",
-    "@sanity/cli": "^1.149.7",
-    "@sanity/components": "^1.149.7",
-    "@sanity/core": "^1.149.7",
-    "@sanity/dashboard": "^1.149.7",
-    "@sanity/default-layout": "^1.149.7",
-    "@sanity/default-login": "^1.149.7",
-    "@sanity/desk-tool": "^1.149.7",
-    "@sanity/studio-hints": "^1.149.7",
-    "date-fns": "^1.30.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "sanity-plugin-dashboard-widget-document-list": "^0.0.10",
-    "sanity-plugin-dashboard-widget-netlify": "^1.0.1"
+    "@sanity/base": "1.149.7",
+    "@sanity/cli": "1.149.7",
+    "@sanity/components": "1.149.7",
+    "@sanity/core": "1.149.7",
+    "@sanity/dashboard": "1.149.7",
+    "@sanity/default-layout": "1.149.7",
+    "@sanity/default-login": "1.149.7",
+    "@sanity/desk-tool": "1.149.7",
+    "@sanity/studio-hints": "1.149.7",
+    "date-fns": "1.30.1",
+    "prop-types": "15.7.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sanity-plugin-dashboard-widget-document-list": "0.0.10",
+    "sanity-plugin-dashboard-widget-netlify": "1.0.1"
   },
   "devDependencies": {
-    "@types/prop-types": "^15.7.3",
-    "@types/react": "^16.9.29",
-    "@types/react-dom": "^16.9.5"
+    "@types/prop-types": "15.7.3",
+    "@types/react": "16.9.32",
+    "@types/react-dom": "16.9.6"
   }
 }
