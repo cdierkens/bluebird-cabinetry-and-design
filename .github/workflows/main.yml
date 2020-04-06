@@ -10,17 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-
-      - name: Cache node_modules
+      - name: Setup node_modules cache
         uses: actions/cache@master
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm ci
@@ -32,17 +27,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-
       - name: Restore node_modules
         uses: actions/cache@master
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm test
@@ -54,25 +44,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-
       - name: Restore node_modules
         uses: actions/cache@master
         with:
           path: |
             node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Restore node_modules
-        uses: actions/cache@master
-        with:
-          path: |
-            node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm run lint
@@ -87,17 +64,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
-
       - name: Restore node_modules
         uses: actions/cache@master
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Deploy Graphql Server
