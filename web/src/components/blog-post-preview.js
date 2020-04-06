@@ -32,7 +32,7 @@ function BlogPostPreview(props) {
           </div>
         )}
         <div className={styles.date}>
-          {format(parseISO(props.publishedAt), "MMMM Do, YYYY")}
+          {format(parseISO(props.publishedAt), "MMMM Do, yyyy")}
         </div>
       </div>
     </Link>

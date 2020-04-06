@@ -1,4 +1,4 @@
-import { differenceInDays, distanceInWords, format, parseISO } from "date-fns";
+import { differenceInDays, format, formatDistance, parseISO } from "date-fns";
 import React from "react";
 import { buildImageObj } from "src/lib/helpers";
 import { imageUrlFor } from "src/lib/image-url";
@@ -41,8 +41,8 @@ function BlogPost(props) {
             {publishedAt && (
               <div className={styles.publishedAt}>
                 {differenceInDays(parseISO(publishedAt), new Date()) > 3
-                  ? distanceInWords(parseISO(publishedAt), new Date())
-                  : format(parseISO(publishedAt), "MMMM Do, YYYY")}
+                  ? formatDistance(new Date(), parseISO(publishedAt))
+                  : format(parseISO(publishedAt), "MMMM Do, yyyy")}
               </div>
             )}
             {authors && <AuthorList items={authors} title="Authors" />}

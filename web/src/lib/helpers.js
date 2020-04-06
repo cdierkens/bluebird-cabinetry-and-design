@@ -10,11 +10,11 @@ export function filterOutDocsWithoutSlugs({ slug }) {
 }
 
 export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
-  return !isFuture(publishedAt);
+  return !isFuture(parseISO(publishedAt));
 }
 
 export function getBlogUrl(publishedAt, slug) {
-  return `/blog/${format(parseISO(publishedAt), "YYYY/MM")}/${
+  return `/blog/${format(parseISO(publishedAt), "yyyy/MM")}/${
     slug.current || slug
   }/`;
 }
