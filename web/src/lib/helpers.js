@@ -1,4 +1,4 @@
-import { format, isFuture } from "date-fns";
+import { format, isFuture, parseISO } from "date-fns";
 
 export function mapEdgesToNodes(data) {
   if (!data.edges) return [];
@@ -14,7 +14,9 @@ export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
 }
 
 export function getBlogUrl(publishedAt, slug) {
-  return `/blog/${format(publishedAt, "YYYY/MM")}/${slug.current || slug}/`;
+  return `/blog/${format(parseISO(publishedAt), "YYYY/MM")}/${
+    slug.current || slug
+  }/`;
 }
 
 export function buildImageObj(source = { asset: {} }) {
