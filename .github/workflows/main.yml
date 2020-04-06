@@ -20,7 +20,7 @@ jobs:
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm ci
@@ -42,7 +42,7 @@ jobs:
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm test
@@ -64,7 +64,7 @@ jobs:
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Restore node_modules
@@ -72,7 +72,7 @@ jobs:
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - run: npm run lint
@@ -97,7 +97,7 @@ jobs:
         with:
           path: |
             node_modules
-            */*/node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Deploy Graphql Server
