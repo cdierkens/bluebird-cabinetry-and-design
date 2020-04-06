@@ -41,8 +41,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-        working-directory: ./studio
+      - name: Deploy Graphql Server
         run: npm ci && npm run graphql-deploy
+        working-directory: ./studio
 
   publish:
     runs-on: ubuntu-latest
