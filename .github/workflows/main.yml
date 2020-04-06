@@ -67,7 +67,9 @@ jobs:
       - name: Restore node_modules
         uses: actions/cache@master
         with:
-          path: studio/node_modules
+          path: |
+            node_modules
+            */node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Deploy Graphql Server
