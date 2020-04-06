@@ -3,10 +3,6 @@
   "name": "@bluebird/website",
   "version": "0.1.0",
   "scripts": {
-    "build": "lerna run build --parallel",
-    "build-studio": "lerna bootstrap && cd studio && npm run build",
-    "build-web": "lerna bootstrap && (cd studio && npm run graphql-deploy) && (cd web && npm run build)",
-    "graphql-deploy": "lerna run graphql-deploy",
     "start": "lerna run start --parallel",
     "lint": "run-s -l lint:**",
     "lint:js:web": "eslint web/src",
