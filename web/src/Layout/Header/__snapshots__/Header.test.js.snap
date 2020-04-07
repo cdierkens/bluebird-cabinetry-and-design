@@ -14,9 +14,7 @@ exports[`matches snapshot 1`] = `
         >
           <a
             href="/"
-          >
-            title
-          </a>
+          />
         </span>
       </div>
       <div
