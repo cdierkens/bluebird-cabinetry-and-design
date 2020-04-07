@@ -1,0 +1,77 @@
+---
+name: Main
+
+on: [push]
+
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node_modules cache
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm ci
+
+  test:
+    runs-on: ubuntu-latest
+    needs: [dependencies]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm test
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: [dependencies]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm run lint
+
+  deploy-graphql:
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+    if: github.ref == 'refs/heads/master'
+    env:
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@master
+        with:
+          path: |
+            node_modules
+            */node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Deploy Graphql Server
+        run: npm run graphql-deploy
+        working-directory: ./studio

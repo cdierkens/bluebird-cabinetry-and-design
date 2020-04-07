@@ -1,4 +1,4 @@
-import { differenceInDays, distanceInWords, format } from "date-fns";
+import { differenceInDays, format, formatDistance, parseISO } from "date-fns";
 import React from "react";
 import { buildImageObj } from "src/lib/helpers";
 import { imageUrlFor } from "src/lib/image-url";
@@ -40,9 +40,9 @@ function BlogPost(props) {
           <aside className={styles.metaContent}>
             {publishedAt && (
               <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), "MMMM Do, YYYY")}
+                {differenceInDays(parseISO(publishedAt), new Date()) > 3
+                  ? formatDistance(new Date(), parseISO(publishedAt))
+                  : format(parseISO(publishedAt), "MMMM Do, yyyy")}
               </div>
             )}
             {authors && <AuthorList items={authors} title="Authors" />}

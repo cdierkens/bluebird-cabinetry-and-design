@@ -8,10 +8,6 @@ Monorepo for Bluebird Cabinetry and Design
 
 Start the development server.
 
-### `npm run build`
-
-Build the production files.
-
 ### `npm test`
 
 Start the test runner.
