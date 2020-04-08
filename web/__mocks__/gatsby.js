@@ -1,6 +1,29 @@
 const React = require("react");
 const gatsby = jest.requireActual("gatsby");
 
+const deepMock = new Proxy(
+  {},
+  {
+    get(_, key) {
+      if (typeof key === "symbol") {
+        let value = "unhandled symbol";
+
+        if (key === Symbol.toPrimitive) {
+          value = "primitive";
+        } else if (key === Symbol.iterator) {
+          value = {
+            next: () => ({ done: true }),
+          };
+        }
+
+        return jest.fn().mockReturnValue(value);
+      }
+
+      return deepMock;
+    },
+  }
+);
+
 module.exports = {
   ...gatsby,
   graphql: jest.fn().mockImplementation((query) => query),
@@ -23,12 +46,5 @@ module.exports = {
       })
   ),
   StaticQuery: jest.fn(),
-  useStaticQuery: jest.fn().mockImplementation((query) => ({
-    site: {
-      title: "title",
-      description: "description",
-      keywords: ["keywords"],
-      author: "author",
-    },
-  })),
+  useStaticQuery: jest.fn().mockReturnValue(deepMock),
 };
