@@ -8,19 +8,19 @@
     "start": "sanity start",
     "build": "sanity build",
     "test": "sanity check",
-    "graphql-deploy": "sanity graphql deploy --playground"
+    "graphql-deploy": "sanity graphql deploy --no-playground"
   },
   "dependencies": {
     "@sanity/base": "1.149.10",
     "@sanity/cli": "1.149.9",
     "@sanity/components": "1.149.10",
-    "@sanity/core": "1.149.9",
+    "@sanity/core": "1.149.11",
     "@sanity/dashboard": "1.149.10",
     "@sanity/default-layout": "1.149.10",
-    "@sanity/default-login": "1.149.7",
+    "@sanity/default-login": "1.149.11",
     "@sanity/desk-tool": "1.149.10",
     "@sanity/studio-hints": "1.149.10",
-    "date-fns": "2.11.1",
+    "date-fns": "2.12.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@types/prop-types": "15.7.3",
-    "@types/react": "16.9.32",
+    "@types/react": "16.9.33",
     "@types/react-dom": "16.9.6"
   }
 }
