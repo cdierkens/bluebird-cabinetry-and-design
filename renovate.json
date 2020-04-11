@@ -1,5 +1,5 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "commitMessagePrefix": "[skip ci]",
+  "rebaseWhen": "behind-base-branch"
 }
