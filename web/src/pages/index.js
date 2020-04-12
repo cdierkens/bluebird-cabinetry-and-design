@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import Layout from "../Layout";
 
@@ -33,6 +34,15 @@ const IndexPage = (props) => {
       <h1 hidden>Welcome to {site.title}</h1>
     </Layout>
   );
+};
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
+  errors: PropTypes.arrayOf(
+    PropTypes.shape({
+      message: PropTypes.string,
+    })
+  ),
 };
 
 export default IndexPage;

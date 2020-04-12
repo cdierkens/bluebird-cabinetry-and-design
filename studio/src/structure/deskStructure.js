@@ -1,12 +1,5 @@
 import S from "@sanity/desk-tool/structure-builder";
 import MdSettings from "react-icons/lib/md/settings";
-import IframePreview from "../previews/IframePreview";
-
-// Web preview configuration
-const remoteURL = "https://bluebird-cabinetry-and-design.netlify.com";
-const localURL = "http://localhost:8000";
-const previewURL =
-  window.location.hostname === "localhost" ? localURL : remoteURL;
 
 export const getDefaultDocumentNode = (props) => {
   /**
@@ -16,16 +9,6 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const { schemaType } = props;
-  if (schemaType === "post") {
-    return S.document().views([
-      S.view.form(),
-      S.view
-        .component(IframePreview)
-        .title("Web preview")
-        .options({ previewURL }),
-    ]);
-  }
   return S.document().views([S.view.form()]);
 };
 

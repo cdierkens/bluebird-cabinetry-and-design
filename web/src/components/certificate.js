@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { buildImageObj } from "src/lib/helpers";
 import { imageUrlFor } from "src/lib/image-url";
 
 function Certificate(props) {
-  const { _rawBody, title, image, description } = props;
+  const { image } = props;
   return (
     <div className="certificate-container">
       {image && image.asset && (
@@ -22,5 +23,9 @@ function Certificate(props) {
     </div>
   );
 }
+
+Certificate.propTypes = {
+  image: PropTypes.object,
+};
 
 export default Certificate;

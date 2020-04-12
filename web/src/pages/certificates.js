@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import { mapEdgesToNodes } from "src/lib/helpers";
 import CertificatePreviewGrid from "../components/certificates-preview-grid";
@@ -56,6 +57,15 @@ const CertificatesPage = (props) => {
       )}
     </Layout>
   );
+};
+
+CertificatesPage.propTypes = {
+  data: PropTypes.object,
+  errors: PropTypes.arrayOf(
+    PropTypes.shape({
+      message: PropTypes.string,
+    })
+  ),
 };
 
 export default CertificatesPage;
