@@ -46,9 +46,6 @@ const Header = () => {
         {isMenuOpen && (
           <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
             <div className="text-sm lg:flex-grow">
-              <Link to="/archive/" className={styles.HeaderLink}>
-                Archive
-              </Link>
               <Link to="/certificates/" className={styles.HeaderLink}>
                 Certificates
               </Link>

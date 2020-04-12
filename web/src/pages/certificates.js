@@ -50,7 +50,7 @@ const CertificatesPage = (props) => {
     : [];
 
   return (
-    <Layout title="Certificates">
+    <Layout title="Certificates" errors={errors}>
       {certificateNodes && (
         <CertificatePreviewGrid title="Certificates" nodes={certificateNodes} />
       )}
