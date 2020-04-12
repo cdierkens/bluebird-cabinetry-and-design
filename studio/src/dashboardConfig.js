@@ -19,7 +19,7 @@ export default {
                 },
                 {
                   buildHookId: "5e8a677d2c6796d747536869",
-                  title: "Blog Website",
+                  title: "Website",
                   name: "bluebird-cabinetry-and-design",
                   apiId: "0bc8e9e2-da18-4e15-aac5-5f2246548f33",
                 },
@@ -42,14 +42,5 @@ export default {
       },
     },
     { name: "project-users", layout: { height: "auto" } },
-    {
-      name: "document-list",
-      options: {
-        title: "Recent blog posts",
-        order: "_createdAt desc",
-        types: ["post"],
-      },
-      layout: { width: "medium" },
-    },
   ],
 };

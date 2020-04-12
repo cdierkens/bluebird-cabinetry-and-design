@@ -1,62 +1,14 @@
 import { graphql } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
-import {
-  filterOutDocsPublishedInTheFuture,
-  filterOutDocsWithoutSlugs,
-  mapEdgesToNodes,
-} from "src/lib/helpers";
-import BlogPostPreviewList from "../components/blog-post-preview-list";
 import Layout from "../Layout";
 
 export const query = graphql`
-  fragment SanityImage on SanityMainImage {
-    crop {
-      _key
-      _type
-      top
-      bottom
-      left
-      right
-    }
-    hotspot {
-      _key
-      _type
-      x
-      y
-      height
-      width
-    }
-    asset {
-      _id
-    }
-  }
-
   query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
-    }
-    posts: allSanityPost(
-      limit: 6
-      sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-    ) {
-      edges {
-        node {
-          id
-          publishedAt
-          mainImage {
-            ...SanityImage
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
     }
   }
 `;
@@ -65,11 +17,6 @@ const IndexPage = (props) => {
   const { data, errors } = props;
 
   const site = data?.site;
-  const postNodes = data?.posts
-    ? mapEdgesToNodes(data.posts)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
-    : [];
 
   if (!site) {
     throw new Error(
@@ -85,16 +32,17 @@ const IndexPage = (props) => {
       keywords={site.keywords}
     >
       <h1 hidden>Welcome to {site.title}</h1>
-
-      {postNodes && (
-        <BlogPostPreviewList
-          title="Blog posts"
-          nodes={postNodes}
-          browseMoreHref="/archive/"
-        />
-      )}
     </Layout>
   );
+};
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
+  errors: PropTypes.arrayOf(
+    PropTypes.shape({
+      message: PropTypes.string,
+    })
+  ),
 };
 
 export default IndexPage;

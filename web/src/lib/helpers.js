@@ -1,22 +1,6 @@
-import { format, isFuture, parseISO } from "date-fns";
-
 export function mapEdgesToNodes(data) {
   if (!data.edges) return [];
   return data.edges.map((edge) => edge.node);
-}
-
-export function filterOutDocsWithoutSlugs({ slug }) {
-  return (slug || {}).current;
-}
-
-export function filterOutDocsPublishedInTheFuture({ publishedAt }) {
-  return !isFuture(parseISO(publishedAt));
-}
-
-export function getBlogUrl(publishedAt, slug) {
-  return `/blog/${format(parseISO(publishedAt), "yyyy/MM")}/${
-    slug.current || slug
-  }/`;
 }
 
 export function buildImageObj(source = { asset: {} }) {

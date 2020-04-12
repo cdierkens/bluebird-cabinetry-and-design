@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Footer from "./Footer";
 import GraphQLErrors from "./GraphQLErrors";
@@ -11,7 +12,7 @@ const Layout = ({ errors, children, ...props }) =>
   errors ? (
     <GraphQLErrors errors={errors} />
   ) : (
-    <>
+    <React.Fragment>
       <Head {...props} />
 
       <div className={styles.Layout}>
@@ -21,7 +22,16 @@ const Layout = ({ errors, children, ...props }) =>
 
         <Footer></Footer>
       </div>
-    </>
+    </React.Fragment>
   );
+
+Layout.propTypes = {
+  errors: PropTypes.arrayOf(
+    PropTypes.shape({
+      message: PropTypes.string,
+    })
+  ),
+  children: PropTypes.node,
+};
 
 export default Layout;

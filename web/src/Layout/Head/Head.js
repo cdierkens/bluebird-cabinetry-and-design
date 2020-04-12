@@ -10,9 +10,6 @@ const query = graphql`
       title
       description
       keywords
-      author {
-        name
-      }
     }
   }
 `;
@@ -29,7 +26,6 @@ function Head({
 
   const metaDescription = description || site?.description || "";
   const siteTitle = site?.title || "";
-  const siteAuthor = site?.author?.name || "";
   const metaImage = image?.asset
     ? imageUrlFor(buildImageObj(image)).width(1200).url()
     : "";
@@ -60,22 +56,6 @@ function Head({
           property: "og:image",
           content: metaImage,
         },
-        {
-          name: "twitter:card",
-          content: "summary",
-        },
-        {
-          name: "twitter:creator",
-          content: siteAuthor,
-        },
-        {
-          name: "twitter:title",
-          content: title,
-        },
-        {
-          name: "twitter:description",
-          content: metaDescription,
-        },
       ]
         .concat(
           keywords && keywords.length > 0
@@ -96,6 +76,7 @@ Head.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  image: PropTypes.object,
 };
 
 export default Head;

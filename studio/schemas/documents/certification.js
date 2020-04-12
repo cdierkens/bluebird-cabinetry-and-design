@@ -1,7 +1,7 @@
 export default {
-  name: "category",
+  name: "certification",
   type: "document",
-  title: "Category",
+  title: "Certification",
   fields: [
     {
       name: "title",
@@ -12,6 +12,11 @@ export default {
       name: "description",
       type: "text",
       title: "Description",
+    },
+    {
+      name: "image",
+      type: "image",
+      title: "Image",
     },
   ],
 };
