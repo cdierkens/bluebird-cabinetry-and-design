@@ -17,18 +17,18 @@
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
     "@types/react-helmet": "5.0.15",
-    "babel-jest": "25.3.0",
-    "babel-preset-gatsby": "0.3.1",
+    "babel-jest": "25.4.0",
+    "babel-preset-gatsby": "0.3.3",
     "date-fns": "2.12.0",
     "dotenv": "8.2.0",
-    "gatsby": "2.20.18",
-    "gatsby-plugin-postcss": "2.2.1",
-    "gatsby-plugin-react-helmet": "3.2.2",
+    "gatsby": "2.20.25",
+    "gatsby-plugin-postcss": "2.2.3",
+    "gatsby-plugin-react-helmet": "3.2.4",
     "gatsby-plugin-root-import": "2.0.5",
     "gatsby-source-sanity": "5.0.6",
     "identity-obj-proxy": "3.0.0",
     "inquirer-fuzzy-path": "2.2.0",
-    "jest": "25.3.0",
+    "jest": "25.4.0",
     "plop": "2.6.0",
     "postcss-import": "12.0.1",
     "postcss-preset-env": "6.7.0",
@@ -38,6 +38,6 @@
     "tailwindcss": "1.2.0"
   },
   "dependencies": {
-    "gatsby-image": "2.3.2"
+    "gatsby-image": "2.3.4"
   }
 }

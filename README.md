@@ -14,8 +14,9 @@ Sanity.io data studio for Bluebird Cabinetry and Design
 
 ## Contributing
 
-By default `studio` is configured to use the `development` dataset in your local environment. Be sure the also that in you `web/development.env` so that `Gastsby` builds for the `development` dataset. You should have a a `development.env` similar to the following.
+By default `studio` is configured to use the `development` dataset in your local environment. Be sure `development.env` in the `web` package is set to build the `development` dataset.
 
+Example `web/development.env`
 ```
 # web/development.env
 GATSBY_SANITY_PROJECT_ID="{ PROJECT_ID }"
