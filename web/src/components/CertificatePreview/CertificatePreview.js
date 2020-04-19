@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { buildImageObj } from "src/lib/helpers";
-import { imageUrlFor } from "src/lib/image-url";
+import { buildImageObj } from "../../lib/helpers";
+import { imageUrlFor } from "../../lib/image-url";
+import styles from "./CertificatePreview.module.css";
 
-function CertificatesPreview({ image }) {
+const CertificatePreview = ({ image }) => {
   return (
-    <div className="certificate-preview">
+    <div className={styles.CertificatePreview}>
       {image && image.asset && (
         <img
           src={imageUrlFor(buildImageObj(image))
@@ -16,12 +17,12 @@ function CertificatesPreview({ image }) {
           alt={image.alt}
         />
       )}
+      }
     </div>
   );
-}
-
-CertificatesPreview.propTypes = {
-  image: PropTypes.object,
 };
 
-export default CertificatesPreview;
+CertificatePreview.propTypes = {
+  image: PropTypes.object,
+};
+export default CertificatePreview;
