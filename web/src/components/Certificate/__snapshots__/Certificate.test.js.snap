@@ -5,7 +5,9 @@ exports[`matches snapshot 1`] = `
   <div
     class="Certificate"
   >
-    Certificate
+    <img
+      src="https://cdn.sanity.io/images/mock-id/mock-dataset/mock-100x100.jpg?rect=0,21,100,56&w=1200&h=675&fit=crop&auto=format"
+    />
   </div>
 </DocumentFragment>
 `;

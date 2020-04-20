@@ -5,7 +5,7 @@ exports[`matches snapshot 1`] = `
   <div
     class="CertificatePreview"
   >
-    CertificatePreview
+    }
   </div>
 </DocumentFragment>
 `;

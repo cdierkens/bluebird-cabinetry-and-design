@@ -2,10 +2,8 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <ul
     class="CertificatePreviewGrid"
-  >
-    CertificatePreviewGrid
-  </div>
+  />
 </DocumentFragment>
 `;

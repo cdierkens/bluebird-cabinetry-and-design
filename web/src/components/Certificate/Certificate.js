@@ -14,7 +14,7 @@ const Certificate = ({ image }) => {
           .fit("crop")
           .auto("format")
           .url()}
-        alt={image.alt}
+        alt={image?.alt}
       />
     </div>
   );
