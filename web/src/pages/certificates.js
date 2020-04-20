@@ -2,7 +2,7 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { mapEdgesToNodes } from "src/lib/helpers";
-import CertificatePreviewGrid from "../components/certificates-preview-grid";
+import CertificatePreviewGrid from "../components/CertificatePreviewGrid";
 import Layout from "../Layout";
 
 export const query = graphql`
