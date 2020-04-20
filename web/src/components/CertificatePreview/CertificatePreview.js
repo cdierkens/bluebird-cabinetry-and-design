@@ -17,7 +17,6 @@ const CertificatePreview = ({ image }) => {
           alt={image.alt}
         />
       )}
-      }
     </div>
   );
 };
