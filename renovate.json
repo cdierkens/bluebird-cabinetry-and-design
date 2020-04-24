@@ -1,5 +1,5 @@
 {
   "extends": ["config:base"],
-  "commitMessagePrefix": "[skip ci]",
+  "commitMessagePrefix": "[skip netlify]",
   "rebaseWhen": "behind-base-branch"
 }
