@@ -5,6 +5,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 // document schemas
 import certification from "./documents/certification";
 import siteSettings from "./documents/siteSettings";
+import webImage from "./objects/webImage";
 // Object types
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -21,5 +22,6 @@ export default createSchema({
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
+    webImage,
   ]),
 });
