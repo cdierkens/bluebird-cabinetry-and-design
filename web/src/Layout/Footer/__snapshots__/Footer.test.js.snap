@@ -5,7 +5,11 @@ exports[`matches snapshot 1`] = `
   <div
     class="Footer"
   >
-    Footer
+    <div
+      class="root"
+    >
+      Bluebird Cabinetry and Design
+    </div>
   </div>
 </DocumentFragment>
 `;
