@@ -1,25 +1,7 @@
 .Header {
-  @apply bg-teal-500;
+  @apply bg-transparent-white;
 }
 
 .Nav {
-  @apply flex items-center justify-between flex-wrap;
-}
-
-.TitleWrapper {
-  @apply flex items-center flex-shrink-0 text-white mr-6;
-}
-
-.HeaderLink {
-  @apply block mt-4 text-teal-200 mr-4;
-
-  @nest &:hover {
-    @apply text-white;
-  }
-}
-
-@screen lg {
-  .HeaderLink {
-    @apply inline-block mt-0;
-  }
+  @apply max-w-screen-lg w-full mx-auto;
 }

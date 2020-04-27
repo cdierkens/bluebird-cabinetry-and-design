@@ -5,7 +5,8 @@
   "scripts": {
     "build": "gatsby build",
     "start": "gatsby clean && gatsby develop",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "2.1.2",
