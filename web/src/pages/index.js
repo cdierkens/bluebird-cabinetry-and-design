@@ -34,16 +34,14 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = (props) => {
-  const {
-    data: {
-      site,
-      carousel,
-      images: { nodes },
-    },
-    errors,
-  } = props;
-
+const IndexPage = ({
+  data: {
+    site,
+    carousel,
+    images: { nodes },
+  },
+  errors,
+}) => {
   const portfolioImages = carousel.images.map((image) =>
     nodes.find((node) => node.id === image._ref)
   );
@@ -59,7 +57,7 @@ const IndexPage = (props) => {
       description={site.description}
       keywords={site.keywords}
     >
-      <Carousel>
+      <Carousel stopOnHover useKeyboardArrows>
         {portfolioImages.map(({ image }) => (
           <div>
             <img
