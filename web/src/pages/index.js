@@ -1,7 +1,10 @@
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Layout from "../Layout";
+import { builder } from "../lib/image-url";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -10,18 +13,43 @@ export const query = graphql`
       description
       keywords
     }
+    carousel: sanityCarousel(_id: { regex: "/(drafts.|)homeCarousel/" }) {
+      images {
+        _ref
+      }
+    }
+    images: allSanityPortfolioImage {
+      nodes {
+        id
+        image {
+          description
+          file {
+            asset {
+              _ref
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
 const IndexPage = (props) => {
-  const { data, errors } = props;
+  const {
+    data: {
+      site,
+      carousel,
+      images: { nodes },
+    },
+    errors,
+  } = props;
 
-  const site = data?.site;
+  const portfolioImages = carousel.images.map((image) =>
+    nodes.find((node) => node.id === image._ref)
+  );
 
   if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
+    throw new Error('Missing "Site settings".');
   }
 
   return (
@@ -31,6 +59,21 @@ const IndexPage = (props) => {
       description={site.description}
       keywords={site.keywords}
     >
+      <Carousel>
+        {portfolioImages.map(({ image }) => (
+          <div>
+            <img
+              src={builder
+                .image(image.file.asset._ref)
+                .width(960)
+                .height(600)
+                .url()}
+              alt={image.description}
+            />
+          </div>
+        ))}
+      </Carousel>
+
       <h1>Welcome</h1>
 
       <p>

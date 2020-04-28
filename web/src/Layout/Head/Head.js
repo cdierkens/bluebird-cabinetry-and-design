@@ -2,11 +2,12 @@ import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { buildImageObj, imageUrlFor } from "src/lib";
+import { buildImageObj } from "src/lib";
+import { builder } from "../../lib/image-url";
 
 const query = graphql`
   query DefaultSEOQuery {
-    site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
@@ -27,14 +28,14 @@ function Head({
   const metaDescription = description || site?.description || "";
   const siteTitle = site?.title || "";
   const metaImage = image?.asset
-    ? imageUrlFor(buildImageObj(image)).width(1200).url()
+    ? builder.image(buildImageObj(image)).width(1200).url()
     : "";
 
   return (
     <Helmet
       htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={title === siteTitle ? "%s" : `%s | ${siteTitle}`}
+      titleTemplate={title === siteTitle ? "%s" : `${siteTitle} | %s`}
       meta={[
         {
           name: "description",
