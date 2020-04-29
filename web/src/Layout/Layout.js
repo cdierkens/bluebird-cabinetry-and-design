@@ -6,7 +6,6 @@ import Head from "./Head";
 import Header from "./Header";
 import "./Layout.css";
 import styles from "./Layout.module.css";
-import Main from "./Main";
 
 const Layout = ({ errors, children, ...props }) =>
   errors ? (
@@ -18,7 +17,7 @@ const Layout = ({ errors, children, ...props }) =>
       <div className={styles.Layout}>
         <Header />
 
-        <Main>{children}</Main>
+        <main>{children}</main>
 
         <Footer></Footer>
       </div>

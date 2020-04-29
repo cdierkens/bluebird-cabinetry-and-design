@@ -23,14 +23,12 @@ exports[`matches snapshot 1`] = `
         </div>
       </nav>
     </header>
-    <div
-      class="Main"
-    />
+    <main />
     <div
       class="Footer"
     >
       <div
-        class="root"
+        class="Container"
       >
         Bluebird Cabinetry and Design
       </div>
