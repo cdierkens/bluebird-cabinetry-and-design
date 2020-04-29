@@ -15,17 +15,11 @@ export const query = graphql`
     }
     carousel: sanityCarousel(_id: { regex: "/(drafts.|)homeCarousel/" }) {
       images {
-        _ref
-      }
-    }
-    images: allSanityPortfolioImage {
-      nodes {
-        id
         image {
           description
           file {
             asset {
-              _ref
+              id
             }
           }
         }
@@ -34,18 +28,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({
-  data: {
-    site,
-    carousel,
-    images: { nodes },
-  },
-  errors,
-}) => {
-  const portfolioImages = carousel.images.map((image) =>
-    nodes.find((node) => node.id === image._ref)
-  );
-
+const IndexPage = ({ data: { site, carousel }, errors }) => {
   if (!site) {
     throw new Error('Missing "Site settings".');
   }
@@ -58,11 +41,11 @@ const IndexPage = ({
       keywords={site.keywords}
     >
       <Carousel stopOnHover useKeyboardArrows>
-        {portfolioImages.map(({ image }) => (
-          <div>
+        {carousel.images.map(({ image }) => (
+          <div key={image.file.asset.id}>
             <img
               src={builder
-                .image(image.file.asset._ref)
+                .image(image.file.asset.id)
                 .width(960)
                 .height(600)
                 .url()}
