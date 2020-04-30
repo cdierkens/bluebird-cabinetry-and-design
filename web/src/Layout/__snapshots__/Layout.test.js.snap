@@ -9,17 +9,51 @@ exports[`matches snapshot 1`] = `
       class="Header"
     >
       <nav
-        class="Nav grid grid-cols-8 gap-3"
+        class="Nav"
       >
         <div
-          class="col-span-2"
+          class="LogoWrapper"
+          style="width: 200px;"
         >
-          Logo
+          <img
+            alt="Bluebird Logo"
+            class="Logo"
+            src="test-file-stub"
+          />
         </div>
         <div
-          class="col-span-6"
+          class="Main"
         >
-          Nav
+          <a
+            class="NavLink"
+            href="/"
+          >
+            Home
+          </a>
+          <a
+            class="NavLink"
+            href="/about"
+          >
+            About
+          </a>
+          <a
+            class="NavLink"
+            href="/services"
+          >
+            Services
+          </a>
+          <a
+            class="NavLink"
+            href="/portfolio"
+          >
+            Portfolio
+          </a>
+          <a
+            class="Button"
+            href="/contact"
+          >
+            Contact
+          </a>
         </div>
       </nav>
     </header>
