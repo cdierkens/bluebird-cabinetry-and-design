@@ -55,7 +55,6 @@ const IndexPage = ({
         infiniteLoop
         showStatus={false}
         showThumbs={false}
-        stopOnHover
         swipeable
         useKeyboardArrows
       >
