@@ -4,6 +4,7 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Container from "../components/container";
+import { useWindowSize } from "../hooks";
 import Layout from "../Layout";
 import { builder } from "../lib/image-url";
 
@@ -40,6 +41,8 @@ const IndexPage = ({
     throw new Error('Missing "Site settings".');
   }
 
+  const { width, height } = useWindowSize();
+
   return (
     <Layout
       errors={errors}
@@ -55,15 +58,13 @@ const IndexPage = ({
         stopOnHover
         swipeable
         useKeyboardArrows
-        className="max-w-screen-xl m-auto"
       >
         {images.map(({ image }) => (
           <div key={image.file.asset.id}>
             <img
               src={builder
                 .image(image.file.asset.id)
-                .width(1880)
-                .height(768)
+                .size(width, Math.floor(height * 0.8))
                 .fit("min")
                 .url()}
               alt={image.description}
