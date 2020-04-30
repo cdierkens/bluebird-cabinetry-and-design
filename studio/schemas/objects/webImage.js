@@ -7,6 +7,9 @@ export default {
       name: "file",
       type: "image",
       title: "File",
+      options: {
+        hotspot: true,
+      },
       validation: (Rule) => Rule.required(),
     },
     {
