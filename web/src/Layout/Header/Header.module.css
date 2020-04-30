@@ -1,7 +1,27 @@
 .Header {
-  @apply bg-transparent-white;
+  @apply bg-transparent-white fixed w-full z-10;
 }
 
 .Nav {
-  @apply max-w-screen-lg w-full mx-auto;
+  @apply max-w-screen-lg w-full mx-auto grid grid-cols-8 gap-3;
+}
+
+.Logo {
+  @apply bg-blue-dark rounded-b-md p-9 w-48 absolute z-10;
+}
+
+.Main {
+  @apply col-span-6 flex justify-between items-center;
+}
+
+.NavLink {
+  @apply font-sans font-bold tracking-tight text-blue-dark p-4 my-4 mx-5 text-xl;
+}
+
+.Button {
+  @apply font-body font-semibold rounded-md border border-blue-dark text-blue-dark py-3 px-9 text-xl;
+}
+
+.LogoWrapper {
+  @apply col-span-2 relative;
 }

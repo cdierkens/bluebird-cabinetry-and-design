@@ -89,5 +89,9 @@
   },
   "lint-staged": {
     "*.{json,js,jsx,ts,tsx,css,scss,md,mdx,yml}": "prettier --write"
+  },
+  "dependencies": {
+    "@n8tb1t/use-scroll-position": "^1.0.43",
+    "@rehooks/window-scroll-position": "^1.0.1"
   }
 }
