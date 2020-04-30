@@ -63,7 +63,7 @@ const IndexPage = ({
             <img
               src={builder
                 .image(image.file.asset.id)
-                .size(width, Math.floor(height * 0.8))
+                .size(width, height - 102)
                 .fit("min")
                 .url()}
               alt={image.description}
@@ -71,6 +71,17 @@ const IndexPage = ({
           </div>
         ))}
       </Carousel>
+
+      <div className="bg-gradient-blue-turquoise">
+        <Container className="text-center m-auto">
+          <span className="font-sans font-bold text-white text-xl p-9 inline-block">
+            Get Started On Your Dream Renovations Today!
+          </span>
+          <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl">
+            Start Here
+          </span>
+        </Container>
+      </div>
 
       <Container>
         <h1>Welcome</h1>

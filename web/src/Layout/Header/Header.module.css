@@ -11,7 +11,7 @@
 }
 
 .Main {
-  @apply col-span-6 flex justify-between items-center;
+  @apply col-span-6 flex justify-around items-center;
 }
 
 .NavLink {
