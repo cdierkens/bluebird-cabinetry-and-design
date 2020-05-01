@@ -23,5 +23,9 @@
 }
 
 .LogoWrapper {
-  @apply col-span-2 relative;
+  @apply col-span-2 relative transform origin-top transition duration-500 scale-100;
+}
+
+.LogoWrapperTransform {
+  @apply scale-50;
 }

@@ -5,17 +5,16 @@ import logo from "../../logo.png";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  const maxWidth = 128 + 72;
-  const minWidth = 165;
   let position = useWindowScrollPosition();
-  const logoWidth = maxWidth - position.y * 0.1;
+  console.log(position.y);
 
   return (
     <header className={styles.Header}>
       <nav className={styles.Nav}>
         <div
-          className={styles.LogoWrapper}
-          style={{ width: `${logoWidth > minWidth ? logoWidth : minWidth}px` }}
+          className={`${styles.LogoWrapper} ${
+            position.y > 200 ? styles.LogoWrapperTransform : ""
+          }`}
         >
           <img className={styles.Logo} src={logo} alt="Bluebird Logo" />
         </div>
