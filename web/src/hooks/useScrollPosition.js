@@ -1,14 +1,15 @@
 import { throttle } from "lodash";
 import { useCallback, useEffect, useState } from "react";
+
 const isClient = typeof window === "object";
 
 export default function useScrollPosition({
   wait = 200,
-  element = window,
+  element = isClient ? window : null,
 } = {}) {
   const getPosition = () => ({
-    x: isClient ? element.pageXOffset : null,
-    y: isClient ? element.pageYOffset : null,
+    x: element ? element.pageXOffset : null,
+    y: element ? element.pageYOffset : null,
   });
 
   let [position, setPosition] = useState(getPosition());
@@ -21,7 +22,7 @@ export default function useScrollPosition({
   );
 
   useEffect(() => {
-    if (!isClient) {
+    if (!element) {
       return false;
     }
 
