@@ -64,7 +64,7 @@ const IndexPage = ({
               src={builder
                 .image(image.file.asset.id)
                 .size(width, height - 102)
-                .fit("min")
+                .fit("clip")
                 .url()}
               alt={image.description}
             />
@@ -72,95 +72,47 @@ const IndexPage = ({
         ))}
       </Carousel>
 
-      <div className="bg-gradient-blue-turquoise">
-        <Container className="text-center m-auto">
-          <span className="font-sans font-bold text-white text-xl p-9 inline-block">
-            Get Started On Your Dream Renovations Today!
-          </span>
-          <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl">
-            Start Here
-          </span>
-        </Container>
+      <div className="bg-gradient-blue-turquoise text-center">
+        <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+          Get Started On Your Dream Renovations Today!
+        </span>
+        <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  ">
+          Start Here
+        </span>
       </div>
 
-      <Container>
-        <h1>Welcome</h1>
+      <Container className="py-8 grid grid-cols-8">
+        <h2 className="text-center text-blue-dark col-span-8">
+          Title copy about design style
+        </h2>
 
-        <p>
+        <p className="text-center col-span-8 md:col-span-4 md:col-start-3 leading-loose">
           Spicy jalapeno bacon ipsum dolor amet hamburger laborum ea, nisi pork
           loin ham hock sed ribeye. Enim burgdoggen turducken tongue meatloaf
-          ground round tenderloin chislic consectetur pancetta. Strip steak
-          proident reprehenderit enim culpa cillum ham shankle bresaola
-          prosciutto burgdoggen commodo aliquip alcatra landjaeger. Capicola
-          magna enim, veniam shankle drumstick biltong.
-        </p>
-
-        <p>
-          Et laboris andouille, doner ut voluptate ground round bresaola in
-          nostrud excepteur cow consequat. Reprehenderit ribeye alcatra, chicken
-          brisket id tenderloin. Tri-tip magna sunt pig culpa jowl short loin
-          tongue proident. Deserunt eiusmod in voluptate spare ribs pig ut
-          t-bone kevin leberkas flank nostrud. Beef ea deserunt mollit, flank
-          culpa pariatur short loin et leberkas labore esse non. Ad swine cillum
-          rump cow ex porchetta aliquip landjaeger doner ullamco voluptate.
-          Voluptate dolore nostrud quis sausage pastrami shoulder hamburger.
-        </p>
-
-        <p>
-          Nulla pork belly nisi ut minim cupidatat porchetta qui tempor shank
-          kevin aute swine ut officia. Frankfurter meatball et, in nulla ea
-          officia. Qui bresaola ground round rump pastrami pariatur. Ex dolor
-          corned beef, commodo picanha ullamco ut buffalo alcatra nostrud
-          occaecat in esse. Non velit sed frankfurter capicola pariatur ut
-          ribeye qui. Sausage proident commodo, sunt chicken meatloaf swine
-          cupim aliquip drumstick t-bone strip steak dolore ut. Incididunt
-          consectetur tongue duis.
-        </p>
-
-        <p>
-          Et laboris andouille, doner ut voluptate ground round bresaola in
-          nostrud excepteur cow consequat. Reprehenderit ribeye alcatra, chicken
-          brisket id tenderloin. Tri-tip magna sunt pig culpa jowl short loin
-          tongue proident. Deserunt eiusmod in voluptate spare ribs pig ut
-          t-bone kevin leberkas flank nostrud. Beef ea deserunt mollit, flank
-          culpa pariatur short loin et leberkas labore esse non. Ad swine cillum
-          rump cow ex porchetta aliquip landjaeger doner ullamco voluptate.
-          Voluptate dolore nostrud quis sausage pastrami shoulder hamburger.
-        </p>
-
-        <p>
-          Nulla pork belly nisi ut minim cupidatat porchetta qui tempor shank
-          kevin aute swine ut officia. Frankfurter meatball et, in nulla ea
-          officia. Qui bresaola ground round rump pastrami pariatur. Ex dolor
-          corned beef, commodo picanha ullamco ut buffalo alcatra nostrud
-          occaecat in esse. Non velit sed frankfurter capicola pariatur ut
-          ribeye qui. Sausage proident commodo, sunt chicken meatloaf swine
-          cupim aliquip drumstick t-bone strip steak dolore ut. Incididunt
-          consectetur tongue duis.
-        </p>
-
-        <p>
-          Et laboris andouille, doner ut voluptate ground round bresaola in
-          nostrud excepteur cow consequat. Reprehenderit ribeye alcatra, chicken
-          brisket id tenderloin. Tri-tip magna sunt pig culpa jowl short loin
-          tongue proident. Deserunt eiusmod in voluptate spare ribs pig ut
-          t-bone kevin leberkas flank nostrud. Beef ea deserunt mollit, flank
-          culpa pariatur short loin et leberkas labore esse non. Ad swine cillum
-          rump cow ex porchetta aliquip landjaeger doner ullamco voluptate.
-          Voluptate dolore nostrud quis sausage pastrami shoulder hamburger.
-        </p>
-
-        <p>
-          Nulla pork belly nisi ut minim cupidatat porchetta qui tempor shank
-          kevin aute swine ut officia. Frankfurter meatball et, in nulla ea
-          officia. Qui bresaola ground round rump pastrami pariatur. Ex dolor
-          corned beef, commodo picanha ullamco ut buffalo alcatra nostrud
-          occaecat in esse. Non velit sed frankfurter capicola pariatur ut
-          ribeye qui. Sausage proident commodo, sunt chicken meatloaf swine
-          cupim aliquip drumstick t-bone strip steak dolore ut. Incididunt
-          consectetur tongue duis.
+          ground round tenderloin chislic consectetur pancetta.
         </p>
       </Container>
+
+      <div className="py-8 grid grid-cols-12 bg-gray-light">
+        <h2 className="text-center text-blue-dark col-span-12">Services</h2>
+      </div>
+
+      <div className="py-8 grid grid-cols-8">
+        <h2 className="text-center text-blue-dark col-span-8">Kind Words</h2>
+      </div>
+
+      <div className="py-8 grid grid-cols-12 bg-blue-dark">
+        <h2 className="text-center text-white col-span-12">Publications</h2>
+      </div>
+
+      <div className="text-center m-auto">
+        <span className="font-sans font-bold text-blue-dark text-xl my-9 mx-5 inline-block">
+          Interested in learning more?
+        </span>
+        <span className="font-body font-semibold rounded-md border border-blue-dark text-dark-blue py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark hover:text-white">
+          Contact Us
+        </span>
+      </div>
     </Layout>
   );
 };
