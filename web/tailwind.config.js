@@ -40,5 +40,7 @@ module.exports = {
     },
   },
   plugins: [],
-  variants: {},
+  variants: {
+    transformOrigin: ["responsive", "hover", "focus"],
+  },
 };
