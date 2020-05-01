@@ -28,6 +28,9 @@ module.exports = {
       opacity: {
         85: ".85",
       },
+      scale: {
+        60: ".65",
+      },
       spacing: {
         9: "2.25rem",
       },

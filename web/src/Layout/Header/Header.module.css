@@ -6,10 +6,6 @@
   @apply max-w-screen-lg w-full mx-auto grid grid-cols-8 gap-3;
 }
 
-.Logo {
-  @apply bg-blue-dark rounded-b-md p-9 w-48 absolute z-10;
-}
-
 .Main {
   @apply col-span-6 flex justify-between items-center;
 }
@@ -23,9 +19,13 @@
 }
 
 .LogoWrapper {
-  @apply col-span-2 relative transform origin-top transition duration-500 scale-100;
+  @apply col-span-2 relative;
 }
 
-.LogoWrapperTransform {
-  @apply scale-50;
+.Logo {
+  @apply bg-blue-dark rounded-b-lg px-3 w-48 absolute z-10 transform origin-top transition duration-500 scale-100;
+}
+
+.LogoTransform {
+  @apply scale-60;
 }
