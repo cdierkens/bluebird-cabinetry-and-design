@@ -63,7 +63,7 @@ const IndexPage = ({
             <img
               src={builder
                 .image(image.file.asset.id)
-                .size(width, height - 102)
+                .size(width || 1366, (height || 768) - 102)
                 .fit("clip")
                 .url()}
               alt={image.description}
