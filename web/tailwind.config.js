@@ -20,6 +20,9 @@ module.exports = {
       turquoise: "#27cdc0",
       white: "#ffffff",
     },
+    gradients: (theme) => ({
+      "blue-turquoise": [theme("colors.blue.dark"), theme("colors.turquoise")],
+    }),
     extend: {
       fontFamily: {
         body: ["Open Sans", ...defaultTheme.fontFamily.sans],
@@ -42,8 +45,8 @@ module.exports = {
       xl: "1880px",
     },
   },
-  plugins: [],
   variants: {
-    transformOrigin: ["responsive", "hover", "focus"],
+    gradients: ["responsive", "hover"],
   },
+  plugins: [require("./tailwind/plugins/gradients")],
 };
