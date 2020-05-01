@@ -73,7 +73,7 @@ exports[`matches snapshot 1`] = `
       class="Footer"
     >
       <div
-        class="Container"
+        class="Container "
       >
         Bluebird Cabinetry and Design
       </div>
