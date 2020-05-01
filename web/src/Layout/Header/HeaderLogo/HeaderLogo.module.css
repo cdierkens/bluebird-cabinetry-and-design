@@ -1,0 +1,11 @@
+.HeaderLogo {
+  @apply relative;
+}
+
+.Logo {
+  @apply bg-blue-dark rounded-b-lg px-3 w-48 absolute z-10 transform origin-top transition duration-500 scale-100;
+}
+
+.LogoTransform {
+  @apply scale-60;
+}

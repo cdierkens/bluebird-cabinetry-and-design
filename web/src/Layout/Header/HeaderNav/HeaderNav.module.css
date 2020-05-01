@@ -1,0 +1,3 @@
+.HeaderNav {
+  @apply flex justify-between items-center;
+}

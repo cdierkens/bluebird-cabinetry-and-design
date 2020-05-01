@@ -19,7 +19,7 @@ export default function useWindowSize({ wait = 200 } = {}) {
 
   useEffect(() => {
     if (!isClient) {
-      return false;
+      return;
     }
 
     window.addEventListener("resize", handleResize, { passive: true });

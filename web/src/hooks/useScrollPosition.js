@@ -23,7 +23,7 @@ export default function useScrollPosition({
 
   useEffect(() => {
     if (!element) {
-      return false;
+      return;
     }
 
     element.addEventListener("scroll", callback, { passive: true });
