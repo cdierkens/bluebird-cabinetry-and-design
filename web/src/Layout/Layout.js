@@ -6,7 +6,6 @@ import Head from "./Head";
 import Header from "./Header";
 import "./Layout.css";
 import styles from "./Layout.module.css";
-import Main from "./Main";
 
 const Layout = ({ errors, children, ...props }) =>
   errors ? (
@@ -15,10 +14,14 @@ const Layout = ({ errors, children, ...props }) =>
     <React.Fragment>
       <Head {...props} />
 
+      <a href="#content" className="sr-only">
+        Skip to content
+      </a>
+
       <div className={styles.Layout}>
         <Header />
 
-        <Main>{children}</Main>
+        <main id="content">{children}</main>
 
         <Footer></Footer>
       </div>

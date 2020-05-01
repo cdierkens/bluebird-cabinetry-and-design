@@ -2,60 +2,78 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
+  <a
+    class="sr-only"
+    href="#content"
+  >
+    Skip to content
+  </a>
   <div
     class="Layout"
   >
     <header
       class="Header"
     >
-      <div
-        class="root"
+      <nav
+        class="DesktopNav grid-cols-6 lg:grid-cols-8"
       >
-        <nav
-          class="Nav"
+        <div
+          class="HeaderLogo col-span-1 lg:col-span-2"
         >
-          <div
-            class="TitleWrapper"
+          <a
+            href="/"
           >
-            <span
-              class="font-semibold text-xl tracking-tight"
-            >
-              <a
-                href="/"
-              />
-            </span>
-          </div>
-          <div
-            class="block lg:hidden"
+            <img
+              alt="Bluebird Logo"
+              class="Logo "
+              src="test-file-stub"
+            />
+          </a>
+        </div>
+        <div
+          class="HeaderNav col-span-5 lg:col-span-6"
+        >
+          <a
+            class="Link"
+            href="/"
           >
-            <button
-              class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
-            >
-              <svg
-                class="fill-current h-3 w-3"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>
-                  Menu
-                </title>
-                <path
-                  d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
-                />
-              </svg>
-            </button>
-          </div>
-        </nav>
-      </div>
+            Home
+          </a>
+          <a
+            class="Link"
+            href="/about"
+          >
+            About
+          </a>
+          <a
+            class="Link"
+            href="/services"
+          >
+            Services
+          </a>
+          <a
+            class="Link"
+            href="/portfolio"
+          >
+            Portfolio
+          </a>
+          <a
+            class="Button"
+            href="/contact"
+          >
+            Contact
+          </a>
+        </div>
+      </nav>
     </header>
-    <div
-      class="Main"
+    <main
+      id="content"
     />
     <div
       class="Footer"
     >
       <div
-        class="root"
+        class="Container"
       >
         Bluebird Cabinetry and Design
       </div>

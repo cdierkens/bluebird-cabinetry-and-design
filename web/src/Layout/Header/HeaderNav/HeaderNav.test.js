@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import Main from "./Main";
+import HeaderNav from "./HeaderNav";
 
 it("matches snapshot", () => {
-  const { asFragment } = render(<Main />);
+  const { asFragment } = render(<HeaderNav />);
 
   expect(asFragment()).toMatchSnapshot();
 });

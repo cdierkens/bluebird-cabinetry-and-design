@@ -1,25 +1,25 @@
 .Header {
-  @apply bg-teal-500;
+  @apply bg-white bg-opacity-85 fixed w-full z-10;
 }
 
-.Nav {
-  @apply flex items-center justify-between flex-wrap;
+.Link {
+  @apply font-sans font-bold tracking-tight text-blue-dark py-4 px-9 my-4 mx-5 text-xl;
+  @apply rounded-md transition-colors duration-500 ease-in-out bg-transparent;
 }
 
-.TitleWrapper {
-  @apply flex items-center flex-shrink-0 text-white mr-6;
+.Link:hover,
+.Link:active,
+.Link:focus {
+  @apply bg-white;
 }
 
-.HeaderLink {
-  @apply block mt-4 text-teal-200 mr-4;
-
-  @nest &:hover {
-    @apply text-white;
-  }
+.Button {
+  @apply font-body font-semibold rounded-md border border-blue-dark text-blue-dark py-3 px-9 my-4 mx-5 text-xl;
+  @apply transition-colors duration-500 ease-in-out bg-transparent;
 }
 
-@screen lg {
-  .HeaderLink {
-    @apply inline-block mt-0;
-  }
+.Button:hover,
+.Button:active,
+.Button:focus {
+  @apply bg-white;
 }

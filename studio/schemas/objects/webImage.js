@@ -1,18 +1,23 @@
 export default {
   name: "webImage",
   type: "object",
-  title: "WebImage",
+  title: "Web Image",
   fields: [
     {
-      name: "image",
+      name: "file",
       type: "image",
-      title: "Image",
+      title: "File",
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "description",
       type: "string",
-      title: "Image Description",
+      title: "Description",
       description: "Briefly describe the image using one sentence.",
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

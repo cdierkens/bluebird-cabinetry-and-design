@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="Main"
+    class="HeaderNav "
   />
 </DocumentFragment>
 `;
