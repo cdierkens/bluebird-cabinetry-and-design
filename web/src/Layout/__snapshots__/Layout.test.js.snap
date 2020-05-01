@@ -70,13 +70,23 @@ exports[`matches snapshot 1`] = `
       id="content"
     />
     <div
-      class="Footer"
+      class="Footer text-center text-gray-light p-5"
     >
-      <div
-        class="Container "
-      >
+      <div>
+        <img
+          alt="Bluebird Logo"
+          class="w-40 inline-block"
+          src="test-file-stub"
+        />
+      </div>
+      <div>
         Bluebird Cabinetry and Design
       </div>
+    </div>
+    <div
+      class="bg-gray-darkest p-2 text-xs text-center text-gray-light"
+    >
+      © 2020 Bluebird Cabinetry & Design LLC. All Rights Reserved.
     </div>
   </div>
 </DocumentFragment>
