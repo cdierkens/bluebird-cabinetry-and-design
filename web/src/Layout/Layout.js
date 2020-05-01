@@ -14,10 +14,14 @@ const Layout = ({ errors, children, ...props }) =>
     <React.Fragment>
       <Head {...props} />
 
+      <a href="#content" className="sr-only">
+        Skip to content
+      </a>
+
       <div className={styles.Layout}>
         <Header />
 
-        <main>{children}</main>
+        <main id="content">{children}</main>
 
         <Footer></Footer>
       </div>

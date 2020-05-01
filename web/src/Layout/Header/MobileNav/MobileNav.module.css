@@ -1,0 +1,7 @@
+.MobileNav {
+  /* Plopped styles for MobileNav */
+}
+
+.Logo {
+  @apply bg-blue-dark rounded-md px-1 h-24;
+}

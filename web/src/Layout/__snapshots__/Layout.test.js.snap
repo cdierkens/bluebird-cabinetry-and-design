@@ -2,6 +2,12 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
+  <a
+    class="sr-only"
+    href="#content"
+  >
+    Skip to content
+  </a>
   <div
     class="Layout"
   >
@@ -9,21 +15,60 @@ exports[`matches snapshot 1`] = `
       class="Header"
     >
       <nav
-        class="Nav grid grid-cols-8 gap-3"
+        class="DesktopNav grid-cols-6 lg:grid-cols-8"
       >
         <div
-          class="col-span-2"
+          class="HeaderLogo col-span-1 lg:col-span-2"
         >
-          Logo
+          <a
+            href="/"
+          >
+            <img
+              alt="Bluebird Logo"
+              class="Logo "
+              src="test-file-stub"
+            />
+          </a>
         </div>
         <div
-          class="col-span-6"
+          class="HeaderNav col-span-5 lg:col-span-6"
         >
-          Nav
+          <a
+            class="Link"
+            href="/"
+          >
+            Home
+          </a>
+          <a
+            class="Link"
+            href="/about"
+          >
+            About
+          </a>
+          <a
+            class="Link"
+            href="/services"
+          >
+            Services
+          </a>
+          <a
+            class="Link"
+            href="/portfolio"
+          >
+            Portfolio
+          </a>
+          <a
+            class="Button"
+            href="/contact"
+          >
+            Contact
+          </a>
         </div>
       </nav>
     </header>
-    <main />
+    <main
+      id="content"
+    />
     <div
       class="Footer"
     >

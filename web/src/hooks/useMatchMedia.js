@@ -1,14 +1,18 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-export default function useMatchMedia(query, handler) {
-  const callback = useCallback(handler, [query]);
+export default function useMatchMedia(query) {
+  const [matches, setMatches] = useState(false);
+
+  const callback = useCallback((event) => setMatches(event.matches), []);
 
   useEffect(() => {
+    if (typeof window !== "object") {
+      return;
+    }
+
     const mediaQueryList = window.matchMedia(query);
 
-    if (mediaQueryList.matches) {
-      callback.call(null, new MediaQueryListEvent("", mediaQueryList));
-    }
+    setMatches(mediaQueryList.matches);
 
     mediaQueryList.addListener(callback);
 
@@ -16,4 +20,6 @@ export default function useMatchMedia(query, handler) {
       mediaQueryList.removeListener(callback);
     };
   }, [query, callback]);
+
+  return matches;
 }

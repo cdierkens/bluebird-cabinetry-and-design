@@ -3,6 +3,9 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   theme: {
     colors: {
+      transparent: "transparent",
+      current: "currentColor",
+
       black: "#000000",
       blue: {
         dark: "#0f4c81",
@@ -16,9 +19,6 @@ module.exports = {
       sand: "#fff0da",
       turquoise: "#27cdc0",
       white: "#ffffff",
-      transparent: {
-        white: "rgba(255,255,255, 0.85)",
-      },
     },
     gradients: (theme) => ({
       "blue-turquoise": [theme("colors.blue.dark"), theme("colors.turquoise")],
@@ -30,6 +30,9 @@ module.exports = {
       },
       opacity: {
         85: ".85",
+      },
+      scale: {
+        60: ".65",
       },
       spacing: {
         9: "2.25rem",

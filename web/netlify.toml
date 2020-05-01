@@ -1,0 +1,17 @@
+[build]
+  base = "web"
+  publish = "public"
+  command = "npm run build"
+
+[build.environment]
+  GATSBY_SANITY_PROJECT_ID="5sj6awst"
+
+[context.production.environment]
+  GATSBY_SANITY_DATASET="production"
+
+[context.deploy-preview.environment]
+  GATSBY_SANITY_DATASET="development"
+
+[context.branch-deploy.environment]
+  GATSBY_SANITY_DATASET="development"
+
