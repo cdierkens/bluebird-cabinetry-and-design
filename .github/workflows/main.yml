@@ -4,32 +4,6 @@ name: Main
 on: [push]
 
 jobs:
-  dependencies:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Setup web/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: web/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('web/package-lock.json') }}
-
-      - name: Setup studio/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: studio/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('studio/package-lock.json') }}
-
-      - run: npm ci
-
   test:
     runs-on: ubuntu-latest
     needs: [dependencies]
@@ -37,25 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Restore node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Restore web/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: web/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('web/package-lock.json') }}
-
-      - name: Restore studio/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: studio/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('studio/package-lock.json') }}
-
-      - run: npm test
+      - run:
+          - npm ci
+          - npm test
 
   lint:
     runs-on: ubuntu-latest
@@ -64,25 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Restore node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Restore web/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: web/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('web/package-lock.json') }}
-
-      - name: Restore studio/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: studio/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('studio/package-lock.json') }}
-
-      - run: npm run lint
+      - run:
+          - npm ci
+          - npm run lint
 
   deploy-graphql:
     runs-on: ubuntu-latest
@@ -94,24 +36,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Restore node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Restore web/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: web/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('web/package-lock.json') }}
-
-      - name: Restore studio/node_modules cache
-        uses: actions/cache@v1
-        with:
-          path: studio/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('studio/package-lock.json') }}
-
       - name: Deploy Graphql Server
-        run: npm run graphql-deploy
+        run:
+          - npm ci
+          - npm run graphql-deploy
         working-directory: ./studio
