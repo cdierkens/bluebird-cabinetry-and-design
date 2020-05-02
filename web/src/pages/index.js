@@ -7,6 +7,7 @@ import Container from "../components/container";
 import { useWindowSize } from "../hooks";
 import Layout from "../Layout";
 import { builder } from "../lib/image-url";
+import styles from "./Index.module.css";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -72,46 +73,40 @@ const IndexPage = ({
         ))}
       </Carousel>
 
-      <div className="bg-gradient-blue-turquoise text-center">
-        <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+      <div className={styles.GetStartedContainer}>
+        <span className={styles.GetStartedText}>
           Get Started On Your Dream Renovations Today!
         </span>
-        <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  ">
-          Start Here
-        </span>
+        <span className={styles.GetStartedLink}>Start Here</span>
       </div>
 
-      <Container className="py-8 grid grid-cols-8">
-        <h2 className="text-center text-blue-dark col-span-8">
-          Title copy about design style
-        </h2>
+      <Container className={styles.DesignContainer}>
+        <h2 className={styles.DesignH2}>Title copy about design style</h2>
 
-        <p className="text-center col-span-8 md:col-span-4 md:col-start-3 leading-loose">
+        <p className={styles.DesignText}>
           Spicy jalapeno bacon ipsum dolor amet hamburger laborum ea, nisi pork
           loin ham hock sed ribeye. Enim burgdoggen turducken tongue meatloaf
           ground round tenderloin chislic consectetur pancetta.
         </p>
       </Container>
 
-      <div className="py-8 grid grid-cols-12 bg-gray-light">
-        <h2 className="text-center text-blue-dark col-span-12">Services</h2>
+      <div className={styles.ServicesContainer}>
+        <h2 className={styles.ServicesH2}>Services</h2>
       </div>
 
-      <div className="py-8 grid grid-cols-8">
-        <h2 className="text-center text-blue-dark col-span-8">Kind Words</h2>
+      <div className={styles.KindWordsContainer}>
+        <h2 className={styles.KindWordsH2}>Kind Words</h2>
       </div>
 
-      <div className="py-8 grid grid-cols-12 bg-blue-dark">
-        <h2 className="text-center text-white col-span-12">Publications</h2>
+      <div className={styles.PublicationsContainer}>
+        <h2 className={styles.PublicationsH2}>Publications</h2>
       </div>
 
-      <div className="text-center m-auto">
-        <span className="font-sans font-bold text-blue-dark text-xl my-9 mx-5 inline-block">
+      <div className={styles.LearnMoreContainer}>
+        <span className={styles.LearnMoreText}>
           Interested in learning more?
         </span>
-        <span className="font-body font-semibold rounded-md border border-blue-dark text-dark-blue py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark hover:text-white">
-          Contact Us
-        </span>
+        <span className={styles.LearnMoreLink}>Contact Us</span>
       </div>
     </Layout>
   );
