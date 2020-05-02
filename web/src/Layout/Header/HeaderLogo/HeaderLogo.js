@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import { PropTypes } from "prop-types";
 import React from "react";
 import { useScrollPosition } from "../../../hooks";
-import logo from "../../../logo.png";
+import logo from "../../../images/logo.png";
 import styles from "./HeaderLogo.module.css";
 
 const HeaderLogo = ({ className = "" }) => {

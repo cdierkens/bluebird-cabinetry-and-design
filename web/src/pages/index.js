@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Container from "../components/container";
+import DesignPreview from "../components/DesignPreview";
 import { useWindowSize } from "../hooks";
 import Layout from "../Layout";
 import { builder } from "../lib/image-url";
@@ -80,15 +80,7 @@ const IndexPage = ({
         <span className={styles.GetStartedLink}>Start Here</span>
       </div>
 
-      <Container className={styles.DesignContainer}>
-        <h2 className={styles.DesignH2}>Title copy about design style</h2>
-
-        <p className={styles.DesignText}>
-          Spicy jalapeno bacon ipsum dolor amet hamburger laborum ea, nisi pork
-          loin ham hock sed ribeye. Enim burgdoggen turducken tongue meatloaf
-          ground round tenderloin chislic consectetur pancetta.
-        </p>
-      </Container>
+      <DesignPreview />
 
       <div className={styles.ServicesContainer}>
         <h2 className={styles.ServicesH2}>Services</h2>
