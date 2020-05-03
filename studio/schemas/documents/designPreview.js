@@ -1,7 +1,10 @@
+import ViewQuiltIcon from "react-icons/lib/md/view-quilt";
+
 export default {
   name: "designPreview",
   type: "document",
   title: "Design Preview",
+  icon: ViewQuiltIcon,
   fields: [
     {
       name: "title",
