@@ -51,4 +51,5 @@ module.exports = {
     gradients: ["responsive", "hover"],
   },
   plugins: [require("./tailwind/plugins/gradients")],
+  purge: ["./src/**/*.js"],
 };

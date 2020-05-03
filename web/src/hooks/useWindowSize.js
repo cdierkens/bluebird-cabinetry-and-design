@@ -3,10 +3,13 @@ import { useCallback, useEffect, useState } from "react";
 
 const isClient = typeof window === "object";
 
-const getSize = () => ({
-  width: isClient ? window.innerWidth : null,
-  height: isClient ? window.innerHeight : null,
-});
+const getSize = () =>
+  isClient
+    ? {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      }
+    : null;
 
 export default function useWindowSize({ wait = 200 } = {}) {
   const [windowSize, setWindowSize] = useState(getSize());
@@ -14,7 +17,8 @@ export default function useWindowSize({ wait = 200 } = {}) {
   const handleResize = useCallback(
     throttle(() => {
       setWindowSize(getSize());
-    }, wait)
+    }, wait),
+    []
   );
 
   useEffect(() => {
