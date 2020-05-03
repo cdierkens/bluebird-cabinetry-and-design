@@ -67,6 +67,7 @@ exports[`matches snapshot 1`] = `
       </nav>
     </header>
     <main
+      class="Content"
       id="content"
     />
     <div
