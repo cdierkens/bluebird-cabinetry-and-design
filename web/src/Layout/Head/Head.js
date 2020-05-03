@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { buildImageObj } from "src/lib";
+import favicon from "../../images/favicon.jpg";
 import { builder } from "../../lib/image-url";
 
 const query = graphql`
@@ -72,6 +73,8 @@ function Head({
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Quicksand:wght@400;500&display=swap"
         rel="stylesheet"
       />
+
+      <link rel="icon" href={favicon} />
     </Helmet>
   );
 }
