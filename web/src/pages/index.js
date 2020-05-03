@@ -41,7 +41,7 @@ const IndexPage = ({
     throw new Error('Missing "Site settings".');
   }
 
-  const { width, height } = useWindowSize();
+  const windowSize = useWindowSize();
 
   return (
     <Layout
@@ -50,27 +50,33 @@ const IndexPage = ({
       description={site.description}
       keywords={site.keywords}
     >
-      <Carousel
-        autoPlay
-        infiniteLoop
-        showStatus={false}
-        showThumbs={false}
-        swipeable
-        useKeyboardArrows
-      >
-        {images.map(({ image }) => (
-          <div key={image.file.asset.id}>
-            <img
-              src={builder
-                .image(image.file.asset.id)
-                .size(width || 1366, (height || 768) - 102)
-                .fit("clip")
-                .url()}
-              alt={image.description}
-            />
-          </div>
-        ))}
-      </Carousel>
+      {windowSize ? (
+        <Carousel
+          autoPlay
+          infiniteLoop
+          showStatus={false}
+          showThumbs={false}
+          swipeable
+          useKeyboardArrows
+        >
+          {images.map(({ image }) => (
+            <div key={image.file.asset.id}>
+              <img
+                src={builder
+                  .image(image.file.asset.id)
+                  .size(windowSize.width, windowSize.height - 102)
+                  .fit("clip")
+                  .url()}
+                alt={image.description}
+              />
+            </div>
+          ))}
+        </Carousel>
+      ) : (
+        <Carousel showStatus={false} showThumbs={false}>
+          <span>Loading...</span>
+        </Carousel>
+      )}
 
       <div className="bg-gradient-blue-turquoise text-center">
         <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
