@@ -21,7 +21,9 @@ const Layout = ({ errors, children, ...props }) =>
       <div className={styles.Layout}>
         <Header />
 
-        <main id="content">{children}</main>
+        <main id="content" className={styles.Content}>
+          {children}
+        </main>
 
         <Footer></Footer>
       </div>

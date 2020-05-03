@@ -2,8 +2,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { buildImageObj } from "src/lib";
-import { builder } from "../../lib/image-url";
 
 const query = graphql`
   query DefaultSEOQuery {
@@ -15,21 +13,11 @@ const query = graphql`
   }
 `;
 
-function Head({
-  description,
-  title,
-  image,
-  lang = "en",
-  meta = [],
-  keywords = [],
-}) {
+function Head({ title, lang = "en" }) {
   const { site } = useStaticQuery(query);
 
-  const metaDescription = description || site?.description || "";
+  const description = site?.description || "";
   const siteTitle = site?.title || "";
-  const metaImage = image?.asset
-    ? builder.image(buildImageObj(image)).width(1200).url()
-    : "";
 
   return (
     <Helmet
@@ -39,7 +27,7 @@ function Head({
       meta={[
         {
           name: "description",
-          content: metaDescription,
+          content: description,
         },
         {
           property: "og:title",
@@ -47,26 +35,13 @@ function Head({
         },
         {
           property: "og:description",
-          content: metaDescription,
+          content: description,
         },
         {
           property: "og:type",
           content: "website",
         },
-        {
-          property: "og:image",
-          content: metaImage,
-        },
-      ]
-        .concat(
-          keywords && keywords.length > 0
-            ? {
-                name: "keywords",
-                content: keywords.join(", "),
-              }
-            : []
-        )
-        .concat(meta)}
+      ]}
     >
       <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Quicksand:wght@400;500&display=swap"
