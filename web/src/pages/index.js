@@ -1,9 +1,13 @@
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DesignPreview from "../components/DesignPreview";
+import KindWords from "../components/KindWords";
+import LearnMore from "../components/LearnMore";
+import Publications from "../components/Publications";
+import Services from "../components/Services";
 import { useWindowSize } from "../hooks";
 import Layout from "../Layout";
 import { builder } from "../lib/image-url";
@@ -77,29 +81,20 @@ const IndexPage = ({
         <span className={styles.GetStartedText}>
           Get Started On Your Dream Renovations Today!
         </span>
-        <span className={styles.GetStartedLink}>Start Here</span>
+        <Link to="/getstarted" className={styles.GetStartedLink}>
+          Start Here
+        </Link>
       </div>
 
       <DesignPreview />
 
-      <div className={styles.ServicesContainer}>
-        <h2 className={styles.ServicesH2}>Services</h2>
-      </div>
+      <Services />
 
-      <div className={styles.KindWordsContainer}>
-        <h2 className={styles.KindWordsH2}>Kind Words</h2>
-      </div>
+      <KindWords />
 
-      <div className={styles.PublicationsContainer}>
-        <h2 className={styles.PublicationsH2}>Publications</h2>
-      </div>
+      <Publications />
 
-      <div className={styles.LearnMoreContainer}>
-        <span className={styles.LearnMoreText}>
-          Interested in learning more?
-        </span>
-        <span className={styles.LearnMoreLink}>Contact Us</span>
-      </div>
+      <LearnMore />
     </Layout>
   );
 };

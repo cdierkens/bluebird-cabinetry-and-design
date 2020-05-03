@@ -14,46 +14,6 @@
   @apply bg-blue-dark;
 }
 
-.ServicesContainer {
-  @apply py-8 grid grid-cols-12 bg-gray-light;
-}
-
-.ServicesH2 {
-  @apply text-center text-blue-dark col-span-12;
-}
-
-.KindWordsContainer {
-  @apply py-8 grid grid-cols-8;
-}
-
-.KindWordsH2 {
-  @apply text-center text-blue-dark col-span-8;
-}
-
-.PublicationsContainer {
-  @apply py-8 grid grid-cols-12 bg-blue-dark;
-}
-
-.PublicationsH2 {
-  @apply text-center text-white col-span-12;
-}
-
-.LearnMoreContainer {
-  @apply text-center m-auto;
-}
-
-.LearnMoreText {
-  @apply font-sans font-bold text-blue-dark text-xl my-9 mx-5 inline-block;
-}
-
-.LearnMoreLink {
-  @apply font-body font-semibold rounded-md border border-blue-dark text-blue-dark py-3 px-9 text-xl inline-block mb-5 mx-5;
-}
-
-.LearnMoreLink:hover {
-  @apply bg-blue-dark text-white;
-}
-
 @screen md {
   .DesignText {
     @apply col-span-4 col-start-3;
