@@ -6,12 +6,13 @@
   @apply py-3 px-9 my-1 mx-4;
   @apply font-sans font-bold tracking-tight text-blue-dark text-xl;
   @apply transition-colors duration-500 ease-in-out bg-transparent;
-  @apply border-b border-blue-dark;
+  @apply border-b border-blue-dark rounded-t-md;
 }
 
 .Link:hover,
 .Link:active,
-.Link:focus {
+.Link:focus,
+.LinkActive {
   @apply bg-white;
 }
 
@@ -23,7 +24,8 @@
 
 .Button:hover,
 .Button:active,
-.Button:focus {
+.Button:focus,
+.ButtonActive {
   @apply bg-white;
 }
 
