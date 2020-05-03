@@ -30,7 +30,7 @@
 @screen md {
   .Link {
     @apply py-4 px-9 my-4 mx-4;
-    @apply no-underline;
+    @apply border-0;
     @apply rounded-md;
   }
 
