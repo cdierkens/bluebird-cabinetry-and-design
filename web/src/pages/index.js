@@ -10,11 +10,6 @@ import { builder } from "../lib/image-url";
 
 export const query = graphql`
   query IndexPageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
-    }
     carousel: sanityCarousel(_id: { regex: "/(drafts.|)homeCarousel/" }) {
       images {
         image {
@@ -32,24 +27,14 @@ export const query = graphql`
 
 const IndexPage = ({
   data: {
-    site,
     carousel: { images },
   },
   errors,
 }) => {
-  if (!site) {
-    throw new Error('Missing "Site settings".');
-  }
-
   const windowSize = useWindowSize();
 
   return (
-    <Layout
-      errors={errors}
-      title={site.title}
-      description={site.description}
-      keywords={site.keywords}
-    >
+    <Layout errors={errors} title="Home">
       {windowSize ? (
         <Carousel
           autoPlay
