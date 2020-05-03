@@ -1,5 +1,5 @@
 .MobileNav {
-  /* Plopped styles for MobileNav */
+  @apply relative;
 }
 
 .Logo {
