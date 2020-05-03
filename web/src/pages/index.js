@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Container from "../components/container";
@@ -31,11 +31,31 @@ const IndexPage = ({
   },
   errors,
 }) => {
+  const [imageSize, setImageSize] = useState();
   const windowSize = useWindowSize();
+
+  useEffect(() => {
+    if (!windowSize) {
+      return;
+    }
+
+    if (!imageSize) {
+      setImageSize(windowSize);
+      return;
+    }
+
+    const tolerance = 100;
+    if (
+      Math.abs(windowSize.height - imageSize.height) > tolerance ||
+      Math.abs(windowSize.width - imageSize.width) > tolerance
+    ) {
+      setImageSize(windowSize);
+    }
+  }, [windowSize, imageSize]);
 
   return (
     <Layout errors={errors} title="Home">
-      {windowSize ? (
+      {imageSize ? (
         <Carousel
           autoPlay
           infiniteLoop
@@ -49,7 +69,7 @@ const IndexPage = ({
               <img
                 src={builder
                   .image(image.file.asset.id)
-                  .size(windowSize.width, windowSize.height - 102)
+                  .size(imageSize.width, imageSize.height - 102)
                   .fit("clip")
                   .url()}
                 alt={image.description}

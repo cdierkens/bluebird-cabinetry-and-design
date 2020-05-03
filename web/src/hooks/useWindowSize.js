@@ -1,10 +1,10 @@
-import { throttle } from "lodash";
+import { delay, throttle } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 
-const isClient = typeof window === "object";
+const hasWindow = typeof window === "object";
 
 const getSize = () =>
-  isClient
+  hasWindow
     ? {
         width: window.innerWidth,
         height: window.innerHeight,
@@ -14,22 +14,41 @@ const getSize = () =>
 export default function useWindowSize({ wait = 200 } = {}) {
   const [windowSize, setWindowSize] = useState(getSize());
 
-  const handleResize = useCallback(
-    throttle(() => {
-      setWindowSize(getSize());
-    }, wait),
-    []
-  );
-
   useEffect(() => {
-    if (!isClient) {
+    if (!hasWindow) {
       return;
     }
 
-    window.addEventListener("resize", handleResize, { passive: true });
+    const mediaQuery = window.matchMedia("(orientation: portrait)");
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
+    const orientationHandler = () => {
+      delay(() => setWindowSize(getSize()), 500);
+    };
+
+    mediaQuery.addListener(orientationHandler);
+
+    return () => {
+      mediaQuery.removeListener(orientationHandler);
+    };
+  }, []);
+
+  const handleResize = useCallback(() => setWindowSize(getSize()), []);
+
+  useEffect(() => {
+    if (!hasWindow) {
+      return;
+    }
+
+    const callback = throttle(handleResize, wait);
+
+    window.addEventListener("resize", callback, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("resize", callback);
+    };
+  }, [handleResize, wait]);
 
   return windowSize;
 }
