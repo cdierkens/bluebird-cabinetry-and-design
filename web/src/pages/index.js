@@ -59,7 +59,7 @@ const IndexPage = ({
   }, [windowSize, imageSize]);
 
   return (
-    <Layout errors={errors} title="Home">
+    <Layout errors={errors} title="Home" hidePageTitle>
       {imageSize ? (
         <Carousel
           autoPlay

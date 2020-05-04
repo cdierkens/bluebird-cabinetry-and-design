@@ -1,56 +1,135 @@
 import React from "react";
+import Container from "../components/container";
 import Layout from "../Layout";
 
 const ServicesPage = () => (
   <Layout title="Services">
-    <div className="px-4 py-24">
-      <h1>Services</h1>
+    <Container className="py-24 grid grid-cols-1 md:grid-cols-8 gap-3">
+      <figure className="col-span-1 mb-16 md:mb-0 md:col-span-3 md:col-start-2">
+        <img
+          className="w-full"
+          src="https://via.placeholder.com/458"
+          alt="Placeholder"
+        />
 
-      <p>
-        Spicy jalapeno bacon ipsum dolor amet pork chop turducken short ribs
-        salami cow prosciutto pork meatball pancetta leberkas sausage. Shoulder
-        fatback turkey, tri-tip kevin meatloaf chislic ground round pastrami.
-        Ball tip alcatra tenderloin, tongue ground round venison sirloin
-        pancetta hamburger pastrami prosciutto. Ham pig flank pastrami ham hock
-        frankfurter turkey. Sausage cupim fatback filet mignon, salami pork loin
-        pork drumstick leberkas shank chuck cow.
-      </p>
+        <figcaption>3D Drafting Example</figcaption>
+      </figure>
 
-      <p>
-        Meatloaf pancetta turducken shoulder turkey jowl ham boudin strip steak.
-        Brisket sausage cow pork chop short ribs short loin, bacon kielbasa.
-        Sirloin turducken jerky jowl, shankle spare ribs doner rump drumstick
-        pork chop cow sausage. Jowl pig kielbasa corned beef sausage jerky
-        prosciutto.
-      </p>
+      <div className="col-span-1 md:col-span-3">
+        <ul className="list-disc pl-10">
+          <li>Cabinetry Design &amp; Sales </li>
+          <li>
+            Remodeling
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
+              faucibus. Nullam porttitor sit amet ex.
+            </p>
+          </li>
+          <li>
+            3D Drafting
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
+              faucibus. Nullam porttitor sit amet ex.
+            </p>
+          </li>
+          <li>Space Planning and Layout</li>
+          <li>
+            Selections
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
+              faucibus. Nullam porttitor sit amet ex.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </Container>
 
-      <p>
-        Ham hock boudin drumstick tongue short ribs pork loin. Jowl frankfurter
-        ball tip capicola tail spare ribs jerky chuck pork. Pancetta beef bacon
-        jowl cow rump filet mignon swine porchetta kevin tongue. Shank flank
-        cupim tenderloin shoulder brisket ribeye salami corned beef chicken beef
-        ribs. Burgdoggen cupim brisket bacon beef ribeye strip steak drumstick
-        ball tip cow chislic tenderloin. Boudin spare ribs flank bresaola
-        hamburger ribeye pork shank. T-bone pork tenderloin ribeye tail salami.
-      </p>
+    <Container className="grid grid-cols-1 md:grid-cols-8 gap-3">
+      <h2 className="text-center col-span-1 md:col-span-8 text-blue-dark">
+        Design Process
+      </h2>
 
-      <p>
-        Spare ribs burgdoggen cow porchetta, shoulder jowl biltong brisket pork
-        tail landjaeger beef filet mignon. Fatback cow flank, bresaola filet
-        mignon leberkas bacon. Drumstick pork capicola tail flank. Strip steak
-        pig venison jerky kevin andouille frankfurter pancetta t-bone tri-tip
-        kielbasa short ribs. Alcatra flank burgdoggen, strip steak short ribs
-        salami andouille chuck.
-      </p>
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
+        <h3 className="text-blue-dark">Initial Meeting</h3>
 
-      <p>
-        Sausage flank kielbasa hamburger beef beef ribs venison capicola
-        landjaeger biltong. Kielbasa landjaeger shoulder cupim shank chuck.
-        Andouille kevin chicken chuck. Pork loin chuck buffalo, pancetta doner
-        strip steak rump sirloin pork belly. Chicken pork capicola beef ribs,
-        cupim salami drumstick buffalo biltong doner turkey.
-      </p>
+        <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
+          1
+        </span>
+
+        <p className="leading-loose">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum
+          vel libero ac mollis. Fusce sollicitudin finibus leo quis faucibus.
+          Nullam porttitor sit amet ex.
+        </p>
+      </div>
+
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
+        <h3 className="text-blue-dark">Initial Meeting</h3>
+
+        <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
+          2
+        </span>
+
+        <p className="leading-loose">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum
+          vel libero ac mollis. Fusce sollicitudin finibus leo quis faucibus.
+          Nullam porttitor sit amet ex.
+        </p>
+      </div>
+
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
+        <h3 className="text-blue-dark">Initial Meeting</h3>
+
+        <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
+          3
+        </span>
+
+        <p className="leading-loose">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum
+          vel libero ac mollis. Fusce sollicitudin finibus leo quis faucibus.
+          Nullam porttitor sit amet ex.
+        </p>
+      </div>
+
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
+        <h3 className="text-blue-dark">Initial Meeting</h3>
+
+        <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
+          4
+        </span>
+
+        <p className="leading-loose">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum
+          vel libero ac mollis. Fusce sollicitudin finibus leo quis faucibus.
+          Nullam porttitor sit amet ex.
+        </p>
+      </div>
+    </Container>
+
+    <div className="bg-gradient-blue-turquoise text-center mt-24 mb-16">
+      <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+        Get Started On Your Dream Renovations Today!
+      </span>
+      <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  ">
+        Start Here
+      </span>
     </div>
+
+    <Container className="grid grid-cols-1 md:grid-cols-8 gap-3 pb-24">
+      <h2 className="text-center col-span-1 md:col-span-8 text-blue-dark">
+        Material Sources
+      </h2>
+
+      <div className="col-span-1 md:col-span-6 md:col-start-2 flex justify-center items-center md:justify-between flex-col md:flex-row">
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
+      </div>
+    </Container>
   </Layout>
 );
 

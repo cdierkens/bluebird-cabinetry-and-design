@@ -11,19 +11,35 @@ const { theme } = resolveConfig(tailwindConfig);
 
 const Links = () => (
   <>
-    <Link className={styles.Link} to="/">
+    <Link className={styles.Link} activeClassName={styles.LinkActive} to="/">
       Home
     </Link>
-    <Link className={styles.Link} to="/about">
+    <Link
+      className={styles.Link}
+      activeClassName={styles.LinkActive}
+      to="/about"
+    >
       About
     </Link>
-    <Link className={styles.Link} to="/services">
+    <Link
+      className={styles.Link}
+      activeClassName={styles.LinkActive}
+      to="/services"
+    >
       Services
     </Link>
-    <Link className={styles.Link} to="/portfolio">
+    <Link
+      className={styles.Link}
+      activeClassName={styles.LinkActive}
+      to="/portfolio"
+    >
       Portfolio
     </Link>
-    <Link className={styles.Button} to="/contact">
+    <Link
+      className={styles.Button}
+      activeClassName={styles.ButtonActive}
+      to="/contact"
+    >
       Contact
     </Link>
   </>

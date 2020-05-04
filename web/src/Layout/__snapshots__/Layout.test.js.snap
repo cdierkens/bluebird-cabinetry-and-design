@@ -69,7 +69,13 @@ exports[`matches snapshot 1`] = `
     <main
       class="Content"
       id="content"
-    />
+    >
+      <h1
+        class="PageTitle"
+      >
+        Test Title
+      </h1>
+    </main>
     <div
       class="Footer text-center text-gray-light p-5"
     >
