@@ -4,14 +4,18 @@ import Layout from "../Layout";
 
 const ServicesPage = () => (
   <Layout title="Services">
-    <Container className="py-24 grid grid-cols-8 gap-3">
-      <figure className="col-span-3 col-start-2">
-        <img src="https://via.placeholder.com/458" alt="Placeholder" />
+    <Container className="py-24 grid grid-cols-1 md:grid-cols-8 gap-3">
+      <figure className="col-span-1 mb-16 md:mb-0 md:col-span-3 md:col-start-2">
+        <img
+          className="w-full"
+          src="https://via.placeholder.com/458"
+          alt="Placeholder"
+        />
 
         <figcaption>3D Drafting Example</figcaption>
       </figure>
 
-      <div className="col-span-3">
+      <div className="col-span-1 md:col-span-3">
         <ul className="list-disc pl-10">
           <li>Cabinetry Design &amp; Sales </li>
           <li>
@@ -43,10 +47,12 @@ const ServicesPage = () => (
       </div>
     </Container>
 
-    <Container className="grid grid-cols-8 gap-3">
-      <h2 className="text-center col-span-8 text-blue-dark">Design Process</h2>
+    <Container className="grid grid-cols-1 md:grid-cols-8 gap-3">
+      <h2 className="text-center col-span-1 md:col-span-8 text-blue-dark">
+        Design Process
+      </h2>
 
-      <div className="bg-gray-light col-span-4 p-10 relative mt-16">
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
         <h3 className="text-blue-dark">Initial Meeting</h3>
 
         <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
@@ -60,21 +66,21 @@ const ServicesPage = () => (
         </p>
       </div>
 
-      <div className="bg-gray-light col-span-4 p-10 relative mt-16">
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
         <h3 className="text-blue-dark">Initial Meeting</h3>
 
         <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
           2
         </span>
 
-        <p>
+        <p className="leading-loose">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum
           vel libero ac mollis. Fusce sollicitudin finibus leo quis faucibus.
           Nullam porttitor sit amet ex.
         </p>
       </div>
 
-      <div className="bg-gray-light col-span-4 p-10 relative mt-16">
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
         <h3 className="text-blue-dark">Initial Meeting</h3>
 
         <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
@@ -88,14 +94,14 @@ const ServicesPage = () => (
         </p>
       </div>
 
-      <div className="bg-gray-light col-span-4 p-10 relative mt-16">
+      <div className="bg-gray-light col-span-1 md:col-span-4 p-10 relative mt-16">
         <h3 className="text-blue-dark">Initial Meeting</h3>
 
         <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
           4
         </span>
 
-        <p>
+        <p className="leading-loose">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum
           vel libero ac mollis. Fusce sollicitudin finibus leo quis faucibus.
           Nullam porttitor sit amet ex.
@@ -112,16 +118,16 @@ const ServicesPage = () => (
       </span>
     </div>
 
-    <Container className="grid grid-cols-8 gap-3 pb-24">
-      <h2 className="text-center col-span-8 text-blue-dark">
+    <Container className="grid grid-cols-1 md:grid-cols-8 gap-3 pb-24">
+      <h2 className="text-center col-span-1 md:col-span-8 text-blue-dark">
         Material Sources
       </h2>
 
-      <div className="col-span-6 col-start-2 flex justify-between">
-        <div className="bg-gray-light w-48 h-48"></div>
-        <div className="bg-gray-light w-48 h-48"></div>
-        <div className="bg-gray-light w-48 h-48"></div>
-        <div className="bg-gray-light w-48 h-48"></div>
+      <div className="col-span-1 md:col-span-6 md:col-start-2 flex justify-center items-center md:justify-between flex-col md:flex-row">
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
+        <div className="bg-gray-light w-40 h-40 my-6"></div>
       </div>
     </Container>
   </Layout>
