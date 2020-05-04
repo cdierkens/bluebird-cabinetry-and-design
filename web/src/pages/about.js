@@ -3,9 +3,7 @@ import Layout from "../Layout";
 
 const AboutPage = () => (
   <Layout title="About">
-    <div className="px-4 py-24">
-      <h1>About</h1>
-
+    <div className="px-4 py-24 max-w-screen-lg m-auto">
       <p>
         Spicy jalapeno bacon ipsum dolor amet pork chop turducken short ribs
         salami cow prosciutto pork meatball pancetta leberkas sausage. Shoulder
