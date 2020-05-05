@@ -1,53 +1,79 @@
 import React from "react";
+import Container from "../components/container";
+import Grid from "../components/Grid";
+import portrait from "../images/dana-portrait.jpg";
+import kitchen from "../images/square-kitchen.jpg";
 import Layout from "../Layout";
 
 const AboutPage = () => (
   <Layout title="About">
-    <div className="px-4 py-24 max-w-screen-lg m-auto">
-      <p>
-        Spicy jalapeno bacon ipsum dolor amet pork chop turducken short ribs
-        salami cow prosciutto pork meatball pancetta leberkas sausage. Shoulder
-        fatback turkey, tri-tip kevin meatloaf chislic ground round pastrami.
-        Ball tip alcatra tenderloin, tongue ground round venison sirloin
-        pancetta hamburger pastrami prosciutto. Ham pig flank pastrami ham hock
-        frankfurter turkey. Sausage cupim fatback filet mignon, salami pork loin
-        pork drumstick leberkas shank chuck cow.
-      </p>
+    <Container className="pb-20">
+      <Grid className="gap-8 row-gap-8 items-center">
+        <div className="col-span-3 sm:col-span-6 md:col-span-4">
+          <h2 className="text-blue-dark">Our Story</h2>
 
-      <p>
-        Meatloaf pancetta turducken shoulder turkey jowl ham boudin strip steak.
-        Brisket sausage cow pork chop short ribs short loin, bacon kielbasa.
-        Sirloin turducken jerky jowl, shankle spare ribs doner rump drumstick
-        pork chop cow sausage. Jowl pig kielbasa corned beef sausage jerky
-        prosciutto.
-      </p>
+          <p>
+            Dana, the owner, lost her father to cancer in the later winter of
+            2020.Her father was mostly called Bird by his friends, family, and
+            close loved ones. A dear friend said “if you are going to start a
+            business you should name your company after your father”. This is
+            how bluebird came about. After learning more about what the bluebird
+            symbolizes the name fell into place with ease, here is what Dana
+            discovered about The Bluebird:
+          </p>
+          <p>
+            Bluebird is symbolic of spiritual awakening, transformation, joy,
+            contentedness, and hope. It is considered a good omen, predicting
+            happy occurences in the coming times. The bluebird is also
+            associated with hard work, unassuming confidence, modesty, and
+            innocence.
+          </p>
+        </div>
 
-      <p>
-        Ham hock boudin drumstick tongue short ribs pork loin. Jowl frankfurter
-        ball tip capicola tail spare ribs jerky chuck pork. Pancetta beef bacon
-        jowl cow rump filet mignon swine porchetta kevin tongue. Shank flank
-        cupim tenderloin shoulder brisket ribeye salami corned beef chicken beef
-        ribs. Burgdoggen cupim brisket bacon beef ribeye strip steak drumstick
-        ball tip cow chislic tenderloin. Boudin spare ribs flank bresaola
-        hamburger ribeye pork shank. T-bone pork tenderloin ribeye tail salami.
-      </p>
+        <div className="col-span-3 sm:col-span-6 md:col-span-4">
+          <img
+            src={portrait}
+            className="w-full"
+            alt="Portrait of Dana Snyder"
+          />
+        </div>
 
-      <p>
-        Spare ribs burgdoggen cow porchetta, shoulder jowl biltong brisket pork
-        tail landjaeger beef filet mignon. Fatback cow flank, bresaola filet
-        mignon leberkas bacon. Drumstick pork capicola tail flank. Strip steak
-        pig venison jerky kevin andouille frankfurter pancetta t-bone tri-tip
-        kielbasa short ribs. Alcatra flank burgdoggen, strip steak short ribs
-        salami andouille chuck.
-      </p>
+        <div className="order-last md:order-none col-span-3 sm:col-span-6 md:col-span-4">
+          <img src={kitchen} className="w-full" alt="Portrait of Dana Snyder" />
+        </div>
 
-      <p>
-        Sausage flank kielbasa hamburger beef beef ribs venison capicola
-        landjaeger biltong. Kielbasa landjaeger shoulder cupim shank chuck.
-        Andouille kevin chicken chuck. Pork loin chuck buffalo, pancetta doner
-        strip steak rump sirloin pork belly. Chicken pork capicola beef ribs,
-        cupim salami drumstick buffalo biltong doner turkey.
-      </p>
+        <div className="col-span-3 sm:col-span-6 md:col-span-4">
+          <h2 className="text-blue-dark">Our Purpose</h2>
+
+          <p>
+            Bluebird Cabinetry &amp; Design was founded to help people realize
+            their dreams of meaningful and inspiring environments in their home.
+          </p>
+
+          <p>
+            Using our experience and following our core values, we strive to
+            help clients achieve their remodeling goals. We believe clients
+            should have a positive experience through the entire process of
+            turning their homes into safe, functional, and inspiring
+            environments.
+          </p>
+        </div>
+      </Grid>
+    </Container>
+
+    <div className="py-8 grid grid-cols-12 bg-gray-light">
+      <h2 className="text-center text-blue-dark col-span-12">
+        Our Passion &amp; Values
+      </h2>
+    </div>
+
+    <div className="bg-gradient-blue-turquoise text-center">
+      <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+        See our services page for more details!
+      </span>
+      <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  ">
+        services
+      </span>
     </div>
   </Layout>
 );
