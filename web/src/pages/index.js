@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import DesignPreview from "../components/DesignPreview";
@@ -15,11 +15,6 @@ import styles from "./Index.module.css";
 
 export const query = graphql`
   query IndexPageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
-    }
     carousel: sanityCarousel(_id: { regex: "/(drafts.|)homeCarousel/" }) {
       images {
         image {
@@ -37,45 +32,61 @@ export const query = graphql`
 
 const IndexPage = ({
   data: {
-    site,
     carousel: { images },
   },
   errors,
 }) => {
-  if (!site) {
-    throw new Error('Missing "Site settings".');
-  }
+  const [imageSize, setImageSize] = useState();
+  const windowSize = useWindowSize();
 
-  const { width, height } = useWindowSize();
+  useEffect(() => {
+    if (!windowSize) {
+      return;
+    }
+
+    if (!imageSize) {
+      setImageSize(windowSize);
+      return;
+    }
+
+    const tolerance = 100;
+    if (
+      Math.abs(windowSize.height - imageSize.height) > tolerance ||
+      Math.abs(windowSize.width - imageSize.width) > tolerance
+    ) {
+      setImageSize(windowSize);
+    }
+  }, [windowSize, imageSize]);
 
   return (
-    <Layout
-      errors={errors}
-      title={site.title}
-      description={site.description}
-      keywords={site.keywords}
-    >
-      <Carousel
-        autoPlay
-        infiniteLoop
-        showStatus={false}
-        showThumbs={false}
-        swipeable
-        useKeyboardArrows
-      >
-        {images.map(({ image }) => (
-          <div key={image.file.asset.id}>
-            <img
-              src={builder
-                .image(image.file.asset.id)
-                .size(width || 1366, (height || 768) - 102)
-                .fit("clip")
-                .url()}
-              alt={image.description}
-            />
-          </div>
-        ))}
-      </Carousel>
+    <Layout errors={errors} title="Home" hidePageTitle>
+      {imageSize ? (
+        <Carousel
+          autoPlay
+          infiniteLoop
+          showStatus={false}
+          showThumbs={false}
+          swipeable
+          useKeyboardArrows
+        >
+          {images.map(({ image }) => (
+            <div key={image.file.asset.id}>
+              <img
+                src={builder
+                  .image(image.file.asset.id)
+                  .size(imageSize.width, imageSize.height - 102)
+                  .fit("clip")
+                  .url()}
+                alt={image.description}
+              />
+            </div>
+          ))}
+        </Carousel>
+      ) : (
+        <Carousel showStatus={false} showThumbs={false}>
+          <span>Loading...</span>
+        </Carousel>
+      )}
 
       <div className={styles.GetStartedContainer}>
         <span className={styles.GetStartedText}>

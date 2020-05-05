@@ -10,11 +10,13 @@ const MobileNav = ({ children }) => {
   return (
     <div className={styles.MobileNav}>
       <nav className="grid grid-cols-3 sm:grid-cols-6">
-        <div className="col-span-2 sm:col-span-5">
-          <Link className="m-3 block" to="/">
-            <img className={styles.Logo} src={logo} alt="Bluebird Logo" />
-          </Link>
-        </div>
+        {!isOpen && (
+          <div className="col-span-2 sm:col-span-5 absolute">
+            <Link className="m-3 block" to="/">
+              <img className={styles.Logo} src={logo} alt="Bluebird Logo" />
+            </Link>
+          </div>
+        )}
 
         <div className="col-start-3 sm:col-start-6 items-center justify-end flex">
           <button

@@ -1,0 +1,5 @@
+.PageTitle {
+  @apply m-0 pt-40 pb-16 text-center box-border text-white;
+
+  background-color: #5c84af;
+}
