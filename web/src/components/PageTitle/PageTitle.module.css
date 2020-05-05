@@ -1,5 +1,5 @@
 .PageTitle {
-  @apply m-0 pt-20 pb-8 text-center box-border text-white bg-cover;
+  @apply pt-20 pb-8 text-center box-border text-white bg-cover m-0 mb-24;
 
   background-image: url("../../images/blue-kitchen-bg.jpg");
 }
