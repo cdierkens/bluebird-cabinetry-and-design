@@ -1,3 +1,5 @@
+import { graphql } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import bath from "../../images/Bathroom1.jpg";
 import kitchen1 from "../../images/Kitchen1.jpg";
@@ -6,7 +8,26 @@ import kitchen3 from "../../images/Kitchen3.jpg";
 import Container from "../container";
 import styles from "./DesignPreview.module.css";
 
-const DesignPreview = () => {
+export const query = graphql`
+  query DesignPreviewQuery {
+    designPreview: sanityDesignPreview {
+      images {
+        webImage {
+          description
+          file {
+            asset {
+              id
+            }
+          }
+        }
+        colSpan
+        rowSpan
+      }
+    }
+  }
+`;
+
+const DesignPreview = (/*{ data: { designPreview }, errors }*/) => {
   return (
     <>
       <Container className={styles.DesignContainer}>
@@ -27,6 +48,15 @@ const DesignPreview = () => {
       </Container>
     </>
   );
+};
+
+DesignPreview.propTypes = {
+  data: PropTypes.object,
+  errors: PropTypes.arrayOf(
+    PropTypes.shape({
+      message: PropTypes.string,
+    })
+  ),
 };
 
 export default DesignPreview;

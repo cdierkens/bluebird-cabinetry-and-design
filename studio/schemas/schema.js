@@ -4,6 +4,7 @@ import carousel from "./documents/carousel";
 import designPreview from "./documents/designPreview";
 import portfolioImage from "./documents/portfolioImage";
 import siteSettings from "./documents/siteSettings";
+import designPreviewImage from "./objects/designPreviewImage";
 import webImage from "./objects/webImage";
 
 export default createSchema({
@@ -16,5 +17,6 @@ export default createSchema({
     designPreview,
     // Objects
     webImage,
+    designPreviewImage,
   ]),
 });
