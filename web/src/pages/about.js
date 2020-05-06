@@ -1,6 +1,10 @@
+import { Link } from "gatsby";
 import React from "react";
 import Container from "../components/container";
 import Grid from "../components/Grid";
+import HeartIcon from "../icons/heart.svg";
+import MagnifyingGlassIcon from "../icons/magnifying-glass.svg";
+import ShieldIcon from "../icons/shield.svg";
 import portrait from "../images/dana-portrait.jpg";
 import kitchen from "../images/square-kitchen.jpg";
 import Layout from "../Layout";
@@ -61,19 +65,61 @@ const AboutPage = () => (
       </Grid>
     </Container>
 
-    <div className="py-8 grid grid-cols-12 bg-gray-light">
-      <h2 className="text-center text-blue-dark col-span-12">
-        Our Passion &amp; Values
-      </h2>
+    <div className="py-8 bg-gray-light">
+      <h2 className="text-center text-blue-dark">Our Passion &amp; Values</h2>
+
+      <Container className="flex flex-wrap justify-evenly text-center">
+        <div className="w-full md:w-1/3 px-9 mt-6">
+          <MagnifyingGlassIcon className="fill-none stroke-current stroke-4 mx-auto text-blue-dark h-20" />
+
+          <h3 className="text-blue-dark">Details Matter</h3>
+
+          <p className="leading-loose">
+            There are many companies that can remodel homes. One of the things
+            that makes us different is our attention to detail. This includes
+            understanding the pitfalls and highlights that really influence
+            results. The devil really is in the details.
+          </p>
+        </div>
+
+        <div className="w-full md:w-1/3 px-9 mt-6">
+          <ShieldIcon className="fill-none stroke-current stroke-4 mx-auto text-blue-dark h-20" />
+
+          <h3 className="text-blue-dark">Integrity</h3>
+
+          <p className="leading-loose">
+            The process we use is transparent and we will deliver on our
+            promises. Most people have hada bad experience with remodeling, or
+            know someone who has. We are upfront about expectations, pricing,
+            and treat clients theway we want to be treated.
+          </p>
+        </div>
+
+        <div className="w-full md:w-1/3 px-9 mt-6">
+          <HeartIcon className="fill-none stroke-current stroke-4 mx-auto text-blue-dark h-20" />
+
+          <h3 className="text-blue-dark">Community</h3>
+
+          <p className="leading-loose">
+            We do what we do to help people create inspiring spaces that bring
+            people together.We also strive to build long lasting relationships
+            that lead to repeat business and referrals. The community we are a
+            part of, and help build, drive us to do what we do.
+          </p>
+        </div>
+      </Container>
     </div>
 
     <div className="bg-gradient-blue-turquoise text-center">
       <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
         See our services page for more details!
       </span>
-      <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  ">
-        services
-      </span>
+      <Link
+        to="/services"
+        className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  "
+      >
+        Services
+      </Link>
     </div>
   </Layout>
 );
