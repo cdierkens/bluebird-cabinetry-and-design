@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-sans font-bold mt-4 mb-6;
+  @apply font-sans font-bold text-blue-dark mt-4 mb-6;
 }
 
 p {

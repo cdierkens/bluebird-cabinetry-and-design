@@ -14,7 +14,7 @@ const AboutPage = () => (
     <Container className="pb-20">
       <Grid className="gap-8 row-gap-8 items-center">
         <div className="col-span-3 sm:col-span-6 md:col-span-4">
-          <h2 className="text-blue-dark">Our Story</h2>
+          <h2>Our Story</h2>
 
           <p>
             Dana, the owner, lost her father to cancer in the later winter of
@@ -47,7 +47,7 @@ const AboutPage = () => (
         </div>
 
         <div className="col-span-3 sm:col-span-6 md:col-span-4">
-          <h2 className="text-blue-dark">Our Purpose</h2>
+          <h2>Our Purpose</h2>
 
           <p>
             Bluebird Cabinetry &amp; Design was founded to help people realize
@@ -72,7 +72,7 @@ const AboutPage = () => (
         <div className="w-full md:w-1/3 px-9 mt-6">
           <MagnifyingGlassIcon className="fill-none stroke-current stroke-4 mx-auto text-blue-dark h-20" />
 
-          <h3 className="text-blue-dark">Details Matter</h3>
+          <h3>Details Matter</h3>
 
           <p className="leading-loose">
             There are many companies that can remodel homes. One of the things
@@ -85,7 +85,7 @@ const AboutPage = () => (
         <div className="w-full md:w-1/3 px-9 mt-6">
           <ShieldIcon className="fill-none stroke-current stroke-4 mx-auto text-blue-dark h-20" />
 
-          <h3 className="text-blue-dark">Integrity</h3>
+          <h3>Integrity</h3>
 
           <p className="leading-loose">
             The process we use is transparent and we will deliver on our
@@ -98,7 +98,7 @@ const AboutPage = () => (
         <div className="w-full md:w-1/3 px-9 mt-6">
           <HeartIcon className="fill-none stroke-current stroke-4 mx-auto text-blue-dark h-20" />
 
-          <h3 className="text-blue-dark">Community</h3>
+          <h3>Community</h3>
 
           <p className="leading-loose">
             We do what we do to help people create inspiring spaces that bring

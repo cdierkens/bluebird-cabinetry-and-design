@@ -57,7 +57,7 @@ const ServicesPage = () => (
         </h2>
 
         <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3 className="text-blue-dark">Initial Meeting</h3>
+          <h3>Initial Meeting</h3>
 
           <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
             1
@@ -71,7 +71,7 @@ const ServicesPage = () => (
         </div>
 
         <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3 className="text-blue-dark">Initial Meeting</h3>
+          <h3>Initial Meeting</h3>
 
           <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
             2
@@ -85,7 +85,7 @@ const ServicesPage = () => (
         </div>
 
         <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3 className="text-blue-dark">Initial Meeting</h3>
+          <h3>Initial Meeting</h3>
 
           <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
             3
@@ -99,7 +99,7 @@ const ServicesPage = () => (
         </div>
 
         <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3 className="text-blue-dark">Initial Meeting</h3>
+          <h3>Initial Meeting</h3>
 
           <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
             4

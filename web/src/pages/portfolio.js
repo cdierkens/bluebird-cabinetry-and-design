@@ -1,53 +1,114 @@
 import React from "react";
+import Container from "../components/container";
+import Grid from "../components/Grid";
+import Select from "../components/Select";
+import LeftArrowIcon from "../icons/left-arrow.svg";
 import Layout from "../Layout";
 
 const PortfolioPage = () => (
   <Layout title="Portfolio">
-    <div className="px-4 py-24 max-w-screen-lg m-auto">
-      <p>
-        Spicy jalapeno bacon ipsum dolor amet pork chop turducken short ribs
-        salami cow prosciutto pork meatball pancetta leberkas sausage. Shoulder
-        fatback turkey, tri-tip kevin meatloaf chislic ground round pastrami.
-        Ball tip alcatra tenderloin, tongue ground round venison sirloin
-        pancetta hamburger pastrami prosciutto. Ham pig flank pastrami ham hock
-        frankfurter turkey. Sausage cupim fatback filet mignon, salami pork loin
-        pork drumstick leberkas shank chuck cow.
-      </p>
+    <Container>
+      <h2>Room</h2>
+      <Select>
+        <Select.Option>Option 1 is a really really long option</Select.Option>
+        <Select.Option>Option 2</Select.Option>
+        <Select.Option>Option 3</Select.Option>
+        <Select.Option>Option 4</Select.Option>
+        <Select.Option>Option 5</Select.Option>
+      </Select>
 
-      <p>
-        Meatloaf pancetta turducken shoulder turkey jowl ham boudin strip steak.
-        Brisket sausage cow pork chop short ribs short loin, bacon kielbasa.
-        Sirloin turducken jerky jowl, shankle spare ribs doner rump drumstick
-        pork chop cow sausage. Jowl pig kielbasa corned beef sausage jerky
-        prosciutto.
-      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6">
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
 
-      <p>
-        Ham hock boudin drumstick tongue short ribs pork loin. Jowl frankfurter
-        ball tip capicola tail spare ribs jerky chuck pork. Pancetta beef bacon
-        jowl cow rump filet mignon swine porchetta kevin tongue. Shank flank
-        cupim tenderloin shoulder brisket ribeye salami corned beef chicken beef
-        ribs. Burgdoggen cupim brisket bacon beef ribeye strip steak drumstick
-        ball tip cow chislic tenderloin. Boudin spare ribs flank bresaola
-        hamburger ribeye pork shank. T-bone pork tenderloin ribeye tail salami.
-      </p>
+        <div>
+          <span className="bg-gray-light rounded-full text-center font-semibold p-1 inline-block w-8 h-8 mr-3">
+            1
+          </span>
+          <span className="bg-blue-dark text-white rounded-full text-center font-semibold p-1 inline-block w-8 h-8 mr-3">
+            2
+          </span>
+          <span className="bg-gray-light rounded-full text-center font-semibold p-1 inline-block w-8 h-8 mr-3">
+            3
+          </span>
+        </div>
+      </div>
+    </Container>
 
-      <p>
-        Spare ribs burgdoggen cow porchetta, shoulder jowl biltong brisket pork
-        tail landjaeger beef filet mignon. Fatback cow flank, bresaola filet
-        mignon leberkas bacon. Drumstick pork capicola tail flank. Strip steak
-        pig venison jerky kevin andouille frankfurter pancetta t-bone tri-tip
-        kielbasa short ribs. Alcatra flank burgdoggen, strip steak short ribs
-        salami andouille chuck.
-      </p>
+    <Container>
+      <h2 className="text-center">Projects</h2>
 
-      <p>
-        Sausage flank kielbasa hamburger beef beef ribs venison capicola
-        landjaeger biltong. Kielbasa landjaeger shoulder cupim shank chuck.
-        Andouille kevin chicken chuck. Pork loin chuck buffalo, pancetta doner
-        strip steak rump sirloin pork belly. Chicken pork capicola beef ribs,
-        cupim salami drumstick buffalo biltong doner turkey.
-      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6">
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+        <div className="bg-gray-light h-40 md:h-64"></div>
+      </div>
+    </Container>
+
+    <div className="bg-gradient-blue-turquoise text-center my-16">
+      <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+        Get Started On Your Dream Renovations Today!
+      </span>
+      <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  ">
+        Start Here
+      </span>
+    </div>
+
+    <Container>
+      <h2 className="text-center mb-16">Kind Words</h2>
+
+      <Grid className="items-center">
+        <div className="flex justify-center">
+          <LeftArrowIcon className="text-blue-dark fill-current w-10 h-10 box-border p-2 bg-gray-light rounded-full" />
+        </div>
+
+        <div className="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md">
+          <span className="font-sans text-4xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4">
+            &ldquo;Beautiful&rdquo;
+          </span>
+
+          <p className="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <p className="m-0 italic text-gray-darker">-Anon B.</p>
+        </div>
+
+        <div className="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md">
+          <span className="font-sans text-4xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4">
+            &ldquo;Beautiful&rdquo;
+          </span>
+
+          <p className="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <p className="m-0 italic text-gray-darker">-Anon B.</p>
+        </div>
+
+        <div className="flex justify-center">
+          <LeftArrowIcon className="text-blue-dark fill-current w-10 h-10  box-border p-2 origin-right transform rotate-180 bg-gray-light rounded-full" />
+        </div>
+      </Grid>
+
+      <div className="text-center py-16">
+        <span className="text-blue-dark font-body font-semibold rounded-md border border-blue-dark text-dark-blue py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark hover:text-white">
+          Read More
+        </span>
+      </div>
+    </Container>
+
+    <div className="bg-blue-dark py-6">
+      <Container>
+        <h2 className="text-center text-white">Publications</h2>
+      </Container>
     </div>
   </Layout>
 );
