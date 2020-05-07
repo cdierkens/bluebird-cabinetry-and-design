@@ -10,7 +10,9 @@ import styles from "./DesignPreview.module.css";
 
 export const query = graphql`
   query DesignPreviewQuery {
-    designPreview: sanityDesignPreview {
+    designPreview: sanityDesignPreview(
+      _id: { regex: "/(drafts.|)designPreview/" }
+    ) {
       images {
         webImage {
           description
@@ -27,19 +29,18 @@ export const query = graphql`
   }
 `;
 
-const DesignPreview = (/*{ data: { designPreview }, errors }*/) => {
+const DesignPreview = ({
+  data: {
+    designPreview: { title, description, images },
+  },
+  errors,
+}) => {
   return (
     <>
       <Container className={styles.DesignContainer}>
-        <h2 className={styles.DesignH2}>Title copy about design style</h2>
-
-        <p className={styles.DesignText}>
-          Spicy jalapeno bacon ipsum dolor amet hamburger laborum ea, nisi pork
-          loin ham hock sed ribeye. Enim burgdoggen turducken tongue meatloaf
-          ground round tenderloin chislic consectetur pancetta.
-        </p>
+        <h2 className={styles.DesignH2}>{title}</h2>
+        <p className={styles.DesignText}>{description}</p>
       </Container>
-
       <Container className={styles.DesignImageContainer}>
         <img src={kitchen1} alt="logo" className={styles.DesignImage1} />
         <img src={kitchen2} alt="logo" className={styles.DesignImage2} />

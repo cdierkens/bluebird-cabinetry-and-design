@@ -1,6 +1,7 @@
 import S from "@sanity/desk-tool/structure-builder";
 import MdSettings from "react-icons/lib/md/settings";
 import viewCarouselIcon from "react-icons/lib/md/view-carousel";
+import viewQuiltIcon from "react-icons/lib/md/view-quilt";
 
 export const getDefaultDocumentNode = (props) => {
   /**
@@ -47,10 +48,23 @@ export default () =>
             .documentId("homeCarousel")
         ),
       S.divider(),
+      S.listItem()
+        .title("Design Preview")
+        .icon(viewQuiltIcon)
+        .child(
+          S.editor()
+            .id("designPreview")
+            .schemaType("designPreview")
+            .documentId("designPreview")
+        ),
+      S.divider(),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
-        (listItem) => !["siteSettings", "carousel"].includes(listItem.getId())
+        (listItem) =>
+          !["siteSettings", "carousel", "designPreview"].includes(
+            listItem.getId()
+          )
       ),
     ]);
