@@ -10,7 +10,9 @@ Local development uses the `development` dataset. When you make a change to `sch
 
 ### `npm run graphql-deploy -- --dataset development`
 
-Run a develpment `graphql` deploy.
+### `npx sanity graphql deploy --dataset development`
+
+Run a develpment `graphql` deploy. `cd studio` first.
 
 ### `npm start`
 

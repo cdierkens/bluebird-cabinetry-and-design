@@ -1,0 +1,7 @@
+.ServicesContainer {
+  @apply py-8 grid grid-cols-12 bg-gray-light;
+}
+
+.ServicesH2 {
+  @apply text-center text-blue-dark col-span-12;
+}

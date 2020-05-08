@@ -1,0 +1,11 @@
+.DesignContainer {
+  @apply py-8 grid grid-cols-8;
+}
+
+.DesignH2 {
+  @apply text-center text-blue-dark col-span-8;
+}
+
+.DesignText {
+  @apply text-center col-span-8 leading-loose;
+}

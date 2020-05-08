@@ -1,0 +1,15 @@
+.LearnMoreContainer {
+  @apply text-center m-auto;
+}
+
+.LearnMoreText {
+  @apply font-sans font-bold text-blue-dark text-xl my-9 mx-5 inline-block;
+}
+
+.LearnMoreLink {
+  @apply font-body font-semibold rounded-md border border-blue-dark text-blue-dark py-3 px-9 text-xl inline-block mb-5 mx-5;
+}
+
+.LearnMoreLink:hover {
+  @apply bg-blue-dark text-white;
+}

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Container KindWordsContainer"
+  >
+    <h2
+      class="KindWordsH2"
+    >
+      Kind Words
+    </h2>
+    <a
+      class="Button"
+      href="/kindwords"
+    >
+      Read More
+    </a>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="py-6"
+  >
+    <div
+      class="Container DesignContainer"
+    >
+      <h2
+        class="DesignH2"
+      >
+        mock-title
+      </h2>
+      <p
+        class="DesignText"
+      >
+        mock-description
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4 mx-auto w-2/3 xl:w-1/2 content-center justify-center items-center"
+    />
+  </section>
+</DocumentFragment>
+`;

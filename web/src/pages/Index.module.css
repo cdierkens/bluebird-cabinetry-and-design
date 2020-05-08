@@ -1,0 +1,21 @@
+.GetStartedContainer {
+  @apply bg-gradient-blue-turquoise text-center;
+}
+
+.GetStartedText {
+  @apply font-sans font-bold text-white text-xl my-9 mx-5 inline-block;
+}
+
+.GetStartedLink {
+  @apply font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5;
+}
+
+.GetStartedLink:hover {
+  @apply bg-blue-dark;
+}
+
+@screen md {
+  .DesignText {
+    @apply col-span-4 col-start-3;
+  }
+}

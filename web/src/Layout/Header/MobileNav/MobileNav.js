@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import { PropTypes } from "prop-types";
 import React, { useState } from "react";
-import logo from "../../../logo.png";
+import logo from "../../../images/logo.png";
 import styles from "./MobileNav.module.css";
 
 const MobileNav = ({ children }) => {
