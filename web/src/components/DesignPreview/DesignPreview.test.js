@@ -3,7 +3,13 @@ import React from "react";
 import DesignPreview from "./DesignPreview";
 
 it("matches snapshot", () => {
-  const { asFragment } = render(<DesignPreview />);
+  const { asFragment } = render(
+    <DesignPreview
+      images={[]}
+      title="mock-title"
+      description="mock-description"
+    />
+  );
 
   expect(asFragment()).toMatchSnapshot();
 });
