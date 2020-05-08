@@ -27,12 +27,31 @@ export const query = graphql`
         }
       }
     }
+    designPreview: sanityDesignPreview(
+      _id: { regex: "/(drafts.|)designPreview/" }
+    ) {
+      title
+      description
+      images {
+        colSpan
+        rowSpan
+        image {
+          description
+          file {
+            asset {
+              id
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
 const IndexPage = ({
   data: {
-    carousel: { images },
+    carousel: { images: carouselImages },
+    designPreview: { title, description, images: designPreviewImages },
   },
   errors,
 }) => {
@@ -69,7 +88,7 @@ const IndexPage = ({
           swipeable
           useKeyboardArrows
         >
-          {images.map(({ image }) => (
+          {carouselImages.map(({ image }) => (
             <div key={image.file.asset.id}>
               <img
                 src={builder
@@ -97,7 +116,11 @@ const IndexPage = ({
         </Link>
       </div>
 
-      <DesignPreview />
+      <DesignPreview
+        images={designPreviewImages}
+        title={title}
+        description={description}
+      />
 
       <Services />
 

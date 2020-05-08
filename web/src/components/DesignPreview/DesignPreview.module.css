@@ -9,25 +9,3 @@
 .DesignText {
   @apply text-center col-span-8 leading-loose;
 }
-
-.DesignImageContainer {
-  @apply grid grid-rows-2 grid-cols-8 gap-4 py-8;
-
-  height: 500px;
-}
-
-.DesignImage1 {
-  @apply col-span-3 row-span-3 bg-blue-dark h-full w-full;
-}
-
-.DesignImage2 {
-  @apply col-span-3 row-span-1 col-start-4 bg-blue-dark h-full w-full;
-}
-
-.DesignImage3 {
-  @apply col-span-3 row-span-1 col-start-4 row-start-2 bg-blue-dark h-full w-full;
-}
-
-.DesignImage4 {
-  @apply col-span-2 row-span-2 col-start-7 bg-blue-dark h-full w-full;
-}

@@ -1,63 +1,50 @@
-import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
-import bath from "../../images/Bathroom1.jpg";
-import kitchen1 from "../../images/Kitchen1.jpg";
-import kitchen2 from "../../images/Kitchen2.jpg";
-import kitchen3 from "../../images/Kitchen3.jpg";
+import { builder } from "../../lib/image-url";
 import Container from "../container";
 import styles from "./DesignPreview.module.css";
 
-export const query = graphql`
-  query DesignPreviewQuery {
-    designPreview: sanityDesignPreview(
-      _id: { regex: "/(drafts.|)designPreview/" }
-    ) {
-      images {
-        webImage {
-          description
-          file {
-            asset {
-              id
-            }
-          }
-        }
-        colSpan
-        rowSpan
-      }
-    }
-  }
-`;
+const BASE_IMAGE_SIZE = 300;
 
-const DesignPreview = ({
-  data: {
-    designPreview: { title, description, images },
-  },
-  errors,
-}) => {
+const DesignPreview = ({ title, description, images }) => {
   return (
-    <>
+    <section className="py-6">
       <Container className={styles.DesignContainer}>
         <h2 className={styles.DesignH2}>{title}</h2>
         <p className={styles.DesignText}>{description}</p>
       </Container>
-      <Container className={styles.DesignImageContainer}>
-        <img src={kitchen1} alt="logo" className={styles.DesignImage1} />
-        <img src={kitchen2} alt="logo" className={styles.DesignImage2} />
-        <img src={kitchen3} alt="logo" className={styles.DesignImage3} />
-        <img src={bath} alt="logo" className={styles.DesignImage4} />
-      </Container>
-    </>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4 mx-auto w-2/3 xl:w-1/2 content-center justify-center items-center">
+        {images.map(({ image, colSpan, rowSpan }) => {
+          let width = colSpan * BASE_IMAGE_SIZE + Math.max(colSpan - 1, 0) * 16;
+          let height =
+            rowSpan * BASE_IMAGE_SIZE + Math.max(rowSpan - 1, 0) * 16;
+
+          return (
+            <div
+              key={image.file.asset.id}
+              className={`md:col-span-${colSpan} row-span-${rowSpan} h-full`}
+            >
+              <img
+                src={builder
+                  .image(image.file.asset.id)
+                  .size(width, height)
+                  .fit("clip")
+                  .url()}
+                alt={image.description}
+                className="w-full h-full"
+              />
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 
 DesignPreview.propTypes = {
-  data: PropTypes.object,
-  errors: PropTypes.arrayOf(
-    PropTypes.shape({
-      message: PropTypes.string,
-    })
-  ),
+  title: PropTypes.string,
+  description: PropTypes.string,
+  images: PropTypes.array,
 };
 
 export default DesignPreview;
