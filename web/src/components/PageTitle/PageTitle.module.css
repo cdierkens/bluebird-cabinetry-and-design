@@ -1,5 +1,17 @@
 .PageTitle {
-  @apply m-0 pt-40 pb-16 text-center box-border text-white;
+  @apply pt-20 pb-8 text-center box-border text-white bg-cover m-0 mb-24;
 
-  background-color: #5c84af;
+  background-image: url("../../images/blue-kitchen-bg.jpg");
+}
+
+@screen md {
+  .PageTitle {
+    @apply pt-32 pb-8;
+  }
+}
+
+@screen lg {
+  .PageTitle {
+    @apply pt-40 pb-16;
+  }
 }

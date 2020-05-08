@@ -30,6 +30,9 @@ module.exports = {
         body: ["Open Sans", ...defaultTheme.fontFamily.sans],
         sans: ["Quicksand", ...defaultTheme.fontFamily.sans],
       },
+      fill: {
+        none: "none",
+      },
       opacity: {
         85: ".85",
       },
@@ -38,6 +41,14 @@ module.exports = {
       },
       spacing: {
         9: "2.25rem",
+      },
+      stroke: {
+        none: "none",
+      },
+      strokeWidth: {
+        "3": "3",
+        "4": "4",
+        "5": "5",
       },
     },
     screens: {

@@ -1,0 +1,15 @@
+.Grid {
+  @apply grid grid-cols-3;
+}
+
+@screen sm {
+  .Grid {
+    @apply grid-cols-6;
+  }
+}
+
+@screen md {
+  .Grid {
+    @apply grid-cols-8;
+  }
+}
