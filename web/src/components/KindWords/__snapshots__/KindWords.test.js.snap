@@ -3,19 +3,78 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="Container KindWordsContainer"
+    class="Container py-16 undefined"
   >
     <h2
-      class="KindWordsH2"
+      class="text-center"
     >
       Kind Words
     </h2>
-    <a
-      class="Button"
-      href="/kindwords"
+    <div
+      class="Grid gap-3 items-center my-16"
     >
-      Read More
-    </a>
+      <div
+        class="flex justify-center"
+      >
+        <test-file-stub
+          classname="text-blue-dark fill-current w-10 h-10 box-border p-2 bg-gray-light rounded-full"
+        />
+      </div>
+      <div
+        class="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md"
+      >
+        <span
+          class="font-sans text-4xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4"
+        >
+          “Beautiful”
+        </span>
+        <p
+          class="m-0"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p
+          class="m-0 italic text-gray-darker"
+        >
+          -Anon B.
+        </p>
+      </div>
+      <div
+        class="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md"
+      >
+        <span
+          class="font-sans text-4xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4"
+        >
+          “Beautiful”
+        </span>
+        <p
+          class="m-0"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <p
+          class="m-0 italic text-gray-darker"
+        >
+          -Anon B.
+        </p>
+      </div>
+      <div
+        class="flex justify-center"
+      >
+        <test-file-stub
+          classname="text-blue-dark fill-current w-10 h-10  box-border p-2 origin-right transform rotate-180 bg-gray-light rounded-full"
+        />
+      </div>
+    </div>
+    <div
+      class="text-center"
+    >
+      <span
+        class="text-blue-dark font-body font-semibold rounded-md border border-blue-dark text-dark-blue py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark hover:text-white"
+      >
+        Read More
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
