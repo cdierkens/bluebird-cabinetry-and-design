@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../components/container";
 import Grid from "../components/Grid";
 import Select from "../components/Select";
-import LeftArrowIcon from "../icons/left-arrow.svg";
+import { LeftArrowIcon, RightArrowIcon } from "../icons";
 import Layout from "../Layout";
 
 const PortfolioPage = () => (
@@ -66,7 +66,7 @@ const PortfolioPage = () => (
 
       <Grid className="items-center">
         <div className="flex justify-center">
-          <LeftArrowIcon className="text-blue-dark fill-current w-10 h-10 box-border p-2 bg-gray-light rounded-full" />
+          <LeftArrowIcon className="h-10 bg-gray-light text-blue-dark" />
         </div>
 
         <div className="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md">
@@ -94,7 +94,7 @@ const PortfolioPage = () => (
         </div>
 
         <div className="flex justify-center">
-          <LeftArrowIcon className="text-blue-dark fill-current w-10 h-10  box-border p-2 origin-right transform rotate-180 bg-gray-light rounded-full" />
+          <RightArrowIcon className="h-10 bg-gray-light text-blue-dark" />
         </div>
       </Grid>
 
