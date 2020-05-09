@@ -17,7 +17,7 @@ exports[`matches snapshot 1`] = `
         class="flex justify-center"
       >
         <test-file-stub
-          classname="text-blue-dark fill-current w-10 h-10 box-border p-2 bg-gray-light rounded-full"
+          classname="p-2 fill-current rounded-full h-10 bg-gray-light text-blue-dark"
         />
       </div>
       <div
@@ -62,7 +62,7 @@ exports[`matches snapshot 1`] = `
         class="flex justify-center"
       >
         <test-file-stub
-          classname="text-blue-dark fill-current w-10 h-10  box-border p-2 origin-right transform rotate-180 bg-gray-light rounded-full"
+          classname="p-2 fill-current rounded-full transform rotate-180 h-10 bg-gray-light text-blue-dark"
         />
       </div>
     </div>

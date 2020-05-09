@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import LeftArrowIcon from "../../icons/left-arrow.svg";
+import { LeftArrowIcon, RightArrowIcon } from "../../icons";
 import Container from "../container";
 import Grid from "../Grid";
 
@@ -11,7 +11,7 @@ const KindWords = ({ className }) => {
 
       <Grid className="items-center my-16">
         <div className="flex justify-center">
-          <LeftArrowIcon className="text-blue-dark fill-current w-10 h-10 box-border p-2 bg-gray-light rounded-full" />
+          <LeftArrowIcon className="h-10 bg-gray-light text-blue-dark" />
         </div>
 
         <div className="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md">
@@ -39,7 +39,7 @@ const KindWords = ({ className }) => {
         </div>
 
         <div className="flex justify-center">
-          <LeftArrowIcon className="text-blue-dark fill-current w-10 h-10  box-border p-2 origin-right transform rotate-180 bg-gray-light rounded-full" />
+          <RightArrowIcon className="h-10 bg-gray-light text-blue-dark" />
         </div>
       </Grid>
 
