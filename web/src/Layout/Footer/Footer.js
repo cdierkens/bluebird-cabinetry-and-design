@@ -1,5 +1,5 @@
-import { Link } from "gatsby";
 import React from "react";
+import Button from "../../components/Button";
 import {
   BirdIcon,
   CkdIcon,
@@ -45,12 +45,9 @@ const Footer = () => (
           To The Trade Services
         </a>
 
-        <Link
-          to="/contact"
-          className="font-body font-semibold rounded-md border-2 border-white text-white py-1 px-9 text-lg inline-block mb-5 mx-5 cursor-pointer hover:bg-gray-darkest my-6"
-        >
+        <Button to="/contact" variant="white" className="mb-5 mx-5 my-6">
           Start a Project
-        </Link>
+        </Button>
       </div>
 
       <div className="my-6 flex items-center justify-center flex-wrap">

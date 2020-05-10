@@ -1,17 +1,23 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { LeftArrowIcon, RightArrowIcon } from "../../icons";
+import Button from "../Button";
 import Container from "../container";
 import Grid from "../Grid";
 
 const KindWords = ({ className }) => {
+  const showArrows = false;
+  const showReadMore = false;
+
   return (
     <Container className={`py-16 ${className}`}>
       <h2 className="text-center">Kind Words</h2>
 
       <Grid className="items-center my-16">
         <div className="flex justify-center">
-          <LeftArrowIcon className="h-10 bg-gray-light text-blue-dark" />
+          {showArrows && (
+            <LeftArrowIcon className="h-10 bg-gray-light text-blue-dark" />
+          )}
         </div>
 
         <div className="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md">
@@ -38,16 +44,20 @@ const KindWords = ({ className }) => {
           <p className="m-0 italic text-gray-darker">-Anon B.</p>
         </div>
 
-        <div className="flex justify-center">
-          <RightArrowIcon className="h-10 bg-gray-light text-blue-dark" />
+        <div className="flex justify-center" hidden>
+          {showArrows && (
+            <RightArrowIcon className="h-10 bg-gray-light text-blue-dark" />
+          )}
         </div>
       </Grid>
 
-      <div className="text-center">
-        <span className="text-blue-dark font-body font-semibold rounded-md border border-blue-dark text-dark-blue py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark hover:text-white">
-          Read More
-        </span>
-      </div>
+      {showReadMore && (
+        <div className="text-center" hidden>
+          <Button variant="blue" to="/">
+            Read More
+          </Button>
+        </div>
+      )}
     </Container>
   );
 };

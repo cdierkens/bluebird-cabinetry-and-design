@@ -49,7 +49,7 @@ exports[`matches snapshot 1`] = `
           Portfolio
         </a>
         <a
-          class="Button"
+          class="ButtonBlue Button"
           href="/contact"
         >
           Contact

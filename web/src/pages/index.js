@@ -1,8 +1,9 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Button from "../components/Button";
 import DesignPreview from "../components/DesignPreview";
 import KindWords from "../components/KindWords";
 import LearnMore from "../components/LearnMore";
@@ -87,6 +88,7 @@ const IndexPage = ({
           showThumbs={false}
           swipeable
           useKeyboardArrows
+          className={styles.Carousel}
         >
           {carouselImages.map(({ image }) => (
             <div key={image.file.asset.id}>
@@ -102,7 +104,11 @@ const IndexPage = ({
           ))}
         </Carousel>
       ) : (
-        <Carousel showStatus={false} showThumbs={false}>
+        <Carousel
+          showStatus={false}
+          showThumbs={false}
+          className={styles.Carousel}
+        >
           <span>Loading...</span>
         </Carousel>
       )}
@@ -111,9 +117,9 @@ const IndexPage = ({
         <span className={styles.GetStartedText}>
           Get Started On Your Dream Renovations Today!
         </span>
-        <Link to="/getstarted" className={styles.GetStartedLink}>
+        <Button variant="white" to="/contact" className="mb-5 mx-5">
           Start Here
-        </Link>
+        </Button>
       </div>
 
       <DesignPreview
