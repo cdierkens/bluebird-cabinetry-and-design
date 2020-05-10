@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/Button";
 import Container from "../components/container";
 import Grid from "../components/Grid";
 import Layout from "../Layout";
@@ -119,9 +120,9 @@ const ServicesPage = () => (
         <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
           Get Started On Your Dream Renovations Today!
         </span>
-        <span className="font-body font-semibold rounded-md border border-white text-white py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark  ">
+        <Button variant="white" to="/contact" className="mb-5 mx-5">
           Start Here
-        </span>
+        </Button>
       </Container>
     </div>
 

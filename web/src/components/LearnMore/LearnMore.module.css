@@ -7,9 +7,5 @@
 }
 
 .LearnMoreLink {
-  @apply font-body font-semibold rounded-md border border-blue-dark text-blue-dark py-3 px-9 text-xl inline-block mb-5 mx-5;
-}
-
-.LearnMoreLink:hover {
-  @apply bg-blue-dark text-white;
+  @apply mb-5 mx-5;
 }

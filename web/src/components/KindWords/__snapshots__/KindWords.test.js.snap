@@ -15,11 +15,7 @@ exports[`matches snapshot 1`] = `
     >
       <div
         class="flex justify-center"
-      >
-        <test-file-stub
-          classname="p-2 fill-current stroke-current inline-block fill-current rounded-full h-10 bg-gray-light text-blue-dark"
-        />
-      </div>
+      />
       <div
         class="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md"
       >
@@ -60,20 +56,8 @@ exports[`matches snapshot 1`] = `
       </div>
       <div
         class="flex justify-center"
-      >
-        <test-file-stub
-          classname="p-2 fill-current stroke-current inline-block fill-current rounded-full transform rotate-180 h-10 bg-gray-light text-blue-dark"
-        />
-      </div>
-    </div>
-    <div
-      class="text-center"
-    >
-      <span
-        class="text-blue-dark font-body font-semibold rounded-md border border-blue-dark text-dark-blue py-3 px-9 text-xl inline-block mb-5 mx-5 hover:bg-blue-dark hover:text-white"
-      >
-        Read More
-      </span>
+        hidden=""
+      />
     </div>
   </div>
 </DocumentFragment>

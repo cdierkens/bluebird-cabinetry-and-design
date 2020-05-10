@@ -60,3 +60,9 @@ h5 {
 h6 {
   @apply text-lg;
 }
+
+a:hover,
+a:active,
+a:focus {
+  @apply text-gold;
+}

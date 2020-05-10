@@ -1,0 +1,27 @@
+.Button {
+  @apply font-body font-semibold rounded-md border-2 py-2 px-9 text-lg inline-block cursor-pointer;
+}
+
+.ButtonWhite {
+  @apply Button;
+  @apply border-white text-white;
+}
+
+.ButtonWhite:hover,
+.ButtonWhite:active,
+.ButtonWhite:focus,
+.ButtonWhiteActive {
+  @apply bg-gold text-white;
+}
+
+.ButtonBlue {
+  @apply Button;
+  @apply border-blue-dark text-blue-dark;
+}
+
+.ButtonBlue:hover,
+.ButtonBlue:active,
+.ButtonBlue:focus,
+.ButtonBlueActive {
+  @apply bg-blue-dark text-white;
+}
