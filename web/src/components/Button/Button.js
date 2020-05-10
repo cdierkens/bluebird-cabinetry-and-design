@@ -7,10 +7,10 @@ const Button = ({ variant, className, children, to }) => (
   <Link
     to={to}
     className={`${
-      variant ? styles.ButtonWhite : styles.ButtonBlue
+      variant === "white" ? styles.ButtonWhite : styles.ButtonBlue
     } ${className}`}
     activeClassName={
-      variant ? styles.ButtonWhiteActive : styles.ButtonBlueActive
+      variant === "white" ? styles.ButtonWhiteActive : styles.ButtonBlueActive
     }
   >
     {children}

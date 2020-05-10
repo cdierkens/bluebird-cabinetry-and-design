@@ -36,7 +36,7 @@ const Links = () => (
     >
       Portfolio
     </Link>
-    <Button className={styles.Button} to="/contact">
+    <Button variant="blue" className={styles.Button} to="/contact">
       Contact
     </Button>
   </>

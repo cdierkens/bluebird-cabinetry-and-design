@@ -53,7 +53,9 @@ const KindWords = ({ className }) => {
 
       {showReadMore && (
         <div className="text-center" hidden>
-          <Button to="/">Read More</Button>
+          <Button variant="blue" to="/">
+            Read More
+          </Button>
         </div>
       )}
     </Container>

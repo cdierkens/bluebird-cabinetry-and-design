@@ -6,7 +6,7 @@ const LearnMore = () => {
   return (
     <div className={styles.LearnMoreContainer}>
       <span className={styles.LearnMoreText}>Interested in learning more?</span>
-      <Button to="/contact" className={styles.LearnMoreLink}>
+      <Button variant="blue" to="/contact" className={styles.LearnMoreLink}>
         Contact Us
       </Button>
     </div>
