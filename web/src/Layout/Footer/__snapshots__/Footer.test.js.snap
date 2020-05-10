@@ -3,21 +3,93 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="Footer text-center text-gray-light p-5"
+    class="bg-gray-darker text-center text-gray-light p-5 text-sm leading-loose"
   >
-    <div>
-      <img
-        alt="Bluebird Logo"
-        class="w-40 inline-block"
-        src="test-file-stub"
+    <div
+      class="my-6"
+    >
+      <test-file-stub
+        classname="p-2 fill-current stroke-current inline-block h-24 text-white"
       />
     </div>
-    <div>
-      Bluebird Cabinetry and Design
+    <div
+      class="my-6"
+    >
+      <div>
+        <a
+          class="underline"
+          href="tel:1-513-668-4529"
+        >
+          (513) 668‐4529
+        </a>
+      </div>
+      <div>
+        <a
+          class="underline text-sm sm:text-base"
+          href="mailto:dana@bluebirdcabinetryanddesign.com"
+        >
+          dana@bluebirdcabinetryanddesign.com
+        </a>
+      </div>
+    </div>
+    <div
+      class="my-6 flex items-center justify-center flex-wrap"
+    >
+      <a
+        href="/"
+      >
+        <test-file-stub
+          classname="p-2 fill-current stroke-current inline-block h-12 text-white"
+        />
+      </a>
+      <a
+        href="/"
+      >
+        <test-file-stub
+          classname="p-2 fill-current stroke-current inline-block h-12 text-white"
+        />
+      </a>
+      <a
+        class="underline"
+        href="/"
+      >
+        To The Trade Services
+      </a>
+      <a
+        class="font-body font-semibold rounded-md border-2 border-white text-white py-1 px-9 text-lg inline-block mb-5 mx-5 cursor-pointer hover:bg-gray-darkest my-6"
+        href="/contact"
+      >
+        Start a Project
+      </a>
+    </div>
+    <div
+      class="my-6 flex items-center justify-center flex-wrap"
+    >
+      <a
+        href="/"
+      >
+        <test-file-stub
+          classname="p-2 fill-current stroke-current inline-block h-10 text-white"
+        />
+      </a>
+      <a
+        href="/"
+      >
+        <test-file-stub
+          classname="p-2 fill-current stroke-current inline-block h-20 text-white"
+        />
+      </a>
+      <a
+        href="/"
+      >
+        <test-file-stub
+          classname="p-2 fill-current stroke-current inline-block h-10 text-white"
+        />
+      </a>
     </div>
   </div>
   <div
-    class="bg-gray-darkest p-2 text-xs text-center text-gray-light"
+    class="bg-gray-darkest px-2 py-6 text-xs text-center text-gray-light"
   >
     © 2020 Bluebird Cabinetry & Design LLC. All Rights Reserved.
   </div>
