@@ -28,21 +28,21 @@ const Icons = () => (
         <hr className="my-6" />
 
         <div className="grid gap-3 grid-cols-5 items-center p-2">
-          <Icon className="h-8 fill-current bg-blue-dark text-white" />
-          <Icon className="h-10 fill-current bg-blue-dark text-white" />
-          <Icon className="h-12 fill-current bg-blue-dark text-white" />
-          <Icon className="h-16 fill-current bg-blue-dark text-white" />
-          <Icon className="h-20 fill-current bg-blue-dark text-white" />
+          <Icon className="h-8 bg-blue-dark text-white" />
+          <Icon className="h-10 bg-blue-dark text-white" />
+          <Icon className="h-12 bg-blue-dark text-white" />
+          <Icon className="h-16 bg-blue-dark text-white" />
+          <Icon className="h-20 bg-blue-dark text-white" />
         </div>
 
         <hr className="my-6" />
 
         <div className="grid gap-3 grid-cols-5 items-center p-2 bg-blue-dark">
-          <Icon className="h-8 fill-current text-white" />
-          <Icon className="h-10 fill-current text-white" />
-          <Icon className="h-12 fill-current text-white" />
-          <Icon className="h-16 fill-current text-white" />
-          <Icon className="h-20 fill-current text-white" />
+          <Icon className="h-8 text-white" />
+          <Icon className="h-10 text-white" />
+          <Icon className="h-12 text-white" />
+          <Icon className="h-16 text-white" />
+          <Icon className="h-20 text-white" />
         </div>
 
         <hr className="my-6" />
