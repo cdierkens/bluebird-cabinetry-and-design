@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../components/container";
 import KindWords from "../components/KindWords";
+import Publications from "../components/Publications/Publications";
 import Select from "../components/Select";
 import Layout from "../Layout";
 
@@ -62,11 +63,7 @@ const PortfolioPage = () => (
 
     <KindWords />
 
-    <div className="bg-blue-dark py-6">
-      <Container>
-        <h2 className="text-center text-white">Publications</h2>
-      </Container>
-    </div>
+    <Publications />
   </Layout>
 );
 

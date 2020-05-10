@@ -3,13 +3,63 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="PublicationsContainer"
+    class="bg-blue-dark py-6"
   >
-    <h2
-      class="PublicationsH2"
+    <div
+      class="Container "
     >
-      Publications
-    </h2>
+      <h2
+        class="text-center text-white m-0 mb-3"
+      >
+        Publications
+      </h2>
+      <div
+        class="Grid gap-3 "
+      >
+        <div
+          class="col-span-3 sm:col-span-2 md:col-start-2 text-center mt-3"
+        >
+          <test-file-stub
+            classname="p-2 fill-current stroke-current inline-block text-white h-16 mb-1"
+          />
+          <span
+            class="font-sans text-lg text-white font-bold block"
+          >
+            2017 National
+            <br />
+            Shiloh Brochure
+          </span>
+        </div>
+        <div
+          class="col-span-3 sm:col-span-2 text-center mt-3"
+        >
+          <test-file-stub
+            classname="p-2 fill-current stroke-current inline-block text-white h-16 mb-1"
+          />
+          <span
+            class="font-sans text-lg text-white font-bold block"
+          >
+            BEST Fine Homes
+            <br />
+            Magazine
+          </span>
+        </div>
+        <div
+          class="col-span-3 sm:col-span-2 text-center mt-3"
+        >
+          <test-file-stub
+            classname="p-2 fill-current stroke-current inline-block text-white h-16 mb-1"
+          />
+          <span
+            class="font-sans text-lg text-white font-bold block"
+          >
+            2019 National
+            <br />
+            Shiloh Brochure
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

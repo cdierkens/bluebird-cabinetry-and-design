@@ -24,8 +24,8 @@ import Rendering from "./rendering.svg";
 import Shield from "./shield.svg";
 import ShilowCabinetry from "./shilow-cabinetry.svg";
 
-const baseClass = "p-2";
-const iconBaseClass = "fill-none stroke-current stroke-4";
+const baseClass = "p-2 fill-current stroke-current inline-block";
+const iconBaseClass = "fill-none stroke-4";
 const roundedBaseClass = "rounded-full";
 
 // Bluebird
