@@ -1,7 +1,3 @@
-.Carousel {
-  height: calc(100vh - 102px);
-}
-
 .GetStartedContainer {
   @apply bg-gradient-blue-turquoise text-center;
 }
