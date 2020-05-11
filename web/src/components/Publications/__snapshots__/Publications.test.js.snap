@@ -20,7 +20,7 @@ exports[`matches snapshot 1`] = `
           class="col-span-3 sm:col-span-2 md:col-start-2 text-center mt-3"
         >
           <test-file-stub
-            classname="p-2 fill-current stroke-current inline-block text-white h-16 mb-1"
+            classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
           />
           <span
             class="font-sans text-lg text-white font-bold block"
@@ -34,7 +34,7 @@ exports[`matches snapshot 1`] = `
           class="col-span-3 sm:col-span-2 text-center mt-3"
         >
           <test-file-stub
-            classname="p-2 fill-current stroke-current inline-block text-white h-16 mb-1"
+            classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
           />
           <span
             class="font-sans text-lg text-white font-bold block"
@@ -48,7 +48,7 @@ exports[`matches snapshot 1`] = `
           class="col-span-3 sm:col-span-2 text-center mt-3"
         >
           <test-file-stub
-            classname="p-2 fill-current stroke-current inline-block text-white h-16 mb-1"
+            classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
           />
           <span
             class="font-sans text-lg text-white font-bold block"
