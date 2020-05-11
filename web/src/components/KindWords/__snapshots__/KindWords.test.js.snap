@@ -11,53 +11,180 @@ exports[`matches snapshot 1`] = `
       Kind Words
     </h2>
     <div
-      class="Grid gap-3 items-center my-16"
+      class="Grid gap-3 items-center"
     >
       <div
         class="flex justify-center"
-      />
-      <div
-        class="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md"
       >
-        <span
-          class="font-sans text-4xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4"
+        <button
+          class="transition-opacity ease-out duration-300 opacity-0 pointer-events-none"
         >
-          “Beautiful”
-        </span>
-        <p
-          class="m-0"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p
-          class="m-0 italic text-gray-darker"
-        >
-          -Anon B.
-        </p>
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-current rounded-full h-10 bg-gray-light text-blue-dark cursor-pointer p-2"
+          />
+        </button>
       </div>
       <div
-        class="relative leading-loose text-center border border-gray-light col-span-3 p-10 rounded-md"
+        class="col-span-6 overflow-hidden pt-3 order-first md:order-none"
       >
-        <span
-          class="font-sans text-4xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4"
+        <div
+          class="flex transition-transform ease-out duration-300"
+          style="transform: translateX(-0%);"
         >
-          “Beautiful”
-        </span>
-        <p
-          class="m-0"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <p
-          class="m-0 italic text-gray-darker"
-        >
-          -Anon B.
-        </p>
+          <div
+            class="relative leading-loose text-center min-w-full sm:min-w-1/2 px-2"
+          >
+            <span
+              class="leading-none font-sans text-3xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4"
+            >
+              “Recommend!”
+            </span>
+            <div
+              class="w-full h-full flex justify-center items-center flex-col border border-gray-light rounded-md px-2 md:px-3 pt-4 py-1"
+            >
+              <p
+                class="m-0"
+              >
+                Dana helped us remodel our kitchen and we then carried that over to our living room. She was amazing! She helped us coordinate and order everything and gave us plenty of samples of every decision there was to be made!
+              </p>
+              <p
+                class="m-0 italic text-gray-darker"
+              >
+                -Kelly Rodriguez
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative leading-loose text-center min-w-full sm:min-w-1/2 px-2"
+          >
+            <span
+              class="leading-none font-sans text-3xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4"
+            >
+              “Beautiful!”
+            </span>
+            <div
+              class="w-full h-full flex justify-center items-center flex-col border border-gray-light rounded-md px-2 md:px-3 pt-4 py-1"
+            >
+              <p
+                class="m-0"
+              >
+                Dana has helped with some upgrades in our kitchen, would definitely use her talent again on future home projects!
+              </p>
+              <p
+                class="m-0 italic text-gray-darker"
+              >
+                -Katie Gillespie
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative leading-loose text-center min-w-full sm:min-w-1/2 px-2"
+          >
+            <span
+              class="leading-none font-sans text-3xl bg-white absolute top-0 inset-x-auto transform -translate-y-1/2 -translate-x-1/2 px-4"
+            >
+              “Wow!”
+            </span>
+            <div
+              class="w-full h-full flex justify-center items-center flex-col border border-gray-light rounded-md px-2 md:px-3 pt-4 py-1"
+            >
+              <p
+                class="m-0"
+              >
+                Dana is amazing at what she does!! We went into our plan with some small idea of what we wanted our kitchen remodel to look like, but Dana brought it to life!! We are overjoyed with the design and all of the specialty things she added. Her knowledge about cabinets/tile/countertops was fabulous and really helped in the guidance of our Beautiful new kitchen layout!! We highly recommend Dana Snyder!
+              </p>
+              <p
+                class="m-0 italic text-gray-darker"
+              >
+                -Melissa Knapp
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative leading-loose text-center min-w-full sm:min-w-1/2 px-2"
+          >
+            <div
+              class="w-full h-full flex justify-center items-center flex-col border border-gray-light rounded-md px-2 md:px-3 pt-4 py-1"
+            >
+              <p
+                class="m-0"
+              >
+                I bought a home in the Mason area. It had a small kitchen with an awkward layout. Dana designed a beautiful kitchen for me. Maximizing every inch of storage, she made the space much more functional.
+              </p>
+              <p
+                class="m-0 italic text-gray-darker"
+              >
+                -Jessica Snyder
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative leading-loose text-center min-w-full sm:min-w-1/2 px-2"
+          >
+            <div
+              class="w-full h-full flex justify-center items-center flex-col border border-gray-light rounded-md px-2 md:px-3 pt-4 py-1"
+            >
+              <p
+                class="m-0"
+              >
+                On behalf of myself and my brother Rocky deStefano, we would highly recommend Dana for all of your cabinet design, and material needs. Dana, has done a lot of great work for us and our clients and she's very thorough and professional. Thanks Dana for all the great work!
+              </p>
+              <p
+                class="m-0 italic text-gray-darker"
+              >
+                -Dan DeStefano
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative leading-loose text-center min-w-full sm:min-w-1/2 px-2"
+          >
+            <div
+              class="w-full h-full flex justify-center items-center flex-col border border-gray-light rounded-md px-2 md:px-3 pt-4 py-1"
+            >
+              <p
+                class="m-0"
+              >
+                I am a remodeling contractor who has worked with Dana for the past several years. She is very thorough and detail oriented when designing kitchen and bathroom plans. She works with each client to customize their wants and needs. I enjoy working with Dana and highly recommend her for your next project.
+              </p>
+              <p
+                class="m-0 italic text-gray-darker"
+              >
+                -Jeff Cann
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative leading-loose text-center min-w-full sm:min-w-1/2 px-2"
+          >
+            <div
+              class="w-full h-full flex justify-center items-center flex-col border border-gray-light rounded-md px-2 md:px-3 pt-4 py-1"
+            >
+              <p
+                class="m-0"
+              >
+                Dana helped us with our basement bar area and we could not be more pleased. She designed a new layout and helped us pick all of the finishes. Her ideas and attention to detail by far exceeded the expectations we had for the space. I'm in love with how it turned out! We would highly recommend Dana!!
+              </p>
+              <p
+                class="m-0 italic text-gray-darker"
+              >
+                -Tara Beismann
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div
-        class="flex justify-center"
-        hidden=""
-      />
+        class="flex justify-center col-start-6 md:col-start-auto"
+      >
+        <button
+          class="transition-opacity ease-out duration-300 opacity-100"
+        >
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-current rounded-full transform rotate-180 h-10 bg-gray-light text-blue-dark cursor-pointer p-2"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </DocumentFragment>

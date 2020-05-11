@@ -34,6 +34,9 @@ module.exports = {
       fill: {
         none: "none",
       },
+      minWidth: {
+        "1/2": "50%",
+      },
       opacity: {
         85: ".85",
       },
