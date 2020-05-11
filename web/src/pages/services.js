@@ -1,121 +1,138 @@
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import Button from "../components/Button";
 import Container from "../components/container";
 import Grid from "../components/Grid";
+import {
+  AspectCabinetryIcon,
+  CheckIcon,
+  EclipseCabinetryIcon,
+  JKCabinetryIcon,
+  ShilowCabinetryIcon,
+} from "../icons";
+import rendering from "../images/services-rendering.png";
 import Layout from "../Layout";
+
+const ListItem = ({ title, children }) => (
+  <li>
+    <CheckIcon className="bg-blue-dark text-white w-4 h-4 absolute left-0 transform translate-x-4 translate-y-3 p-1" />
+    <span className="text-blue-dark text-2xl font-semibold">{title}</span>
+    <p>{children}</p>
+  </li>
+);
+
+ListItem.propTypes = {
+  children: PropTypes.node,
+  title: PropTypes.string,
+};
+
+const DesignProcessItem = ({ title, number, children }) => {
+  return (
+    <div className="bg-white relative mt-16 p-8 px-24">
+      <span className="absolute top-0 left-0 text-white bg-blue-dark text-xl font-bold py-8 px-6 bg-gradient-vertical-blue-gray">
+        {number}
+      </span>
+
+      <h3>{title}</h3>
+
+      <p className="leading-loose">{children}</p>
+    </div>
+  );
+};
+
+DesignProcessItem.propTypes = {
+  children: PropTypes.node,
+  title: PropTypes.string,
+  number: PropTypes.number,
+};
 
 const ServicesPage = () => (
   <Layout title="Services">
     <Container>
       <Grid>
-        <figure className="col-span-3 sm:col-span-6 md:col-span-3 md:col-start-2 mb-16 md:mb-0">
-          <img
-            className="w-full"
-            src="https://via.placeholder.com/458"
-            alt="Placeholder"
-          />
+        <div className="col-span-3 sm:col-span-6 md:col-span-3 mb-16 md:mb-0">
+          <img className="w-full" src={rendering} alt="Rendering" />
+        </div>
 
-          <figcaption>3D Drafting Example</figcaption>
-        </figure>
-
-        <div className="col-span-3 sm:col-span-6 md:col-span-3">
-          <ul className="list-disc pl-10">
-            <li>Cabinetry Design &amp; Sales </li>
-            <li>
-              Remodeling
+        <div className="col-span-3 sm:col-span-6 md:col-span-3 md:col-start-5">
+          <ul className="relative pl-10">
+            <ListItem title="Cabinetry Design &amp; Sales" />
+            <ListItem title="Remodeling">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
-                faucibus. Nullam porttitor sit amet ex.
+                Whole Home Renovations, Kitchens, Bathrooms, Laundry Rooms,
+                Lower Levels, Office Spaces, Beverage Centers, and Entertainment
+                Spaces.
               </p>
-            </li>
-            <li>
-              3D Drafting
+            </ListItem>
+            <ListItem title="3D Drafting">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
-                faucibus. Nullam porttitor sit amet ex.
+                Drafting &amp; Modeling renderings using 2020 Kitchen &amp;
+                Bathroom Design Software.
               </p>
-            </li>
-            <li>Space Planning and Layout</li>
-            <li>
-              Selections
+            </ListItem>
+            <ListItem title="Space Planning and Layout" />
+            <ListItem title="Selections">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
-                faucibus. Nullam porttitor sit amet ex.
+                Appliances, Countertops, Plumbing Fixtures, Lighting Fixtures,
+                Cabinet Hardware, and Tile.
               </p>
-            </li>
+            </ListItem>
           </ul>
         </div>
       </Grid>
     </Container>
 
-    <Container>
-      <Grid>
+    <div className="bg-gray-light py-16">
+      <Container>
         <h2 className="text-center col-span-3 sm:col-span-6 md:col-span-8 text-blue-dark">
           Design Process
         </h2>
 
-        <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3>Initial Meeting</h3>
+        <DesignProcessItem title="Initial Meeting" number="1">
+          The initial appointment takes 1 ½ - 2 ½ hours and consists of an
+          initial interview about the spaces you would like to improve.
+          Measurements will be taken at that time and a questionnaire filled out
+          to get in depth knowledge of how you want to improve your spaces.
+        </DesignProcessItem>
 
-          <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
-            1
-          </span>
+        <DesignProcessItem
+          title="Design Review &amp; Cabinet Selections"
+          number="2"
+        >
+          Before the design process can start a signed contract must be
+          submitted to the designer. At the design review we will look at 1-3
+          options for a layout and gain access to computer generated images of
+          the space(s). We will start to make specific selections of finishes,
+          door styles, accessories, and other items.
+        </DesignProcessItem>
 
-          <p className="leading-loose">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
-            faucibus. Nullam porttitor sit amet ex.
-          </p>
-        </div>
+        <DesignProcessItem title="Material Selections" number="3">
+          At this appointment we will select all other materials such as
+          countertops, plumbing fixtures, lighting fixtures, tile, hardware, or
+          any other types of materials used in your project. This will happen at
+          various local preferred showrooms.
+        </DesignProcessItem>
 
-        <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3>Initial Meeting</h3>
+        <DesignProcessItem title="Final Design Review" number="4">
+          This appointment happens at the client's home or the cabinetry
+          showroom. We will comb through the intricate details of the design. If
+          desired we can look at each space and decide how we can use specialty
+          storage and accessories, what fits and what can be forgotten. We will
+          make minor changes to the design to accept these details and review
+          some of the costs involved.
+        </DesignProcessItem>
 
-          <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
-            2
-          </span>
+        <p className="text-center mt-12 text-sm">
+          To-The-Trade Process/Services:{" "}
+          <Link to="/contact" className="underline">
+            Contact Dana
+          </Link>
+        </p>
+      </Container>
+    </div>
 
-          <p className="leading-loose">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
-            faucibus. Nullam porttitor sit amet ex.
-          </p>
-        </div>
-
-        <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3>Initial Meeting</h3>
-
-          <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
-            3
-          </span>
-
-          <p className="leading-loose">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
-            faucibus. Nullam porttitor sit amet ex.
-          </p>
-        </div>
-
-        <div className="bg-gray-light col-span-3 sm:col-span-6 md:col-span-4 p-10 relative mt-16">
-          <h3>Initial Meeting</h3>
-
-          <span className="absolute top-0 text-gray-darker text-6xl font-bold text-opacity-50 transform -translate-y-1/2">
-            4
-          </span>
-
-          <p className="leading-loose">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            dictum vel libero ac mollis. Fusce sollicitudin finibus leo quis
-            faucibus. Nullam porttitor sit amet ex.
-          </p>
-        </div>
-      </Grid>
-    </Container>
-
-    <div className="bg-gradient-blue-turquoise text-center mt-24 mb-16">
+    <div className="bg-gradient-blue-turquoise text-center">
       <Container>
         <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
           Get Started On Your Dream Renovations Today!
@@ -126,19 +143,23 @@ const ServicesPage = () => (
       </Container>
     </div>
 
-    <Container className="pb-24">
-      <Grid>
-        <h2 className="text-center col-span-3 sm:col-span-6 md:col-span-8 text-blue-dark">
-          Material Sources
-        </h2>
+    <Container className="pt-16 pb-24">
+      <h2 className="text-center text-blue-dark">Material Sources</h2>
 
-        <div className="col-span-3 sm:col-span-6 md:col-start-2 flex flex-wrap justify-around">
-          <div className="bg-gray-light w-40 h-40 my-6"></div>
-          <div className="bg-gray-light w-40 h-40 my-6"></div>
-          <div className="bg-gray-light w-40 h-40 my-6"></div>
-          <div className="bg-gray-light w-40 h-40 my-6"></div>
-        </div>
-      </Grid>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center text-center">
+        <a href="https://www.shilohcabinetry.com/">
+          <ShilowCabinetryIcon className="h-16" />
+        </a>
+        <a href="https://www.aspectcabinetry.com/">
+          <AspectCabinetryIcon className="h-16" />
+        </a>
+        <a href="http://www.jkcabinetohio.com/">
+          <JKCabinetryIcon className="h-16" />
+        </a>
+        <a href="https://www.eclipsecabinetry.com/">
+          <EclipseCabinetryIcon className="h-16" />
+        </a>
+      </div>
     </Container>
   </Layout>
 );

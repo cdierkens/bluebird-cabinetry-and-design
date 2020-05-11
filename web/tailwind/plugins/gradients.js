@@ -8,6 +8,9 @@ module.exports = plugin(function ({ addUtilities, e, theme, variants }) {
     [`.bg-gradient-${e(name)}`]: {
       backgroundImage: `linear-gradient(to right, ${start}, ${end})`,
     },
+    [`.bg-gradient-vertical-${e(name)}`]: {
+      backgroundImage: `linear-gradient(${start}, ${end})`,
+    },
   }));
 
   addUtilities(utilities, gradientVariants);
