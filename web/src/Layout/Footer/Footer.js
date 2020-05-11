@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import Button from "../../components/Button";
 import {
@@ -33,17 +34,22 @@ const Footer = () => (
       </div>
 
       <div className="my-6 flex items-center justify-center flex-wrap">
-        <a href="/">
+        <a
+          className="mx-2"
+          href="https://www.facebook.com/kitchenandbathdesigner/"
+        >
           <FacebookIcon className="h-12 text-white" />
+          <span className="sr-only">Facebook</span>
         </a>
 
-        <a href="/">
+        <a className="mx-2" href="https://www.instagram.com/danasnyderckd/">
           <InstagramIcon className="h-12 text-white" />
+          <span className="sr-only">Instagram</span>
         </a>
 
-        <a href="/" className="underline">
+        <Link className="mx-2 underline" href="/">
           To The Trade Services
-        </a>
+        </Link>
 
         <Button to="/contact" variant="white" className="mb-5 mx-5 my-6">
           Start a Project
@@ -51,16 +57,19 @@ const Footer = () => (
       </div>
 
       <div className="my-6 flex items-center justify-center flex-wrap">
-        <a href="/">
+        <a className="mx-2" href="https://nkba.org/dana-snyder">
           <NkbaIcon className="h-10 text-white" />
+          <span className="sr-only">National Kitchen and Bath Association</span>
         </a>
 
-        <a href="/">
-          <CkdIcon className="h-20 text-white" />
-        </a>
+        <CkdIcon className="mx-2 h-20 text-white" />
 
-        <a href="/">
+        <a
+          className="mx-2 px-3"
+          href="https://www.houzz.com/professionals/kitchen-and-bath-designers/dana-snyder-ckd-pfvwus-pf~1099041723"
+        >
           <HouzzIcon className="h-10 text-white" />
+          <span className="sr-only">Houzz</span>
         </a>
       </div>
     </div>
