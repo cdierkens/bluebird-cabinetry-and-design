@@ -88,7 +88,7 @@ const IndexPage = ({
           showThumbs={false}
           swipeable
           useKeyboardArrows
-          className={styles.Carousel}
+          style={{ height: `${imageSize.height - 102}px` }}
         >
           {carouselImages.map(({ image }) => (
             <div key={image.file.asset.id}>
@@ -104,11 +104,7 @@ const IndexPage = ({
           ))}
         </Carousel>
       ) : (
-        <Carousel
-          showStatus={false}
-          showThumbs={false}
-          className={styles.Carousel}
-        >
+        <Carousel showStatus={false} showThumbs={false}>
           <span>Loading...</span>
         </Carousel>
       )}
