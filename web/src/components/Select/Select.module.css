@@ -1,9 +1,9 @@
 .SelectWrapper {
-  @apply inline-block relative w-64;
+  @apply block mb-2;
 }
 
 .Select {
-  @apply block appearance-none w-full bg-gray-light border border-gray-light px-4 py-2 pr-8 leading-tight font-sans font-medium;
+  @apply block appearance-none w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm;
 }
 
 .Select:focus {

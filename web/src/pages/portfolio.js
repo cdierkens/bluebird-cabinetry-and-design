@@ -10,12 +10,10 @@ const PortfolioPage = () => (
   <Layout title="Portfolio">
     <Container>
       <h2>Room</h2>
-      <Select>
-        <Select.Option>Option 1 is a really really long option</Select.Option>
-        <Select.Option>Option 2</Select.Option>
-        <Select.Option>Option 3</Select.Option>
-        <Select.Option>Option 4</Select.Option>
-        <Select.Option>Option 5</Select.Option>
+      <Select label="Room type">
+        <Select.Option value="kitchen">Kitchen</Select.Option>
+        <Select.Option value="bathroom">Bathroom</Select.Option>
+        <Select.Option value="other">Other</Select.Option>
       </Select>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6">

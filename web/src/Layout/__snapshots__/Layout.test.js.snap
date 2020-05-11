@@ -58,7 +58,7 @@ exports[`matches snapshot 1`] = `
             Portfolio
           </a>
           <a
-            class="ButtonBlue Button"
+            class="ButtonBlue Button focus:outline-none focus:shadow-outline"
             href="/contact"
           >
             Contact
@@ -130,7 +130,7 @@ exports[`matches snapshot 1`] = `
           To The Trade Services
         </a>
         <a
-          class="ButtonWhite mb-5 mx-5 my-6"
+          class="ButtonWhite mb-5 mx-5 my-6 focus:outline-none focus:shadow-outline"
           href="/contact"
         >
           Start a Project

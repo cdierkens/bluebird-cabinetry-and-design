@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <label
+    class="block relative pb-5 mb-2"
+  >
+    <span
+      class="block text-blue-dark text-base ml-1 mb-1"
+    >
+      mock-label
+    </span>
+    <input
+      class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm placeholder-gray-darker focus:outline-none focus:shadow-outline"
+      id="mock-id"
+      placeholder=""
+      type="text"
+      value=""
+    />
+  </label>
+</DocumentFragment>
+`;
