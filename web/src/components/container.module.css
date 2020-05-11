@@ -1,9 +1,9 @@
 .Container {
-  @apply max-w-screen-lg m-4;
+  @apply max-w-screen-lg mx-4;
 }
 
 @screen lg {
   .Container {
-    @apply m-auto;
+    @apply mx-auto;
   }
 }

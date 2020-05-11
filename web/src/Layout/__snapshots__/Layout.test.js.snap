@@ -110,22 +110,33 @@ exports[`matches snapshot 1`] = `
         class="my-6 flex items-center justify-center flex-wrap"
       >
         <a
-          href="/"
+          class="mx-2"
+          href="https://www.facebook.com/kitchenandbathdesigner/"
         >
           <test-file-stub
             classname="p-1 fill-current stroke-current inline-block h-12 text-white"
           />
+          <span
+            class="sr-only"
+          >
+            Facebook
+          </span>
         </a>
         <a
-          href="/"
+          class="mx-2"
+          href="https://www.instagram.com/danasnyderckd/"
         >
           <test-file-stub
             classname="p-1 fill-current stroke-current inline-block h-12 text-white"
           />
+          <span
+            class="sr-only"
+          >
+            Instagram
+          </span>
         </a>
         <a
-          class="underline"
-          href="/"
+          class="mx-2 underline"
         >
           To The Trade Services
         </a>
@@ -140,25 +151,33 @@ exports[`matches snapshot 1`] = `
         class="my-6 flex items-center justify-center flex-wrap"
       >
         <a
-          href="/"
+          class="mx-2"
+          href="https://nkba.org/dana-snyder"
         >
           <test-file-stub
             classname="p-1 fill-current stroke-current inline-block h-10 text-white"
           />
+          <span
+            class="sr-only"
+          >
+            National Kitchen and Bath Association
+          </span>
         </a>
+        <test-file-stub
+          classname="p-1 fill-current stroke-current inline-block mx-2 h-20 text-white"
+        />
         <a
-          href="/"
-        >
-          <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block h-20 text-white"
-          />
-        </a>
-        <a
-          href="/"
+          class="mx-2 px-3"
+          href="https://www.houzz.com/professionals/kitchen-and-bath-designers/dana-snyder-ckd-pfvwus-pf~1099041723"
         >
           <test-file-stub
             classname="p-1 fill-current stroke-current inline-block h-10 text-white"
           />
+          <span
+            class="sr-only"
+          >
+            Houzz
+          </span>
         </a>
       </div>
     </div>
