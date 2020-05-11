@@ -93,6 +93,7 @@ const ContactPage = () => (
                 value="professional"
                 label="Trade Professional"
                 group="type"
+                checked={false}
               />
             </fieldset>
 

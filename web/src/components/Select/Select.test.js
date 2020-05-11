@@ -3,7 +3,7 @@ import React from "react";
 import Select from "./Select";
 
 it("matches snapshot", () => {
-  const { asFragment } = render(<Select />);
+  const { asFragment } = render(<Select label="mock-label" />);
 
   expect(asFragment()).toMatchSnapshot();
 });

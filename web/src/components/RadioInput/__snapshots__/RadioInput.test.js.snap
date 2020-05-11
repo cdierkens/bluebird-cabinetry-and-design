@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <label
+      class="flex items-center"
+    >
+      <span
+        class="relative h-4 w-4"
+      >
+        <input
+          class="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline"
+          id="mock-value"
+          name="mock-group"
+          type="radio"
+          value="mock-value"
+        />
+        <span
+          class="absolute z-10 rounded-full inline-block w-full h-full bg-white"
+        />
+      </span>
+      <span
+        class="font-sans text-sm ml-2"
+      >
+        mock-label
+      </span>
+    </label>
+  </div>
+</DocumentFragment>
+`;

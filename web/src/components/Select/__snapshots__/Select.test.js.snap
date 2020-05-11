@@ -2,25 +2,34 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <label
     class="SelectWrapper"
   >
-    <select
-      class="Select"
-    />
-    <div
-      class="Arrow"
+    <span
+      class="block text-blue-dark text-base ml-1 mb-1"
     >
-      <svg
-        class="fill-current h-4 w-4"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
+      mock-label
+    </span>
+    <div
+      class="relative"
+    >
+      <select
+        class="Select"
+      />
+      <div
+        class="Arrow"
       >
-        <path
-          d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-        />
-      </svg>
+        <svg
+          class="fill-current h-4 w-4"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+          />
+        </svg>
+      </div>
     </div>
-  </div>
+  </label>
 </DocumentFragment>
 `;

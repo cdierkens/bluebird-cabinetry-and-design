@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-const RadioInput = ({ label, value, group, checked }) => (
+const RadioInput = ({ label, value, group, checked, onChange }) => (
   <div>
     <label className="flex items-center">
       <span className="relative h-4 w-4">
@@ -12,6 +12,7 @@ const RadioInput = ({ label, value, group, checked }) => (
           name={group}
           value={value}
           checked={checked}
+          onChange={onChange}
         />
         <span
           className={`absolute z-10 rounded-full inline-block w-full h-full ${
