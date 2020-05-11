@@ -24,6 +24,7 @@ module.exports = {
     },
     gradients: (theme) => ({
       "blue-turquoise": [theme("colors.blue.dark"), theme("colors.turquoise")],
+      "blue-gray": [theme("colors.blue.dark"), theme("colors.gray.dark")],
     }),
     extend: {
       fontFamily: {

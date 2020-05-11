@@ -9,7 +9,7 @@ exports[`matches snapshot 1`] = `
       class="my-6"
     >
       <test-file-stub
-        classname="p-2 fill-current stroke-current inline-block h-24 text-white"
+        classname="p-1 fill-current stroke-current inline-block h-24 text-white"
       />
     </div>
     <div
@@ -39,14 +39,14 @@ exports[`matches snapshot 1`] = `
         href="/"
       >
         <test-file-stub
-          classname="p-2 fill-current stroke-current inline-block h-12 text-white"
+          classname="p-1 fill-current stroke-current inline-block h-12 text-white"
         />
       </a>
       <a
         href="/"
       >
         <test-file-stub
-          classname="p-2 fill-current stroke-current inline-block h-12 text-white"
+          classname="p-1 fill-current stroke-current inline-block h-12 text-white"
         />
       </a>
       <a
@@ -69,21 +69,21 @@ exports[`matches snapshot 1`] = `
         href="/"
       >
         <test-file-stub
-          classname="p-2 fill-current stroke-current inline-block h-10 text-white"
+          classname="p-1 fill-current stroke-current inline-block h-10 text-white"
         />
       </a>
       <a
         href="/"
       >
         <test-file-stub
-          classname="p-2 fill-current stroke-current inline-block h-20 text-white"
+          classname="p-1 fill-current stroke-current inline-block h-20 text-white"
         />
       </a>
       <a
         href="/"
       >
         <test-file-stub
-          classname="p-2 fill-current stroke-current inline-block h-10 text-white"
+          classname="p-1 fill-current stroke-current inline-block h-10 text-white"
         />
       </a>
     </div>
