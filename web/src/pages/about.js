@@ -38,7 +38,7 @@ const AboutPage = () => (
           <img
             src={portrait}
             className="w-full p-1 shadow-md"
-            alt="Portrait of Dana Snyder"
+            alt="Portrait of Dana Snyder."
           />
         </div>
 
@@ -46,7 +46,7 @@ const AboutPage = () => (
           <img
             src={kitchen}
             className="w-full p-1 shadow-md"
-            alt="Portrait of Dana Snyder"
+            alt="Farm-house style kitchen."
           />
         </div>
 
