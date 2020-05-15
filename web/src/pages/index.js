@@ -6,7 +6,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Button from "../components/Button";
 import DesignPreview from "../components/DesignPreview";
 import KindWords from "../components/KindWords";
-import LearnMore from "../components/LearnMore";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
 import { useWindowSize } from "../hooks";
@@ -113,7 +112,7 @@ const IndexPage = ({
         <span className={styles.GetStartedText}>
           Get Started On Your Dream Renovations Today!
         </span>
-        <Button variant="white" to="/contact" className="mb-5 mx-5">
+        <Button variant="blue" to="/contact" className="mb-5 mx-5">
           Start Here
         </Button>
       </div>
@@ -129,8 +128,6 @@ const IndexPage = ({
       <KindWords />
 
       <Publications />
-
-      <LearnMore />
     </Layout>
   );
 };

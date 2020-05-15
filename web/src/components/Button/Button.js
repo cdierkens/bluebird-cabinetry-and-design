@@ -7,11 +7,9 @@ const Button = ({ variant, className, children, to, type, onClick }) => {
   const fullClassName = `${
     variant === "white" ? styles.ButtonWhite : styles.ButtonBlue
   } ${className} focus:outline-none focus:shadow-outline`;
-  const activeClassName =
-    variant === "white" ? styles.ButtonWhiteActive : styles.ButtonBlueActive;
 
   return type === "link" ? (
-    <Link to={to} className={fullClassName} activeClassName={activeClassName}>
+    <Link to={to} className={fullClassName}>
       {children}
     </Link>
   ) : (

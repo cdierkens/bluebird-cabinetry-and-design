@@ -22,7 +22,7 @@ const Layout = ({ errors, hidePageTitle, children, ...props }) =>
       <div className={styles.Layout}>
         <Header />
 
-        <main id="content" className={styles.Content}>
+        <main role="main" id="content" className={styles.Content}>
           {!hidePageTitle && <PageTitle>{props.title}</PageTitle>}
 
           {children}

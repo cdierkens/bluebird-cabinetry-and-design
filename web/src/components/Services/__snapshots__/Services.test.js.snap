@@ -9,13 +9,13 @@ exports[`matches snapshot 1`] = `
       class="Container ServicesGrid"
     >
       <div
-        class="Grid gap-3 "
+        class="grid grid-cols-2 sm:grid-cols-6"
       >
         <div
-          class="FirstIconContainer"
+          class="IconContainer"
         >
           <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
             Cabinetry Design 
@@ -27,7 +27,7 @@ exports[`matches snapshot 1`] = `
           class="IconContainer"
         >
           <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
             Remodeling
@@ -37,7 +37,7 @@ exports[`matches snapshot 1`] = `
           class="IconContainer"
         >
           <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
             New Construction
@@ -47,7 +47,7 @@ exports[`matches snapshot 1`] = `
           class="IconContainer"
         >
           <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
             Renderings
@@ -57,7 +57,7 @@ exports[`matches snapshot 1`] = `
           class="IconContainer"
         >
           <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
             Material & Appliance Selections
@@ -67,7 +67,7 @@ exports[`matches snapshot 1`] = `
           class="IconContainer"
         >
           <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
             Space Planning 

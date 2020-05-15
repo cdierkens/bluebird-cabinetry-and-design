@@ -17,7 +17,7 @@ import Layout from "../Layout";
 const ListItem = ({ title, children }) => (
   <li>
     <CheckIcon className="bg-blue-dark text-white w-4 h-4 absolute left-0 transform translate-x-4 translate-y-3 p-1" />
-    <span className="text-blue-dark text-2xl font-semibold">{title}</span>
+    <span className="text-blue-dark text-2xl font-medium">{title}</span>
     <p>{children}</p>
   </li>
 );
@@ -30,7 +30,7 @@ ListItem.propTypes = {
 const DesignProcessItem = ({ title, number, children }) => {
   return (
     <div className="bg-white relative mt-16 p-8 px-24">
-      <span className="absolute top-0 left-0 text-white bg-blue-dark text-xl font-bold py-8 px-6 bg-gradient-vertical-blue-gray">
+      <span className="absolute top-0 left-0 text-4xl text-blue-dark py-4 px-6">
         {number}
       </span>
 
@@ -52,7 +52,11 @@ const ServicesPage = () => (
     <Container>
       <Grid>
         <div className="col-span-3 sm:col-span-6 md:col-span-3 mb-16 md:mb-0">
-          <img className="w-full" src={rendering} alt="Rendering" />
+          <img
+            className="w-full p-1 shadow-md"
+            src={rendering}
+            alt="Rendering"
+          />
         </div>
 
         <div className="col-span-3 sm:col-span-6 md:col-span-3 md:col-start-5">
@@ -117,8 +121,8 @@ const ServicesPage = () => (
         <DesignProcessItem title="Final Design Review" number="4">
           This appointment happens at the client's home or the cabinetry
           showroom. We will comb through the intricate details of the design. If
-          desired we can look at each space and decide how we can use specialty
-          storage and accessories, what fits and what can be forgotten. We will
+          desired, we can look at each space and decide how we can use specialty
+          storage and accessories, what fits, and what can be forgotten. We will
           make minor changes to the design to accept these details and review
           some of the costs involved.
         </DesignProcessItem>
@@ -132,9 +136,9 @@ const ServicesPage = () => (
       </Container>
     </div>
 
-    <div className="bg-gradient-blue-turquoise text-center">
+    <div className="bg-blue-dark text-center">
       <Container>
-        <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+        <span className="font-sans font-medium text-white text-xl my-9 mx-5 inline-block">
           Get Started On Your Dream Renovations Today!
         </span>
         <Button variant="white" to="/contact" className="mb-5 mx-5">

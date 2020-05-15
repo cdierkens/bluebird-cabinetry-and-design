@@ -14,7 +14,7 @@ const Footer = () => (
   <>
     <div className="bg-gray-darker text-center text-gray-light p-5 text-sm leading-loose">
       <div className="my-6">
-        <BirdIcon className="h-24 text-white" />
+        <BirdIcon className="h-24 text-white stroke-none" />
       </div>
 
       <div className="my-6">
@@ -52,7 +52,7 @@ const Footer = () => (
         </Link>
 
         <Button to="/contact" variant="white" className="mb-5 mx-5 my-6">
-          Start a Project
+          Contact Us
         </Button>
       </div>
 

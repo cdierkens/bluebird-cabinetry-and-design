@@ -9,15 +9,14 @@ import {
 } from "../../icons";
 import Button from "../Button";
 import Container from "../container";
-import Grid from "../Grid";
 import styles from "./Services.module.css";
 
 const Services = () => {
   return (
     <div className={styles.ServicesContainer}>
       <Container className={styles.ServicesGrid}>
-        <Grid>
-          <div className={styles.FirstIconContainer}>
+        <div className="grid grid-cols-2 sm:grid-cols-6">
+          <div className={styles.IconContainer}>
             <DesignIcon className="h-12 mb-2 text-blue-dark" />
             <span>
               Cabinetry Design <br />& Sales
@@ -50,7 +49,7 @@ const Services = () => {
               Space Planning <br />& Layout
             </span>
           </div>
-        </Grid>
+        </div>
       </Container>
 
       <Container className="text-center pb-8 pt-4">

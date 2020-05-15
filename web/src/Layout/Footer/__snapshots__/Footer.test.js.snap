@@ -9,7 +9,7 @@ exports[`matches snapshot 1`] = `
       class="my-6"
     >
       <test-file-stub
-        classname="p-1 fill-current stroke-current inline-block h-24 text-white"
+        classname="p-1 fill-current stroke-current inline-block h-24 text-white stroke-none"
       />
     </div>
     <div
@@ -71,7 +71,7 @@ exports[`matches snapshot 1`] = `
         class="ButtonWhite mb-5 mx-5 my-6 focus:outline-none focus:shadow-outline"
         href="/contact"
       >
-        Start a Project
+        Contact Us
       </a>
     </div>
     <div

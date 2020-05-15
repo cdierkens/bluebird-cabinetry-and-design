@@ -9,7 +9,7 @@ const MobileNav = ({ children }) => {
 
   return (
     <div className={styles.MobileNav}>
-      <nav className="grid grid-cols-3 sm:grid-cols-6">
+      <nav className="grid grid-cols-2 sm:grid-cols-6">
         {!isOpen && (
           <div className="col-span-2 sm:col-span-5 absolute">
             <Link className="m-3 block" to="/">

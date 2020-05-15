@@ -3,9 +3,9 @@
 }
 
 .Logo {
-  @apply bg-blue-dark rounded-b-lg px-3 w-48 absolute z-10 transform origin-top transition duration-500 scale-100;
+  @apply bg-blue-dark rounded-b-lg px-3 w-40 absolute z-10 transform origin-top transition duration-500 scale-100 shadow-md;
 }
 
 .LogoTransform {
-  @apply scale-60;
+  @apply scale-75;
 }
