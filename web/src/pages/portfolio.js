@@ -28,13 +28,13 @@ const PortfolioPage = () => (
         <div className="bg-gray-light h-40 md:h-64"></div>
 
         <div>
-          <span className="bg-gray-light rounded-full text-center font-semibold p-1 inline-block w-8 h-8 mr-3">
+          <span className="bg-gray-light rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3">
             1
           </span>
-          <span className="bg-blue-dark text-white rounded-full text-center font-semibold p-1 inline-block w-8 h-8 mr-3">
+          <span className="bg-blue-dark text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3">
             2
           </span>
-          <span className="bg-gray-light rounded-full text-center font-semibold p-1 inline-block w-8 h-8 mr-3">
+          <span className="bg-gray-light rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3">
             3
           </span>
         </div>
@@ -51,8 +51,8 @@ const PortfolioPage = () => (
       </div>
     </Container>
 
-    <div className="bg-gradient-blue-turquoise text-center">
-      <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+    <div className="bg-blue-dark text-center">
+      <span className="font-sans font-medium text-white text-xl my-9 mx-5 inline-block">
         Get Started On Your Dream Renovations Today!
       </span>
       <Button variant="white" to="/contact" className="mb-5 mx-5">

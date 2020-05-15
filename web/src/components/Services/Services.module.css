@@ -7,27 +7,17 @@
 }
 
 .IconContainer {
-  @apply flex flex-col items-center justify-start text-center col-span-3;
-}
-
-.FirstIconContainer {
-  @apply flex flex-col items-center justify-start text-center col-span-3;
+  @apply flex flex-col items-center justify-start text-center col-span-1 mt-2;
 }
 
 @screen sm {
-  .IconContainer,
-  .FirstIconContainer {
+  .IconContainer {
     @apply col-span-2;
   }
 }
 
 @screen md {
-  .FirstIconContainer,
   .IconContainer {
     @apply col-span-1;
-  }
-
-  .FirstIconContainer {
-    @apply col-start-2;
   }
 }

@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import React from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config.js";
-import Button from "../../components/Button/index.js";
 import { useMatchMedia } from "../../hooks";
 import DesktopNav from "./DesktopNav/DesktopNav.js";
 import styles from "./Header.module.css";
@@ -36,9 +35,13 @@ const Links = () => (
     >
       Portfolio
     </Link>
-    <Button variant="blue" className={styles.Button} to="/contact">
+    <Link
+      className={styles.Link}
+      activeClassName={styles.LinkActive}
+      to="/contact"
+    >
       Contact
-    </Button>
+    </Link>
   </>
 );
 

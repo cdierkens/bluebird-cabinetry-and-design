@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-sans font-bold text-blue-dark mt-4 mb-6;
+  @apply font-sans font-medium text-blue-dark mt-4 mb-6;
 }
 
 p {
@@ -63,12 +63,11 @@ h6 {
 
 a:hover,
 a:active,
-a:focus {
+a:hover svg,
+a:active svg {
   @apply text-gold;
 }
 
-a:hover svg,
-a:active svg,
-a:focus svg {
-  @apply text-gold;
+a:focus {
+  @apply outline-none shadow-outline;
 }

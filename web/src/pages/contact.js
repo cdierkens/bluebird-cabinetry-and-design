@@ -15,7 +15,7 @@ const ContactPage = () => (
         <div className="col-span-4 sm:col-start-2 md:col-span-2">
           <img
             src={portrait}
-            className="w-full"
+            className="w-full p-1 shadow-md"
             alt="Portrait of Dana Snyder"
           />
           <p className="text-center text-3xl text-blue-dark mb-0">

@@ -1,9 +1,9 @@
 .GetStartedContainer {
-  @apply bg-gradient-blue-turquoise text-center;
+  @apply text-center bg-gray-light;
 }
 
 .GetStartedText {
-  @apply font-sans font-bold text-white text-xl my-6 mx-5 inline-block;
+  @apply font-sans font-medium text-blue-dark text-xl my-6 mx-5 inline-block;
 }
 
 @screen md {

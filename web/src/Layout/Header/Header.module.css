@@ -1,10 +1,10 @@
 .Header {
-  @apply bg-white bg-opacity-85 fixed w-full z-10;
+  @apply bg-white bg-opacity-85 fixed w-full z-50 shadow-sm;
 }
 
 .Link {
   @apply py-3 px-9 my-1 mx-4;
-  @apply font-sans font-bold tracking-tight text-blue-dark text-xl;
+  @apply font-sans font-medium tracking-tight text-blue-dark text-xl;
   @apply transition-colors duration-500 ease-in-out bg-transparent;
   @apply border-b border-blue-dark rounded-t-md;
 }
@@ -13,16 +13,16 @@
 .Link:active,
 .Link:focus,
 .LinkActive {
-  @apply bg-white text-blue-dark;
+  @apply bg-white text-blue-dark shadow-sm;
 }
 
-.Button {
-  @apply m-4;
+.Link:focus {
+  @apply outline-none shadow-outline;
 }
 
 @screen md {
   .Link {
-    @apply py-4 px-9 my-4 mx-4;
+    @apply py-3 px-9 my-4 mx-4;
     @apply border-0;
     @apply rounded-md;
   }

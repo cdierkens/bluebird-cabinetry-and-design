@@ -7,5 +7,5 @@
 }
 
 .DesignText {
-  @apply text-center col-span-8 leading-loose;
+  @apply text-center col-span-8 leading-loose max-w-screen-md  m-auto;
 }

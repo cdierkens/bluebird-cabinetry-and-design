@@ -3,7 +3,7 @@ import React from "react";
 
 const Input = ({ label, value, placeholder, onChange, id, error, type }) => {
   const className =
-    "block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm placeholder-gray-darker focus:outline-none focus:shadow-outline";
+    "block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm placeholder-gray-darker focus:outline-none focus:shadow-outline shadow-sm";
 
   return (
     <label className="block relative pb-5 mb-2">

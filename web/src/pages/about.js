@@ -6,7 +6,7 @@ import HeartIcon from "../icons/heart.svg";
 import MagnifyingGlassIcon from "../icons/magnifying-glass.svg";
 import ShieldIcon from "../icons/shield.svg";
 import portrait from "../images/dana-portrait.jpg";
-import kitchen from "../images/square-kitchen.jpg";
+import kitchen from "../images/farmhouse-kitchen.jpg";
 import Layout from "../Layout";
 
 const AboutPage = () => (
@@ -18,7 +18,7 @@ const AboutPage = () => (
 
           <p>
             Dana, the owner, lost her father to cancer in the later winter of
-            2020.Her father was mostly called Bird by his friends, family, and
+            2020. Her father was mostly called Bird by his friends, family, and
             close loved ones. A dear friend said “if you are going to start a
             business you should name your company after your father”. This is
             how bluebird came about. After learning more about what the bluebird
@@ -37,13 +37,17 @@ const AboutPage = () => (
         <div className="col-span-3 sm:col-span-6 md:col-span-4">
           <img
             src={portrait}
-            className="w-full"
+            className="w-full p-1 shadow-md"
             alt="Portrait of Dana Snyder"
           />
         </div>
 
         <div className="order-last md:order-none col-span-3 sm:col-span-6 md:col-span-4">
-          <img src={kitchen} className="w-full" alt="Portrait of Dana Snyder" />
+          <img
+            src={kitchen}
+            className="w-full p-1 shadow-md"
+            alt="Portrait of Dana Snyder"
+          />
         </div>
 
         <div className="col-span-3 sm:col-span-6 md:col-span-4">
@@ -76,7 +80,7 @@ const AboutPage = () => (
 
           <p className="leading-loose">
             There are many companies that can remodel homes. One of the things
-            that makes us different is our attention to detail. This includes
+            that sets us apart is our attention to detail. This includes
             understanding the pitfalls and highlights that really influence
             results. The devil really is in the details.
           </p>
@@ -89,9 +93,9 @@ const AboutPage = () => (
 
           <p className="leading-loose">
             The process we use is transparent and we will deliver on our
-            promises. Most people have hada bad experience with remodeling, or
+            promises. Most people have had a bad experience with remodeling, or
             know someone who has. We are upfront about expectations, pricing,
-            and treat clients theway we want to be treated.
+            and treat clients the way we want to be treated.
           </p>
         </div>
 
@@ -102,7 +106,7 @@ const AboutPage = () => (
 
           <p className="leading-loose">
             We do what we do to help people create inspiring spaces that bring
-            people together.We also strive to build long lasting relationships
+            people together. We also strive to build long lasting relationships
             that lead to repeat business and referrals. The community we are a
             part of, and help build, drive us to do what we do.
           </p>
@@ -110,8 +114,8 @@ const AboutPage = () => (
       </Container>
     </div>
 
-    <div className="bg-gradient-blue-turquoise text-center">
-      <span className="font-sans font-bold text-white text-xl my-9 mx-5 inline-block">
+    <div className="bg-blue-dark text-center">
+      <span className="font-sans font-semibold text-white text-xl my-9 mx-5 inline-block">
         See our services page for more details!
       </span>
       <Button variant="white" to="/services" className="mb-5 mx-5">

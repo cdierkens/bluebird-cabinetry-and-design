@@ -6,7 +6,7 @@ const RadioInput = ({ label, value, group, checked, onChange }) => (
     <label className="flex items-center">
       <span className="relative h-4 w-4">
         <input
-          className="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline"
+          className="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-sm"
           type="radio"
           id={value}
           name={group}

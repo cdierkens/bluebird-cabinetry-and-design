@@ -3,7 +3,7 @@
 }
 
 .LearnMoreText {
-  @apply font-sans font-bold text-blue-dark text-xl my-9 mx-5 inline-block;
+  @apply font-sans font-medium text-blue-dark text-xl my-9 mx-5 inline-block;
 }
 
 .LearnMoreLink {

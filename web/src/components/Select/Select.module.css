@@ -3,15 +3,11 @@
 }
 
 .Select {
-  @apply block appearance-none w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm;
+  @apply block appearance-none w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm shadow-sm;
 }
 
 .Select:focus {
   @apply outline-none shadow-outline;
-}
-
-.Select:hover {
-  @apply border-gray-dark;
 }
 
 .Option {
