@@ -1,7 +1,33 @@
 .ServicesContainer {
-  @apply py-8 grid grid-cols-12 bg-gray-light;
+  @apply bg-gray-light;
 }
 
-.ServicesH2 {
-  @apply text-center text-blue-dark col-span-12;
+.ServicesGrid {
+  @apply pt-8;
+}
+
+.IconContainer {
+  @apply flex flex-col items-center justify-start text-center col-span-3;
+}
+
+.FirstIconContainer {
+  @apply flex flex-col items-center justify-start text-center col-span-3;
+}
+
+@screen sm {
+  .IconContainer,
+  .FirstIconContainer {
+    @apply col-span-2;
+  }
+}
+
+@screen md {
+  .FirstIconContainer,
+  .IconContainer {
+    @apply col-span-1;
+  }
+
+  .FirstIconContainer {
+    @apply col-start-2;
+  }
 }

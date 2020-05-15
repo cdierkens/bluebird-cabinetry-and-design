@@ -12,14 +12,7 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-root-import",
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /icons\/.*\.svg/,
-        },
-      },
-    },
+    "gatsby-plugin-react-svg",
     {
       resolve: "gatsby-source-sanity",
       options: {

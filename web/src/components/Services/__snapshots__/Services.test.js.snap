@@ -5,17 +5,88 @@ exports[`matches snapshot 1`] = `
   <div
     class="ServicesContainer"
   >
-    <div>
-      <img
-        alt=""
-        class="Service"
-      />
-    </div>
-    <h2
-      class="ServicesH2"
+    <div
+      class="Container ServicesGrid"
     >
-      Services
-    </h2>
+      <div
+        class="Grid gap-3 "
+      >
+        <div
+          class="FirstIconContainer"
+        >
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+          />
+          <span>
+            Cabinetry Design 
+            <br />
+            & Sales
+          </span>
+        </div>
+        <div
+          class="IconContainer"
+        >
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+          />
+          <span>
+            Remodeling
+          </span>
+        </div>
+        <div
+          class="IconContainer"
+        >
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+          />
+          <span>
+            New Construction
+          </span>
+        </div>
+        <div
+          class="IconContainer"
+        >
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+          />
+          <span>
+            Renderings
+          </span>
+        </div>
+        <div
+          class="IconContainer"
+        >
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+          />
+          <span>
+            Material & Appliance Selections
+          </span>
+        </div>
+        <div
+          class="IconContainer"
+        >
+          <test-file-stub
+            classname="p-1 fill-current stroke-current inline-block fill-none stroke-4 h-12 mb-2 text-blue-dark"
+          />
+          <span>
+            Space Planning 
+            <br />
+            & Layout
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Container text-center pb-8 pt-4"
+    >
+      <a
+        class="ButtonBlue  focus:outline-none focus:shadow-outline"
+        href="/services"
+      >
+        Services
+      </a>
+    </div>
   </div>
 </DocumentFragment>
 `;
