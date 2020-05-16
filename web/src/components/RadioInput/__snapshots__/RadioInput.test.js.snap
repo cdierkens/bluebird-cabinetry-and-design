@@ -4,14 +4,13 @@ exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div>
     <label
-      class="flex items-center"
+      class="flex items-center cursor-pointer"
     >
       <span
         class="relative h-4 w-4"
       >
         <input
           class="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-sm"
-          id="mock-value"
           name="mock-group"
           type="radio"
           value="mock-value"
