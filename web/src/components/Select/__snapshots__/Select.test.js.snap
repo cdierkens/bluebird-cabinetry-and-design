@@ -15,6 +15,7 @@ exports[`matches snapshot 1`] = `
     >
       <select
         class="Select"
+        name="mock-name"
       />
       <div
         class="Arrow"
