@@ -19,44 +19,56 @@ exports[`matches snapshot 1`] = `
         <div
           class="col-span-2 sm:col-span-3 md:col-start-2 text-center m-3"
         >
-          <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
-          />
-          <span
-            class="font-sans text-lg text-white font-medium block"
+          <a
+            href="/shiloh-brochure-2017.pdf"
           >
-            2017 National
-            <br />
-            Shiloh Brochure
-          </span>
+            <test-file-stub
+              classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
+            />
+            <span
+              class="font-sans text-lg text-white hover:text-gold font-medium block"
+            >
+              2017 National
+              <br />
+              Shiloh Brochure
+            </span>
+          </a>
         </div>
         <div
           class="col-span-2 sm:col-span-3 text-center m-3"
         >
-          <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
-          />
-          <span
-            class="font-sans text-lg text-white font-medium block"
+          <a
+            href="/best-fine-homes-magazine-fall-2017.pdf"
           >
-            BEST Fine Homes
-            <br />
-            Magazine
-          </span>
+            <test-file-stub
+              classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
+            />
+            <span
+              class="font-sans text-lg text-white hover:text-gold font-medium block"
+            >
+              BEST Fine Homes
+              <br />
+              Magazine
+            </span>
+          </a>
         </div>
         <div
           class="col-span-2 sm:col-span-3 text-center m-3"
         >
-          <test-file-stub
-            classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
-          />
-          <span
-            class="font-sans text-lg text-white font-medium block"
+          <a
+            href="/shiloh-brochure-2019.pdf"
           >
-            2019 National
-            <br />
-            Shiloh Brochure
-          </span>
+            <test-file-stub
+              classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
+            />
+            <span
+              class="font-sans text-lg text-white hover:text-gold font-medium block"
+            >
+              2019 National
+              <br />
+              Shiloh Brochure
+            </span>
+          </a>
         </div>
       </div>
     </div>
