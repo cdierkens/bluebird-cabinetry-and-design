@@ -1,3 +1,4 @@
+import { Formik } from "formik";
 import React from "react";
 import Button from "../components/Button";
 import Container from "../components/container";
@@ -10,11 +11,13 @@ const PortfolioPage = () => (
   <Layout title="Portfolio">
     <Container>
       <h2>Room</h2>
-      <Select label="Room type">
-        <Select.Option value="kitchen">Kitchen</Select.Option>
-        <Select.Option value="bathroom">Bathroom</Select.Option>
-        <Select.Option value="other">Other</Select.Option>
-      </Select>
+      <Formik initialValues={{ tag: "kitchen" }}>
+        <Select label="Room type" name="tag">
+          <Select.Option value="kitchen">Kitchen</Select.Option>
+          <Select.Option value="bathroom">Bathroom</Select.Option>
+          <Select.Option value="other">Other</Select.Option>
+        </Select>
+      </Formik>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6">
         <div className="bg-gray-light h-40 md:h-64"></div>
