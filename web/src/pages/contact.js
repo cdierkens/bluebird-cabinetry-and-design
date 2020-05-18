@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Form, Formik } from "formik";
 import React from "react";
 import * as Yup from "yup";
@@ -83,14 +84,17 @@ const ContactPage = () => (
               message: "",
             }}
             validationSchema={contactSchema}
-            onSubmit={(_, actions) => {
-              actions.setTouched({
-                name: true,
-                email: true,
-                type: true,
-                inquiry: true,
-                message: true,
-              });
+            onSubmit={async ({ name, email, message }, { resetForm }) => {
+              try {
+                await axios.post("/.netlify/functions/send-contact-email", {
+                  name,
+                  email,
+                  message,
+                });
+                resetForm();
+              } catch (error) {
+                console.error(error);
+              }
             }}
           >
             {() => (
