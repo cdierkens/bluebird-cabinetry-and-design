@@ -20,13 +20,14 @@ exports[`matches snapshot 1`] = `
           class="col-span-2 sm:col-span-3 md:col-start-2 text-center m-3"
         >
           <a
+            class="text-white hover:text-gold"
             href="/shiloh-brochure-2017.pdf"
           >
             <test-file-stub
-              classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
+              classname="p-1 fill-current stroke-current inline-block h-16 mb-1"
             />
             <span
-              class="font-sans text-lg text-white hover:text-gold font-medium block"
+              class="font-sans text-lg font-medium block"
             >
               2017 National
               <br />
@@ -38,13 +39,14 @@ exports[`matches snapshot 1`] = `
           class="col-span-2 sm:col-span-3 text-center m-3"
         >
           <a
+            class="text-white hover:text-gold"
             href="/best-fine-homes-magazine-fall-2017.pdf"
           >
             <test-file-stub
-              classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
+              classname="p-1 fill-current stroke-current inline-block h-16 mb-1"
             />
             <span
-              class="font-sans text-lg text-white hover:text-gold font-medium block"
+              class="font-sans text-lg font-medium block"
             >
               BEST Fine Homes
               <br />
@@ -56,13 +58,14 @@ exports[`matches snapshot 1`] = `
           class="col-span-2 sm:col-span-3 text-center m-3"
         >
           <a
+            class="text-white hover:text-gold"
             href="/shiloh-brochure-2019.pdf"
           >
             <test-file-stub
-              classname="p-1 fill-current stroke-current inline-block text-white h-16 mb-1"
+              classname="p-1 fill-current stroke-current inline-block h-16 mb-1"
             />
             <span
-              class="font-sans text-lg text-white hover:text-gold font-medium block"
+              class="font-sans text-lg font-medium block"
             >
               2019 National
               <br />

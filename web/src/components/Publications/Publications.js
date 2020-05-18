@@ -10,10 +10,13 @@ const Publications = () => {
 
         <div className="flex justify-around flex-wrap lg:w-2/3 m-auto">
           <div className="col-span-2 sm:col-span-3 md:col-start-2 text-center m-3">
-            <a href="/shiloh-brochure-2017.pdf">
-              <ShilowCabinetryIcon className="text-white h-16 mb-1" />
+            <a
+              className="text-white hover:text-gold"
+              href="/shiloh-brochure-2017.pdf"
+            >
+              <ShilowCabinetryIcon className="h-16 mb-1" />
 
-              <span className="font-sans text-lg text-white hover:text-gold font-medium block">
+              <span className="font-sans text-lg font-medium block">
                 2017 National
                 <br />
                 Shiloh Brochure
@@ -22,10 +25,13 @@ const Publications = () => {
           </div>
 
           <div className="col-span-2 sm:col-span-3 text-center m-3">
-            <a href="/best-fine-homes-magazine-fall-2017.pdf">
-              <BestIcon className="text-white h-16 mb-1" />
+            <a
+              className="text-white hover:text-gold"
+              href="/best-fine-homes-magazine-fall-2017.pdf"
+            >
+              <BestIcon className="h-16 mb-1" />
 
-              <span className="font-sans text-lg text-white hover:text-gold font-medium block">
+              <span className="font-sans text-lg font-medium block">
                 BEST Fine Homes
                 <br />
                 Magazine
@@ -34,10 +40,13 @@ const Publications = () => {
           </div>
 
           <div className="col-span-2 sm:col-span-3 text-center m-3">
-            <a href="/shiloh-brochure-2019.pdf">
-              <ShilowCabinetryIcon className="text-white h-16 mb-1" />
+            <a
+              className="text-white hover:text-gold"
+              href="/shiloh-brochure-2019.pdf"
+            >
+              <ShilowCabinetryIcon className="h-16 mb-1" />
 
-              <span className="font-sans text-lg text-white hover:text-gold font-medium block">
+              <span className="font-sans text-lg font-medium block">
                 2019 National
                 <br />
                 Shiloh Brochure
