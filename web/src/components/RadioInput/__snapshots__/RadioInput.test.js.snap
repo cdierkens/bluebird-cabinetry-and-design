@@ -10,7 +10,7 @@ exports[`matches snapshot 1`] = `
         class="relative h-4 w-4"
       >
         <input
-          class="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-sm"
+          class="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-md"
           name="mock-group"
           type="radio"
           value="mock-value"

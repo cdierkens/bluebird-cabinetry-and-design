@@ -13,7 +13,7 @@ const RadioInput = ({ label, ...props }) => {
       <label className="flex items-center cursor-pointer">
         <span className="relative h-4 w-4">
           <input
-            className="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-sm"
+            className="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-md"
             type="radio"
             {...field}
             {...props}

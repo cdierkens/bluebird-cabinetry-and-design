@@ -29,7 +29,7 @@ ListItem.propTypes = {
 
 const DesignProcessItem = ({ title, number, children }) => {
   return (
-    <div className="bg-white relative mt-16 p-8 px-24">
+    <div className="bg-white relative mt-16 p-8 px-24 shadow-md">
       <span className="absolute top-0 left-0 text-4xl text-blue-dark py-4 px-6">
         {number}
       </span>
@@ -142,7 +142,7 @@ const ServicesPage = () => (
           Get Started On Your Dream Renovations Today!
         </span>
         <Button variant="white" to="/contact" className="mb-5 mx-5">
-          Start Here
+          Let's Talk
         </Button>
       </Container>
     </div>

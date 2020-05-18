@@ -113,7 +113,7 @@ const IndexPage = ({
           Get Started On Your Dream Renovations Today!
         </span>
         <Button variant="blue" to="/contact" className="mb-5 mx-5">
-          Start Here
+          Let's Talk
         </Button>
       </div>
 

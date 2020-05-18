@@ -57,11 +57,12 @@ const PortfolioPage = ({
         </Select>
       </Formik> */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-6">
           {portfolioImages.map(({ image }, index) => (
             <div key={image.file.asset.id}>
               <button onClick={() => openLightbox(index)}>
                 <img
+                  className="transform hover:scale-105 duration-300 p-1 shadow-md"
                   src={builder
                     .image(image.file.asset.id)
                     .size(408, 272)
@@ -100,7 +101,7 @@ const PortfolioPage = ({
           Get Started On Your Dream Renovations Today!
         </span>
         <Button variant="white" to="/contact" className="mb-5 mx-5">
-          Start Here
+          Let's Talk
         </Button>
       </div>
 
