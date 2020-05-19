@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const className =
-  "block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm placeholder-gray-darker focus:outline-none focus:shadow-outline shadow-sm";
+  "block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:shadow-outline shadow-sm";
 
 const Input = ({ label, type, ...props }) => {
   const [field] = useField({
