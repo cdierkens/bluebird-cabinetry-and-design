@@ -1,24 +1,9 @@
-import axios from "axios";
-import { Form, Formik } from "formik";
 import React from "react";
-import * as Yup from "yup";
-import Button from "../components/Button";
+import ContactForm from "../components/ContactForm/ContactForm";
 import Container from "../components/container";
 import Grid from "../components/Grid";
-import Input from "../components/Input/Input";
-import RadioInput from "../components/RadioInput/RadioInput";
-import Select from "../components/Select";
 import portrait from "../images/dana-portrait.jpg";
 import Layout from "../Layout";
-
-const contactSchema = Yup.object().shape({
-  name: Yup.string().required("Please enter your name."),
-  email: Yup.string()
-    .required("Please enter your email.")
-    .email("Please enter a valid email."),
-  inquiry: Yup.string().required("Please select an inquiry type."),
-  message: Yup.string().required("Please enter a message."),
-});
 
 const ContactPage = () => (
   <Layout title="Contact">
@@ -72,81 +57,7 @@ const ContactPage = () => (
       </Grid>
     </Container>
 
-    <div className="bg-gray-light py-12">
-      <Container>
-        <Grid>
-          <Formik
-            initialValues={{
-              name: "",
-              email: "",
-              type: "homeowner",
-              inquiry: "",
-              message: "",
-            }}
-            validationSchema={contactSchema}
-            onSubmit={async ({ name, email, message }, { resetForm }) => {
-              try {
-                await axios.post("/.netlify/functions/send-contact-email", {
-                  name,
-                  email,
-                  message,
-                });
-                resetForm();
-              } catch (error) {
-                console.error(error);
-              }
-            }}
-          >
-            {() => (
-              <Form className="block col-span-3 sm:col-span-6 md:col-start-2">
-                <Input placeholder="Jane Doe" label="Name" name="name" />
-                <Input
-                  placeholder="jane@example.com"
-                  label="Email"
-                  name="email"
-                />
-
-                <fieldset className="mb-4">
-                  <legend className="text-sm font-sans">
-                    I am a...{" "}
-                    <span className="sr-only">
-                      homeowner or trade professional
-                    </span>
-                  </legend>
-
-                  <RadioInput value="homeowner" label="Homeowner" name="type" />
-
-                  <RadioInput
-                    value="professional"
-                    label="Trade Professional"
-                    name="type"
-                  />
-                </fieldset>
-
-                <Select label="Inquiry Type" name="inquiry">
-                  <Select.Option value="" disabled>
-                    Please select type of inquiry...
-                  </Select.Option>
-                  <Select.Option value="design">Design Services</Select.Option>
-                  <Select.Option value="cabinetry">
-                    Cabinetry question
-                  </Select.Option>
-                  <Select.Option value="other">Other</Select.Option>
-                </Select>
-
-                <Input type="textarea" label="Message" name="message" />
-
-                <div className="flex items-center justify-center mt-4">
-                  <Button variant="blue" type="submit">
-                    Send
-                  </Button>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </Grid>
-      </Container>
-    </div>
+    <ContactForm />
   </Layout>
 );
 

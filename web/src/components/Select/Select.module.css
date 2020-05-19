@@ -3,7 +3,7 @@
 }
 
 .Select {
-  @apply block appearance-none w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-sm shadow-sm;
+  @apply block appearance-none w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base shadow-sm;
 }
 
 .Select:focus {

@@ -2,9 +2,6 @@
 require("dotenv").config();
 
 const mail = require("@sendgrid/mail");
-mail.setApiKey(process.env.SENDGRID_API_KEY);
-
-const required = ["name", "email", "message"];
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
@@ -15,7 +12,23 @@ exports.handler = async (event) => {
     };
   }
 
+  mail.setApiKey(process.env.SENDGRID_API_KEY);
+
+  const to = process.env.SENDGRID_TO_EMAIL;
+  const from = process.env.SENDGRID_FROM_EMAIL;
+
+  const required = ["name", "email", "type", "inquiry", "message"];
+
   const data = JSON.parse(event.body);
+
+  // Honeypot field
+  if (data.username) {
+    return {
+      statusCode: 200,
+      body: "Captured.",
+    };
+  }
+
   const missing = required.filter((key) => !Boolean(data[key]));
 
   if (missing.length) {
@@ -35,25 +48,26 @@ exports.handler = async (event) => {
     };
   }
 
-  const { name, email, message } = data;
+  const { name, email, type, inquiry, message } = data;
 
   const mailData = {
-    to: {
-      name: "Dana Snyder",
-      email: "dana@bluebirdcabinetryanddesign.com",
-    },
-    from: "contact@bluebirdcabinetryanddesign.com",
+    to,
+    from,
     reply_to: {
       name,
       email,
     },
-    subject: `Contact from message from ${name} <${email}>`,
-    text: message,
-    mail_settings: {
-      sandbox_mode: {
-        enable: process.env.NODE_ENV !== "production",
-      },
-    },
+    subject: `Contact form message from ${name} <${email}>`,
+    text: [
+      `${name} <${email}> is a ${type}`,
+      `They would like to inquire about ${inquiry}`,
+      message,
+    ].join("\n"),
+    // mail_settings: {
+    //   sandbox_mode: {
+    //     enable: process.env.NODE_ENV !== "production",
+    //   },
+    // },
   };
 
   try {
@@ -61,7 +75,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: "Message sent successfully.",
+      body: "Message sent.",
     };
   } catch (error) {
     return {

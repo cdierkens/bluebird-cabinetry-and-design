@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-gray-light py-12"
+  >
+    <div
+      class="Container "
+    >
+      <div
+        class="Grid gap-3 "
+      >
+        <form
+          action="#"
+          class="block col-span-3 sm:col-span-6 md:col-start-2"
+        >
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Name
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:shadow-outline shadow-sm"
+              name="name"
+              placeholder="Jane Doe"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Email
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:shadow-outline shadow-sm"
+              name="email"
+              placeholder="jane@example.com"
+              type="text"
+              value=""
+            />
+          </label>
+          <fieldset
+            class="mb-4"
+          >
+            <legend
+              class="text-sm font-sans"
+            >
+              I am a... 
+              <span
+                class="sr-only"
+              >
+                homeowner or trade professional
+              </span>
+            </legend>
+            <div>
+              <label
+                class="flex items-center cursor-pointer"
+              >
+                <span
+                  class="relative h-4 w-4"
+                >
+                  <input
+                    checked=""
+                    class="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-md"
+                    name="type"
+                    type="radio"
+                    value="homeowner"
+                  />
+                  <span
+                    class="absolute z-10 rounded-full inline-block w-full h-full bg-blue-dark"
+                  />
+                </span>
+                <span
+                  class="font-sans text-sm ml-2"
+                >
+                  Homeowner
+                </span>
+              </label>
+            </div>
+            <div>
+              <label
+                class="flex items-center cursor-pointer"
+              >
+                <span
+                  class="relative h-4 w-4"
+                >
+                  <input
+                    class="absolute z-0 w-full h-full focus:outline-none focus:shadow-outline shadow-md"
+                    name="type"
+                    type="radio"
+                    value="professional"
+                  />
+                  <span
+                    class="absolute z-10 rounded-full inline-block w-full h-full bg-white"
+                  />
+                </span>
+                <span
+                  class="font-sans text-sm ml-2"
+                >
+                  Trade Professional
+                </span>
+              </label>
+            </div>
+          </fieldset>
+          <label
+            class="SelectWrapper"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Inquiry Type
+            </span>
+            <div
+              class="relative"
+            >
+              <select
+                class="Select"
+                name="inquiry"
+              >
+                <option
+                  class="Option"
+                  disabled=""
+                  value=""
+                >
+                  Please select type of inquiry...
+                </option>
+                <option
+                  class="Option"
+                  value="design"
+                >
+                  Design Services
+                </option>
+                <option
+                  class="Option"
+                  value="cabinetry"
+                >
+                  Cabinetry question
+                </option>
+                <option
+                  class="Option"
+                  value="other"
+                >
+                  Other
+                </option>
+              </select>
+              <div
+                class="Arrow"
+              >
+                <svg
+                  class="fill-current h-4 w-4"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Message
+            </span>
+            <textarea
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:shadow-outline shadow-sm"
+              name="message"
+              rows="6"
+            />
+          </label>
+          <input
+            class="sr-only"
+            name="username"
+            value="some value"
+          />
+          <div
+            class="flex items-center justify-center mt-4"
+          >
+            <button
+              class="ButtonBlue  focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
