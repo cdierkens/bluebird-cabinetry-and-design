@@ -20,7 +20,7 @@
     "@sanity/default-login": "1.149.11",
     "@sanity/desk-tool": "1.149.15",
     "@sanity/studio-hints": "1.149.15",
-    "date-fns": "2.13.0",
+    "date-fns": "2.14.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
