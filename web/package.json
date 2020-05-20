@@ -50,6 +50,7 @@
     "lodash": "4.17.15",
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.7",
+    "use-query-string": "^2.1.4",
     "yup": "0.29.0"
   }
 }
