@@ -8,6 +8,9 @@ const clientConfig = require("./client-config");
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: "https://bluebirdcabinetryanddesign.com/",
+  },
   plugins: [
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
@@ -22,5 +25,7 @@ module.exports = {
         overlayDrafts: !isProd,
       },
     },
+    "gatsby-plugin-offline",
+    "gatsby-plugin-sitemap",
   ],
 };
