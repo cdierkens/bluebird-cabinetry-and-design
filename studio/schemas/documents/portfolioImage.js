@@ -26,6 +26,13 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "caption",
+      type: "string",
+      title: "Caption",
+      description:
+        "Caption to display (i.e. mention collaborators, contributors, or materials used).",
+    },
+    {
       name: "tags",
       type: "array",
       title: "Tags",
