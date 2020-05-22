@@ -38,6 +38,11 @@ const ContactForm = () => {
 
       <Container>
         <Grid>
+          <p className="col-span-3 sm:col-span-6 md:col-start-2 text-center text-blue-dark">
+            Please take a minute to tell us more about yourself and your
+            project. We will be in contact soon!
+          </p>
+
           <Formik
             initialValues={{
               name: "",
