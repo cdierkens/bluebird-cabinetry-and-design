@@ -110,7 +110,7 @@ const IndexPage = ({
 
       <div className={styles.GetStartedContainer}>
         <span className={styles.GetStartedText}>
-          Get Started On Your Dream Renovations Today!
+          Are You Interested In Connecting With Us?
         </span>
         <Button variant="blue" to="/contact" className="mb-5 mx-5">
           Let's Talk
