@@ -33,7 +33,13 @@ const Footer = () => (
         </div>
         <div>
           <span className="text-sm sm:text-base">
-            Serving the Greater Cincinnati Ohio Tri-State Area
+            Serving the{" "}
+            <a
+              className="underline"
+              href="https://en.wikipedia.org/wiki/Cincinnati_metropolitan_area"
+            >
+              Greater Cincinnati Ohio Tri-State Area
+            </a>
           </span>
         </div>
       </div>
