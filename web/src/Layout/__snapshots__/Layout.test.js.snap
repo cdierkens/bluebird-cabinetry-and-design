@@ -106,6 +106,19 @@ exports[`matches snapshot 1`] = `
             dana@bluebirdcabinetryanddesign.com
           </a>
         </div>
+        <div>
+          <span
+            class="text-sm sm:text-base"
+          >
+            Serving the 
+            <a
+              class="underline"
+              href="https://en.wikipedia.org/wiki/Cincinnati_metropolitan_area"
+            >
+              Greater Cincinnati Ohio Tri-State Area
+            </a>
+          </span>
+        </div>
       </div>
       <div
         class="my-6 flex items-center justify-center flex-wrap"

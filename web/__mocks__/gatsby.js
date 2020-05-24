@@ -19,6 +19,10 @@ const deepMock = new Proxy(
         return jest.fn().mockReturnValue(value);
       }
 
+      if (["map", "filter"].find((value) => value === key)) {
+        return jest.fn().mockReturnValue([deepMock]);
+      }
+
       return deepMock;
     },
   }

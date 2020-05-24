@@ -31,6 +31,17 @@ const Footer = () => (
             dana@bluebirdcabinetryanddesign.com
           </a>
         </div>
+        <div>
+          <span className="text-sm sm:text-base">
+            Serving the{" "}
+            <a
+              className="underline"
+              href="https://en.wikipedia.org/wiki/Cincinnati_metropolitan_area"
+            >
+              Greater Cincinnati Ohio Tri-State Area
+            </a>
+          </span>
+        </div>
       </div>
 
       <div className="my-6 flex items-center justify-center flex-wrap">

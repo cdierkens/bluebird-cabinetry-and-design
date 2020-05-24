@@ -139,7 +139,7 @@ const ServicesPage = () => (
     <div className="bg-blue-dark text-center">
       <Container>
         <span className="font-sans font-medium text-white text-xl my-9 mx-5 inline-block">
-          Get Started On Your Dream Renovations Today!
+          Are You Interested In Connecting With Us?
         </span>
         <Button variant="white" to="/contact" className="mb-5 mx-5">
           Let's Talk

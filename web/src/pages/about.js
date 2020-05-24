@@ -25,11 +25,11 @@ const AboutPage = () => (
             symbolizes the name fell into place with ease, here is what Dana
             discovered about The Bluebird:
           </p>
-          <p>
-            Bluebird is symbolic of spiritual awakening, transformation, joy,
-            contentedness, and hope. It is considered a good omen, predicting
-            happy occurences in the coming times. The bluebird is also
-            associated with hard work, unassuming confidence, modesty, and
+          <p className="font-handwriting text-3xl pt-4 p-3 m-0 sm:m-1 bg-gray-light shadow-md text-blue-dark leading-snug">
+            The bluebird is symbolic of spiritual awakening, transformation,
+            joy, contentedness, and hope. It is considered a good omen,
+            predicting happy occurences in the coming times. The bluebird is
+            also associated with hard work, unassuming confidence, modesty, and
             innocence.
           </p>
         </div>
