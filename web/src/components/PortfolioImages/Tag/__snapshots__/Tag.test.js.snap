@@ -6,6 +6,7 @@ exports[`matches snapshot 1`] = `
     class="cursor-pointer inline-block rounded p-3 m-1 sm:m-2 focus:outline-none focus:shadow-outline shadow-md bg-white text-blue-dark"
   >
     <input
+      aria-label="mock label"
       class="sr-only"
       type="checkbox"
       value=""
