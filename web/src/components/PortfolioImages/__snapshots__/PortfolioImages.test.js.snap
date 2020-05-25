@@ -8,6 +8,29 @@ exports[`matches snapshot 1`] = `
     <h2>
       Photos
     </h2>
+    <span
+      class="block text-blue-dark text-base ml-1 mb-1"
+    >
+      Tags
+    </span>
+    <div
+      class="p-1 shadow-md flex flex-wrap justify-start"
+    />
+    <div
+      class="p-1"
+    >
+      <button
+        class="inline block text-blue-dark hover:text-gold text-base m-2"
+      >
+        Show All
+      </button>
+      |
+      <button
+        class="inline block text-blue-dark hover:text-gold text-base m-2"
+      >
+        Show None
+      </button>
+    </div>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-6"
     />

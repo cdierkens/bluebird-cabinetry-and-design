@@ -3,7 +3,7 @@ import React from "react";
 import PortfolioImages from "./PortfolioImages";
 
 it("matches snapshot", () => {
-  const { asFragment } = render(<PortfolioImages />);
+  const { asFragment } = render(<PortfolioImages location={{}} />);
 
   expect(asFragment()).toMatchSnapshot();
 });
