@@ -1,15 +1,18 @@
 import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import resolveConfig from "tailwindcss/resolveConfig";
+import useQueryString from "use-query-string";
 import tailwindConfig from "../../../tailwind.config.js";
+import { LeftArrowIcon, RightArrowIcon } from "../../icons";
 import { builder } from "../../lib/image-url";
 import Container from "../container";
+import Tags from "./Tags/Tags.js";
 
 const { theme } = resolveConfig(tailwindConfig);
 
-export const query = graphql`
+export const portfolioImagesQuery = graphql`
   query PortfolioImages {
     images: allSanityPortfolioImage {
       nodes {
@@ -44,15 +47,52 @@ const navButtonStyles = (base) => ({
   },
 });
 
-const PortfolioImages = () => {
+const pageSize = 9;
+
+const PortfolioImages = ({ location }) => {
   const {
     images: { nodes: portfolioImages },
-  } = useStaticQuery(query);
+  } = useStaticQuery(portfolioImagesQuery);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
 
-  const images = portfolioImages.map(({ image, caption }) => ({
+  const [query, setQuery] = useQueryString(location, (value) => {
+    if (typeof window === "object") {
+      window.history.pushState(null, window.document.title, value);
+    }
+  });
+
+  const tags = useMemo(
+    () =>
+      Array.from(
+        portfolioImages.reduce(
+          (keys, node) => new Set([...node.tags, ...keys]),
+          new Set()
+        )
+      ).sort(),
+    [portfolioImages]
+  );
+
+  useEffect(() => {
+    if (
+      location &&
+      location.search &&
+      location.search.indexOf("tags=") === -1
+    ) {
+      setQuery({ tags: tags.map(encodeURI).join(",") });
+    }
+  }, []); // eslint-disable-line
+
+  const grid = useRef();
+
+  const checkedTags = query.tags ? decodeURI(query.tags).split(",") : [];
+  const filteredImages = portfolioImages.filter(({ tags }) =>
+    tags.find((tag) => checkedTags.find((checkedTag) => checkedTag === tag))
+  );
+  const selectedPage = Math.floor(selectedIndex / pageSize);
+
+  const images = filteredImages.map(({ image, caption }) => ({
     source: {
       download: builder.image(image.file.asset.id).url(),
       fullscreen: builder
@@ -60,11 +100,7 @@ const PortfolioImages = () => {
         .height(1080)
         .fit("clip")
         .url(),
-      regular: builder
-        .image(image.file.asset.id)
-        .height(1080)
-        .fit("clip")
-        .url(),
+      regular: builder.image(image.file.asset.id).height(900).fit("clip").url(),
       thumbnail: builder
         .image(image.file.asset.id)
         .height(400)
@@ -80,45 +116,144 @@ const PortfolioImages = () => {
     setLightboxIsOpen(true);
   };
 
+  const closeLightbox = () => {
+    setLightboxIsOpen(false);
+  };
+
+  const handlePagination = (index) => {
+    if (grid.current) {
+      grid.current.scrollIntoView({ behavior: "smooth" });
+    }
+    setSelectedIndex(index);
+  };
+
   return (
     <Container className="my-6">
       <h2>Photos</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-6">
-        {portfolioImages.map(({ image }, index) => (
-          <div key={image.file.asset.id}>
-            <button onClick={() => openLightbox(index)}>
-              <img
-                className="transform hover:scale-105 duration-300 p-1 shadow-md"
-                src={builder
-                  .image(image.file.asset.id)
-                  .size(408, 272)
-                  .fit("crop")
-                  .url()}
-                alt={image.description}
-              />
-            </button>
-          </div>
-        ))}
+      <Tags
+        tags={tags.map((tag) => ({
+          value: tag,
+          checked: Boolean(
+            checkedTags.find((checkedTag) => checkedTag === tag)
+          ),
+          onChange: ({ target }) => {
+            if (target.checked) {
+              setQuery({
+                tags: [...checkedTags.map(encodeURI), encodeURI(tag)].join(","),
+              });
+            } else {
+              setQuery({
+                tags: checkedTags
+                  .filter((checkedTags) => checkedTags !== tag)
+                  .map(encodeURI)
+                  .join(","),
+              });
+            }
+            setSelectedIndex(0);
+          },
+        }))}
+      />
 
-        {/* <div>
-    <span className="bg-gray-light rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3">
-      1
-    </span>
-    <span className="bg-blue-dark text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3">
-      2
-    </span>
-    <span className="bg-gray-light rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3">
-      3
-    </span>
-  </div> */}
+      <div className="p-1">
+        <button
+          className="inline block text-blue-dark hover:text-gold text-base m-2"
+          onClick={() => setQuery({ tags: tags.map(encodeURI).join(",") })}
+        >
+          Show All
+        </button>
+        |
+        <button
+          className="inline block text-blue-dark hover:text-gold text-base m-2"
+          onClick={() => setQuery({ tags: [] })}
+        >
+          Show None
+        </button>
       </div>
+
+      <>
+        {filteredImages.map(({ image }) => (
+          <img
+            key={image.file.asset.id}
+            className="sr-only"
+            src={builder
+              .image(image.file.asset.id)
+              .size(408, 272)
+              .fit("crop")
+              .url()}
+            alt={image.description}
+          />
+        ))}
+      </>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6" ref={grid}>
+        {filteredImages
+          .slice(pageSize * selectedPage, pageSize * selectedPage + pageSize)
+          .map(({ image }, index) => (
+            <div key={image.file.asset.id}>
+              <button
+                className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:shadow-outline bg-white"
+                onClick={() => openLightbox(index + pageSize * selectedPage)}
+              >
+                <img
+                  className="pointer-events-none"
+                  src={builder
+                    .image(image.file.asset.id)
+                    .size(408, 272)
+                    .fit("crop")
+                    .url()}
+                  alt={image.description}
+                />
+              </button>
+            </div>
+          ))}
+      </div>
+
+      {filteredImages.length > pageSize ? (
+        <div className="flex items-center justify-center mt-2">
+          <button
+            onClick={() =>
+              handlePagination(Math.max(selectedIndex - pageSize, 0))
+            }
+            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline`}
+          >
+            <LeftArrowIcon className="w-full h-full p-2" />
+            <span className="sr-only">Previous Page</span>
+          </button>
+
+          {Array.from({
+            length: Math.floor(filteredImages.length / pageSize) + 1,
+          }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handlePagination(index * pageSize)}
+              className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline ${
+                index === selectedPage ? "bg-gold" : "bg-blue-dark"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() =>
+              handlePagination(
+                Math.min(selectedIndex + pageSize, filteredImages.length)
+              )
+            }
+            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline`}
+          >
+            <RightArrowIcon className="w-full h-full p-2" />
+            <span className="sr-only">Next Page</span>
+          </button>
+        </div>
+      ) : null}
 
       <ModalGateway>
         {lightboxIsOpen ? (
           <Modal
             closeOnBackdropClick={false}
-            onClose={() => setLightboxIsOpen(false)}
+            onClose={closeLightbox}
             styles={{
               blanket: (base) => ({
                 ...base,
@@ -135,6 +270,9 @@ const PortfolioImages = () => {
               currentIndex={selectedIndex}
               components={{ Footer: null, Header, View }}
               views={images}
+              trackProps={{
+                onViewChange: setSelectedIndex,
+              }}
               styles={{
                 container: (base) => ({
                   ...base,
@@ -157,6 +295,10 @@ const PortfolioImages = () => {
       </ModalGateway>
     </Container>
   );
+};
+
+PortfolioImages.propTypes = {
+  location: PropTypes.object.isRequired,
 };
 
 const View = ({ views, index, modalProps: { isFullscreen } }) => {

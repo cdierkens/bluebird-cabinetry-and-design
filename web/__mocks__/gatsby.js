@@ -1,32 +1,29 @@
 const React = require("react");
 const gatsby = jest.requireActual("gatsby");
 
-const deepMock = new Proxy(
-  {},
-  {
-    get(_, key) {
-      if (typeof key === "symbol") {
-        let value = "unhandled symbol";
+const deepMock = new Proxy([], {
+  get(_, key) {
+    if (typeof key === "symbol") {
+      let value = "unhandled symbol";
 
-        if (key === Symbol.toPrimitive) {
-          value = "primitive";
-        } else if (key === Symbol.iterator) {
-          value = {
-            next: () => ({ done: true }),
-          };
-        }
-
-        return jest.fn().mockReturnValue(value);
+      if (key === Symbol.toPrimitive) {
+        value = "primitive";
+      } else if (key === Symbol.iterator) {
+        value = {
+          next: () => ({ done: true }),
+        };
       }
 
-      if (["map", "filter"].find((value) => value === key)) {
-        return jest.fn().mockReturnValue([deepMock]);
-      }
+      return jest.fn().mockReturnValue(value);
+    }
 
-      return deepMock;
-    },
-  }
-);
+    if (["map", "filter", "reduce", "slice"].find((value) => value === key)) {
+      return jest.fn().mockReturnValue(deepMock);
+    }
+
+    return deepMock;
+  },
+});
 
 module.exports = {
   ...gatsby,

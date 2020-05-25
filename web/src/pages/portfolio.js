@@ -6,10 +6,10 @@ import PortfolioImages from "../components/PortfolioImages/PortfolioImages";
 import Publications from "../components/Publications/Publications";
 import Layout from "../Layout";
 
-const PortfolioPage = () => {
+const PortfolioPage = ({ location }) => {
   return (
     <Layout title="Portfolio">
-      <PortfolioImages />
+      <PortfolioImages location={location} />
 
       <div className="bg-blue-dark text-center">
         <span className="font-sans font-medium text-white text-xl my-9 mx-5 inline-block">
@@ -34,6 +34,7 @@ PortfolioPage.propTypes = {
       message: PropTypes.string,
     })
   ),
+  location: PropTypes.object.isRequired,
 };
 
 export default PortfolioPage;
