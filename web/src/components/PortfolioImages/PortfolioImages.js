@@ -1,6 +1,6 @@
-import { graphql, navigate, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import resolveConfig from "tailwindcss/resolveConfig";
 import useQueryString from "use-query-string";
@@ -45,34 +45,69 @@ const navButtonStyles = (base) => ({
   },
 });
 
-const PortfolioImages = (location) => {
+const Tag = ({ label, onChange, name, value, checked }) => {
+  return (
+    <label
+      className={`cursor-pointer inline-block rounded p-3 m-1 sm:m-2 focus:outline-none focus:shadow-outline shadow-md ${
+        checked ? "bg-blue-dark text-white" : "bg-white text-blue-dark"
+      }`}
+    >
+      <input
+        className="sr-only"
+        type="checkbox"
+        onChange={onChange}
+        name={name}
+        value={value}
+        checked={checked}
+      />
+      <span>{label}</span>
+    </label>
+  );
+};
+
+Tag.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  checked: PropTypes.bool,
+};
+
+const PortfolioImages = ({ location }) => {
   const {
     images: { nodes: portfolioImages },
   } = useStaticQuery(portfolioImagesQuery);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
+  const openedBy = useRef();
 
-  const [query, setQuery] = useQueryString(location, (value) =>
-    navigate(value, { replace: true })
+  const [query, setQuery] = useQueryString({ pathname: "" }, (value) => {
+    if (typeof window === "object") {
+      window.history.pushState(
+        null,
+        window.document.title,
+        value.replace(location.pathname)
+      );
+    }
+  });
+
+  const tags = useMemo(
+    () =>
+      Array.from(
+        portfolioImages.reduce(
+          (keys, node) => new Set([...node.tags, ...keys]),
+          new Set()
+        )
+      ).sort(),
+    [portfolioImages]
   );
 
-  const tags = Array.from(
-    portfolioImages.reduce(
-      (keys, node) => new Set([...node.tags, ...keys]),
-      new Set()
-    )
-  );
-
-  const checkedTags = Object.entries(query)
-    .filter(([_, value]) => value === "true")
-    .map(([key]) => key);
+  const checkedTags = query.tags ? decodeURI(query.tags).split(",") : [];
 
   const images = portfolioImages
     .filter(({ tags }) =>
-      tags.find((tag) =>
-        checkedTags.find((checkedTag) => checkedTag === encodeURI(tag))
-      )
+      tags.find((tag) => checkedTags.find((checkedTag) => checkedTag === tag))
     )
     .map(({ image, caption }) => ({
       source: {
@@ -84,7 +119,7 @@ const PortfolioImages = (location) => {
           .url(),
         regular: builder
           .image(image.file.asset.id)
-          .height(1080)
+          .height(900)
           .fit("clip")
           .url(),
         thumbnail: builder
@@ -97,27 +132,82 @@ const PortfolioImages = (location) => {
       alt: image.description,
     }));
 
-  const openLightbox = (index) => {
+  const openLightbox = (target, index) => {
     setSelectedIndex(index);
+    openedBy.current = target;
     setLightboxIsOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxIsOpen(false);
+    if (openedBy.current) {
+      openedBy.current.focus();
+    }
   };
 
   return (
     <Container className="my-6">
       <h2>Photos</h2>
-
+      <span className="block text-blue-dark text-base ml-1 mb-1">Tags</span>
+      <div className="p-1 shadow-md flex flex-wrap justify-start">
+        {tags.map((tag) => (
+          <Tag
+            name="tags"
+            value={tag}
+            checked={Boolean(
+              checkedTags.find((checkedTag) => checkedTag === tag)
+            )}
+            onChange={({ target }) => {
+              if (target.checked) {
+                setQuery({
+                  tags: [...checkedTags.map(encodeURI), encodeURI(tag)].join(
+                    ","
+                  ),
+                });
+              } else {
+                setQuery({
+                  tags: checkedTags
+                    .filter((checkedTags) => checkedTags !== tag)
+                    .map(encodeURI)
+                    .join(","),
+                });
+              }
+            }}
+            label={tag}
+            key={tag}
+          />
+        ))}
+      </div>
+      <div className="p-1">
+        <button
+          className="inline block text-blue-dark hover:text-gold text-base m-2"
+          onClick={() => setQuery({ tags: tags.map(encodeURI).join(",") })}
+        >
+          Show All
+        </button>
+        |
+        <button
+          className="inline block text-blue-dark hover:text-gold text-base m-2"
+          onClick={() => setQuery({ tags: [] })}
+        >
+          Show None
+        </button>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-6">
         {portfolioImages
           .filter(({ tags }) =>
             tags.find((tag) =>
-              checkedTags.find((checkedTag) => checkedTag === encodeURI(tag))
+              checkedTags.find((checkedTag) => checkedTag === tag)
             )
           )
           .map(({ image }, index) => (
             <div key={image.file.asset.id}>
-              <button onClick={() => openLightbox(index)}>
+              <button
+                className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:shadow-outline bg-white"
+                onClick={({ target }) => openLightbox(target, index)}
+              >
                 <img
-                  className="transform hover:scale-105 duration-300 p-1 shadow-md"
+                  className="pointer-events-none"
                   src={builder
                     .image(image.file.asset.id)
                     .size(408, 272)
@@ -141,12 +231,11 @@ const PortfolioImages = (location) => {
     </span>
   </div> */}
       </div>
-
       <ModalGateway>
         {lightboxIsOpen ? (
           <Modal
             closeOnBackdropClick={false}
-            onClose={() => setLightboxIsOpen(false)}
+            onClose={closeLightbox}
             styles={{
               blanket: (base) => ({
                 ...base,
@@ -185,6 +274,10 @@ const PortfolioImages = (location) => {
       </ModalGateway>
     </Container>
   );
+};
+
+PortfolioImages.propTypes = {
+  location: PropTypes.object.isRequired,
 };
 
 const View = ({ views, index, modalProps: { isFullscreen } }) => {
