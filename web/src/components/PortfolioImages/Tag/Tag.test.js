@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import PortfolioImages from "./PortfolioImages";
+import Tag from "./Tag";
 
 it("matches snapshot", () => {
-  const { asFragment } = render(<PortfolioImages location={{ search: "" }} />);
+  const { asFragment } = render(<Tag label="mock label" />);
 
   expect(asFragment()).toMatchSnapshot();
 });

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="block text-blue-dark text-base ml-1 mb-1"
+  >
+    Tags
+  </span>
+  <div
+    class="p-1 shadow-md flex flex-wrap justify-start"
+  />
+</DocumentFragment>
+`;
