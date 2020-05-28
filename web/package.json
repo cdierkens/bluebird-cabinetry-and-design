@@ -24,7 +24,7 @@
     "babel-preset-gatsby": "0.4.7",
     "date-fns": "2.14.0",
     "dotenv": "8.2.0",
-    "gatsby": "2.22.9",
+    "gatsby": "2.22.11",
     "gatsby-plugin-postcss": "2.3.2",
     "gatsby-plugin-react-helmet": "3.3.2",
     "gatsby-plugin-root-import": "2.0.5",
@@ -52,7 +52,7 @@
     "lodash": "4.17.15",
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.7",
-    "use-query-string": "^2.1.4",
-    "yup": "0.29.0"
+    "use-query-string": "2.1.4",
+    "yup": "0.29.1"
   }
 }
