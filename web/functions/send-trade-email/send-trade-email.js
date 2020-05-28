@@ -16,7 +16,7 @@ exports.handler = async (event) => {
 
   const to = process.env.SENDGRID_TO_EMAIL;
   const from = {
-    name: "Bluebird Contact Form",
+    name: "Bluebird Trade Form",
     email: process.env.SENDGRID_FROM_EMAIL,
   };
 
@@ -51,7 +51,7 @@ exports.handler = async (event) => {
     };
   }
 
-  const { name, email, phone, budget, interest, message } = data;
+  const { name, owner, address1, address2, phone, email, message } = data;
 
   const mailData = {
     to,
@@ -60,12 +60,13 @@ exports.handler = async (event) => {
       name,
       email,
     },
-    subject: `Contact form message from ${name} <${email}>`,
+    subject: `To the Trade form message from ${name} <${email}>`,
     text: [
-      `Contact form message from ${name} <${email}>`,
+      `To the Trade form message from ${name} <${email}>`,
+      owner && `The owner name is ${owner}`,
+      address1 && `${address1}`,
+      address2 && `${address2}`,
       phone && `Their phone number is ${phone}`,
-      interest && `Their area of interest is ${interest}`,
-      budget && `They have a budget of ${budget}`,
       message,
     ]
       .filter(Boolean)
