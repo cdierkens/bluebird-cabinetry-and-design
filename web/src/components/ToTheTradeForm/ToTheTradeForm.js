@@ -7,12 +7,11 @@ import Button from "../Button";
 import Container from "../container";
 import Grid from "../Grid";
 import Input from "../Input";
-import Select from "../Select";
 
 const phoneRegExp = /^\({0,1}\d{3}[-|)]{0,1}\d{3}-{0,1}\d{4}$/;
 
 const contactSchema = Yup.object().shape({
-  name: Yup.string().required("Please enter your name."),
+  name: Yup.string().required("Please enter your business name."),
   phone: Yup.string().matches(
     phoneRegExp,
     "Please enter a 10 digit phone number"
@@ -25,7 +24,7 @@ const contactSchema = Yup.object().shape({
     .min(25, "Please provide more details."),
 });
 
-const ContactForm = () => {
+const ToTheTradeForm = () => {
   const [response, setResponse] = useState({
     status: "init",
     message: "",
@@ -45,17 +44,18 @@ const ContactForm = () => {
       <Container>
         <Grid>
           <p className="col-span-3 sm:col-span-6 md:col-start-2 text-center text-blue-dark">
-            Please take a minute to tell us more about yourself and your
-            project. We will be in contact soon!
+            Please take a minute to tell us more about your business. We will
+            get back with you shortly.
           </p>
 
           <Formik
             initialValues={{
               name: "",
+              owner: "",
+              address1: "",
+              address2: "",
               phone: "",
               email: "",
-              budget: "",
-              interest: "",
               message: "",
               username: "",
             }}
@@ -63,7 +63,7 @@ const ContactForm = () => {
             onSubmit={async (values, { resetForm }) => {
               try {
                 const { data } = await axios.post(
-                  "/.netlify/functions/send-contact-email",
+                  "/.netlify/functions/send-trade-email",
                   values
                 );
                 resetForm();
@@ -95,7 +95,24 @@ const ContactForm = () => {
           >
             {() => (
               <Form className="block col-span-3 sm:col-span-6 md:col-start-2">
-                <Input placeholder="Jane Doe" label="Name*" name="name" />
+                <Input
+                  placeholder="Jane's Cabinetry"
+                  label="Business Name*"
+                  name="name"
+                />
+
+                <Input placeholder="Jane Doe" label="Owner" name="owner" />
+
+                <Input
+                  placeholder="123 Dream Kitchen Lane"
+                  label="Address Line 1"
+                  name="address1"
+                />
+                <Input
+                  placeholder="Suite 200"
+                  label="Address Line 2"
+                  name="address2"
+                />
 
                 <Input
                   placeholder="555-555-5555"
@@ -107,36 +124,6 @@ const ContactForm = () => {
                   placeholder="jane@example.com"
                   label="Email*"
                   name="email"
-                />
-
-                <Select label="Budget" name="budget">
-                  <Select.Option value="" disabled>
-                    Please select a budget...
-                  </Select.Option>
-                  <Select.Option value="$0 to $10,000">
-                    $0 to $10,000
-                  </Select.Option>
-                  <Select.Option value="$11,000 to $25,000">
-                    $11,000 to $25,000
-                  </Select.Option>
-                  <Select.Option value="$26,000 to $50,000">
-                    $26,000 to $50,000
-                  </Select.Option>
-                  <Select.Option value="$51,000 to $75,000">
-                    $51,000 to $75,000
-                  </Select.Option>
-                  <Select.Option value="$76,000 to $100,000">
-                    $76,000 to $100,000
-                  </Select.Option>
-                  <Select.Option value="$100,000 plus">
-                    $100,000 plus
-                  </Select.Option>
-                </Select>
-
-                <Input
-                  placeholder="cabinetry, remodeling, renovations, etc"
-                  label="Areas of Interest"
-                  name="interest"
                 />
 
                 <Input type="textarea" label="Message*" name="message" />
@@ -161,4 +148,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default ToTheTradeForm;

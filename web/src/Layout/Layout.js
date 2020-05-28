@@ -6,7 +6,6 @@ import GraphQLErrors from "./GraphQLErrors";
 import Head from "./Head";
 import Header from "./Header";
 import "./Layout.css";
-import styles from "./Layout.module.css";
 
 const Layout = ({ errors, hidePageTitle, children, ...props }) =>
   errors ? (
@@ -19,10 +18,10 @@ const Layout = ({ errors, hidePageTitle, children, ...props }) =>
         Skip to content
       </a>
 
-      <div className={styles.Layout}>
+      <div>
         <Header />
 
-        <main role="main" id="content" className={styles.Content}>
+        <main role="main" id="content">
           {!hidePageTitle && <PageTitle>{props.title}</PageTitle>}
 
           {children}

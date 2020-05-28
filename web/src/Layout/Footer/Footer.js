@@ -58,7 +58,7 @@ const Footer = () => (
           <span className="sr-only">Instagram</span>
         </a>
 
-        <Link className="mx-2 underline" to="/contact">
+        <Link className="mx-2 underline" to="/trade-services">
           To The Trade Services
         </Link>
 
