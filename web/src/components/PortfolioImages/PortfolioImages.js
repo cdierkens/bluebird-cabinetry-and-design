@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import resolveConfig from "tailwindcss/resolveConfig";
 import useQueryString from "use-query-string";
@@ -74,19 +74,9 @@ const PortfolioImages = ({ location }) => {
     [portfolioImages]
   );
 
-  useEffect(() => {
-    if (
-      location &&
-      location.search &&
-      location.search.indexOf("tags=") === -1
-    ) {
-      setQuery({ tags: tags.map(encodeURI).join(",") });
-    }
-  }, []); // eslint-disable-line
-
   const grid = useRef();
 
-  const checkedTags = query.tags ? decodeURI(query.tags).split(",") : [];
+  const checkedTags = query.tags ? decodeURI(query.tags).split(",") : tags;
   const filteredImages = portfolioImages.filter(({ tags }) =>
     tags.find((tag) => checkedTags.find((checkedTag) => checkedTag === tag))
   );
@@ -121,6 +111,10 @@ const PortfolioImages = ({ location }) => {
   };
 
   const handlePagination = (index) => {
+    if (index === selectedIndex) {
+      return;
+    }
+
     if (grid.current) {
       grid.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -238,7 +232,10 @@ const PortfolioImages = ({ location }) => {
           <button
             onClick={() =>
               handlePagination(
-                Math.min(selectedIndex + pageSize, filteredImages.length)
+                Math.min(
+                  selectedIndex + pageSize,
+                  Math.floor(filteredImages.length / pageSize) * pageSize
+                )
               )
             }
             className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline`}
