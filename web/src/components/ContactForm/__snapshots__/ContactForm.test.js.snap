@@ -192,6 +192,17 @@ exports[`matches snapshot 1`] = `
               Send
             </button>
           </div>
+          <div
+            class="text-center text-sm text-blue-dark p-8"
+          >
+            If you are a trade professional, see our
+            <a
+              href="/trade-services"
+            >
+               To The Trade Services 
+            </a>
+            page.
+          </div>
         </form>
       </div>
     </div>
