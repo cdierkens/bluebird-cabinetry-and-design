@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Field, Form, Formik } from "formik";
+import { Link } from "gatsby";
 import React, { useState } from "react";
 import * as Yup from "yup";
 import Alert from "../Alert";
@@ -151,6 +152,11 @@ const ContactForm = () => {
                   <Button variant="blue" type="submit">
                     Send
                   </Button>
+                </div>
+                <div className="text-center text-sm text-blue-dark p-8">
+                  If you are a trade professional, see our
+                  <Link to="/trade-services"> To The Trade Services </Link>
+                  page.
                 </div>
               </Form>
             )}
