@@ -252,6 +252,10 @@ const PortfolioImages = ({ location }) => {
             closeOnBackdropClick={false}
             onClose={closeLightbox}
             styles={{
+              footer: (base) => ({
+                ...base,
+                color: "white",
+              }),
               blanket: (base) => ({
                 ...base,
                 backgroundColor: theme.colors.gray.light,
@@ -265,12 +269,16 @@ const PortfolioImages = ({ location }) => {
             <Carousel
               hideControlsWhenIdle={false}
               currentIndex={selectedIndex}
-              components={{ Footer: null, Header, View }}
+              components={{ Header, View }}
               views={images}
               trackProps={{
                 onViewChange: setSelectedIndex,
               }}
               styles={{
+                footer: (base, state) => ({
+                  ...base,
+                  color: state.isFullscreen ? "white" : "black",
+                }),
                 container: (base) => ({
                   ...base,
                   height: "100vh",
@@ -322,7 +330,6 @@ View.propTypes = {
 };
 
 const Header = ({
-  currentView: { caption },
   modalProps: { onClose, toggleFullscreen, isFullscreen },
 }) => {
   if (isFullscreen) {
@@ -345,9 +352,7 @@ const Header = ({
 
   return (
     <div className="p-1 md:p-4 bg-gray-light shadow-sm flex justify-between items-center">
-      <div className="truncate" style={{ maxWidth: "calc(100% - 80px)" }}>
-        <span className="px-1 whitespace-no-wrap truncate">{caption}</span>
-      </div>
+      <div className="truncate" style={{ maxWidth: "calc(100% - 80px)" }} />
       <div>
         <button
           onClick={toggleFullscreen}
