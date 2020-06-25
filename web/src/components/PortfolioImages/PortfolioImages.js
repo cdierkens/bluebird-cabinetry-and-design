@@ -274,32 +274,36 @@ const PortfolioImages = ({ location }) => {
               trackProps={{
                 onViewChange: setSelectedIndex,
               }}
-              styles={{
-                footer: (base, state) => ({
-                  ...base,
-                  color: state.isFullscreen ? "white" : "black",
-                }),
-                container: (base) => ({
-                  ...base,
-                  height: "100vh",
-                }),
-                view: (base) => ({
-                  ...base,
-                  alignItems: "center",
-                  display: "flex",
-                  padding: theme.padding["6"],
-                  height: "calc(100vh - 72px)",
-                  justifyContent: "center",
-                }),
-                navigationPrev: navButtonStyles,
-                navigationNext: navButtonStyles,
-              }}
+              styles={customStyles}
             />
           </Modal>
         ) : null}
       </ModalGateway>
     </Container>
   );
+};
+
+const customStyles = {
+  footer: (base, state) => {
+    return {
+      ...base,
+      color: state.isFullscreen ? theme.colors.white : theme.colors.gray.darker,
+    };
+  },
+  container: (base) => ({
+    ...base,
+    height: "100vh",
+  }),
+  view: (base) => ({
+    ...base,
+    alignItems: "center",
+    display: "flex",
+    padding: theme.padding["6"],
+    height: "calc(100vh - 72px)",
+    justifyContent: "center",
+  }),
+  navigationPrev: navButtonStyles,
+  navigationNext: navButtonStyles,
 };
 
 PortfolioImages.propTypes = {
