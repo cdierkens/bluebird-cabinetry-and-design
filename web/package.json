@@ -49,7 +49,7 @@
     "gatsby-plugin-offline": "3.2.16",
     "gatsby-plugin-react-svg": "3.0.0",
     "gatsby-plugin-sitemap": "2.4.10",
-    "lodash": "4.17.15",
+    "lodash": "4.17.18",
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.9",
     "use-query-string": "2.1.4",
