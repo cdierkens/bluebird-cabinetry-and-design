@@ -41,7 +41,7 @@
     "tailwindcss": "1.5.2"
   },
   "dependencies": {
-    "@sendgrid/mail": "7.2.1",
+    "@sendgrid/mail": "7.2.2",
     "@types/yup": "0.29.3",
     "axios": "0.19.2",
     "formik": "2.1.5",
