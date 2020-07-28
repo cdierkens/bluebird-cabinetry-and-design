@@ -62,19 +62,6 @@ exports[`matches snapshot 1`] = `
         </span>
       </a>
       <a
-        class="mx-2"
-        href="https://www.instagram.com/danasnyderckd/"
-      >
-        <test-file-stub
-          classname="p-1 fill-current stroke-current inline-block h-12 text-white"
-        />
-        <span
-          class="sr-only"
-        >
-          Instagram
-        </span>
-      </a>
-      <a
         class="mx-2 underline"
         href="/trade-services"
       >
