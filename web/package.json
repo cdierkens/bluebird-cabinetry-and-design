@@ -53,6 +53,6 @@
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.9",
     "use-query-string": "2.1.4",
-    "yup": "0.29.1"
+    "yup": "0.29.2"
   }
 }
