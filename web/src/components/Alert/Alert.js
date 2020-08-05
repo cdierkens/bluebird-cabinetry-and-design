@@ -1,9 +1,9 @@
+import { useKeyPress } from "@react-typed-hooks/use-key-press";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef } from "react";
-import { useKeyPress } from "../../hooks";
 
 const Alert = ({ status, children, onClose }) => {
-  const isEscapePressed = useKeyPress("Escape");
+  const isEscapePressed = useKeyPress({ targetKey: "Escape" });
   const closeRef = useRef(null);
 
   useEffect(() => {
