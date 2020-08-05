@@ -44,7 +44,7 @@
   "dependencies": {
     "@react-typed-hooks/use-key-press": "1.0.0",
     "@react-typed-hooks/use-window-size": "1.0.0",
-    "@sendgrid/mail": "7.2.2",
+    "@sendgrid/mail": "7.2.3",
     "@types/yup": "0.29.4",
     "axios": "0.19.2",
     "formik": "2.1.5",
