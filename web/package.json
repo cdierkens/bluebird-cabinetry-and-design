@@ -42,7 +42,7 @@
     "gatsby": "2.24.43",
     "identity-obj-proxy": "3.0.0",
     "inquirer-fuzzy-path": "2.3.0",
-    "jest": "26.3.0",
+    "jest": "26.4.0",
     "lodash": "4.17.19",
     "plop": "2.7.4",
     "postcss-import": "12.0.1",
