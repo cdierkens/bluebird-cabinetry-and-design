@@ -27,7 +27,7 @@
     "axios": "0.20.0",
     "babel-jest": "26.3.0",
     "babel-preset-gatsby": "0.5.7",
-    "date-fns": "2.15.0",
+    "date-fns": "2.16.0",
     "dotenv": "8.2.0",
     "formik": "2.1.5",
     "gatsby-cli": "2.12.89",
