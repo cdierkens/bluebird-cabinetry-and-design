@@ -52,7 +52,7 @@
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.9",
     "react": "16.13.1",
-    "tailwindcss": "1.8.8",
+    "tailwindcss": "1.8.10",
     "use-query-string": "2.2.0",
     "yup": "0.29.3"
   }
