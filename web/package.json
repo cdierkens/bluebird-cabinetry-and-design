@@ -50,7 +50,7 @@
     "react-dom": "16.13.1",
     "react-helmet": "6.1.0",
     "react-images": "1.1.7",
-    "react-responsive-carousel": "3.2.9",
+    "react-responsive-carousel": "3.2.10",
     "react": "16.13.1",
     "tailwindcss": "1.8.10",
     "use-query-string": "2.2.0",
