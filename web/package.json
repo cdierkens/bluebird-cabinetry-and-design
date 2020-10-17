@@ -29,7 +29,7 @@
     "babel-preset-gatsby": "0.5.14",
     "date-fns": "2.16.1",
     "dotenv": "8.2.0",
-    "formik": "2.1.7",
+    "formik": "2.2.0",
     "gatsby-cli": "2.12.109",
     "gatsby-image": "2.4.21",
     "gatsby-plugin-offline": "3.2.33",
@@ -52,7 +52,7 @@
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.10",
     "react": "16.14.0",
-    "tailwindcss": "1.8.12",
+    "tailwindcss": "1.9.3",
     "use-query-string": "2.2.0",
     "yup": "0.29.3"
   }
