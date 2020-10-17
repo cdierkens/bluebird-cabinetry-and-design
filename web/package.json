@@ -47,11 +47,11 @@
     "plop": "2.7.4",
     "postcss-import": "12.0.1",
     "postcss-preset-env": "6.7.0",
-    "react-dom": "16.13.1",
+    "react-dom": "16.14.0",
     "react-helmet": "6.1.0",
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.10",
-    "react": "16.13.1",
+    "react": "16.14.0",
     "tailwindcss": "1.8.12",
     "use-query-string": "2.2.0",
     "yup": "0.29.3"
