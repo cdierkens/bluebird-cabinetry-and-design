@@ -1,4 +1,4 @@
-import ViewQuiltIcon from "react-icons/lib/md/view-quilt";
+import { MdViewQuilt as ViewQuiltIcon } from "react-icons/md";
 
 export default {
   name: "designPreview",
