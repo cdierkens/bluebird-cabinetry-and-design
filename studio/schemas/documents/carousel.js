@@ -1,4 +1,4 @@
-import ViewCarouselIcon from "react-icons/lib/md/view-carousel";
+import { MdViewCarousel as ViewCarouselIcon } from "react-icons/md";
 
 export default {
   name: "carousel",

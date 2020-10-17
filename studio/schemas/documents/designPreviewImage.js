@@ -1,4 +1,4 @@
-import PhotoAlbumIcon from "react-icons/lib/md/photo-album";
+import { MdPhotoAlbum as PhotoAlbumIcon } from "react-icons/md";
 
 export default {
   name: "designPreviewImage",

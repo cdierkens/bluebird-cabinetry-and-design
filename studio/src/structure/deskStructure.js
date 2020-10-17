@@ -1,7 +1,7 @@
 import S from "@sanity/desk-tool/structure-builder";
-import MdSettings from "react-icons/lib/md/settings";
-import viewCarouselIcon from "react-icons/lib/md/view-carousel";
-import viewQuiltIcon from "react-icons/lib/md/view-quilt";
+import { MdSettings } from "react-icons/md";
+import { MdViewCarousel as viewCarouselIcon } from "react-icons/md";
+import { MdViewQuilt as viewQuiltIcon } from "react-icons/md";
 
 export const getDefaultDocumentNode = (props) => {
   /**
