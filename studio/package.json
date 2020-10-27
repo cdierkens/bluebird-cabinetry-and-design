@@ -21,7 +21,7 @@
     "@sanity/desk-tool": "2.0.8",
     "@sanity/studio-hints": "2.0.5",
     "@types/prop-types": "15.7.3",
-    "@types/react": "16.9.53",
+    "@types/react": "16.9.54",
     "@types/react-dom": "16.9.8",
     "date-fns": "2.16.1",
     "prop-types": "15.7.2",
