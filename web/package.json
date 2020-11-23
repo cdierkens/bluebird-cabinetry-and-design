@@ -54,6 +54,6 @@
     "react": "17.0.1",
     "tailwindcss": "1.9.6",
     "use-query-string": "2.2.0",
-    "yup": "0.29.3"
+    "yup": "0.31.0"
   }
 }
