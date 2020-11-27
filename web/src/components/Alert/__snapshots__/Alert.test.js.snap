@@ -21,7 +21,7 @@ exports[`matches snapshot 1`] = `
       <strong
         class="font-semibold"
       >
-        Success
+        Success 
       </strong>
       <span
         class="block"

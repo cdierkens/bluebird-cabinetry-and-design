@@ -35,7 +35,7 @@ exports[`matches snapshot 1`] = `
         <span
           class="text-sm sm:text-base"
         >
-          Serving the
+          Serving the 
           <a
             class="underline"
             href="https://en.wikipedia.org/wiki/Cincinnati_metropolitan_area"
