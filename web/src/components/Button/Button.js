@@ -6,7 +6,7 @@ import styles from "./Button.module.css";
 const Button = ({ variant, className, children, to, type, onClick }) => {
   const fullClassName = `${
     variant === "white" ? styles.ButtonWhite : styles.ButtonBlue
-  } ${className} focus:outline-none focus:shadow-outline`;
+  } ${className} focus:outline-none focus:ring`;
 
   return type === "link" ? (
     <Link to={to} className={fullClassName}>
