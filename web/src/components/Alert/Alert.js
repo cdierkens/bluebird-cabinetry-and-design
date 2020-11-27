@@ -40,7 +40,7 @@ const Alert = ({ status, children, onClose }) => {
           </strong>
           <span className="block">{children}</span>
           <button
-            className="absolute top-0 bottom-0 right-0 px-3 py-3 text-white hover:text-sand focus:outline-none focus:shadow-outline"
+            className="absolute top-0 bottom-0 right-0 px-3 py-3 text-white hover:text-sand focus:outline-none focus:ring"
             onClick={onClose}
             ref={closeRef}
           >

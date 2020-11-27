@@ -69,5 +69,5 @@ a:active svg {
 }
 
 a:focus {
-  @apply outline-none shadow-outline;
+  @apply outline-none ring;
 }

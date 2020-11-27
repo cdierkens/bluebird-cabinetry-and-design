@@ -35,7 +35,7 @@ exports[`matches snapshot 1`] = `
         <span
           class="text-sm sm:text-base"
         >
-          Serving the 
+          Serving the
           <a
             class="underline"
             href="https://en.wikipedia.org/wiki/Cincinnati_metropolitan_area"
@@ -68,7 +68,7 @@ exports[`matches snapshot 1`] = `
         To The Trade Services
       </a>
       <a
-        class="ButtonWhite mb-5 mx-5 my-6 focus:outline-none focus:shadow-outline"
+        class="ButtonWhite mb-5 mx-5 my-6 focus:outline-none focus:ring"
         href="/contact"
       >
         Contact Us

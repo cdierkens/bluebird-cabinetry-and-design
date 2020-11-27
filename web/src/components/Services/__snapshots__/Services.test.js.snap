@@ -18,7 +18,7 @@ exports[`matches snapshot 1`] = `
             classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
-            Cabinetry Design 
+            Cabinetry Design
             <br />
             & Sales
           </span>
@@ -70,7 +70,7 @@ exports[`matches snapshot 1`] = `
             classname="p-1 fill-current stroke-current inline-block fill-none stroke-3 h-12 mb-2 text-blue-dark"
           />
           <span>
-            Space Planning 
+            Space Planning
             <br />
             & Layout
           </span>
@@ -81,7 +81,7 @@ exports[`matches snapshot 1`] = `
       class="Container text-center pb-8 pt-4"
     >
       <a
-        class="ButtonBlue  focus:outline-none focus:shadow-outline"
+        class="ButtonBlue  focus:outline-none focus:ring"
         href="/services"
       >
         Services
