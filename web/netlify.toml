@@ -6,6 +6,7 @@
 
 [build.environment]
   GATSBY_SANITY_PROJECT_ID="5sj6awst"
+  NODE_VERSION="v12"
 
 [context.production.environment]
   GATSBY_SANITY_DATASET="production"

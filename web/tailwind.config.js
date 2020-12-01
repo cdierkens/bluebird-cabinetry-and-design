@@ -30,7 +30,7 @@ module.exports = {
       fontFamily: {
         body: ["Open Sans", ...defaultTheme.fontFamily.sans],
         sans: ["Quicksand", ...defaultTheme.fontFamily.sans],
-        handwriting: ["Sacramento", "Brush Script MT", "cursive"],
+        handwriting: ["Cookie", "Brush Script MT", "cursive"],
       },
       fill: {
         none: "none",
