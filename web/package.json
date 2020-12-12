@@ -55,6 +55,6 @@
     "react-responsive-carousel": "3.2.11",
     "tailwindcss": "2.0.1",
     "use-query-string": "2.2.0",
-    "yup": "0.32.6"
+    "yup": "0.32.8"
   }
 }
