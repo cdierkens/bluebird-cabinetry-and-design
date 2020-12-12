@@ -53,7 +53,7 @@
     "react-helmet": "6.1.0",
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.11",
-    "tailwindcss": "2.0.1",
+    "tailwindcss": "2.0.2",
     "use-query-string": "2.2.0",
     "yup": "0.32.8"
   }
