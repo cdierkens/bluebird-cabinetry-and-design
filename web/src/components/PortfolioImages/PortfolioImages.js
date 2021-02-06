@@ -186,7 +186,7 @@ const PortfolioImages = ({ location }) => {
           .map(({ image }, index) => (
             <div key={image.file.asset.id}>
               <button
-                className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:shadow-outline bg-white"
+                className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:ring bg-white"
                 onClick={() => openLightbox(index + pageSize * selectedPage)}
               >
                 <img
@@ -209,7 +209,7 @@ const PortfolioImages = ({ location }) => {
             onClick={() =>
               handlePagination(Math.max(selectedIndex - pageSize, 0))
             }
-            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline`}
+            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
           >
             <LeftArrowIcon className="w-full h-full p-2" />
             <span className="sr-only">Previous Page</span>
@@ -221,7 +221,7 @@ const PortfolioImages = ({ location }) => {
             <button
               key={index}
               onClick={() => handlePagination(index * pageSize)}
-              className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline ${
+              className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring ${
                 index === selectedPage ? "bg-gold" : "bg-blue-dark"
               }`}
             >
@@ -238,7 +238,7 @@ const PortfolioImages = ({ location }) => {
                 )
               )
             }
-            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline`}
+            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
           >
             <RightArrowIcon className="w-full h-full p-2" />
             <span className="sr-only">Next Page</span>
@@ -334,13 +334,14 @@ View.propTypes = {
 };
 
 const Header = ({
+  currentView: { caption },
   modalProps: { onClose, toggleFullscreen, isFullscreen },
 }) => {
   if (isFullscreen) {
     return (
       <button
         onClick={toggleFullscreen}
-        className="fixed z-50 top-0 right-0 inline-block p-4 m-2 text-gray-light hover:text-gold focus:outline-none focus:shadow-outline bg-black bg-opacity-25 rounded"
+        className="fixed z-50 top-0 right-0 inline-block p-4 m-2 text-gray-light hover:text-gold focus:outline-none focus:ring bg-black bg-opacity-25 rounded"
       >
         <span className="sr-only">Close</span>
         <svg
@@ -356,11 +357,13 @@ const Header = ({
 
   return (
     <div className="p-1 md:p-4 bg-gray-light shadow-sm flex justify-between items-center">
-      <div className="truncate" style={{ maxWidth: "calc(100% - 80px)" }} />
+      <div className="truncate" style={{ maxWidth: "calc(100% - 80px)" }}>
+        <span className="px-1 whitespace-nowrap truncate">{caption}</span>
+      </div>
       <div>
         <button
           onClick={toggleFullscreen}
-          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:shadow-outline"
+          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Fullscreen</span>
           <svg
@@ -373,7 +376,7 @@ const Header = ({
         </button>
         <button
           onClick={onClose}
-          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:shadow-outline"
+          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Close</span>
           <svg

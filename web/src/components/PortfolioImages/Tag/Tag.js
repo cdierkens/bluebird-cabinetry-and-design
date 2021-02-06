@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const className =
-  "cursor-pointer inline-block rounded p-3 m-1 sm:m-2 focus:outline-none focus:shadow-outline shadow-md";
+  "cursor-pointer inline-block rounded p-3 m-1 sm:m-2 focus:outline-none focus:ring shadow-md";
 
 const Tag = ({ label, onChange, value, checked }) => {
   return (

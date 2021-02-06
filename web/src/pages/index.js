@@ -8,7 +8,7 @@ import DesignPreview from "../components/DesignPreview";
 import KindWords from "../components/KindWords";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
-import { useWindowSize } from "../hooks";
+import { useWindowSize } from "@react-typed-hooks/use-window-size";
 import Layout from "../Layout";
 import { builder } from "../lib/image-url";
 import styles from "./Index.module.css";

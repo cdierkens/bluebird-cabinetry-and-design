@@ -14,11 +14,12 @@ Sanity.io data studio for Bluebird Cabinetry and Design
 
 ## Contributing
 
-By default `studio` is configured to use the `development` dataset in your local environment. Be sure `development.env` in the `web` package is set to build the `development` dataset.
+By default `studio` is configured to use the `development` dataset in your local environment. Be sure `.env.development` in the `web` package is set to build the `development` dataset.
 
-Example `web/development.env`
+Example `web/.env.development`
+
 ```
-# web/development.env
+# web/.env.development
 GATSBY_SANITY_PROJECT_ID="{ PROJECT_ID }"
 GATSBY_SANITY_DATASET="development"
 ```
@@ -32,7 +33,7 @@ cd studio
 npx sanity graphql deploy --dataset development
 ```
 
-> NOTE: It does not matter if you do or do not publish the playground. Gatsby is configured on the `web` side to deploy it's own `graphql` playground at http://localhost:8000/__graphql
+> NOTE: It does not matter if you do or do not publish the playground. Gatsby is configured on the `web` side to deploy it's own `graphql` playground at http://localhost:8000/\_\_graphql
 
 ## Commands
 
