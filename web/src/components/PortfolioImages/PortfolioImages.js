@@ -35,11 +35,11 @@ const navButtonStyles = (base) => ({
   ...base,
   backgroundColor: theme.colors.white,
   boxShadow: theme.boxShadow.md,
-  color: theme.colors.gray.dark,
+  color: theme.colors.gray.darker,
 
   "&:hover, &:active, &:active": {
     backgroundColor: theme.colors.white,
-    color: theme.colors.gray.darker,
+    color: theme.colors.black,
   },
   "&:focus": {
     boxShadow: theme.boxShadow.outline,
@@ -252,10 +252,6 @@ const PortfolioImages = ({ location }) => {
             closeOnBackdropClick={false}
             onClose={closeLightbox}
             styles={{
-              footer: (base) => ({
-                ...base,
-                color: "white",
-              }),
               blanket: (base) => ({
                 ...base,
                 backgroundColor: theme.colors.gray.light,
@@ -269,7 +265,7 @@ const PortfolioImages = ({ location }) => {
             <Carousel
               hideControlsWhenIdle={false}
               currentIndex={selectedIndex}
-              components={{ Header, View }}
+              components={{ Header, View, Footer }}
               views={images}
               trackProps={{
                 onViewChange: setSelectedIndex,
@@ -284,23 +280,9 @@ const PortfolioImages = ({ location }) => {
 };
 
 const customStyles = {
-  footer: (base, state) => {
-    return {
-      ...base,
-      color: state.isFullscreen ? theme.colors.white : theme.colors.gray.darker,
-    };
-  },
   container: (base) => ({
     ...base,
     height: "100vh",
-  }),
-  view: (base) => ({
-    ...base,
-    alignItems: "center",
-    display: "flex",
-    padding: theme.padding["6"],
-    height: "calc(100vh - 72px)",
-    justifyContent: "center",
   }),
   navigationPrev: navButtonStyles,
   navigationNext: navButtonStyles,
@@ -310,13 +292,29 @@ PortfolioImages.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
+const Footer = ({ currentIndex, views, modalProps: { isFullscreen } }) => {
+  return (
+    <div className="absolute bottom-2 right-2 text-right px-2 py-1 text-sm rounded bg-gray-light">
+      <span className="sr-only">Image number</span> {currentIndex + 1} of{" "}
+      {views.length}
+    </div>
+  );
+};
+
+Footer.propTypes = {
+  currentIndex: PropTypes.object.isRequired,
+  views: PropTypes.array.isRequired,
+  currentView: PropTypes.object.isRequired,
+  modalProps: PropTypes.object.isRequired,
+};
+
 const View = ({ views, index, modalProps: { isFullscreen } }) => {
   const { source, alt } = views[index];
 
   return (
     <div
-      className="leading-none relative text-center box-border flex items-center justify-center p-1 md:p-4"
-      style={{ height: isFullscreen ? "100vh" : "calc(100vh - 72px)" }}
+      className="leading-none relative text-center box-border flex items-center justify-center"
+      style={{ height: isFullscreen ? "100vh" : "calc(100vh - 90px)" }}
     >
       <img
         className="h-auto max-h-full max-w-full m-auto select-none"
@@ -363,7 +361,7 @@ const Header = ({
       <div>
         <button
           onClick={toggleFullscreen}
-          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:ring"
+          className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Fullscreen</span>
           <svg
@@ -376,7 +374,7 @@ const Header = ({
         </button>
         <button
           onClick={onClose}
-          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:ring"
+          className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Close</span>
           <svg
