@@ -1,9 +1,9 @@
+import { useKeyPress } from "@react-typed-hooks/use-key-press";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef } from "react";
-import { useKeyPress } from "../../hooks";
 
 const Alert = ({ status, children, onClose }) => {
-  const isEscapePressed = useKeyPress("Escape");
+  const isEscapePressed = useKeyPress({ targetKey: "Escape" });
   const closeRef = useRef(null);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Alert = ({ status, children, onClose }) => {
           </strong>
           <span className="block">{children}</span>
           <button
-            className="absolute top-0 bottom-0 right-0 px-3 py-3 text-white hover:text-sand focus:outline-none focus:shadow-outline"
+            className="absolute top-0 bottom-0 right-0 px-3 py-3 text-white hover:text-sand focus:outline-none focus:ring"
             onClick={onClose}
             ref={closeRef}
           >

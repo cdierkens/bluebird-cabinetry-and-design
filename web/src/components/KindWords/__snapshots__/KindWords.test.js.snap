@@ -83,7 +83,7 @@ exports[`matches snapshot 1`] = `
       class="text-center"
     >
       <button
-        class="ButtonBlue  focus:outline-none focus:shadow-outline"
+        class="ButtonBlue  focus:outline-none focus:ring"
         type="button"
       >
         Read More

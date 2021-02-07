@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply bg-white text-black;
+  @apply bg-white text-gray-darkest;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,5 +69,5 @@ a:active svg {
 }
 
 a:focus {
-  @apply outline-none shadow-outline;
+  @apply outline-none ring;
 }

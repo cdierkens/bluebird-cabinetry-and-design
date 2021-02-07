@@ -6,7 +6,6 @@ import {
   CkdIcon,
   FacebookIcon,
   HouzzIcon,
-  InstagramIcon,
   NkbaIcon,
 } from "../../icons";
 
@@ -51,11 +50,6 @@ const Footer = () => (
         >
           <FacebookIcon className="h-12 text-white" />
           <span className="sr-only">Facebook</span>
-        </a>
-
-        <a className="mx-2" href="https://www.instagram.com/danasnyderckd/">
-          <InstagramIcon className="h-12 text-white" />
-          <span className="sr-only">Instagram</span>
         </a>
 
         <Link className="mx-2 underline" to="/trade-services">

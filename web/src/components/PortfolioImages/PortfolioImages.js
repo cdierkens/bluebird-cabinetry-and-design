@@ -35,11 +35,11 @@ const navButtonStyles = (base) => ({
   ...base,
   backgroundColor: theme.colors.white,
   boxShadow: theme.boxShadow.md,
-  color: theme.colors.gray.dark,
+  color: theme.colors.gray.darker,
 
   "&:hover, &:active, &:active": {
     backgroundColor: theme.colors.white,
-    color: theme.colors.gray.darker,
+    color: theme.colors.black,
   },
   "&:focus": {
     boxShadow: theme.boxShadow.outline,
@@ -186,7 +186,7 @@ const PortfolioImages = ({ location }) => {
           .map(({ image }, index) => (
             <div key={image.file.asset.id}>
               <button
-                className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:shadow-outline bg-white"
+                className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:ring bg-white"
                 onClick={() => openLightbox(index + pageSize * selectedPage)}
               >
                 <img
@@ -209,7 +209,7 @@ const PortfolioImages = ({ location }) => {
             onClick={() =>
               handlePagination(Math.max(selectedIndex - pageSize, 0))
             }
-            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline`}
+            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
           >
             <LeftArrowIcon className="w-full h-full p-2" />
             <span className="sr-only">Previous Page</span>
@@ -221,7 +221,7 @@ const PortfolioImages = ({ location }) => {
             <button
               key={index}
               onClick={() => handlePagination(index * pageSize)}
-              className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline ${
+              className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring ${
                 index === selectedPage ? "bg-gold" : "bg-blue-dark"
               }`}
             >
@@ -238,7 +238,7 @@ const PortfolioImages = ({ location }) => {
                 )
               )
             }
-            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:shadow-outline`}
+            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
           >
             <RightArrowIcon className="w-full h-full p-2" />
             <span className="sr-only">Next Page</span>
@@ -265,27 +265,12 @@ const PortfolioImages = ({ location }) => {
             <Carousel
               hideControlsWhenIdle={false}
               currentIndex={selectedIndex}
-              components={{ Footer: null, Header, View }}
+              components={{ Header, View, Footer }}
               views={images}
               trackProps={{
                 onViewChange: setSelectedIndex,
               }}
-              styles={{
-                container: (base) => ({
-                  ...base,
-                  height: "100vh",
-                }),
-                view: (base) => ({
-                  ...base,
-                  alignItems: "center",
-                  display: "flex",
-                  padding: theme.padding["6"],
-                  height: "calc(100vh - 72px)",
-                  justifyContent: "center",
-                }),
-                navigationPrev: navButtonStyles,
-                navigationNext: navButtonStyles,
-              }}
+              styles={customStyles}
             />
           </Modal>
         ) : null}
@@ -294,8 +279,33 @@ const PortfolioImages = ({ location }) => {
   );
 };
 
+const customStyles = {
+  container: (base) => ({
+    ...base,
+    height: "100vh",
+  }),
+  navigationPrev: navButtonStyles,
+  navigationNext: navButtonStyles,
+};
+
 PortfolioImages.propTypes = {
   location: PropTypes.object.isRequired,
+};
+
+const Footer = ({ currentIndex, views, modalProps: { isFullscreen } }) => {
+  return (
+    <div className="absolute bottom-2 right-2 text-right px-2 py-1 text-sm rounded bg-gray-light">
+      <span className="sr-only">Image number</span> {currentIndex + 1} of{" "}
+      {views.length}
+    </div>
+  );
+};
+
+Footer.propTypes = {
+  currentIndex: PropTypes.object.isRequired,
+  views: PropTypes.array.isRequired,
+  currentView: PropTypes.object.isRequired,
+  modalProps: PropTypes.object.isRequired,
 };
 
 const View = ({ views, index, modalProps: { isFullscreen } }) => {
@@ -303,8 +313,8 @@ const View = ({ views, index, modalProps: { isFullscreen } }) => {
 
   return (
     <div
-      className="leading-none relative text-center box-border flex items-center justify-center p-1 md:p-4"
-      style={{ height: isFullscreen ? "100vh" : "calc(100vh - 72px)" }}
+      className="leading-none relative text-center box-border flex items-center justify-center"
+      style={{ height: isFullscreen ? "100vh" : "calc(100vh - 90px)" }}
     >
       <img
         className="h-auto max-h-full max-w-full m-auto select-none"
@@ -329,7 +339,7 @@ const Header = ({
     return (
       <button
         onClick={toggleFullscreen}
-        className="fixed z-50 top-0 right-0 inline-block p-4 m-2 text-gray-light hover:text-gold focus:outline-none focus:shadow-outline bg-black bg-opacity-25 rounded"
+        className="fixed z-50 top-0 right-0 inline-block p-4 m-2 text-gray-light hover:text-gold focus:outline-none focus:ring bg-black bg-opacity-25 rounded"
       >
         <span className="sr-only">Close</span>
         <svg
@@ -346,12 +356,12 @@ const Header = ({
   return (
     <div className="p-1 md:p-4 bg-gray-light shadow-sm flex justify-between items-center">
       <div className="truncate" style={{ maxWidth: "calc(100% - 80px)" }}>
-        <span className="px-1 whitespace-no-wrap truncate">{caption}</span>
+        <span className="px-1 whitespace-nowrap truncate">{caption}</span>
       </div>
       <div>
         <button
           onClick={toggleFullscreen}
-          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:shadow-outline"
+          className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Fullscreen</span>
           <svg
@@ -364,7 +374,7 @@ const Header = ({
         </button>
         <button
           onClick={onClose}
-          className="inline-block p-2 text-gray-dark hover:text-gray-darker focus:outline-none focus:shadow-outline"
+          className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Close</span>
           <svg

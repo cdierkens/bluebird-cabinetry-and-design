@@ -12,7 +12,7 @@ import Layout from "../Layout";
 const AboutPage = () => (
   <Layout title="About">
     <Container className="pb-20">
-      <Grid className="gap-8 row-gap-8 items-center">
+      <Grid className="gap-8 gap-y-8 items-center">
         <div className="col-span-3 sm:col-span-6 md:col-span-4">
           <h2>Our Story</h2>
 

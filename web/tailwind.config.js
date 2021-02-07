@@ -30,7 +30,7 @@ module.exports = {
       fontFamily: {
         body: ["Open Sans", ...defaultTheme.fontFamily.sans],
         sans: ["Quicksand", ...defaultTheme.fontFamily.sans],
-        handwriting: ["Sacramento", "Brush Script MT", "cursive"],
+        handwriting: ["Cookie", "Brush Script MT", "cursive"],
       },
       fill: {
         none: "none",
@@ -51,9 +51,9 @@ module.exports = {
         none: "none",
       },
       strokeWidth: {
-        "3": "3",
-        "4": "4",
-        "5": "5",
+        3: "3",
+        4: "4",
+        5: "5",
       },
     },
     screens: {
@@ -70,7 +70,7 @@ module.exports = {
   purge: {
     content: ["./src/**/*.js"],
     options: {
-      whitelist: [
+      safelist: [
         "col-span-1",
         "col-span-2",
         "col-span-3",

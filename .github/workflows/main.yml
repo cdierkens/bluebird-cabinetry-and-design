@@ -9,7 +9,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12"
       - name: Test
         run: |
           npm ci
@@ -20,11 +22,26 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12"
       - name: Lint
         run: |
           npm ci
           npm run lint
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+      - name: Build
+        run: |
+          npm ci
+          npm run build
 
   deploy-graphql:
     runs-on: ubuntu-latest
@@ -35,7 +52,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12"
       - name: Deploy Graphql Server
         run: |
           npm ci
