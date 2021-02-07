@@ -36,7 +36,7 @@ describe("<ContactForm />", () => {
     // Assert
     await waitFor(() => {
       expect(
-        getByText("Please enter a 10 digit phone number")
+        getByText("Please enter a 10 digit phone number.")
       ).toBeInTheDocument();
     });
   });
