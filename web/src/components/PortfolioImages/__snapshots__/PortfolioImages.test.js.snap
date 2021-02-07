@@ -20,13 +20,13 @@ exports[`matches snapshot 1`] = `
       class="p-1"
     >
       <button
-        class="inline block text-blue-dark hover:text-gold text-base m-2"
+        class="text-blue-dark hover:text-gold text-base m-2"
       >
         Show All
       </button>
       |
       <button
-        class="inline block text-blue-dark hover:text-gold text-base m-2"
+        class="text-blue-dark hover:text-gold text-base m-2"
       >
         Show None
       </button>
