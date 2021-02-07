@@ -11,7 +11,7 @@ const Publications = () => {
         <div className="flex justify-around flex-wrap lg:w-2/3 m-auto">
           <div className="col-span-2 sm:col-span-3 md:col-start-2 text-center m-3">
             <a
-              className="text-white hover:text-gold"
+              className="text-white hover:text-gold inline-block"
               href="/shiloh-brochure-2017.pdf"
             >
               <ShilowCabinetryIcon className="h-16 mb-1" />
@@ -26,7 +26,7 @@ const Publications = () => {
 
           <div className="col-span-2 sm:col-span-3 text-center m-3">
             <a
-              className="text-white hover:text-gold"
+              className="text-white hover:text-gold inline-block"
               href="/best-fine-homes-magazine-fall-2017.pdf"
             >
               <BestIcon className="h-16 mb-1" />
@@ -41,7 +41,7 @@ const Publications = () => {
 
           <div className="col-span-2 sm:col-span-3 text-center m-3">
             <a
-              className="text-white hover:text-gold"
+              className="text-white hover:text-gold inline-block"
               href="/shiloh-brochure-2019.pdf"
             >
               <ShilowCabinetryIcon className="h-16 mb-1" />

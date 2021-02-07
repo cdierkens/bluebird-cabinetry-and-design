@@ -6,7 +6,6 @@ import Container from "../components/container";
 import Grid from "../components/Grid";
 import {
   AspectCabinetryIcon,
-  CheckIcon,
   EclipseCabinetryIcon,
   JKCabinetryIcon,
   ShilowCabinetryIcon,
@@ -16,7 +15,6 @@ import Layout from "../Layout";
 
 const ListItem = ({ title, children }) => (
   <li>
-    <CheckIcon className="bg-blue-dark text-white w-4 h-4 absolute left-0 transform translate-x-4 translate-y-3 p-1" />
     <span className="text-blue-dark text-2xl font-medium">{title}</span>
     <p>{children}</p>
   </li>
@@ -49,9 +47,9 @@ DesignProcessItem.propTypes = {
 
 const ServicesPage = () => (
   <Layout title="Services">
-    <Container>
+    <Container className="pb-16">
       <Grid>
-        <div className="col-span-3 sm:col-span-6 md:col-span-3 mb-16 md:mb-0">
+        <div className="col-span-3 sm:col-span-6 md:col-span-3 md:col-start-2 mb-16 md:mb-0">
           <img
             className="w-full p-1 shadow-md"
             src={rendering}
@@ -59,25 +57,25 @@ const ServicesPage = () => (
           />
         </div>
 
-        <div className="col-span-3 sm:col-span-6 md:col-span-3 md:col-start-5">
-          <ul className="relative pl-10">
+        <div className="col-span-3 sm:col-span-6 md:col-span-3 ">
+          <ul className="relative pl-10 list-disc text-blue-dark">
             <ListItem title="Cabinetry Design &amp; Sales" />
             <ListItem title="Remodeling">
-              <p>
+              <p className="text-gray-darkest">
                 Whole Home Renovations, Kitchens, Bathrooms, Laundry Rooms,
                 Lower Levels, Office Spaces, Beverage Centers, and Entertainment
                 Spaces.
               </p>
             </ListItem>
             <ListItem title="3D Drafting">
-              <p>
+              <p className="text-gray-darkest">
                 Drafting &amp; Modeling renderings using 2020 Kitchen &amp;
                 Bathroom Design Software.
               </p>
             </ListItem>
             <ListItem title="Space Planning and Layout" />
             <ListItem title="Selections">
-              <p>
+              <p className="text-gray-darkest">
                 Appliances, Countertops, Plumbing Fixtures, Lighting Fixtures,
                 Cabinet Hardware, and Tile.
               </p>
@@ -128,9 +126,8 @@ const ServicesPage = () => (
         </DesignProcessItem>
 
         <p className="text-center mt-12 text-sm">
-          To-The-Trade Process/Services:{" "}
-          <Link to="/contact" className="underline">
-            Contact Dana
+          <Link className="mx-2 underline" to="/trade-services">
+            To The Trade Services
           </Link>
         </p>
       </Container>
