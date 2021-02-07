@@ -16,7 +16,7 @@ const contactSchema = Yup.object().shape({
   name: Yup.string().required("Please enter your name."),
   phone: Yup.string().matches(
     phoneRegExp,
-    "Please enter a 10 digit phone number"
+    "Please enter a 10 digit phone number."
   ),
   email: Yup.string()
     .required("Please enter your email.")
