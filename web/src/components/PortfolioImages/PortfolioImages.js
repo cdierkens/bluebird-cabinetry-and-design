@@ -151,14 +151,14 @@ const PortfolioImages = ({ location }) => {
 
       <div className="p-1">
         <button
-          className="inline block text-blue-dark hover:text-gold text-base m-2"
+          className="text-blue-dark hover:text-gold text-base m-2"
           onClick={() => setQuery({ tags: tags.map(encodeURI).join(",") })}
         >
           Show All
         </button>
         |
         <button
-          className="inline block text-blue-dark hover:text-gold text-base m-2"
+          className="text-blue-dark hover:text-gold text-base m-2"
           onClick={() => setQuery({ tags: [] })}
         >
           Show None
