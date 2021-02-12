@@ -1,10 +1,7 @@
 ---
-name: Main
+name: Pull Request
 
-on:
-  push:
-    branches:
-      - master
+on: [pull_request]
 
 jobs:
   test:
@@ -51,6 +48,8 @@ jobs:
     needs: [test, lint]
     env:
       SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+      GATSBY_SANITY_TAG: pr-${{ github.event.number }}
+      GATSBY_SANITY_DATASET: development
 
     steps:
       - uses: actions/checkout@v2
@@ -61,5 +60,5 @@ jobs:
       - name: Deploy Graphql Server
         run: |
           npm ci
-          npx sanity graphql deploy --no-playground
+          npx sanity graphql deploy --no-playground --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
         working-directory: ./studio
