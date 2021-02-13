@@ -82,5 +82,6 @@ jobs:
       - name: Deploy Website
         run: |
           npm ci
-          netlify deploy --build --message "${{ env.GITHUB_PULL_REQUEST_TITLE }}" --alias "pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}"
+          netlify build --context deploy-preview
+          netlify deploy --message "${{ env.GITHUB_PULL_REQUEST_TITLE }}" --alias "pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}"
         working-directory: ./web
