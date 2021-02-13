@@ -1,6 +1,6 @@
 import { MdPhotoAlbum as PhotoAlbumIcon } from "react-icons/md";
 
-export default {
+const document = {
   name: "portfolioImage",
   type: "document",
   title: "Portfolio Image",
@@ -33,6 +33,31 @@ export default {
         "Caption to display (i.e. mention collaborators, contributors, or materials used).",
     },
     {
+      name: "contractor",
+      type: "string",
+      title: "Contractor(s)",
+      description: "Name of the contractor(s).",
+    },
+    {
+      name: "interiorDesigner",
+      type: "string",
+      title: "Interior Designer(s)",
+      description: "Name of the Designer(s)",
+    },
+    {
+      name: "furnitureRefinishing",
+      type: "string",
+      title: "Furniture Refinishing",
+      description:
+        "Name of the Furniture Refinisher/Furniture Refinishing Company.",
+    },
+    {
+      name: "software",
+      type: "string",
+      title: "Design Software",
+      description: "Software used to create 3D rendering.",
+    },
+    {
       name: "tags",
       type: "array",
       title: "Tags",
@@ -50,3 +75,5 @@ export default {
     },
   ],
 };
+
+export default document;

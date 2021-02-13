@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="p-1 md:p-4 bg-gray-light shadow-sm flex justify-between items-center"
+  >
+    <div
+      class="truncate"
+      style="max-width: calc(100% - 80px);"
+    />
+    <div>
+      <button
+        class="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
+      >
+        <span
+          class="sr-only"
+        >
+          Fullscreen
+        </span>
+        <svg
+          class="h-6 w-6 fill-current stroke-current"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M14.016 5.016h4.969v4.969h-1.969v-3h-3v-1.969zM17.016 17.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 9.984v-4.969h4.969v1.969h-3v3h-1.969zM6.984 14.016v3h3v1.969h-4.969v-4.969h1.969z"
+          />
+        </svg>
+      </button>
+      <button
+        class="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
+      >
+        <span
+          class="sr-only"
+        >
+          Close
+        </span>
+        <svg
+          class="h-6 w-6 fill-current stroke-current"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -8,46 +8,10 @@ import tailwindConfig from "../../../tailwind.config.js";
 import { LeftArrowIcon, RightArrowIcon } from "../../icons";
 import { builder } from "../../lib/image-url";
 import Container from "../container";
-import Tags from "./Tags/Tags.js";
-
-const { theme } = resolveConfig(tailwindConfig);
-
-export const portfolioImagesQuery = graphql`
-  query PortfolioImages {
-    images: allSanityPortfolioImage {
-      nodes {
-        image {
-          description
-          file {
-            asset {
-              id
-            }
-          }
-        }
-        caption
-        tags
-      }
-    }
-  }
-`;
-
-const navButtonStyles = (base) => ({
-  ...base,
-  backgroundColor: theme.colors.white,
-  boxShadow: theme.boxShadow.md,
-  color: theme.colors.gray.darker,
-
-  "&:hover, &:active, &:active": {
-    backgroundColor: theme.colors.white,
-    color: theme.colors.black,
-  },
-  "&:focus": {
-    boxShadow: theme.boxShadow.outline,
-    outline: 0,
-  },
-});
-
-const pageSize = 9;
+import Footer from "./Footer";
+import Header from "./Header";
+import Tags from "./Tags";
+import View from "./View";
 
 const PortfolioImages = ({ location }) => {
   const {
@@ -82,24 +46,43 @@ const PortfolioImages = ({ location }) => {
   );
   const selectedPage = Math.floor(selectedIndex / pageSize);
 
-  const images = filteredImages.map(({ image, caption }) => ({
-    source: {
-      download: builder.image(image.file.asset.id).url(),
-      fullscreen: builder
-        .image(image.file.asset.id)
-        .height(1080)
-        .fit("clip")
-        .url(),
-      regular: builder.image(image.file.asset.id).height(900).fit("clip").url(),
-      thumbnail: builder
-        .image(image.file.asset.id)
-        .height(400)
-        .fit("clip")
-        .url(),
-    },
-    caption,
-    alt: image.description,
-  }));
+  const images = filteredImages.map(
+    ({
+      image,
+      caption,
+      title,
+      contractor,
+      furnitureRefinishing,
+      interiorDesigner,
+      software,
+    }) => ({
+      source: {
+        download: builder.image(image.file.asset.id).url(),
+        fullscreen: builder
+          .image(image.file.asset.id)
+          .height(1080)
+          .fit("clip")
+          .url(),
+        regular: builder
+          .image(image.file.asset.id)
+          .height(900)
+          .fit("clip")
+          .url(),
+        thumbnail: builder
+          .image(image.file.asset.id)
+          .height(400)
+          .fit("clip")
+          .url(),
+      },
+      caption,
+      title,
+      contractor,
+      furnitureRefinishing,
+      interiorDesigner,
+      software,
+      alt: image.description,
+    })
+  );
 
   const openLightbox = (index) => {
     setSelectedIndex(index);
@@ -270,7 +253,7 @@ const PortfolioImages = ({ location }) => {
               trackProps={{
                 onViewChange: setSelectedIndex,
               }}
-              styles={customStyles}
+              styles={carouselStyles}
             />
           </Modal>
         ) : null}
@@ -279,120 +262,61 @@ const PortfolioImages = ({ location }) => {
   );
 };
 
-const customStyles = {
+PortfolioImages.propTypes = {
+  location: PropTypes.object.isRequired,
+};
+
+const { theme } = resolveConfig(tailwindConfig);
+
+export const portfolioImagesQuery = graphql`
+  query PortfolioImages {
+    images: allSanityPortfolioImage {
+      nodes {
+        caption
+        contractor
+        furnitureRefinishing
+        interiorDesigner
+        software
+        tags
+        image {
+          description
+          file {
+            asset {
+              id
+            }
+          }
+        }
+        title
+      }
+    }
+  }
+`;
+
+const navButtonStyles = (base) => ({
+  ...base,
+  backgroundColor: theme.colors.white,
+  boxShadow: theme.boxShadow.md,
+  color: theme.colors.gray.darker,
+
+  "&:hover, &:active, &:active": {
+    backgroundColor: theme.colors.white,
+    color: theme.colors.black,
+  },
+  "&:focus": {
+    boxShadow: theme.boxShadow.outline,
+    outline: 0,
+  },
+});
+
+const pageSize = 9;
+
+const carouselStyles = {
   container: (base) => ({
     ...base,
     height: "100vh",
   }),
   navigationPrev: navButtonStyles,
   navigationNext: navButtonStyles,
-};
-
-PortfolioImages.propTypes = {
-  location: PropTypes.object.isRequired,
-};
-
-const Footer = ({ currentIndex, views, modalProps: { isFullscreen } }) => {
-  return (
-    <div className="absolute bottom-2 right-2 text-right px-2 py-1 text-sm rounded bg-gray-light">
-      <span className="sr-only">Image number</span> {currentIndex + 1} of{" "}
-      {views.length}
-    </div>
-  );
-};
-
-Footer.propTypes = {
-  currentIndex: PropTypes.object.isRequired,
-  views: PropTypes.array.isRequired,
-  currentView: PropTypes.object.isRequired,
-  modalProps: PropTypes.object.isRequired,
-};
-
-const View = ({ views, index, modalProps: { isFullscreen } }) => {
-  const { source, alt } = views[index];
-
-  return (
-    <div
-      className="leading-none relative text-center box-border flex items-center justify-center"
-      style={{ height: isFullscreen ? "100vh" : "calc(100vh - 90px)" }}
-    >
-      <img
-        className="h-auto max-h-full max-w-full m-auto select-none"
-        src={source.regular}
-        alt={alt}
-      />
-    </div>
-  );
-};
-
-View.propTypes = {
-  views: PropTypes.array,
-  index: PropTypes.number,
-  modalProps: PropTypes.object.isRequired,
-};
-
-const Header = ({
-  currentView: { caption },
-  modalProps: { onClose, toggleFullscreen, isFullscreen },
-}) => {
-  if (isFullscreen) {
-    return (
-      <button
-        onClick={toggleFullscreen}
-        className="fixed z-50 top-0 right-0 inline-block p-4 m-2 text-gray-light hover:text-gold focus:outline-none focus:ring bg-black bg-opacity-25 rounded"
-      >
-        <span className="sr-only">Close</span>
-        <svg
-          role="presentation"
-          viewBox="0 0 24 24"
-          className="h-6 w-6 fill-current stroke-current"
-        >
-          <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
-        </svg>
-      </button>
-    );
-  }
-
-  return (
-    <div className="p-1 md:p-4 bg-gray-light shadow-sm flex justify-between items-center">
-      <div className="truncate" style={{ maxWidth: "calc(100% - 80px)" }}>
-        <span className="px-1 whitespace-nowrap truncate">{caption}</span>
-      </div>
-      <div>
-        <button
-          onClick={toggleFullscreen}
-          className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
-        >
-          <span className="sr-only">Fullscreen</span>
-          <svg
-            className="h-6 w-6 fill-current stroke-current"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path d="M14.016 5.016h4.969v4.969h-1.969v-3h-3v-1.969zM17.016 17.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 9.984v-4.969h4.969v1.969h-3v3h-1.969zM6.984 14.016v3h3v1.969h-4.969v-4.969h1.969z"></path>
-          </svg>
-        </button>
-        <button
-          onClick={onClose}
-          className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
-        >
-          <span className="sr-only">Close</span>
-          <svg
-            role="presentation"
-            viewBox="0 0 24 24"
-            className="h-6 w-6 fill-current stroke-current"
-          >
-            <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  );
-};
-
-Header.propTypes = {
-  currentView: PropTypes.object.isRequired,
-  modalProps: PropTypes.object.isRequired,
 };
 
 export default PortfolioImages;
