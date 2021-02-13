@@ -1,12 +1,13 @@
 ---
-name: Main
+name: Pull Request
 
-on:
-  push:
-    branches:
-      - master
+on: [pull_request]
 
 env:
+  GATSBY_SANITY_DATASET: development
+  GATSBY_SANITY_TAG: pull-request-${{ github.event.pull_request.number }}
+  GITHUB_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
+  GITHUB_PULL_REQUEST_TITLE: ${{ github.event.pull_request.title }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_WEB_SITE_ID }}
   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -65,13 +66,12 @@ jobs:
       - name: Deploy Studio Graphql Server
         run: |
           npm ci
-          npx sanity graphql deploy --no-playground
+          npx sanity graphql deploy --no-playground --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
         working-directory: ./studio
 
   deploy-web:
     runs-on: ubuntu-latest
     needs: [deploy-studio-graphql]
-    if: "!contains(github.event.head_commit.message, '[skip netlify]')"
 
     steps:
       - uses: actions/checkout@v2
@@ -82,6 +82,12 @@ jobs:
       - name: Deploy Website
         run: |
           npm ci
-          netlify build --context production
-          netlify deploy --prod --message "${{ github.event.head_commit.message }}"
+          netlify build --context deploy-preview
+          netlify deploy --message "${{ env.GITHUB_PULL_REQUEST_TITLE }}" --alias "pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}"
         working-directory: ./web
+
+      - name: Comment Preview URL
+        uses: unsplash/comment-on-pr@master
+        with:
+          msg: "Deploy preview URL: https://pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}--bluebird-cabinetry-and-design.netlify.app/"
+          check_for_duplicate_msg: true

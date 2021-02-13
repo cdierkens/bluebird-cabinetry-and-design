@@ -3,9 +3,10 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV || "development"}`,
 });
 
-const clientConfig = require("./client-config");
+const { sanity } = require("./client-config");
 
-const isProd = process.env.NODE_ENV === "production";
+console.log("Building with sanity config: ");
+console.log(JSON.stringify(sanity, null, 2));
 
 module.exports = {
   siteMetadata: {
@@ -19,10 +20,8 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        ...clientConfig.sanity,
+        ...sanity,
         token: process.env.SANITY_READ_TOKEN,
-        watchMode: !isProd,
-        overlayDrafts: !isProd,
       },
     },
     "gatsby-plugin-offline",
