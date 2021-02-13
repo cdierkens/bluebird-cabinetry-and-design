@@ -85,3 +85,9 @@ jobs:
           netlify build --context deploy-preview
           netlify deploy --message "${{ env.GITHUB_PULL_REQUEST_TITLE }}" --alias "pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}"
         working-directory: ./web
+
+      - name: Comment Preview URL
+        uses: unsplash/comment-on-pr@master
+        with:
+          msg: "Deploy preview URL: https://pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}--bluebird-cabinetry-and-design.netlify.app/"
+          check_for_duplicate_msg: true
