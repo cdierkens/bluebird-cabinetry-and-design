@@ -6,6 +6,7 @@ import designPreview from "./documents/designPreview";
 import portfolioImage from "./documents/portfolioImage";
 import siteSettings from "./documents/siteSettings";
 import designPreviewImage from "./objects/designPreviewImage";
+import tags from "./objects/tags";
 import webImage from "./objects/webImage";
 
 export default createSchema({
@@ -20,5 +21,6 @@ export default createSchema({
     // Objects
     designPreviewImage,
     webImage,
+    tags,
   ]),
 });
