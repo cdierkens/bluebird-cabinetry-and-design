@@ -59,19 +59,6 @@ const document = {
     },
     {
       name: "tags",
-      type: "array",
-      title: "Tags",
-      description:
-        "Name of the Furniture Refinisher/Furniture Refinishing Company.",
-    },
-    {
-      name: "software",
-      type: "string",
-      title: "Design Software",
-      description: "Software used to create 3D rendering.",
-    },
-    {
-      name: "tags",
       type: "tags",
       validation: (Rule) => Rule.required().min(1).unique(),
     },
