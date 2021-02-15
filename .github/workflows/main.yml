@@ -65,7 +65,7 @@ jobs:
       - name: Deploy Studio Graphql Server
         run: |
           npm ci
-          npx sanity graphql deploy --no-playground
+          npx sanity graphql deploy --no-playground --force
         working-directory: ./studio
 
   deploy-web:
