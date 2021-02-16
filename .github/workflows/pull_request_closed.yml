@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: "12"
 
-      - name: Deploy Studio Graphql Server
+      - name: Undeploy Studio Graphql Server
         run: |
           npm ci
           npx sanity graphql undeploy --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
