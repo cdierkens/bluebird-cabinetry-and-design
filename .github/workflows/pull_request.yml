@@ -70,7 +70,7 @@ jobs:
         run: |
           npm ci
           netlify build --context deploy-preview
-          netlify deploy --message \"${{ env.GITHUB_PULL_REQUEST_TITLE }}\" --alias "pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}"
+          netlify deploy --message "${{ env.GITHUB_PULL_REQUEST_TITLE }}" --alias "pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}"
         working-directory: ./web
 
       - name: Comment Preview URL
