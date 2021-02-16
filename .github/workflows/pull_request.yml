@@ -40,20 +40,6 @@ jobs:
           npm ci
           npm run lint
 
-  build:
-    runs-on: ubuntu-latest
-    needs: [deploy-studio-graphql]
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "12"
-      - name: Build
-        run: |
-          npm ci
-          npm run build
-
   deploy-studio-graphql:
     runs-on: ubuntu-latest
     needs: [test, lint]
