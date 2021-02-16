@@ -1,7 +1,9 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdSettings } from "react-icons/md";
-import { MdViewCarousel as viewCarouselIcon } from "react-icons/md";
-import { MdViewQuilt as viewQuiltIcon } from "react-icons/md";
+import {
+  MdSettings,
+  MdViewCarousel as viewCarouselIcon,
+  MdViewQuilt as viewQuiltIcon,
+} from "react-icons/md";
 
 export const getDefaultDocumentNode = (props) => {
   /**
@@ -23,7 +25,7 @@ export const getDefaultDocumentNode = (props) => {
  * - https://www.sanity.io/docs/structure-builder-reference
  */
 
-export default () =>
+const deskStructure = () =>
   S.list()
     .title("Content")
     .items([
@@ -68,3 +70,5 @@ export default () =>
           )
       ),
     ]);
+
+export default deskStructure;
