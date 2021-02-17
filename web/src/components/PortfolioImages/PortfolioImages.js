@@ -1,7 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
+import Select from "react-select";
 import resolveConfig from "tailwindcss/resolveConfig";
 import useQueryString from "use-query-string";
 import tailwindConfig from "../../../tailwind.config.js";
@@ -10,7 +11,6 @@ import { builder } from "../../lib/image-url";
 import Container from "../container";
 import Footer from "./Footer";
 import Header from "./Header";
-import Tags from "./Tags";
 import View from "./View";
 
 const PortfolioImages = ({ location }) => {
@@ -38,9 +38,17 @@ const PortfolioImages = ({ location }) => {
     [portfolioImages]
   );
 
+  useEffect(() => {
+    if (!query.tags) {
+      setQuery({
+        tags: tags.join(","),
+      });
+    }
+  }, []); //eslint-disable-line
+
   const grid = useRef();
 
-  const checkedTags = query.tags ? decodeURI(query.tags).split(",") : tags;
+  const checkedTags = query.tags ? decodeURI(query.tags).split(",") : [];
   const filteredImages = portfolioImages.filter(({ tags }) =>
     tags.find((tag) => checkedTags.find((checkedTag) => checkedTag === tag))
   );
@@ -107,46 +115,36 @@ const PortfolioImages = ({ location }) => {
   return (
     <Container className="my-6">
       <h2>Photos</h2>
-
-      <Tags
-        tags={tags.map((tag) => ({
+      <Select
+        isMulti
+        value={checkedTags.map((tag) => ({
           value: tag,
-          checked: Boolean(
-            checkedTags.find((checkedTag) => checkedTag === tag)
-          ),
-          onChange: ({ target }) => {
-            if (target.checked) {
-              setQuery({
-                tags: [...checkedTags.map(encodeURI), encodeURI(tag)].join(","),
-              });
-            } else {
-              setQuery({
-                tags: checkedTags
-                  .filter((checkedTags) => checkedTags !== tag)
-                  .map(encodeURI)
-                  .join(","),
-              });
-            }
-            setSelectedIndex(0);
-          },
+          label: tag,
         }))}
+        options={[
+          { value: "all", label: "Show All" },
+          { value: "none", label: "Show None" },
+          { value: "", label: "", isDisabled: true },
+          ...tags.map((tag) => ({
+            value: tag,
+            label: tag,
+          })),
+        ]}
+        onChange={(values, ev) => {
+          if (ev.action === "select-option" && ev.option.value === "all") {
+            setQuery({ tags: tags.join(",") });
+          } else if (
+            ev.action === "select-option" &&
+            ev.option.value === "none"
+          ) {
+            setQuery({ tags: "" });
+          } else {
+            setQuery({
+              tags: values.map((value) => value.value).join(","),
+            });
+          }
+        }}
       />
-
-      <div className="p-1">
-        <button
-          className="text-blue-dark hover:text-gold text-base m-2"
-          onClick={() => setQuery({ tags: tags.map(encodeURI).join(",") })}
-        >
-          Show All
-        </button>
-        |
-        <button
-          className="text-blue-dark hover:text-gold text-base m-2"
-          onClick={() => setQuery({ tags: [] })}
-        >
-          Show None
-        </button>
-      </div>
 
       <>
         {filteredImages.map(({ image }) => (
@@ -162,7 +160,6 @@ const PortfolioImages = ({ location }) => {
           />
         ))}
       </>
-
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6" ref={grid}>
         {filteredImages
           .slice(pageSize * selectedPage, pageSize * selectedPage + pageSize)
@@ -185,7 +182,6 @@ const PortfolioImages = ({ location }) => {
             </div>
           ))}
       </div>
-
       {filteredImages.length > pageSize ? (
         <div className="flex items-center justify-center mt-2">
           <button
@@ -228,7 +224,6 @@ const PortfolioImages = ({ location }) => {
           </button>
         </div>
       ) : null}
-
       <ModalGateway>
         {lightboxIsOpen ? (
           <Modal
