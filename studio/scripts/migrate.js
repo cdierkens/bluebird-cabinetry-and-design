@@ -46,7 +46,13 @@ async function main() {
       type: "checkbox",
       name: "documentTypes",
       message: "What documents should be migrated?",
-      choices: ["siteSettings", "portfolioImage", "carousel", "designPreview"],
+      choices: [
+        "carousel",
+        "clientReview",
+        "designPreview",
+        "portfolioImage",
+        "siteSettings",
+      ],
       validate: function (answer) {
         if (answer.length < 1) {
           return "You must choose at least one document type.";

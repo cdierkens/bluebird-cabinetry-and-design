@@ -5,8 +5,13 @@ require("dotenv").config({
 
 const { sanity } = require("./client-config");
 
-console.log("Building with sanity config: ");
-console.log(JSON.stringify(sanity, null, 2));
+console.log(
+  "Building with sanity config:",
+  Object.entries(sanity).reduce(
+    (config, [key, value]) => `${config}\n  ${key}: ${value}`,
+    ""
+  )
+);
 
 module.exports = {
   siteMetadata: {
