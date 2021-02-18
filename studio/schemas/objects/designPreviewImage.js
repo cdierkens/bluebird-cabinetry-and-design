@@ -1,9 +1,9 @@
 import { MdPhotoAlbum as PhotoAlbumIcon } from "react-icons/md";
 
-const document = {
+const object = {
   name: "designPreviewImage",
   title: "Design Preview Image",
-  type: "document",
+  type: "object",
   icon: PhotoAlbumIcon,
   preview: {
     select: {
@@ -51,4 +51,4 @@ const document = {
   ],
 };
 
-export default document;
+export default object;

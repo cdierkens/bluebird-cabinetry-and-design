@@ -1,6 +1,6 @@
 import { MdViewQuilt as ViewQuiltIcon } from "react-icons/md";
 
-export default {
+const document = {
   name: "designPreview",
   type: "document",
   title: "Design Preview",
@@ -22,12 +22,16 @@ export default {
       name: "images",
       title: "Images",
       type: "array",
+      options: {
+        editModal: "fullscreen",
+      },
       of: [
         {
-          type: "reference",
-          to: [{ type: "designPreviewImage" }],
+          type: "designPreviewImage",
         },
       ],
     },
   ],
 };
+
+export default document;

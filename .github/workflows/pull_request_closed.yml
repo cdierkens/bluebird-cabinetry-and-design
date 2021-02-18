@@ -1,0 +1,27 @@
+---
+name: Pull Request Closed
+
+on:
+  pull_request:
+    types: [closed]
+
+env:
+  GATSBY_SANITY_DATASET: development
+  GATSBY_SANITY_TAG: pull-request-${{ github.event.pull_request.number }}
+  SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+
+jobs:
+  remove-studio-graphql:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - name: Undeploy Studio Graphql Server
+        run: |
+          npm ci
+          npx sanity graphql undeploy --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
+        working-directory: ./studio

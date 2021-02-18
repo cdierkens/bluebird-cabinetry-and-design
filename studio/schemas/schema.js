@@ -1,10 +1,11 @@
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import createSchema from "part:@sanity/base/schema-creator";
 import carousel from "./documents/carousel";
+import clientReview from "./documents/clientReview";
 import designPreview from "./documents/designPreview";
-import designPreviewImage from "./documents/designPreviewImage";
 import portfolioImage from "./documents/portfolioImage";
 import siteSettings from "./documents/siteSettings";
+import designPreviewImage from "./objects/designPreviewImage";
 import tags from "./objects/tags";
 import webImage from "./objects/webImage";
 
@@ -16,8 +17,9 @@ export default createSchema({
     portfolioImage,
     carousel,
     designPreview,
-    designPreviewImage,
+    clientReview,
     // Objects
+    designPreviewImage,
     webImage,
     tags,
   ]),
