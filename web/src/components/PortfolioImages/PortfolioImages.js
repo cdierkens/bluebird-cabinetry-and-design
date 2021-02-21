@@ -1,10 +1,8 @@
-import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import Select from "react-select";
 import resolveConfig from "tailwindcss/resolveConfig";
-import useQueryString from "use-query-string";
 import tailwindConfig from "../../../tailwind.config.js";
 import { LeftArrowIcon, RightArrowIcon } from "../../icons";
 import { builder } from "../../lib/image-url";
@@ -13,84 +11,19 @@ import Footer from "./Footer";
 import Header from "./Header";
 import View from "./View";
 
-const PortfolioImages = ({ location }) => {
-  const {
-    images: { nodes: portfolioImages },
-  } = useStaticQuery(portfolioImagesQuery);
-
+const PortfolioImages = ({
+  allTags,
+  carouselImages,
+  selectedTags,
+  setSelectedTags,
+  selectedSanityImages,
+}) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
 
-  const [query, setQuery] = useQueryString(location, (value) => {
-    if (typeof window === "object") {
-      window.history.pushState(null, window.document.title, value);
-    }
-  });
-
-  const tags = useMemo(
-    () =>
-      Array.from(
-        portfolioImages.reduce(
-          (keys, node) => new Set([...node.tags, ...keys]),
-          new Set()
-        )
-      ).sort(),
-    [portfolioImages]
-  );
-
-  useEffect(() => {
-    if (!query.tags) {
-      setQuery({
-        tags: tags.join(","),
-      });
-    }
-  }, []); //eslint-disable-line
+  const selectedPage = Math.floor(selectedIndex / PAGE_SIZE);
 
   const grid = useRef();
-
-  const checkedTags = query.tags ? decodeURI(query.tags).split(",") : [];
-  const filteredImages = portfolioImages.filter(({ tags }) =>
-    tags.find((tag) => checkedTags.find((checkedTag) => checkedTag === tag))
-  );
-  const selectedPage = Math.floor(selectedIndex / pageSize);
-
-  const images = filteredImages.map(
-    ({
-      image,
-      caption,
-      title,
-      contractor,
-      furnitureRefinishing,
-      interiorDesigner,
-      software,
-    }) => ({
-      source: {
-        download: builder.image(image.file.asset.id).url(),
-        fullscreen: builder
-          .image(image.file.asset.id)
-          .height(1080)
-          .fit("clip")
-          .url(),
-        regular: builder
-          .image(image.file.asset.id)
-          .height(900)
-          .fit("clip")
-          .url(),
-        thumbnail: builder
-          .image(image.file.asset.id)
-          .height(400)
-          .fit("clip")
-          .url(),
-      },
-      caption,
-      title,
-      contractor,
-      furnitureRefinishing,
-      interiorDesigner,
-      software,
-      alt: image.description,
-    })
-  );
 
   const openLightbox = (index) => {
     setSelectedIndex(index);
@@ -117,7 +50,7 @@ const PortfolioImages = ({ location }) => {
       <h2>Photos</h2>
       <Select
         isMulti
-        value={checkedTags.map((tag) => ({
+        value={selectedTags.map((tag) => ({
           value: tag,
           label: tag,
         }))}
@@ -125,29 +58,27 @@ const PortfolioImages = ({ location }) => {
           { value: "all", label: "Show All" },
           { value: "none", label: "Show None" },
           { value: "", label: "", isDisabled: true },
-          ...tags.map((tag) => ({
+          ...allTags.map((tag) => ({
             value: tag,
             label: tag,
           })),
         ]}
         onChange={(values, ev) => {
           if (ev.action === "select-option" && ev.option.value === "all") {
-            setQuery({ tags: tags.join(",") });
+            setSelectedTags(allTags);
           } else if (
             ev.action === "select-option" &&
             ev.option.value === "none"
           ) {
-            setQuery({ tags: "" });
+            setSelectedTags([]);
           } else {
-            setQuery({
-              tags: values.map((value) => value.value).join(","),
-            });
+            setSelectedTags(values.map(({ value }) => value));
           }
         }}
       />
 
       <>
-        {filteredImages.map(({ image }) => (
+        {selectedSanityImages.map(({ image }) => (
           <img
             key={image.file.asset.id}
             className="sr-only"
@@ -161,13 +92,13 @@ const PortfolioImages = ({ location }) => {
         ))}
       </>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6" ref={grid}>
-        {filteredImages
-          .slice(pageSize * selectedPage, pageSize * selectedPage + pageSize)
+        {selectedSanityImages
+          .slice(PAGE_SIZE * selectedPage, PAGE_SIZE * selectedPage + PAGE_SIZE)
           .map(({ image }, index) => (
             <div key={image.file.asset.id}>
               <button
                 className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:ring bg-white"
-                onClick={() => openLightbox(index + pageSize * selectedPage)}
+                onClick={() => openLightbox(index + PAGE_SIZE * selectedPage)}
               >
                 <img
                   className="pointer-events-none"
@@ -182,11 +113,11 @@ const PortfolioImages = ({ location }) => {
             </div>
           ))}
       </div>
-      {filteredImages.length > pageSize ? (
+      {selectedSanityImages.length > PAGE_SIZE ? (
         <div className="flex items-center justify-center mt-2">
           <button
             onClick={() =>
-              handlePagination(Math.max(selectedIndex - pageSize, 0))
+              handlePagination(Math.max(selectedIndex - PAGE_SIZE, 0))
             }
             className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
           >
@@ -195,11 +126,11 @@ const PortfolioImages = ({ location }) => {
           </button>
 
           {Array.from({
-            length: Math.floor(filteredImages.length / pageSize) + 1,
+            length: Math.floor(selectedSanityImages.length / PAGE_SIZE) + 1,
           }).map((_, index) => (
             <button
               key={index}
-              onClick={() => handlePagination(index * pageSize)}
+              onClick={() => handlePagination(index * PAGE_SIZE)}
               className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring ${
                 index === selectedPage ? "bg-gold" : "bg-blue-dark"
               }`}
@@ -212,8 +143,9 @@ const PortfolioImages = ({ location }) => {
             onClick={() =>
               handlePagination(
                 Math.min(
-                  selectedIndex + pageSize,
-                  Math.floor(filteredImages.length / pageSize) * pageSize
+                  selectedIndex + PAGE_SIZE,
+                  Math.floor(selectedSanityImages.length / PAGE_SIZE) *
+                    PAGE_SIZE
                 )
               )
             }
@@ -244,7 +176,7 @@ const PortfolioImages = ({ location }) => {
               hideControlsWhenIdle={false}
               currentIndex={selectedIndex}
               components={{ Header, View, Footer }}
-              views={images}
+              views={carouselImages}
               trackProps={{
                 onViewChange: setSelectedIndex,
               }}
@@ -258,34 +190,30 @@ const PortfolioImages = ({ location }) => {
 };
 
 PortfolioImages.propTypes = {
-  location: PropTypes.object.isRequired,
+  allTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  carouselImages: PropTypes.arrayOf(
+    PropTypes.shape({
+      source: PropTypes.shape({
+        download: PropTypes.string,
+        fullscreen: PropTypes.string,
+        regular: PropTypes.string,
+        thumbnail: PropTypes.string,
+      }).isRequired,
+      caption: PropTypes.string,
+      title: PropTypes.string,
+      contractor: PropTypes.string,
+      furnitureRefinishing: PropTypes.string,
+      interiorDesigner: PropTypes.string,
+      software: PropTypes.string,
+      alt: PropTypes.string,
+    }).isRequired
+  ),
+  selectedSanityImages: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setSelectedTags: PropTypes.func.isRequired,
 };
 
 const { theme } = resolveConfig(tailwindConfig);
-
-export const portfolioImagesQuery = graphql`
-  query PortfolioImages {
-    images: allSanityPortfolioImage {
-      nodes {
-        caption
-        contractor
-        furnitureRefinishing
-        interiorDesigner
-        software
-        tags
-        image {
-          description
-          file {
-            asset {
-              id
-            }
-          }
-        }
-        title
-      }
-    }
-  }
-`;
 
 const navButtonStyles = (base) => ({
   ...base,
@@ -303,7 +231,7 @@ const navButtonStyles = (base) => ({
   },
 });
 
-const pageSize = 9;
+const PAGE_SIZE = 9;
 
 const carouselStyles = {
   container: (base) => ({
