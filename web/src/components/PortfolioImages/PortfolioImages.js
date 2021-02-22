@@ -23,14 +23,6 @@ const PortfolioImages = ({
 
   const selectedPage = Math.floor(selectedIndex / PAGE_SIZE);
 
-  useEffect(() => {
-    if (!query.tags) {
-      setQuery({
-        tags: tags.join(","),
-      });
-    }
-  }, []); //eslint-disable-line
-
   const grid = useRef();
 
   const openLightbox = (index) => {

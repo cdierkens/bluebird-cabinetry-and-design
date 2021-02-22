@@ -39,6 +39,12 @@ const document = {
       description: "Name of the contractor(s).",
     },
     {
+      name: "decorator",
+      type: "string",
+      title: "Decorator",
+      description: "Name of the Decorator(s)",
+    },
+    {
       name: "interiorDesigner",
       type: "string",
       title: "Interior Designer(s)",
