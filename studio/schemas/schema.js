@@ -1,5 +1,6 @@
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import createSchema from "part:@sanity/base/schema-creator";
+import album from "./documents/album";
 import carousel from "./documents/carousel";
 import clientReview from "./documents/clientReview";
 import designPreview from "./documents/designPreview";
@@ -13,6 +14,7 @@ export default createSchema({
   name: "bluebird",
   types: schemaTypes.concat([
     // Documents
+    album,
     siteSettings,
     portfolioImage,
     carousel,
