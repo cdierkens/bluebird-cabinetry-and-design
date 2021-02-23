@@ -31,6 +31,13 @@ const PortfolioImagesContainer = ({ location }) => {
     setTagsInternal(query.tags ? decodeURI(query.tags).split(",").sort() : []);
   }, [query.tags]);
 
+  useEffect(() => {
+    if (query.tags) {
+      return;
+    }
+    setQuery({ ...query, tags: allTags.join(",") });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const setSelectedTags = useCallback(
     (values) => {
       // If there are no values, remove tags from the query
