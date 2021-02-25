@@ -11,6 +11,18 @@ const document = {
       title: "title",
     },
   },
+  fieldsets: [
+    {
+      title: "Deprecated",
+      name: "deprecated",
+      options: { collapsible: true, collapsed: true },
+    },
+    {
+      title: "Metadata",
+      name: "metadata",
+      options: { collapsible: true, collapsed: false },
+    },
+  ],
   fields: [
     {
       name: "title",
@@ -26,28 +38,24 @@ const document = {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "caption",
-      type: "string",
-      title: "Caption",
-      description:
-        "Caption to display (i.e. mention collaborators, contributors, or materials used).",
-    },
-    {
       name: "contractor",
       type: "string",
       title: "Contractor(s)",
+      fieldset: "metadata",
       description: "Name of the contractor(s).",
     },
     {
       name: "interiorDesigner",
       type: "string",
       title: "Interior Designer(s)",
+      fieldset: "metadata",
       description: "Name of the Designer(s)",
     },
     {
       name: "furnitureRefinishing",
       type: "string",
       title: "Furniture Refinishing",
+      fieldset: "metadata",
       description:
         "Name of the Furniture Refinisher/Furniture Refinishing Company.",
     },
@@ -55,6 +63,7 @@ const document = {
       name: "software",
       type: "string",
       title: "Design Software",
+      fieldset: "metadata",
       description: "Software used to create 3D rendering.",
     },
     {
@@ -69,6 +78,22 @@ const document = {
       options: {
         list: ["Kitchen", "Bath", "Laundry", "Office"],
       },
+    },
+    {
+      name: "caption",
+      type: "string",
+      title: "Caption",
+      fieldset: "deprecated",
+      description:
+        "Caption to display (i.e. mention collaborators, contributors, or materials used).",
+    },
+    {
+      name: "tags",
+      type: "tags",
+      title: "Tags",
+      fieldset: "deprecated",
+      description:
+        "Add 1 or more tags that describe the image (e.g. bathroom, kitchen, other).",
     },
   ],
 };
