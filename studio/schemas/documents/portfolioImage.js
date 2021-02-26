@@ -64,9 +64,17 @@ const document = {
       description: "Software used to create 3D rendering.",
     },
     {
-      name: "tags",
+      name: "labels",
       type: "tags",
-      validation: (Rule) => Rule.required().min(1).unique(),
+      validation: (Rule) => Rule.unique(),
+    },
+    {
+      title: "Room",
+      name: "room",
+      type: "string",
+      options: {
+        list: ["Kitchen", "Bath", "Laundry", "Office"],
+      },
     },
   ],
 };

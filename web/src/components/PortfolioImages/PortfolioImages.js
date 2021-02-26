@@ -45,23 +45,44 @@ const PortfolioImages = ({
     setSelectedIndex(index);
   };
 
+  const rooms = ["Kitchen", "Bath", "Laundry", "Office"];
+
+  const labels = ["Banquette", "Bar", "Island", "3D Renderings"];
+
   return (
     <Container className="my-6">
       <h2>Photos</h2>
       <Select
         isMulti
         value={selectedTags.map((tag) => ({
+          id: tag,
           value: tag,
           label: tag,
         }))}
         options={[
-          { value: "all", label: "Show All" },
-          { value: "none", label: "Show None" },
-          { value: "", label: "", isDisabled: true },
-          ...allTags.map((tag) => ({
-            value: tag,
-            label: tag,
-          })),
+          {
+            label: "Show All/None",
+            options: [
+              { id: "all", value: "all", label: "Show All" },
+              { id: "none", value: "none", label: "Show None" },
+            ],
+          },
+          {
+            label: "Rooms",
+            options: rooms.map((room) => ({
+              id: room,
+              value: room,
+              label: room,
+            })),
+          },
+          {
+            label: "Labels",
+            options: labels.map((label) => ({
+              id: label,
+              value: label,
+              label: label,
+            })),
+          },
         ]}
         onChange={(values, ev) => {
           if (ev.action === "select-option" && ev.option.value === "all") {
