@@ -4,11 +4,13 @@ import { parse } from "query-string";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import useQueryString from "use-query-string";
 import PortfolioImages from "../";
-import { builder } from "../../../lib/image-url";
+import { AlbumImages } from "../AlbumImages";
+import { mapPortfolioImageToCarouselImage } from "../lib";
 
 const PortfolioImagesContainer = ({ location }) => {
   const {
-    images: { nodes: sanityImages },
+    allSanityPortfolioImage: { nodes: sanityImages },
+    allSanityAlbum: { nodes: albums },
   } = useStaticQuery(portfolioImagesQuery);
 
   const [query, setQuery] = useQueryString(location, navigate);
@@ -77,73 +79,55 @@ const PortfolioImagesContainer = ({ location }) => {
       tags.find((tag) => selectedTags.find((checkedTag) => checkedTag === tag))
     ) || [];
 
-  const carouselImages =
-    selectedSanityImages.map(
-      ({
-        image,
-        caption,
-        title,
-        contractor,
-        furnitureRefinishing,
-        interiorDesigner,
-        software,
-      }) => ({
-        source: {
-          download: builder.image(image.file.asset.id).url(),
-          fullscreen: builder
-            .image(image.file.asset.id)
-            .height(1080)
-            .fit("clip")
-            .url(),
-          regular: builder
-            .image(image.file.asset.id)
-            .height(900)
-            .fit("clip")
-            .url(),
-          thumbnail: builder
-            .image(image.file.asset.id)
-            .height(400)
-            .fit("clip")
-            .url(),
-        },
-        caption,
-        title,
-        contractor,
-        furnitureRefinishing,
-        interiorDesigner,
-        software,
-        alt: image.description,
-      })
-    ) || [];
+  const carouselImages = selectedSanityImages.map(
+    mapPortfolioImageToCarouselImage
+  );
 
   return (
-    <PortfolioImages
-      allTags={allTags}
-      carouselImages={carouselImages}
-      selectedSanityImages={selectedSanityImages}
-      selectedTags={selectedTags}
-      setSelectedTags={setSelectedTags}
-    />
+    <>
+      <PortfolioImages
+        allTags={allTags}
+        carouselImages={carouselImages}
+        selectedSanityImages={selectedSanityImages}
+        selectedTags={selectedTags}
+        setSelectedTags={setSelectedTags}
+      />
+
+      {albums.map(({ title, images }) => {
+        return <AlbumImages key={title} images={images} title={title} />;
+      })}
+    </>
   );
 };
 
 export const portfolioImagesQuery = graphql`
+  fragment Image on SanityPortfolioImage {
+    caption
+    contractor
+    furnitureRefinishing
+    interiorDesigner
+    software
+    tags
+    image {
+      description
+      file {
+        asset {
+          id
+        }
+      }
+    }
+    title
+  }
   query PortfolioImages {
-    images: allSanityPortfolioImage {
+    allSanityPortfolioImage {
       nodes {
-        caption
-        contractor
-        furnitureRefinishing
-        interiorDesigner
-        software
-        tags
-        image {
-          description
-          file {
-            asset {
-              id
-            }
-          }
+        ...Image
+      }
+    }
+    allSanityAlbum {
+      nodes {
+        images {
+          ...Image
         }
         title
       }

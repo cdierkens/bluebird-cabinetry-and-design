@@ -9,7 +9,7 @@ exports[`matches snapshot 1`] = `
       Photos
     </h2>
     <div
-      class=" css-2b097c-container"
+      class="mb-6 css-2b097c-container"
     >
       <div
         class=" css-yk16xz-control"
@@ -74,7 +74,7 @@ exports[`matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6"
+      class="grid grid-cols-1 sm:grid-cols-3 gap-3"
     />
   </div>
 </DocumentFragment>

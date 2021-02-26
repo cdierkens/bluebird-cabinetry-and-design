@@ -1,15 +1,12 @@
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
-import Carousel, { Modal, ModalGateway } from "react-images";
 import Select from "react-select";
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../../tailwind.config.js";
 import { LeftArrowIcon, RightArrowIcon } from "../../icons";
 import { builder } from "../../lib/image-url";
 import Container from "../container";
-import Footer from "./Footer";
-import Header from "./Header";
-import View from "./View";
+import { LABEL_NAMES, PAGE_SIZE, ROOM_NAMES } from "./constants.js";
+import { ImageGrid } from "./ImageGrid";
+import { ImageModal } from "./ImageModal";
 
 const PortfolioImages = ({
   allTags,
@@ -23,7 +20,7 @@ const PortfolioImages = ({
 
   const selectedPage = Math.floor(selectedIndex / PAGE_SIZE);
 
-  const grid = useRef();
+  const scrollToRef = useRef();
 
   const openLightbox = (index) => {
     setSelectedIndex(index);
@@ -39,107 +36,76 @@ const PortfolioImages = ({
       return;
     }
 
-    if (grid.current) {
-      grid.current.scrollIntoView({ behavior: "smooth" });
+    if (scrollToRef.current) {
+      scrollToRef.current.scrollIntoView({ behavior: "smooth" });
     }
+
     setSelectedIndex(index);
   };
 
-  const rooms = ["Kitchen", "Bath", "Laundry", "Office"];
+  const handlePrevPageClick = () =>
+    handlePagination(Math.max(selectedIndex - PAGE_SIZE, 0));
 
-  const labels = ["Banquette", "Bar", "Island", "3D Renderings"];
+  const handleNextPageClick = () =>
+    handlePagination(
+      Math.min(
+        selectedIndex + PAGE_SIZE,
+        Math.floor(selectedSanityImages.length / PAGE_SIZE) * PAGE_SIZE
+      )
+    );
+
+  const selectedValue = selectedTags.map((tag) => ({
+    id: tag,
+    value: tag,
+    label: tag,
+  }));
+
+  const handleChange = (values, ev) => {
+    if (ev.action === "select-option" && ev.option.value === "all") {
+      setSelectedTags(allTags);
+    } else if (ev.action === "select-option" && ev.option.value === "none") {
+      setSelectedTags([]);
+    } else {
+      setSelectedTags(values.map(({ value }) => value));
+    }
+  };
+
+  const PAGE_COUNT = Math.floor(selectedSanityImages.length / PAGE_SIZE) + 1;
 
   return (
     <Container className="my-6">
-      <h2>Photos</h2>
+      <h2 ref={scrollToRef}>Photos</h2>
       <Select
         isMulti
-        value={selectedTags.map((tag) => ({
-          id: tag,
-          value: tag,
-          label: tag,
-        }))}
-        options={[
-          {
-            label: "Show All/None",
-            options: [
-              { id: "all", value: "all", label: "Show All" },
-              { id: "none", value: "none", label: "Show None" },
-            ],
-          },
-          {
-            label: "Rooms",
-            options: rooms.map((room) => ({
-              id: room,
-              value: room,
-              label: room,
-            })),
-          },
-          {
-            label: "Labels",
-            options: labels.map((label) => ({
-              id: label,
-              value: label,
-              label: label,
-            })),
-          },
-        ]}
-        onChange={(values, ev) => {
-          if (ev.action === "select-option" && ev.option.value === "all") {
-            setSelectedTags(allTags);
-          } else if (
-            ev.action === "select-option" &&
-            ev.option.value === "none"
-          ) {
-            setSelectedTags([]);
-          } else {
-            setSelectedTags(values.map(({ value }) => value));
-          }
-        }}
+        value={selectedValue}
+        options={options}
+        onChange={handleChange}
+        className="mb-6"
       />
 
-      <>
-        {selectedSanityImages.map(({ image }) => (
-          <img
-            key={image.file.asset.id}
-            className="sr-only"
-            src={builder
-              .image(image.file.asset.id)
-              .size(408, 272)
-              .fit("crop")
-              .url()}
-            alt={image.description}
-          />
-        ))}
-      </>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6" ref={grid}>
-        {selectedSanityImages
-          .slice(PAGE_SIZE * selectedPage, PAGE_SIZE * selectedPage + PAGE_SIZE)
-          .map(({ image }, index) => (
-            <div key={image.file.asset.id}>
-              <button
-                className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:ring bg-white"
-                onClick={() => openLightbox(index + PAGE_SIZE * selectedPage)}
-              >
-                <img
-                  className="pointer-events-none"
-                  src={builder
-                    .image(image.file.asset.id)
-                    .size(408, 272)
-                    .fit("crop")
-                    .url()}
-                  alt={image.description}
-                />
-              </button>
-            </div>
-          ))}
-      </div>
+      {selectedSanityImages.map(({ image }) => (
+        <img
+          key={image.file.asset.id}
+          className="sr-only"
+          src={builder
+            .image(image.file.asset.id)
+            .size(408, 272)
+            .fit("crop")
+            .url()}
+          alt={image.description}
+        />
+      ))}
+
+      <ImageGrid
+        images={selectedSanityImages}
+        onClick={(index) => openLightbox(index + PAGE_SIZE * selectedPage)}
+        selectedPage={selectedPage}
+      />
+
       {selectedSanityImages.length > PAGE_SIZE ? (
         <div className="flex items-center justify-center mt-2">
           <button
-            onClick={() =>
-              handlePagination(Math.max(selectedIndex - PAGE_SIZE, 0))
-            }
+            onClick={handlePrevPageClick}
             className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
           >
             <LeftArrowIcon className="w-full h-full p-2" />
@@ -147,7 +113,7 @@ const PortfolioImages = ({
           </button>
 
           {Array.from({
-            length: Math.floor(selectedSanityImages.length / PAGE_SIZE) + 1,
+            length: PAGE_COUNT,
           }).map((_, index) => (
             <button
               key={index}
@@ -161,15 +127,7 @@ const PortfolioImages = ({
           ))}
 
           <button
-            onClick={() =>
-              handlePagination(
-                Math.min(
-                  selectedIndex + PAGE_SIZE,
-                  Math.floor(selectedSanityImages.length / PAGE_SIZE) *
-                    PAGE_SIZE
-                )
-              )
-            }
+            onClick={handleNextPageClick}
             className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
           >
             <RightArrowIcon className="w-full h-full p-2" />
@@ -177,35 +135,14 @@ const PortfolioImages = ({
           </button>
         </div>
       ) : null}
-      <ModalGateway>
-        {lightboxIsOpen ? (
-          <Modal
-            closeOnBackdropClick={false}
-            onClose={closeLightbox}
-            styles={{
-              blanket: (base) => ({
-                ...base,
-                backgroundColor: theme.colors.gray.light,
-              }),
-              positioner: (base) => ({
-                ...base,
-                display: "block",
-              }),
-            }}
-          >
-            <Carousel
-              hideControlsWhenIdle={false}
-              currentIndex={selectedIndex}
-              components={{ Header, View, Footer }}
-              views={carouselImages}
-              trackProps={{
-                onViewChange: setSelectedIndex,
-              }}
-              styles={carouselStyles}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+
+      <ImageModal
+        lightboxIsOpen={lightboxIsOpen}
+        closeLightbox={closeLightbox}
+        selectedIndex={selectedIndex}
+        carouselImages={carouselImages}
+        setSelectedIndex={setSelectedIndex}
+      />
     </Container>
   );
 };
@@ -234,33 +171,30 @@ PortfolioImages.propTypes = {
   setSelectedTags: PropTypes.func.isRequired,
 };
 
-const { theme } = resolveConfig(tailwindConfig);
-
-const navButtonStyles = (base) => ({
-  ...base,
-  backgroundColor: theme.colors.white,
-  boxShadow: theme.boxShadow.md,
-  color: theme.colors.gray.darker,
-
-  "&:hover, &:active, &:active": {
-    backgroundColor: theme.colors.white,
-    color: theme.colors.black,
+const options = [
+  {
+    label: "Show All/None",
+    options: [
+      { id: "all", value: "all", label: "Show All" },
+      { id: "none", value: "none", label: "Show None" },
+    ],
   },
-  "&:focus": {
-    boxShadow: theme.boxShadow.outline,
-    outline: 0,
+  {
+    label: "Rooms",
+    options: ROOM_NAMES.map((room) => ({
+      id: room,
+      value: room,
+      label: room,
+    })),
   },
-});
-
-const PAGE_SIZE = 9;
-
-const carouselStyles = {
-  container: (base) => ({
-    ...base,
-    height: "100vh",
-  }),
-  navigationPrev: navButtonStyles,
-  navigationNext: navButtonStyles,
-};
+  {
+    label: "Labels",
+    options: LABEL_NAMES.map((label) => ({
+      id: label,
+      value: label,
+      label: label,
+    })),
+  },
+];
 
 export default PortfolioImages;
