@@ -9,10 +9,11 @@ const Header = ({
     return (
       <div>
         {title && (
-          <div className="inline absolute top-2 left-2 text-left px-2 py-1 text-sm rounded bg-gray-light">
+          <div className="inline absolute z-10 top-6 left-2 text-left px-2 py-1 text-sm rounded bg-black text-gray-light bg-opacity-25">
             <span className="px-1 whitespace-nowrap truncate">{title}</span>
           </div>
         )}
+
         <div>
           <button
             onClick={toggleFullscreen}

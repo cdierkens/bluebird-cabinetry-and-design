@@ -190,6 +190,7 @@ PortfolioImages.propTypes = {
       caption: PropTypes.string,
       title: PropTypes.string,
       contractor: PropTypes.string,
+      decorator: PropTypes.string,
       furnitureRefinishing: PropTypes.string,
       interiorDesigner: PropTypes.string,
       software: PropTypes.string,

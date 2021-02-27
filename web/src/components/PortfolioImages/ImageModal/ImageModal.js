@@ -28,6 +28,7 @@ const ImageModal = ({
               ...base,
               display: "block",
             }),
+            footerCaption: {},
           }}
         >
           <Carousel

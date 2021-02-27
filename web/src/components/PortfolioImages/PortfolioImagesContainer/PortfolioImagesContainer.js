@@ -136,8 +136,8 @@ const PortfolioImagesContainer = ({ location }) => {
 
 export const portfolioImagesQuery = graphql`
   fragment Image on SanityPortfolioImage {
-    caption
     contractor
+    decorator
     furnitureRefinishing
     interiorDesigner
     software
