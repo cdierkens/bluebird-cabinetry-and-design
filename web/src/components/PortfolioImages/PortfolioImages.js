@@ -4,12 +4,14 @@ import Select from "react-select";
 import { LeftArrowIcon, RightArrowIcon } from "../../icons";
 import { builder } from "../../lib/image-url";
 import Container from "../container";
-import { LABEL_NAMES, PAGE_SIZE, ROOM_NAMES } from "./constants.js";
+import { PAGE_SIZE } from "./constants.js";
 import { ImageGrid } from "./ImageGrid";
 import { ImageModal } from "./ImageModal";
 
 const PortfolioImages = ({
   allTags,
+  allRooms,
+  allLabels,
   carouselImages,
   selectedTags,
   setSelectedTags,
@@ -62,7 +64,6 @@ const PortfolioImages = ({
 
   const handleChange = (values, ev) => {
     if (ev.action === "select-option" && ev.option.value === "all") {
-      console.log({ allTags });
       setSelectedTags(allTags);
     } else if (ev.action === "select-option" && ev.option.value === "none") {
       setSelectedTags([]);
@@ -83,9 +84,7 @@ const PortfolioImages = ({
     },
     {
       label: "Rooms",
-      options: ROOM_NAMES.filter((room) =>
-        allTags.some((tag) => tag === room)
-      ).map((room) => ({
+      options: allRooms.map((room) => ({
         id: room,
         value: room,
         label: room,
@@ -93,9 +92,7 @@ const PortfolioImages = ({
     },
     {
       label: "Labels",
-      options: LABEL_NAMES.filter((label) =>
-        allTags.some((tag) => tag === label)
-      ).map((label) => ({
+      options: allLabels.map((label) => ({
         id: label,
         value: label,
         label: label,
@@ -180,6 +177,8 @@ const PortfolioImages = ({
 
 PortfolioImages.propTypes = {
   allTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  allRooms: PropTypes.arrayOf(PropTypes.string).isRequired,
+  allLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
   carouselImages: PropTypes.arrayOf(
     PropTypes.shape({
       source: PropTypes.shape({

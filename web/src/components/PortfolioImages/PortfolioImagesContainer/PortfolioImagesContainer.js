@@ -72,7 +72,9 @@ const PortfolioImagesContainer = ({ location }) => {
           (keys, node) => new Set([...node.labels, ...keys]),
           new Set()
         )
-      ).sort(),
+      )
+        .filter(Boolean)
+        .sort(),
     [sanityImages]
   );
 
@@ -83,7 +85,9 @@ const PortfolioImagesContainer = ({ location }) => {
           (keys, node) => new Set([node.room, ...keys]),
           new Set()
         )
-      ).sort(),
+      )
+        .filter(Boolean)
+        .sort(),
     [sanityImages]
   );
 
@@ -112,6 +116,8 @@ const PortfolioImagesContainer = ({ location }) => {
     <>
       <PortfolioImages
         allTags={allTags}
+        allRooms={allRooms}
+        allLabels={allLabels}
         carouselImages={carouselImages}
         selectedSanityImages={selectedSanityImages}
         selectedTags={selectedTags}
