@@ -4,6 +4,7 @@ import { parse } from "query-string";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import useQueryString from "use-query-string";
 import PortfolioImages from "../";
+import Container from "../../container";
 import { AlbumImages } from "../AlbumImages";
 import { mapPortfolioImageToCarouselImage } from "../lib";
 
@@ -54,6 +55,8 @@ const PortfolioImagesContainer = ({ location }) => {
         return;
       }
 
+      console.log({ values });
+
       setQuery({
         ...query,
         tags: values.sort().join(","),
@@ -62,22 +65,44 @@ const PortfolioImagesContainer = ({ location }) => {
     [query, setQuery]
   );
 
-  const allTags =
-    useMemo(
-      () =>
-        Array.from(
-          sanityImages.reduce(
-            (keys, node) => new Set([...node.tags, ...keys]),
-            new Set()
-          )
-        ).sort(),
-      [sanityImages]
-    ) || [];
+  const allLabels = useMemo(
+    () =>
+      Array.from(
+        sanityImages.reduce(
+          (keys, node) => new Set([...node.labels, ...keys]),
+          new Set()
+        )
+      ).sort(),
+    [sanityImages]
+  );
+
+  const allRooms = useMemo(
+    () =>
+      Array.from(
+        sanityImages.reduce(
+          (keys, node) => new Set([node.room, ...keys]),
+          new Set()
+        )
+      ).sort(),
+    [sanityImages]
+  );
+
+  const allTags = useMemo(
+    () =>
+      Array.from(new Set([...allLabels, ...allRooms]))
+        .filter(Boolean)
+        .sort(),
+    [allLabels, allRooms]
+  );
 
   const selectedSanityImages =
-    sanityImages.filter(({ tags }) =>
-      tags.find((tag) => selectedTags.find((checkedTag) => checkedTag === tag))
-    ) || [];
+    sanityImages.filter(({ labels, room }) => {
+      return (
+        labels.find((label) =>
+          selectedTags.find((checkedTag) => checkedTag === label)
+        ) || selectedTags.some((checkedTag) => checkedTag === room)
+      );
+    }) || [];
 
   const carouselImages = selectedSanityImages.map(
     mapPortfolioImageToCarouselImage
@@ -93,9 +118,12 @@ const PortfolioImagesContainer = ({ location }) => {
         setSelectedTags={setSelectedTags}
       />
 
-      {albums.map(({ title, images }) => {
-        return <AlbumImages key={title} images={images} title={title} />;
-      })}
+      <Container>
+        <h2>Projects Photos</h2>
+        {albums.map(({ title, images }) => {
+          return <AlbumImages key={title} images={images} title={title} />;
+        })}
+      </Container>
     </>
   );
 };
@@ -107,7 +135,8 @@ export const portfolioImagesQuery = graphql`
     furnitureRefinishing
     interiorDesigner
     software
-    tags
+    labels
+    room
     image {
       description
       file {

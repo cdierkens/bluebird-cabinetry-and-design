@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { theme } from "../constants";
-import Footer from "../Footer";
-import Header from "../Header";
-import View from "../View";
+import Footer from "./Footer";
+import Header from "./Header";
+import View from "./View";
 
 const ImageModal = ({
   lightboxIsOpen,

@@ -62,6 +62,7 @@ const PortfolioImages = ({
 
   const handleChange = (values, ev) => {
     if (ev.action === "select-option" && ev.option.value === "all") {
+      console.log({ allTags });
       setSelectedTags(allTags);
     } else if (ev.action === "select-option" && ev.option.value === "none") {
       setSelectedTags([]);
@@ -72,9 +73,39 @@ const PortfolioImages = ({
 
   const PAGE_COUNT = Math.floor(selectedSanityImages.length / PAGE_SIZE) + 1;
 
+  const options = [
+    {
+      label: "Show All/None",
+      options: [
+        { id: "all", value: "all", label: "Show All" },
+        { id: "none", value: "none", label: "Show None" },
+      ],
+    },
+    {
+      label: "Rooms",
+      options: ROOM_NAMES.filter((room) =>
+        allTags.some((tag) => tag === room)
+      ).map((room) => ({
+        id: room,
+        value: room,
+        label: room,
+      })),
+    },
+    {
+      label: "Labels",
+      options: LABEL_NAMES.filter((label) =>
+        allTags.some((tag) => tag === label)
+      ).map((label) => ({
+        id: label,
+        value: label,
+        label: label,
+      })),
+    },
+  ];
+
   return (
     <Container className="my-6">
-      <h2 ref={scrollToRef}>Photos</h2>
+      <h2 ref={scrollToRef}>All Photos</h2>
       <Select
         isMulti
         value={selectedValue}
@@ -170,31 +201,5 @@ PortfolioImages.propTypes = {
   selectedTags: PropTypes.arrayOf(PropTypes.string).isRequired,
   setSelectedTags: PropTypes.func.isRequired,
 };
-
-const options = [
-  {
-    label: "Show All/None",
-    options: [
-      { id: "all", value: "all", label: "Show All" },
-      { id: "none", value: "none", label: "Show None" },
-    ],
-  },
-  {
-    label: "Rooms",
-    options: ROOM_NAMES.map((room) => ({
-      id: room,
-      value: room,
-      label: room,
-    })),
-  },
-  {
-    label: "Labels",
-    options: LABEL_NAMES.map((label) => ({
-      id: label,
-      value: label,
-      label: label,
-    })),
-  },
-];
 
 export default PortfolioImages;

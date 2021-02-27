@@ -22,7 +22,7 @@ const AlbumImages = ({ title, images }) => {
 
   return (
     <Container className="mb-6">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       <ImageGrid
         images={images}
         selectedPage={0}
