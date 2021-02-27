@@ -34,18 +34,18 @@ const KindWordsItem = ({ title, children, name }) => (
 
 KindWordsItem.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.node,
   name: PropTypes.string,
 };
 
-const KindWords = ({ className }) => {
+const KindWords = () => {
   const [showReadMore, setShowMore] = useState(true);
   const {
     allSanityClientReview: { nodes: kindWords },
   } = useStaticQuery(query);
 
   return (
-    <Container className={`py-6 ${className}`}>
+    <Container className="py-6">
       <h2 className="text-center">Kind Words</h2>
 
       {kindWords.slice(0, 3).map(({ title, clientName, text, _id }) => (
@@ -74,14 +74,6 @@ const KindWords = ({ className }) => {
       )}
     </Container>
   );
-};
-
-KindWords.propTypes = {
-  className: PropTypes.string,
-};
-
-KindWords.defaultProps = {
-  className: "",
 };
 
 export default KindWords;

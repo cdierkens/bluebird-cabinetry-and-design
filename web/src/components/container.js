@@ -2,13 +2,17 @@ import PropTypes from "prop-types";
 import React from "react";
 import styles from "./container.module.css";
 
-const Container = ({ className = "", children }) => {
+const Container = ({ className, children }) => {
   return <div className={`${styles.Container} ${className}`}>{children}</div>;
 };
 
 Container.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
+};
+
+Container.defaultProps = {
+  className: "",
 };
 
 export default Container;

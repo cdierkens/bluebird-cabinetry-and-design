@@ -14,6 +14,9 @@ it("matches snapshot", () => {
         interiorDesigner: "",
         software: "",
       }}
+      modalProps={{
+        isFullscreen: false,
+      }}
       label="mock label"
     />
   );

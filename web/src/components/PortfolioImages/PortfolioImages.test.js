@@ -6,6 +6,8 @@ it("matches snapshot", () => {
   const { asFragment } = render(
     <PortfolioImages
       allTags={[]}
+      allRooms={[]}
+      allLabels={[]}
       carouselImages={[]}
       selectedSanityImages={[]}
       selectedTags={[]}
