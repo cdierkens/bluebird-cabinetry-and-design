@@ -55,8 +55,6 @@ const PortfolioImagesContainer = ({ location }) => {
         return;
       }
 
-      console.log({ values });
-
       setQuery({
         ...query,
         tags: values.sort().join(","),

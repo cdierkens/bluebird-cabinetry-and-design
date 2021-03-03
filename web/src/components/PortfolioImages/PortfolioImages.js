@@ -70,6 +70,8 @@ const PortfolioImages = ({
     } else {
       setSelectedTags(values.map(({ value }) => value));
     }
+
+    setSelectedIndex(0);
   };
 
   const PAGE_COUNT = Math.floor(selectedSanityImages.length / PAGE_SIZE) + 1;

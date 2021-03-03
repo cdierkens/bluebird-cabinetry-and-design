@@ -7,7 +7,6 @@
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",
-    "test": "sanity check",
     "graphql-deploy": "sanity graphql deploy --no-playground",
     "migrate": "node scripts/migrate.js"
   },
