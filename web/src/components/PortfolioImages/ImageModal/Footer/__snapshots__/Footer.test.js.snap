@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="inline absolute bottom-2 left-2 text-left px-2 py-1 text-sm rounded bg-gray-light"
+    />
+    <div
+      class="inline absolute bottom-2 right-2 text-right px-2 py-1 text-sm rounded bg-gray-light"
+    >
+      <span>
+        2 of 0
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

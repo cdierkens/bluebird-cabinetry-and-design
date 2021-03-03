@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="leading-none relative text-center box-border flex items-center justify-center"
+    style="height: calc(100vh - 90px);"
+  >
+    <img
+      alt=""
+      class="h-auto max-h-full max-w-full m-auto select-none"
+    />
+  </div>
+</DocumentFragment>
+`;
