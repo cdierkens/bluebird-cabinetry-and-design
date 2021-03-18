@@ -1,4 +1,4 @@
-export default {
+const obj = {
   name: "webImage",
   type: "object",
   title: "Web Image",
@@ -21,3 +21,5 @@ export default {
     },
   ],
 };
+
+export default obj;

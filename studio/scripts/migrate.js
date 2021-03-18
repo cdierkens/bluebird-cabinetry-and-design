@@ -47,6 +47,7 @@ async function main() {
       name: "documentTypes",
       message: "What documents should be migrated?",
       choices: [
+        "album",
         "carousel",
         "clientReview",
         "designPreview",

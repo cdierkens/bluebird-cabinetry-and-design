@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import { PropTypes } from "prop-types";
 import React, { useState } from "react";
 import logo from "../../../images/logo.png";
-import styles from "./MobileNav.module.css";
+import * as styles from "./MobileNav.module.css";
 
 const MobileNav = ({ children }) => {
   const [isOpen, setIsOpen] = useState();

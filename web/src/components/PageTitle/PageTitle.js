@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import styles from "./PageTitle.module.css";
+import * as styles from "./PageTitle.module.css";
 
 const PageTitle = ({ children }) => (
   <h1 className={styles.PageTitle}>{children}</h1>

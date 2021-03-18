@@ -7,33 +7,33 @@
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",
-    "test": "sanity check",
     "graphql-deploy": "sanity graphql deploy --no-playground",
     "migrate": "node scripts/migrate.js"
   },
   "dependencies": {
-    "@sanity/base": "2.4.3",
-    "@sanity/cli": "2.4.0",
+    "@sanity/base": "2.6.2",
+    "@sanity/cli": "2.6.0",
     "@sanity/components": "2.2.6",
-    "@sanity/core": "2.4.0",
+    "@sanity/core": "2.6.2",
     "@sanity/dashboard": "2.2.6",
-    "@sanity/default-layout": "2.4.3",
+    "@sanity/default-layout": "2.6.2",
     "@sanity/default-login": "2.2.6",
-    "@sanity/desk-tool": "2.4.3",
+    "@sanity/desk-tool": "2.6.3",
     "@sanity/studio-hints": "2.4.3",
+    "@sanity/vision": "2.2.6",
     "@types/prop-types": "15.7.3",
-    "@types/react": "17.0.2",
-    "@types/react-dom": "17.0.1",
-    "date-fns": "2.17.0",
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.2",
+    "date-fns": "2.19.0",
     "groq": "2.2.6",
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-icons": "4.2.0",
-    "sanity-plugin-dashboard-widget-document-list": "0.0.11",
-    "sanity-plugin-dashboard-widget-netlify": "1.0.1"
+    "sanity-plugin-dashboard-widget-document-list": "0.0.13",
+    "sanity-plugin-dashboard-widget-netlify": "1.1.0"
   },
   "devDependencies": {
-    "inquirer": "7.3.3"
+    "inquirer": "8.0.0"
   }
 }

@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="Container py-6 "
+    class="Container py-6"
   >
     <h2
       class="text-center"

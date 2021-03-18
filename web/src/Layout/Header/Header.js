@@ -4,7 +4,7 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../tailwind.config.js";
 import { useMatchMedia } from "../../hooks";
 import DesktopNav from "./DesktopNav/DesktopNav.js";
-import styles from "./Header.module.css";
+import * as styles from "./Header.module.css";
 import MobileNav from "./MobileNav/MobileNav.js";
 
 const { theme } = resolveConfig(tailwindConfig);
