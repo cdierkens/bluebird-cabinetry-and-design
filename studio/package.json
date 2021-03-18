@@ -34,6 +34,6 @@
     "sanity-plugin-dashboard-widget-netlify": "1.1.0"
   },
   "devDependencies": {
-    "inquirer": "7.3.3"
+    "inquirer": "8.0.0"
   }
 }
