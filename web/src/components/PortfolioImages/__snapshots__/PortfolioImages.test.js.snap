@@ -11,6 +11,12 @@ exports[`matches snapshot 1`] = `
     <div
       class="mb-6 css-2b097c-container"
     >
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="css-1f43avz-a11yText-A11yText"
+      />
       <div
         class=" css-yk16xz-control"
       >
