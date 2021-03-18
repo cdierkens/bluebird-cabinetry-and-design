@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
-import styles from "./Button.module.css";
+import * as styles from "./Button.module.css";
 
 const Button = ({ variant, className, children, to, type, onClick }) => {
   const fullClassName = `${

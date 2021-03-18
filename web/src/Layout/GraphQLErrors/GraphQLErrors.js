@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import styles from "./GraphQLErrors.module.css";
+import * as styles from "./GraphQLErrors.module.css";
 
 const GraphQLErrors = ({ errors }) => (
   <div className={styles.GraphQLErrors}>
