@@ -1,7 +1,7 @@
 import { ErrorMessage, useField } from "formik";
 import PropTypes from "prop-types";
 import React from "react";
-import styles from "./Select.module.css";
+import * as styles from "./Select.module.css";
 
 const Option = ({ children, disabled, value }) => (
   <option value={value} className={styles.Option} disabled={disabled}>

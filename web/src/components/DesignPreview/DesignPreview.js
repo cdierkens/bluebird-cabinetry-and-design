@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { builder } from "../../lib/image-url";
 import Container from "../container";
-import styles from "./DesignPreview.module.css";
+import * as styles from "./DesignPreview.module.css";
 
 const BASE_IMAGE_SIZE = 300;
 

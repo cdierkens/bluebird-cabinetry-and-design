@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import styles from "./LearnMore.module.css";
+import * as styles from "./LearnMore.module.css";
 
 const LearnMore = () => {
   return (

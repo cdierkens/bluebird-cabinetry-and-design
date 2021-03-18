@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 import React from "react";
 import { useScrollPosition } from "../../../hooks";
 import logo from "../../../images/logo.png";
-import styles from "./HeaderLogo.module.css";
+import * as styles from "./HeaderLogo.module.css";
 
 const HeaderLogo = ({ className = "" }) => {
   const position = useScrollPosition();

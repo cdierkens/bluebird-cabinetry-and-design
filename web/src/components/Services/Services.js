@@ -9,7 +9,7 @@ import {
 } from "../../icons";
 import Button from "../Button";
 import Container from "../container";
-import styles from "./Services.module.css";
+import * as styles from "./Services.module.css";
 
 const Services = () => {
   return (
