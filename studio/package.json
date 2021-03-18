@@ -11,14 +11,14 @@
     "migrate": "node scripts/migrate.js"
   },
   "dependencies": {
-    "@sanity/base": "2.5.0",
-    "@sanity/cli": "2.5.0",
+    "@sanity/base": "2.6.2",
+    "@sanity/cli": "2.6.0",
     "@sanity/components": "2.2.6",
-    "@sanity/core": "2.5.0",
+    "@sanity/core": "2.6.2",
     "@sanity/dashboard": "2.2.6",
-    "@sanity/default-layout": "2.5.0",
+    "@sanity/default-layout": "2.6.2",
     "@sanity/default-login": "2.2.6",
-    "@sanity/desk-tool": "2.5.0",
+    "@sanity/desk-tool": "2.6.3",
     "@sanity/studio-hints": "2.4.3",
     "@sanity/vision": "^2.2.6",
     "@types/prop-types": "15.7.3",
@@ -31,7 +31,7 @@
     "react-dom": "17.0.1",
     "react-icons": "4.2.0",
     "sanity-plugin-dashboard-widget-document-list": "0.0.11",
-    "sanity-plugin-dashboard-widget-netlify": "1.0.1"
+    "sanity-plugin-dashboard-widget-netlify": "1.1.0"
   },
   "devDependencies": {
     "inquirer": "7.3.3"
