@@ -42,6 +42,16 @@
     "rules": {
       "react/prop-types": 2
     },
+    "overrides": [
+      {
+        "files": [
+          "**/*.tsx"
+        ],
+        "rules": {
+          "react/prop-types": "off"
+        }
+      }
+    ],
     "plugins": [
       "jsx-a11y"
     ],
