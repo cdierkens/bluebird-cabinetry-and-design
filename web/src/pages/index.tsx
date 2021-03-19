@@ -1,6 +1,5 @@
 import { useWindowSize } from "@react-typed-hooks/use-window-size";
 import { graphql } from "gatsby";
-import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -11,6 +10,7 @@ import Publications from "../components/Publications";
 import Services from "../components/Services";
 import Layout from "../Layout";
 import { builder } from "../lib/image-url";
+import { PagePropsWithErrors, todo } from "../migration.types";
 import * as styles from "./Index.module.css";
 
 export const query = graphql`
@@ -48,14 +48,16 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({
+const IndexPage: React.FC<PagePropsWithErrors> = ({
   data: {
     carousel: { images: carouselImages },
     designPreview: { title, description, images: designPreviewImages },
   },
   errors,
 }) => {
-  const [imageSize, setImageSize] = useState();
+  const [imageSize, setImageSize] = useState<
+    ReturnType<typeof useWindowSize>
+  >();
   const windowSize = useWindowSize();
 
   useEffect(() => {
@@ -87,25 +89,24 @@ const IndexPage = ({
           showThumbs={false}
           swipeable
           useKeyboardArrows
-          style={{ height: `${imageSize.height - 102}px` }}
         >
-          {carouselImages.map(({ image }) => (
+          {carouselImages.map(({ image }: { image: todo }) => (
             <div key={image.file.asset.id}>
               <img
-                src={builder
-                  .image(image.file.asset.id)
-                  .size(imageSize.width, imageSize.height - 102)
-                  .fit("clip")
-                  .url()}
+                src={
+                  builder
+                    .image(image.file.asset.id)
+                    .size(imageSize.width, imageSize.height - 102)
+                    .fit("clip")
+                    .url() || ""
+                }
                 alt={image.description}
               />
             </div>
           ))}
         </Carousel>
       ) : (
-        <Carousel showStatus={false} showThumbs={false}>
-          <span>Loading...</span>
-        </Carousel>
+        <Carousel showStatus={false} showThumbs={false} />
       )}
 
       <div className={styles.GetStartedContainer}>
@@ -130,15 +131,6 @@ const IndexPage = ({
       <Publications />
     </Layout>
   );
-};
-
-IndexPage.propTypes = {
-  data: PropTypes.object,
-  errors: PropTypes.arrayOf(
-    PropTypes.shape({
-      message: PropTypes.string,
-    })
-  ),
 };
 
 export default IndexPage;

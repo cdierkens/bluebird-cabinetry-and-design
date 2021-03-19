@@ -1,12 +1,12 @@
-import PropTypes from "prop-types";
 import React from "react";
 import Button from "../components/Button";
 import KindWords from "../components/KindWords";
 import PortfolioImagesContainer from "../components/PortfolioImages/PortfolioImagesContainer";
-import Publications from "../components/Publications/Publications";
+import Publications from "../components/Publications";
 import Layout from "../Layout";
+import { PagePropsWithErrors } from "../migration.types";
 
-const PortfolioPage = ({ location }) => {
+const PortfolioPage: React.FC<PagePropsWithErrors> = ({ location }) => {
   return (
     <Layout title="Portfolio">
       <PortfolioImagesContainer location={location} />
@@ -25,16 +25,6 @@ const PortfolioPage = ({ location }) => {
       <Publications />
     </Layout>
   );
-};
-
-PortfolioPage.propTypes = {
-  data: PropTypes.object,
-  errors: PropTypes.arrayOf(
-    PropTypes.shape({
-      message: PropTypes.string,
-    })
-  ),
-  location: PropTypes.object.isRequired,
 };
 
 export default PortfolioPage;

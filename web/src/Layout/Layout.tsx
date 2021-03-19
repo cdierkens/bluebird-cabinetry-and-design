@@ -1,18 +1,30 @@
-import PropTypes from "prop-types";
 import React from "react";
 import PageTitle from "../components/PageTitle";
+import { todo } from "../migration.types";
 import Footer from "./Footer";
 import GraphQLErrors from "./GraphQLErrors";
 import Head from "./Head";
 import Header from "./Header";
 import "./Layout.css";
 
-const Layout = ({ errors, hidePageTitle, children, ...props }) =>
+interface Props {
+  errors?: todo;
+  hidePageTitle?: boolean;
+  title: string;
+}
+
+const Layout: React.FC<Props> = ({
+  errors,
+  title,
+  hidePageTitle,
+  children,
+  ...props
+}) =>
   errors ? (
     <GraphQLErrors errors={errors} />
   ) : (
     <React.Fragment>
-      <Head {...props} />
+      <Head title={title} {...props} />
 
       <a href="#content" className="sr-only">
         Skip to content
@@ -22,7 +34,7 @@ const Layout = ({ errors, hidePageTitle, children, ...props }) =>
         <Header />
 
         <main role="main" id="content">
-          {!hidePageTitle && <PageTitle>{props.title}</PageTitle>}
+          {!hidePageTitle && <PageTitle>{title}</PageTitle>}
 
           {children}
         </main>
@@ -31,16 +43,5 @@ const Layout = ({ errors, hidePageTitle, children, ...props }) =>
       </div>
     </React.Fragment>
   );
-
-Layout.propTypes = {
-  errors: PropTypes.arrayOf(
-    PropTypes.shape({
-      message: PropTypes.string,
-    })
-  ),
-  children: PropTypes.node,
-  title: PropTypes.string,
-  hidePageTitle: PropTypes.bool,
-};
 
 export default Layout;

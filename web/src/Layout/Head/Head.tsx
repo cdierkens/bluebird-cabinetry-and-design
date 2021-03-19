@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
 import favicon from "../../images/favicon.jpg";
@@ -14,7 +13,12 @@ const query = graphql`
   }
 `;
 
-function Head({ title, lang = "en" }) {
+interface Props {
+  title: string;
+  lang?: string;
+}
+
+const Head: React.FC<Props> = ({ title, lang = "en" }) => {
   const { site } = useStaticQuery(query);
 
   const description = site?.description || "";
@@ -52,15 +56,6 @@ function Head({ title, lang = "en" }) {
       <link rel="icon" href={favicon} />
     </Helmet>
   );
-}
-
-Head.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
-  image: PropTypes.object,
 };
 
 export default Head;

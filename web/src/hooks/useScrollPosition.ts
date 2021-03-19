@@ -18,7 +18,7 @@ export default function useScrollPosition({
     throttle(() => {
       setPosition(getPosition());
     }, wait),
-    [element]
+    [element, wait]
   );
 
   useEffect(() => {
