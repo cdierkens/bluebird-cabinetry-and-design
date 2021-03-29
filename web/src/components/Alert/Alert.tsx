@@ -1,19 +1,35 @@
 import { useKeyPress } from "@react-typed-hooks/use-key-press";
-import PropTypes from "prop-types";
+import { noop } from "lodash";
 import React, { useEffect, useRef } from "react";
 
-const Alert = ({ status, children, onClose }) => {
+const handleCloseKeydown = (event: KeyboardEvent) => {
+  if (event.key === "Tab") {
+    event.preventDefault();
+  }
+};
+
+interface AlertProps {
+  status: "success" | "error";
+  onClose?: () => void;
+}
+
+const Alert: React.FC<AlertProps> = ({ status, children, onClose = noop }) => {
   const isEscapePressed = useKeyPress({ targetKey: "Escape" });
-  const closeRef = useRef(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    closeRef.current.focus();
+    if (!closeRef.current) {
+      return;
+    }
 
-    closeRef.current.addEventListener("keydown", (event) => {
-      if (event.key === "Tab") {
-        event.preventDefault();
-      }
-    });
+    const closeButton = closeRef.current;
+
+    closeButton.focus();
+    closeButton.addEventListener("keydown", handleCloseKeydown);
+
+    return () => {
+      closeButton.removeEventListener("keydown", handleCloseKeydown);
+    };
   }, [closeRef]);
 
   useEffect(() => {
@@ -60,13 +76,4 @@ const Alert = ({ status, children, onClose }) => {
   );
 };
 
-Alert.propTypes = {
-  status: PropTypes.oneOf(["success", "error"]).isRequired,
-  children: PropTypes.string.isRequired,
-  onClose: PropTypes.func,
-};
-
-Alert.defaultProps = {
-  onClose: () => {},
-};
 export default Alert;
