@@ -58,5 +58,9 @@
     "tailwindcss": "2.1.0",
     "use-query-string": "2.3.0",
     "yup": "0.32.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "ts-jest": "^26.5.4"
   }
 }
