@@ -11,7 +11,8 @@
     "lint:css:studio": "stylelint studio/src/**/*.css",
     "postinstall": "lerna bootstrap",
     "test": "lerna run test --stream",
-    "build": "lerna run build --parallel"
+    "build": "lerna run build --parallel",
+    "check": "lerna run check --parallel"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.21.0",

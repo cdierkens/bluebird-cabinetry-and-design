@@ -6,7 +6,8 @@
     "build": "gatsby build",
     "start": "gatsby clean && gatsby develop",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "check": "tsc"
   },
   "browserslist": [
     "defaults"
