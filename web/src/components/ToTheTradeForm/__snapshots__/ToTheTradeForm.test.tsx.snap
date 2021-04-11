@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ContactForm /> matches snapshot 1`] = `
+exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="bg-gray-light py-12"
@@ -14,7 +14,7 @@ exports[`<ContactForm /> matches snapshot 1`] = `
         <p
           class="col-span-3 sm:col-span-6 md:col-start-2 text-center text-blue-dark"
         >
-          Please take a minute to tell us more about yourself and your project. We will be in contact soon!
+          Please take a minute to tell us more about your business. We will get back with you shortly.
         </p>
         <form
           action="#"
@@ -26,12 +26,60 @@ exports[`<ContactForm /> matches snapshot 1`] = `
             <span
               class="block text-blue-dark text-base ml-1 mb-1"
             >
-              Name*
+              Business Name*
             </span>
             <input
               class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
               name="name"
+              placeholder="Jane's Cabinetry"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Owner
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="owner"
               placeholder="Jane Doe"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Address Line 1
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="address1"
+              placeholder="123 Dream Kitchen Lane"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Address Line 2
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="address2"
+              placeholder="Suite 200"
               type="text"
               value=""
             />
@@ -69,96 +117,6 @@ exports[`<ContactForm /> matches snapshot 1`] = `
             />
           </label>
           <label
-            class="SelectWrapper"
-          >
-            <span
-              class="block text-blue-dark text-base ml-1 mb-1"
-            >
-              Budget
-            </span>
-            <div
-              class="relative"
-            >
-              <select
-                class="Select"
-                name="budget"
-              >
-                <option
-                  class="Option"
-                  disabled=""
-                  value=""
-                >
-                  Please select a budget...
-                </option>
-                <option
-                  class="Option"
-                  value="$0 to $10,000"
-                >
-                  $0 to $10,000
-                </option>
-                <option
-                  class="Option"
-                  value="$11,000 to $25,000"
-                >
-                  $11,000 to $25,000
-                </option>
-                <option
-                  class="Option"
-                  value="$26,000 to $50,000"
-                >
-                  $26,000 to $50,000
-                </option>
-                <option
-                  class="Option"
-                  value="$51,000 to $75,000"
-                >
-                  $51,000 to $75,000
-                </option>
-                <option
-                  class="Option"
-                  value="$76,000 to $100,000"
-                >
-                  $76,000 to $100,000
-                </option>
-                <option
-                  class="Option"
-                  value="$100,000 plus"
-                >
-                  $100,000 plus
-                </option>
-              </select>
-              <div
-                class="Arrow"
-              >
-                <svg
-                  class="fill-current h-4 w-4"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                  />
-                </svg>
-              </div>
-            </div>
-          </label>
-          <label
-            class="block relative pb-5 mb-2"
-          >
-            <span
-              class="block text-blue-dark text-base ml-1 mb-1"
-            >
-              Areas of Interest
-            </span>
-            <input
-              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
-              name="interest"
-              placeholder="cabinetry, remodeling, renovations, etc"
-              type="text"
-              value=""
-            />
-          </label>
-          <label
             class="block relative pb-5 mb-2"
           >
             <span
@@ -191,17 +149,6 @@ exports[`<ContactForm /> matches snapshot 1`] = `
             >
               Send
             </button>
-          </div>
-          <div
-            class="text-center text-sm text-blue-dark p-8"
-          >
-            If you are a trade professional, see our
-            <a
-              href="/trade-services"
-            >
-               To The Trade Services 
-            </a>
-            page.
           </div>
         </form>
       </div>

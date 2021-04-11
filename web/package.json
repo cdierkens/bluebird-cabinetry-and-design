@@ -23,6 +23,8 @@
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
     "@types/react-helmet": "6.1.0",
+    "@types/react-select": "^4.0.14",
+    "@types/tailwindcss": "^2.0.2",
     "@types/yup": "0.29.11",
     "axios": "0.21.1",
     "babel-jest": "26.6.3",
@@ -60,7 +62,6 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.22",
-    "ts-jest": "^26.5.4"
+    "ts-jest": "26.5.4"
   }
 }

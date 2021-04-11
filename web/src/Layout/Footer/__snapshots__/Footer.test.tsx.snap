@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-gray-darker text-center text-gray-light p-5 text-sm leading-loose"
+  >
+    <div
+      class="my-6"
+    >
+      <test-file-stub
+        classname="p-1 fill-current stroke-current inline-block h-24 text-white stroke-none"
+      />
+    </div>
+    <div
+      class="my-6"
+    >
+      <div>
+        <a
+          class="underline"
+          href="tel:1-513-668-4529"
+        >
+          (513) 668‐4529
+        </a>
+      </div>
+      <div>
+        <a
+          class="underline text-sm sm:text-base"
+          href="mailto:dana@bluebirdcabinetryanddesign.com"
+        >
+          dana@bluebirdcabinetryanddesign.com
+        </a>
+      </div>
+      <div>
+        <span
+          class="text-sm sm:text-base"
+        >
+          Serving the 
+          <a
+            class="underline"
+            href="https://en.wikipedia.org/wiki/Cincinnati_metropolitan_area"
+          >
+            Greater Cincinnati Ohio Tri-State Area
+          </a>
+        </span>
+      </div>
+    </div>
+    <div
+      class="my-6 flex items-center justify-center flex-wrap"
+    >
+      <a
+        class="mx-2"
+        href="https://www.facebook.com/kitchenandbathdesigner/"
+      >
+        <test-file-stub
+          classname="p-1 fill-current stroke-current inline-block h-12 text-white"
+        />
+        <span
+          class="sr-only"
+        >
+          Facebook
+        </span>
+      </a>
+      <a
+        class="mx-2 underline"
+        href="/trade-services"
+      >
+        To The Trade Services
+      </a>
+      <a
+        class="ButtonWhite focus:outline-none focus:ring mb-5 mx-5 my-6"
+        href="/contact"
+      >
+        Contact Us
+      </a>
+    </div>
+    <div
+      class="my-6 flex items-center justify-center flex-wrap"
+    >
+      <a
+        class="mx-2"
+        href="https://nkba.org/dana-snyder"
+      >
+        <test-file-stub
+          classname="p-1 fill-current stroke-current inline-block h-10 text-white"
+        />
+        <span
+          class="sr-only"
+        >
+          National Kitchen and Bath Association
+        </span>
+      </a>
+      <test-file-stub
+        classname="p-1 fill-current stroke-current inline-block mx-2 h-20 text-white"
+      />
+      <a
+        class="mx-2 px-3"
+        href="https://www.houzz.com/professionals/kitchen-and-bath-designers/dana-snyder-ckd-pfvwus-pf~1099041723"
+      >
+        <test-file-stub
+          classname="p-1 fill-current stroke-current inline-block h-10 text-white"
+        />
+        <span
+          class="sr-only"
+        >
+          Houzz
+        </span>
+      </a>
+    </div>
+  </div>
+  <div
+    class="bg-gray-darkest px-2 py-6 text-xs text-center text-gray-light"
+  >
+    © 2020 Bluebird Cabinetry & Design LLC. All Rights Reserved.
+  </div>
+</DocumentFragment>
+`;
