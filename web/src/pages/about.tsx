@@ -118,7 +118,7 @@ const AboutPage: React.FC = () => (
       <span className="font-sans font-semibold text-white text-xl my-9 mx-5 inline-block">
         See our services page for more details!
       </span>
-      <Button variant="white" to="/services" className="mb-5 mx-5">
+      <Button variant="white" type="link" to="/services" className="mb-5 mx-5">
         Services
       </Button>
     </div>

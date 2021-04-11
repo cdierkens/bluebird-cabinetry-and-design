@@ -113,7 +113,7 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
         <span className={styles.GetStartedText}>
           Are You Interested In Connecting With Us?
         </span>
-        <Button variant="blue" to="/contact" className="mb-5 mx-5">
+        <Button type="link" variant="blue" to="/contact" className="mb-5 mx-5">
           Let's Talk
         </Button>
       </div>
