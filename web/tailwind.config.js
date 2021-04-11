@@ -68,7 +68,7 @@ module.exports = {
   },
   plugins: [require("./tailwind/plugins/gradients")],
   purge: {
-    content: ["./src/**/*.js"],
+    content: ["./src/**/*.js", "./src/**/*.ts", "./src/**/*.tsx"],
     options: {
       safelist: [
         "col-span-1",
