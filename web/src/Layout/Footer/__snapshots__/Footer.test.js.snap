@@ -67,12 +67,12 @@ exports[`matches snapshot 1`] = `
       >
         To The Trade Services
       </a>
-      <a
-        class="ButtonWhite mb-5 mx-5 my-6 focus:outline-none focus:ring"
-        href="/contact"
+      <button
+        class="ButtonWhite focus:outline-none focus:ring mb-5 mx-5 my-6"
+        type="button"
       >
         Contact Us
-      </a>
+      </button>
     </div>
     <div
       class="my-6 flex items-center justify-center flex-wrap"

@@ -80,12 +80,12 @@ exports[`matches snapshot 1`] = `
     <div
       class="Container text-center pb-8 pt-4"
     >
-      <a
-        class="ButtonBlue  focus:outline-none focus:ring"
-        href="/services"
+      <button
+        class="ButtonBlue focus:outline-none focus:ring"
+        type="button"
       >
         Services
-      </a>
+      </button>
     </div>
   </div>
 </DocumentFragment>

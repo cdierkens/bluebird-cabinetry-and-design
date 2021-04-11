@@ -10,12 +10,12 @@ exports[`matches snapshot 1`] = `
     >
       Interested in learning more?
     </span>
-    <a
-      class="ButtonBlue LearnMoreLink focus:outline-none focus:ring"
-      href="/contact"
+    <button
+      class="ButtonBlue focus:outline-none focus:ring LearnMoreLink"
+      type="button"
     >
       Contact Us
-    </a>
+    </button>
   </div>
 </DocumentFragment>
 `;
