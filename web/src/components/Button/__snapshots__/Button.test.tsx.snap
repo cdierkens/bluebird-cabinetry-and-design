@@ -2,8 +2,9 @@
 
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
-  <a
-    class="ButtonWhite  focus:outline-none focus:ring"
+  <button
+    class="ButtonWhite focus:outline-none focus:ring"
+    type="button"
   />
 </DocumentFragment>
 `;

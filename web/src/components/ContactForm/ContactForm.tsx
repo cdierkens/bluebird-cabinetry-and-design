@@ -26,8 +26,13 @@ const contactSchema = Yup.object().shape({
     .min(25, "Please provide more details."),
 });
 
-const ContactForm = () => {
-  const [response, setResponse] = useState({
+interface Response {
+  status: "init" | "success" | "error";
+  message: string;
+}
+
+const ContactForm: React.FC = () => {
+  const [response, setResponse] = useState<Response>({
     status: "init",
     message: "",
   });

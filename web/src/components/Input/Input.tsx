@@ -1,11 +1,17 @@
 import { ErrorMessage, useField } from "formik";
-import PropTypes from "prop-types";
 import React from "react";
+import { tw } from "../../lib/tailwind";
 
-const className =
-  "block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm";
+const className = tw`block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm`;
 
-const Input = ({ label, type, ...props }) => {
+interface InputProps {
+  label: string;
+  name: string;
+  placeholder?: string;
+  type?: "text" | "email" | "password" | "textarea";
+}
+
+const Input: React.FC<InputProps> = ({ label, type = "text", ...props }) => {
   const [field] = useField({
     ...props,
     type: type === "textarea" ? "text" : type,
@@ -30,18 +36,6 @@ const Input = ({ label, type, ...props }) => {
       </ErrorMessage>
     </label>
   );
-};
-
-Input.propTypes = {
-  label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(["text", "email", "password", "textarea"]),
-};
-
-Input.defaultProps = {
-  placeholder: null,
-  type: "text",
 };
 
 export default Input;
