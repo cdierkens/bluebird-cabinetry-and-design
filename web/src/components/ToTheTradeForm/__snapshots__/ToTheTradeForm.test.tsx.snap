@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-gray-light py-12"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="Grid gap-3"
+      >
+        <p
+          class="col-span-3 sm:col-span-6 md:col-start-2 text-center text-blue-dark"
+        >
+          Please take a minute to tell us more about your business. We will get back with you shortly.
+        </p>
+        <form
+          action="#"
+          class="block col-span-3 sm:col-span-6 md:col-start-2"
+        >
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Business Name*
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="name"
+              placeholder="Jane's Cabinetry"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Owner
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="owner"
+              placeholder="Jane Doe"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Address Line 1
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="address1"
+              placeholder="123 Dream Kitchen Lane"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Address Line 2
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="address2"
+              placeholder="Suite 200"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Phone Number
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="phone"
+              placeholder="555-555-5555"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Email*
+            </span>
+            <input
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="email"
+              placeholder="jane@example.com"
+              type="text"
+              value=""
+            />
+          </label>
+          <label
+            class="block relative pb-5 mb-2"
+          >
+            <span
+              class="block text-blue-dark text-base ml-1 mb-1"
+            >
+              Message*
+            </span>
+            <textarea
+              class="block w-full bg-white border border-gray-light px-3 py-3 pr-8 leading-tight font-sans text-base placeholder-gray-darker focus:outline-none focus:ring shadow-sm"
+              name="message"
+              rows="6"
+            />
+          </label>
+          <input
+            class="sr-only"
+            name="username"
+            value="some value"
+          />
+          <p
+            class="-mt-2 ml-2 text-sm text-blue-dark"
+          >
+            Fields marked with * are required.
+          </p>
+          <div
+            class="flex items-center justify-center mt-4"
+          >
+            <button
+              class="ButtonBlue focus:outline-none focus:ring"
+              type="submit"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
