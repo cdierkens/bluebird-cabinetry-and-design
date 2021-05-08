@@ -23,6 +23,7 @@ const Head: React.FC<Props> = ({ title, lang = "en" }) => {
 
   const description = site?.description || "";
   const siteTitle = site?.title || "";
+  const keywords = site?.keywords || [];
 
   return (
     <Helmet
@@ -41,6 +42,10 @@ const Head: React.FC<Props> = ({ title, lang = "en" }) => {
         {
           property: "og:description",
           content: description,
+        },
+        {
+          property: "og:keywords",
+          content: keywords.join(","),
         },
         {
           property: "og:type",
