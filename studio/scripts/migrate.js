@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const fs = require("fs");
 const inquirer = require("inquirer");
+const mkdirp = require("mkdirp");
 const path = require("path");
 const sanityClient = require("@sanity/client");
 const sanityExport = require("@sanity/export");
@@ -99,15 +100,26 @@ async function main() {
     dataset: exportDataset,
     token: SANITY_WRITE_TOKEN,
     useCdn: false,
+    apiVersion: "v1",
+  });
+
+  const importClient = sanityClient({
+    projectId: SANITY_PROJECT_ID,
+    dataset: importDataset,
+    token: SANITY_WRITE_TOKEN,
+    useCdn: false,
+    apiVersion: "v1",
   });
 
   const timeStamp = new Date().toISOString();
+  const outputDirectory = path.join(__dirname, "..", "backup");
+
   const outputPath = path.join(
-    __dirname,
-    "..",
-    "backup",
+    outputDirectory,
     `${timeStamp}-${exportDataset}.tar.gz`
   );
+
+  await mkdirp(outputDirectory);
 
   await sanityExport({
     client: exportClient,
@@ -119,13 +131,6 @@ async function main() {
     drafts,
     onProgress: ({ step, total, current }) =>
       console.log(step, current && total ? `${current} of ${total}` : ""),
-  });
-
-  const importClient = sanityClient({
-    projectId: SANITY_PROJECT_ID,
-    dataset: importDataset,
-    token: SANITY_WRITE_TOKEN,
-    useCdn: false,
   });
 
   const { numDocs, warnings } = await sanityImport(
