@@ -2,5 +2,11 @@
   "assignees": ["cdierkens"],
   "commitMessagePrefix": "[skip netlify]",
   "extends": ["config:base"],
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
