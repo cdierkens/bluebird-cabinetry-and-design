@@ -11,6 +11,7 @@ module.exports = {
     "^src/(.*)$": "<rootDir>/src/$1",
   },
   testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
+  testEnvironment: "jsdom",
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {
     __PATH_PREFIX__: ``,
@@ -20,5 +21,6 @@ module.exports = {
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect",
     "<rootDir>/jest.matchMedia.js",
+    "<rootDir>/jest.immediate.js",
   ],
 };
