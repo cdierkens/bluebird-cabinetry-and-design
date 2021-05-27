@@ -15,7 +15,7 @@
   "dependencies": {
     "@react-typed-hooks/use-key-press": "1.0.5",
     "@react-typed-hooks/use-window-size": "1.0.5",
-    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/block-content-to-react": "3.0.0",
     "@sanity/image-url": "0.140.22",
     "@sendgrid/mail": "7.4.4",
     "@testing-library/jest-dom": "5.12.0",
