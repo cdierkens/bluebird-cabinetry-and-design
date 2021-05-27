@@ -2,6 +2,10 @@
   "private": true,
   "name": "@bluebird/website",
   "version": "0.1.0",
+  "workspaces": [
+    "studio",
+    "web"
+  ],
   "scripts": {
     "start": "lerna run start --parallel",
     "lint": "run-s -l lint:**",
@@ -9,7 +13,6 @@
     "lint:js:studio": "eslint studio/src",
     "lint:css:web": "stylelint web/src/**/*.css",
     "lint:css:studio": "stylelint studio/src/**/*.css",
-    "postinstall": "lerna bootstrap",
     "test": "lerna run test --stream",
     "build": "lerna run build --parallel",
     "check": "lerna run check --parallel"

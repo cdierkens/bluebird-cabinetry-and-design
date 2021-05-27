@@ -8,20 +8,20 @@ Local development uses the `development` dataset. When you make a change to `sch
 
 ## Commands
 
-### `npm run graphql-deploy -- --dataset development`
+### `yarn graphql-deploy -- --dataset development`
 
-### `npx sanity graphql deploy --dataset development`
+### `yarn sanity graphql deploy --dataset development`
 
 Run a develpment `graphql` deploy. `cd studio` first.
 
-### `npm start`
+### `yarn start`
 
 Start the development server.
 
-### `npm run build`
+### `yarn build`
 
 Build the production files.
 
-### `npm test`
+### `yarn test`
 
 Start the test runner.

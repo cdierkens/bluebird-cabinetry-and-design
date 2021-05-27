@@ -24,8 +24,8 @@ jobs:
           node-version: "14"
       - name: Test
         run: |
-          npm ci
-          npm test
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yarn test
 
   lint:
     runs-on: ubuntu-latest
@@ -37,8 +37,8 @@ jobs:
           node-version: "14"
       - name: Lint
         run: |
-          npm ci
-          npm run lint
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yarn lint
 
   check:
     runs-on: ubuntu-latest
@@ -50,8 +50,8 @@ jobs:
           node-version: "14"
       - name: Check
         run: |
-          npm ci
-          npm run check
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yarn run check
 
   deploy-studio-graphql:
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
 
       - name: Deploy Studio Graphql Server
         run: |
-          npm ci
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
           npx sanity graphql deploy --no-playground --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
         working-directory: ./studio
 
@@ -81,7 +81,7 @@ jobs:
 
       - name: Deploy Website
         run: |
-          npm ci
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
           netlify build --context deploy-preview
           netlify deploy --message "${{ env.GITHUB_PULL_REQUEST_TITLE }}" --alias "pull-request-${{ env.GITHUB_PULL_REQUEST_NUMBER }}"
         working-directory: ./web

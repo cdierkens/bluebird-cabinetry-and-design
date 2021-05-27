@@ -30,21 +30,21 @@ When you make changes to the `studio/schemas/schema.js`, changes will not reflec
 
 ```
 cd studio
-npx sanity graphql deploy --dataset development
+yarn sanity graphql deploy --dataset development
 ```
 
 > NOTE: It does not matter if you do or do not publish the playground. Gatsby is configured on the `web` side to deploy it's own `graphql` playground at http://localhost:8000/\_\_graphql
 
 ## Commands
 
-### `npm start`
+### `yarn start`
 
 Start the development server.
 
-### `npm test`
+### `yarn test`
 
 Start the test runner.
 
-### `npm run lint`
+### `yarn lint`
 
 Lint JavaScript and CSS files.

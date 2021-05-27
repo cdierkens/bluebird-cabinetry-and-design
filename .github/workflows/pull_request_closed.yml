@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy Studio Graphql Server
         run: |
-          npm ci
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
           npx sanity graphql deploy --no-playground --dataset development
         working-directory: ./studio
 
@@ -37,6 +37,6 @@ jobs:
 
       - name: Undeploy Studio Graphql Server
         run: |
-          npm ci
-          yes | npx sanity graphql undeploy --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yes | yarn sanity graphql undeploy --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
         working-directory: ./studio
