@@ -26,6 +26,13 @@ const Links: React.FC = () => (
     <Link
       className={styles.Link}
       activeClassName={styles.LinkActive}
+      to="/designers"
+    >
+      Designers
+    </Link>
+    <Link
+      className={styles.Link}
+      activeClassName={styles.LinkActive}
       to="/services"
     >
       Services
