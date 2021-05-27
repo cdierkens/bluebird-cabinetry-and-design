@@ -38,7 +38,7 @@ const ContactForm: React.FC = () => {
   });
 
   return (
-    <div className="bg-gray-light py-12">
+    <>
       {response.status !== "init" && response.message && (
         <Alert
           status={response.status}
@@ -48,7 +48,7 @@ const ContactForm: React.FC = () => {
         </Alert>
       )}
 
-      <Container>
+      <Container className="bg-gray-light py-12 my-12">
         <Grid>
           <p className="col-span-3 sm:col-span-6 md:col-start-2 text-center text-blue-dark">
             Please take a minute to tell us more about yourself and your
@@ -168,7 +168,7 @@ const ContactForm: React.FC = () => {
           </Formik>
         </Grid>
       </Container>
-    </div>
+    </>
   );
 };
 

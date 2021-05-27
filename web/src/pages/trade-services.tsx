@@ -5,11 +5,9 @@ import Layout from "../Layout";
 
 const TradeServicesPage = () => (
   <Layout title="To the Trade Services">
-    <div className="bg-gray-light">
-      <Container>
-        <ToTheTradeForm />
-      </Container>
-    </div>
+    <Container className="bg-gray-light py-12 my-12">
+      <ToTheTradeForm />
+    </Container>
   </Layout>
 );
 

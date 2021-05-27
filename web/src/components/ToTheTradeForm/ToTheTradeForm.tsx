@@ -36,7 +36,7 @@ const ToTheTradeForm: React.FC = () => {
   });
 
   return (
-    <div className="bg-gray-light py-12">
+    <>
       {response.status !== "init" && response.message && (
         <Alert
           status={response.status}
@@ -149,7 +149,7 @@ const ToTheTradeForm: React.FC = () => {
           </Formik>
         </Grid>
       </Container>
-    </div>
+    </>
   );
 };
 
