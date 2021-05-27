@@ -5,6 +5,7 @@
   functions = "functions"
 
 [build.environment]
+  NETLIFY_USE_YARN=true
   GATSBY_SANITY_PROJECT_ID="5sj6awst"
   NODE_VERSION="v12"
 
