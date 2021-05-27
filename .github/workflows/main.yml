@@ -50,7 +50,7 @@ jobs:
       - name: Check
         run: |
           yarn install --prefer-offline --frozen-lockfile --non-interactive
-          yarn check
+          yarn run check
 
   deploy-studio-graphql:
     runs-on: ubuntu-latest
