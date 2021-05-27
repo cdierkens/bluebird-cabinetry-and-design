@@ -3,7 +3,7 @@
   "name": "@bluebird/studio",
   "version": "1.0.7",
   "main": "package.json",
-  "author": "Sanity <hello@sanity.io>",
+  "author": "Christopher Dierkens <chris@dierkens.dev>",
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",

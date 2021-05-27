@@ -48,6 +48,7 @@ const document = {
       name: "decorator",
       type: "string",
       title: "Decorator",
+      fieldset: "metadata",
       description: "Name of the Decorator(s)",
     },
     {
@@ -81,8 +82,9 @@ const document = {
       title: "Room",
       name: "room",
       type: "string",
+      fieldset: "metadata",
       options: {
-        list: ["Kitchen", "Bath", "Laundry", "Office"],
+        list: ["Kitchen", "Bath", "Laundry", "Office", "Social Spaces"],
       },
     },
     {

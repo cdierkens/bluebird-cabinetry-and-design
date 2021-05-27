@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React from "react";
 import { builder } from "../../../lib/image-url";
 import { todo } from "../../../migration.types";
@@ -31,12 +30,6 @@ const ImageGrid: React.FC<todo> = ({ images, selectedPage, onClick }) => {
         ))}
     </div>
   );
-};
-
-ImageGrid.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object),
-  selectedPage: PropTypes.number,
-  onClick: PropTypes.func,
 };
 
 export default ImageGrid;

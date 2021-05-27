@@ -39,6 +39,7 @@ const PortfolioImagesContainer: React.FC<todo> = ({ location }) => {
     );
   }, [query.tags]);
 
+  // Show all tags for an empty query string.
   useEffect(() => {
     if (query.tags) {
       return;
@@ -130,7 +131,7 @@ const PortfolioImagesContainer: React.FC<todo> = ({ location }) => {
       />
 
       <Container>
-        <h2>Projects Photos</h2>
+        <h2>Project Photos</h2>
         {albums.map(({ title, images }: todo) => {
           return <AlbumImages key={title} images={images} title={title} />;
         })}

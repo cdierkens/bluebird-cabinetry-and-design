@@ -45,6 +45,12 @@ exports[`matches snapshot 1`] = `
           </a>
           <a
             class="Link"
+            href="/designers"
+          >
+            Designers
+          </a>
+          <a
+            class="Link"
             href="/services"
           >
             Services

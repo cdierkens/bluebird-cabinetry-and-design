@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 import Select, { ActionMeta, OptionsType } from "react-select";
 import { LeftArrowIcon, RightArrowIcon } from "../../icons";
@@ -183,33 +182,6 @@ const PortfolioImages: React.FC<todo> = ({
       />
     </Container>
   );
-};
-
-PortfolioImages.propTypes = {
-  allTags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  allRooms: PropTypes.arrayOf(PropTypes.string).isRequired,
-  allLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
-  carouselImages: PropTypes.arrayOf(
-    PropTypes.shape({
-      source: PropTypes.shape({
-        download: PropTypes.string,
-        fullscreen: PropTypes.string,
-        regular: PropTypes.string,
-        thumbnail: PropTypes.string,
-      }).isRequired,
-      caption: PropTypes.string,
-      title: PropTypes.string,
-      contractor: PropTypes.string,
-      decorator: PropTypes.string,
-      furnitureRefinishing: PropTypes.string,
-      interiorDesigner: PropTypes.string,
-      software: PropTypes.string,
-      alt: PropTypes.string,
-    }).isRequired
-  ),
-  selectedSanityImages: PropTypes.arrayOf(PropTypes.string).isRequired,
-  selectedTags: PropTypes.arrayOf(PropTypes.string).isRequired,
-  setSelectedTags: PropTypes.func.isRequired,
 };
 
 export default PortfolioImages;
