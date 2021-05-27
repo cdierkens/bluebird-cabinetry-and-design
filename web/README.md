@@ -4,32 +4,26 @@ React front-end for Bluebird Cabinetry and Design
 
 ## Commands
 
-### `npm start`
+### `yarn start`
 
 Start the development server.
 
-### `npm run build`
+### `yarn build`
 
 Build the production files.
 
-### `npm test`
+### `yarn test`
 
 Start the test runner.
 
-### `plop <generator>`
+### `yarn plop <generator>`
 
-To run the following commands install `plop` globally or prefix with `npx`
+`yarn plop <generator>`
 
-`npm install plop -g`
-
-or
-
-`npx plop <generator>`
-
-#### `plop`
+#### `yarn plop`
 
 Pick a generator and run it.
 
-#### `plop component`
+#### `yarn plop component`
 
 Generate a component.

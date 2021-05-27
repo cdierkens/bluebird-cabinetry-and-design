@@ -23,8 +23,8 @@ jobs:
           node-version: "14"
       - name: Test
         run: |
-          npm ci
-          npm test
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yarn test
 
   lint:
     runs-on: ubuntu-latest
@@ -36,8 +36,8 @@ jobs:
           node-version: "14"
       - name: Lint
         run: |
-          npm ci
-          npm run lint
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yarn lint
 
   check:
     runs-on: ubuntu-latest
@@ -49,8 +49,8 @@ jobs:
           node-version: "14"
       - name: Check
         run: |
-          npm ci
-          npm run check
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yarn check
 
   deploy-studio-graphql:
     runs-on: ubuntu-latest
@@ -64,8 +64,8 @@ jobs:
 
       - name: Deploy Studio Graphql Server
         run: |
-          npm ci
-          npx sanity graphql deploy --no-playground --force
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
+          yarn sanity graphql deploy --no-playground --force
         working-directory: ./studio
 
   deploy-web:
@@ -81,7 +81,7 @@ jobs:
 
       - name: Deploy Website
         run: |
-          npm ci
+          yarn install --prefer-offline --frozen-lockfile --non-interactive
           netlify build --context production
           netlify deploy --prod --message "${{ github.event.head_commit.message }}"
         working-directory: ./web
