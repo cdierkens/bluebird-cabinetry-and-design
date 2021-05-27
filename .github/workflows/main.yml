@@ -65,7 +65,7 @@ jobs:
       - name: Deploy Studio Graphql Server
         run: |
           yarn install --prefer-offline --frozen-lockfile --non-interactive
-          yarn sanity graphql deploy --no-playground --force
+          yarn sanity graphql deploy --no-playground --force --dataset production
         working-directory: ./studio
 
   deploy-web:

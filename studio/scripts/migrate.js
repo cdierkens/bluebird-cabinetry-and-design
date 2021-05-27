@@ -51,6 +51,7 @@ async function main() {
         "album",
         "carousel",
         "clientReview",
+        "designer",
         "designPreview",
         "portfolioImage",
         "siteSettings",
