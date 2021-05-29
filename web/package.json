@@ -46,7 +46,7 @@
     "gatsby-source-sanity": "7.0.4",
     "identity-obj-proxy": "3.0.0",
     "inquirer-fuzzy-path": "2.3.0",
-    "jest": "27.0.2",
+    "jest": "27.0.3",
     "lodash": "4.17.21",
     "plop": "2.7.4",
     "postcss": "8.3.0",
