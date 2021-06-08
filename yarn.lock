@@ -10115,10 +10115,10 @@ gatsby-recipes@^0.18.0:
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
 
-gatsby-source-sanity@7.0.5:
-  version "7.0.5"
-  resolved "https://registry.yarnpkg.com/gatsby-source-sanity/-/gatsby-source-sanity-7.0.5.tgz#3c00a57c2d14268d0f89187bc39622aa9a17dfb3"
-  integrity sha512-VO9vULr/ekr1jWz0Ofspy4NFm0fGAnnWfPofXCXqhlAP0niOCUcr9FIdB7coITTYZGr15fmjffB0cDr9UqG9vQ==
+gatsby-source-sanity@7.0.7:
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-source-sanity/-/gatsby-source-sanity-7.0.7.tgz#23c2fd30c51f22661e0d72a44fd1f665a1ef1fa2"
+  integrity sha512-TOF+qhkwiFaxCBj7gIl3t+gxLQ7INi96jDgyViWm5PEnMgsTbJZhJmKEoLDPYD/aA5D8YIclLW+Tqutk5Py5uw==
   dependencies:
     "@sanity/client" "^2.7.1"
     "@sanity/image-url" "^0.140.19"
