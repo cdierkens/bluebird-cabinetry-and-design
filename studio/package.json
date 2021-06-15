@@ -34,7 +34,7 @@
     "sanity-plugin-dashboard-widget-netlify": "1.1.0"
   },
   "devDependencies": {
-    "inquirer": "8.1.0",
+    "inquirer": "8.1.1",
     "mkdirp": "1.0.4"
   }
 }
