@@ -22,7 +22,7 @@
     "@sanity/studio-hints": "2.7.0",
     "@sanity/vision": "2.11.2",
     "@types/prop-types": "15.7.4",
-    "@types/react": "17.0.13",
+    "@types/react": "17.0.14",
     "@types/react-dom": "17.0.9",
     "date-fns": "2.22.1",
     "groq": "2.2.6",
