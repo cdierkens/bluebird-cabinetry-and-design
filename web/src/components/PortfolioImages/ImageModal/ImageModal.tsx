@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
+import { theme } from "../../../lib/tailwind";
 import { todo } from "../../../migration.types";
-import { theme } from "../constants";
 import Footer from "./Footer";
 import Header from "./Header";
 import View from "./View";

@@ -1,15 +1,10 @@
 import { Link } from "gatsby";
 import React from "react";
-import resolveConfig from "tailwindcss/resolveConfig";
-import { TailwindConfig } from "tailwindcss/tailwind-config";
-import tailwindConfig from "../../../tailwind.config.js";
 import { useMatchMedia } from "../../hooks";
-import { todo } from "../../migration.types.js";
+import { theme } from "../../lib/tailwind";
 import DesktopNav from "./DesktopNav";
 import * as styles from "./Header.module.css";
 import MobileNav from "./MobileNav";
-
-const { theme } = resolveConfig((tailwindConfig as todo) as TailwindConfig);
 
 const Links: React.FC = () => (
   <>
