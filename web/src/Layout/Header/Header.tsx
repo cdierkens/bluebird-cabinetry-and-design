@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { useMatchMedia } from "../../hooks";
-import { theme } from "../../lib/tailwind.js";
+import { theme } from "../../lib/tailwind";
 import DesktopNav from "./DesktopNav";
 import * as styles from "./Header.module.css";
 import MobileNav from "./MobileNav";
