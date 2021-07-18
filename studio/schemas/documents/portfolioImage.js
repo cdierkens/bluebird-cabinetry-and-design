@@ -20,6 +20,14 @@ const document = {
     {
       title: "Metadata",
       name: "metadata",
+      description: "Metadata to show on full screen view.",
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      title: "Filters",
+      name: "filters",
+      description:
+        "Filterable attributes like room, label, finishes, or cabinetry.",
       options: { collapsible: true, collapsed: false },
     },
   ],
@@ -76,13 +84,30 @@ const document = {
     {
       name: "labels",
       type: "tags",
+      fieldset: "filters",
+      validation: (Rule) => Rule.unique(),
+    },
+    {
+      title: "Finish",
+      name: "finish",
+      description: "Name of finish or finishes shown in the photo.",
+      type: "tags",
+      fieldset: "filters",
+      validation: (Rule) => Rule.unique(),
+    },
+    {
+      title: "Cabinetry",
+      name: "cabinetry",
+      description: "Cabinetry shown in the photo.",
+      type: "tags",
+      fieldset: "filters",
       validation: (Rule) => Rule.unique(),
     },
     {
       title: "Room",
       name: "room",
       type: "string",
-      fieldset: "metadata",
+      fieldset: "filters",
       options: {
         list: ["Kitchen", "Bath", "Laundry", "Office", "Social Spaces"],
       },
