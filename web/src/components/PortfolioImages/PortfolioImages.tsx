@@ -1,27 +1,111 @@
-import React, { useRef, useState } from "react";
-import Select, { ActionMeta, OptionsType } from "react-select";
-import { LeftArrowIcon, RightArrowIcon } from "../../icons";
-import { builder } from "../../lib/image-url";
+import { graphql, navigate, useStaticQuery } from "gatsby";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import {
+  MdFilterList,
+  MdKeyboardArrowDown,
+  MdKeyboardArrowUp,
+} from "react-icons/md";
+import useQueryString from "use-query-string";
 import { todo } from "../../migration.types";
+import Button from "../Button";
 import Container from "../Container";
+import { AlbumImages } from "./AlbumImages";
 import { PAGE_SIZE } from "./constants";
 import { ImageGrid } from "./ImageGrid";
 import { ImageModal } from "./ImageModal";
+import {
+  getArrayFromQueryParam,
+  getValuesForAttribute,
+  mapPortfolioImageToCarouselImage,
+} from "./lib";
+import { Pagination } from "./Pagination/Pagination";
+import { SelectInput } from "./SelectInput";
 
-const PortfolioImages: React.FC<todo> = ({
-  allTags,
-  allRooms,
-  allLabels,
-  carouselImages,
-  selectedTags,
-  setSelectedTags,
-  selectedSanityImages,
-}) => {
+const PortfolioImages: React.FC<todo> = ({ location }) => {
+  const {
+    allSanityPortfolioImage: { nodes: allImages },
+    allSanityAlbum: { nodes: albums },
+  } = useStaticQuery(portfolioImagesQuery);
+
+  // Note: Library author typed this as an interface instead of a tuple.
+  const { 0: query, 1: setQuery } = useQueryString(location, navigate);
+
+  // Show all labels, cabinetry, rooms, and finishes for an empty query string.
+  useEffect(() => {
+    if (query.labels || query.cabinetry || query.finish || query.room) {
+      return;
+    }
+
+    setQuery({
+      ...query,
+      labels: getValuesForAttribute({ allImages, attr: "labels" }),
+      cabinetry: getValuesForAttribute({ allImages, attr: "cabinetry" }),
+      finish: getValuesForAttribute({ allImages, attr: "finish" }),
+      room: getValuesForAttribute({ allImages, attr: "room" }),
+    });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const selectedLabels = useMemo(() => {
+    return getArrayFromQueryParam(query.labels);
+  }, [query.labels]);
+
+  const selectedCabinetry = useMemo(() => {
+    return getArrayFromQueryParam(query.cabinetry);
+  }, [query.cabinetry]);
+
+  const selectedFinish = useMemo(() => {
+    return getArrayFromQueryParam(query.finish);
+  }, [query.finish]);
+
+  const selectedRooms = useMemo(() => {
+    return getArrayFromQueryParam(query.room);
+  }, [query.room]);
+
+  const selectedImages = useMemo(() => {
+    return allImages.filter(
+      ({
+        labels,
+        room,
+        cabinetry,
+        finish,
+      }: {
+        labels: string[];
+        room: string;
+        cabinetry: string[];
+        finish: string[];
+      }) => {
+        return (
+          selectedLabels.find((selected) =>
+            labels.find((value) => value === selected)
+          ) ||
+          selectedRooms.find((selected) => selected === room) ||
+          selectedCabinetry.find((selected) =>
+            cabinetry.find((value) => value === selected)
+          ) ||
+          selectedFinish.find((selected) =>
+            finish.find((value) => value === selected)
+          )
+        );
+      }
+    );
+  }, [
+    selectedLabels,
+    selectedCabinetry,
+    selectedFinish,
+    selectedRooms,
+    allImages,
+  ]);
+
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [selectedImages]);
+
+  const carouselImages = selectedImages.map(mapPortfolioImageToCarouselImage);
+
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
 
   const selectedPage = Math.floor(selectedIndex / PAGE_SIZE);
-
   const scrollToRef = useRef<HTMLHeadingElement>(null);
 
   const openLightbox = (index: number) => {
@@ -39,149 +123,141 @@ const PortfolioImages: React.FC<todo> = ({
     }
 
     if (scrollToRef.current) {
-      scrollToRef?.current?.scrollIntoView({ behavior: "smooth" });
+      scrollToRef.current.scrollIntoView({ behavior: "smooth" });
     }
 
     setSelectedIndex(index);
   };
 
-  const handlePrevPageClick = () =>
-    handlePagination(Math.max(selectedIndex - PAGE_SIZE, 0));
-
-  const handleNextPageClick = () =>
-    handlePagination(
-      Math.min(
-        selectedIndex + PAGE_SIZE,
-        Math.floor(selectedSanityImages.length / PAGE_SIZE) * PAGE_SIZE
-      )
-    );
-
-  const selectedValue = selectedTags.map((tag: todo) => ({
-    id: tag,
-    value: tag,
-    label: tag,
-  }));
-
-  const handleChange = (values: OptionsType<todo>, event: ActionMeta<todo>) => {
-    if (event.action === "select-option" && event.option.value === "all") {
-      setSelectedTags(allTags);
-    } else if (
-      event.action === "select-option" &&
-      event.option.value === "none"
-    ) {
-      setSelectedTags([]);
-    } else {
-      setSelectedTags(values.map(({ value }) => value));
-    }
-
-    setSelectedIndex(0);
-  };
-
-  const PAGE_COUNT = Math.floor(selectedSanityImages.length / PAGE_SIZE) + 1;
-
-  const options = [
-    {
-      label: "Show All/None",
-      options: [
-        { id: "all", value: "all", label: "Show All" },
-        { id: "none", value: "none", label: "Show None" },
-      ],
-    },
-    {
-      label: "Rooms",
-      options: allRooms.map((room: todo) => ({
-        id: room,
-        value: room,
-        label: room,
-      })),
-    },
-    {
-      label: "Labels",
-      options: allLabels.map((label: todo) => ({
-        id: label,
-        value: label,
-        label: label,
-      })),
-    },
-  ];
+  const [showFilters, setShowFilters] = useState(false);
 
   return (
-    <Container className="my-6">
-      <h2 ref={scrollToRef}>All Photos</h2>
-      <Select
-        isMulti
-        value={selectedValue}
-        options={options}
-        onChange={handleChange}
-        className="mb-6"
-      />
+    <>
+      <Container className="my-6">
+        <h2 ref={scrollToRef}>All Photos</h2>
 
-      {selectedSanityImages.map(({ image }: { image: todo }) => (
-        <img
-          key={image.file.asset.id}
-          className="sr-only"
-          src={
-            builder
-              .image(image.file.asset.id)
-              .size(408, 272)
-              .fit("crop")
-              .url() ?? undefined
-          }
-          alt={image.description}
-        />
-      ))}
-
-      <ImageGrid
-        images={selectedSanityImages}
-        onClick={(index: number) =>
-          openLightbox(index + PAGE_SIZE * selectedPage)
-        }
-        selectedPage={selectedPage}
-      />
-
-      {selectedSanityImages.length > PAGE_SIZE ? (
-        <div className="flex items-center justify-center mt-2">
-          <button
-            onClick={handlePrevPageClick}
-            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
+        <div className="shadow-md p-3 mb-3">
+          <Button
+            className="w-full text-left text-blue-dark mb-3 flex justify-between items-center px-2 border border-opacity-50 border-gray-dark"
+            onClick={() => setShowFilters((value) => !value)}
           >
-            <LeftArrowIcon className="w-full h-full p-2" />
-            <span className="sr-only">Previous Page</span>
-          </button>
+            <span>
+              <MdFilterList className="inline-block mr-2 h-5 w-5" />
+              Filters
+            </span>
 
-          {Array.from({
-            length: PAGE_COUNT,
-          }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handlePagination(index * PAGE_SIZE)}
-              className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring ${
-                index === selectedPage ? "bg-gold" : "bg-blue-dark"
-              }`}
-            >
-              {index + 1}
-            </button>
-          ))}
+            {showFilters ? (
+              <MdKeyboardArrowDown className="h-6 w-6" />
+            ) : (
+              <MdKeyboardArrowUp className="h-6 w-6" />
+            )}
+          </Button>
+          {showFilters ? (
+            <div>
+              <SelectInput
+                allImages={allImages}
+                attribute="labels"
+                query={query}
+                selectedValues={selectedLabels}
+                setQuery={setQuery}
+              />
 
-          <button
-            onClick={handleNextPageClick}
-            className={`bg-blue-dark text-white rounded-full inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring`}
-          >
-            <RightArrowIcon className="w-full h-full p-2" />
-            <span className="sr-only">Next Page</span>
-          </button>
+              <SelectInput
+                allImages={allImages}
+                attribute="room"
+                query={query}
+                selectedValues={selectedRooms}
+                setQuery={setQuery}
+              />
+
+              <SelectInput
+                allImages={allImages}
+                attribute="cabinetry"
+                query={query}
+                selectedValues={selectedCabinetry}
+                setQuery={setQuery}
+              />
+
+              <SelectInput
+                allImages={allImages}
+                attribute="finish"
+                query={query}
+                selectedValues={selectedFinish}
+                setQuery={setQuery}
+              />
+            </div>
+          ) : null}
         </div>
-      ) : null}
 
-      <ImageModal
-        lightboxIsOpen={lightboxIsOpen}
-        closeLightbox={closeLightbox}
-        selectedIndex={selectedIndex}
-        carouselImages={carouselImages}
-        setSelectedIndex={setSelectedIndex}
-      />
-    </Container>
+        <ImageGrid
+          images={selectedImages}
+          onClick={(index: number) =>
+            openLightbox(index + PAGE_SIZE * selectedPage)
+          }
+          selectedPage={selectedPage}
+        />
+
+        <Pagination
+          handlePagination={handlePagination}
+          selectedIndex={selectedIndex}
+          images={selectedImages}
+        />
+
+        <ImageModal
+          lightboxIsOpen={lightboxIsOpen}
+          closeLightbox={closeLightbox}
+          selectedIndex={selectedIndex}
+          carouselImages={carouselImages}
+          setSelectedIndex={setSelectedIndex}
+        />
+      </Container>
+
+      <Container>
+        <h2>Project Photos</h2>
+        {albums.map(({ title, images }: todo) => {
+          return <AlbumImages key={title} images={images} title={title} />;
+        })}
+      </Container>
+    </>
   );
 };
+
+export const portfolioImagesQuery = graphql`
+  fragment Image on SanityPortfolioImage {
+    contractor
+    decorator
+    furnitureRefinishing
+    interiorDesigner
+    software
+    labels
+    room
+    cabinetry
+    finish
+    image {
+      description
+      file {
+        asset {
+          id
+        }
+      }
+    }
+    title
+  }
+  query PortfolioImages {
+    allSanityPortfolioImage {
+      nodes {
+        ...Image
+      }
+    }
+    allSanityAlbum {
+      nodes {
+        images {
+          ...Image
+        }
+        title
+      }
+    }
+  }
+`;
 
 export default PortfolioImages;

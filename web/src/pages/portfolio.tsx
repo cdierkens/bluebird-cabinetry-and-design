@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
 import KindWords from "../components/KindWords";
-import PortfolioImagesContainer from "../components/PortfolioImages/PortfolioImagesContainer";
+import PortfolioImages from "../components/PortfolioImages";
 import Publications from "../components/Publications";
 import Layout from "../Layout";
 import { PagePropsWithErrors } from "../migration.types";
@@ -9,7 +9,7 @@ import { PagePropsWithErrors } from "../migration.types";
 const PortfolioPage: React.FC<PagePropsWithErrors> = ({ location }) => {
   return (
     <Layout title="Portfolio">
-      <PortfolioImagesContainer location={location} />
+      <PortfolioImages location={location} />
 
       <div className="bg-blue-dark text-center">
         <span className="font-sans font-medium text-white text-xl my-9 mx-5 inline-block">
