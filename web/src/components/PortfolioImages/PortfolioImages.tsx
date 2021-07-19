@@ -212,12 +212,14 @@ const PortfolioImages: React.FC<todo> = ({ location }) => {
         />
       </Container>
 
-      <Container>
-        <h2>Project Photos</h2>
-        {albums.map(({ title, images }: todo) => {
-          return <AlbumImages key={title} images={images} title={title} />;
-        })}
-      </Container>
+      {albums.length ? (
+        <Container>
+          <h2>Project Photos</h2>
+          {albums.map(({ title, images }: todo) => {
+            return <AlbumImages key={title} images={images} title={title} />;
+          })}
+        </Container>
+      ) : null}
     </>
   );
 };

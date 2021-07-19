@@ -20,7 +20,7 @@ const AlbumImages: React.FC<todo> = ({ title, images }) => {
 
   const carouselImages = images.map(mapPortfolioImageToCarouselImage);
 
-  return (
+  return images.length ? (
     <Container className="mb-6">
       <h3>{title}</h3>
       <ImageGrid
@@ -37,7 +37,7 @@ const AlbumImages: React.FC<todo> = ({ title, images }) => {
         setSelectedIndex={setSelectedIndex}
       />
     </Container>
-  );
+  ) : null;
 };
 
 export default AlbumImages;
