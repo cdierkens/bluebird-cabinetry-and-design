@@ -8,15 +8,38 @@ const migrateNextBatch = async () => {
     groq`*[_type == 'portfolioImage' && defined(labels)] {_id, _rev, labels}`
   );
 
+  const isCabinetry = (value) => value.toLowerCase().indexOf("cabinetry") > -1;
   const isFinish = (value) => value.toLowerCase().indexOf("finish") > -1;
+
+  const upperCase = (value) => `${value[0].toUpperCase()}${value.slice(1)}`;
+
+  const remove = [
+    "Stacked",
+    "Integral Panel Ends",
+    "Non Functional Door Ends",
+    "Vanity Custom",
+    "Furniture Valance",
+  ];
 
   const patches = documents.map((doc) => {
     return {
       id: doc._id,
       patch: {
         set: {
-          labels: doc.labels.filter((label) => !isFinish(label)),
-          finish: doc.labels.filter((label) => isFinish(label)),
+          labels: doc.labels
+            .filter(
+              (label) =>
+                !isCabinetry(label) &&
+                !isFinish(label) &&
+                !remove.includes(label)
+            )
+            .map(upperCase),
+          cabinetry: doc.labels
+            .filter((label) => isCabinetry(label) && !remove.includes(label))
+            .map((value) => value.replace(/\sCabinetry/, "")),
+          finish: doc.labels
+            .filter((label) => isFinish(label) && !remove.includes(label))
+            .map((value) => value.replace(/\sFinish/, "")),
         },
         ifRevisionID: doc._rev,
       },

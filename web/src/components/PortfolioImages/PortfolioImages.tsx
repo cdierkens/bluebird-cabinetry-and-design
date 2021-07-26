@@ -147,26 +147,27 @@ const PortfolioImages: React.FC<todo> = ({ location }) => {
             </span>
 
             {showFilters ? (
-              <MdKeyboardArrowDown className="h-6 w-6" />
-            ) : (
               <MdKeyboardArrowUp className="h-6 w-6" />
+            ) : (
+              <MdKeyboardArrowDown className="h-6 w-6" />
             )}
           </Button>
           {showFilters ? (
             <div>
               <SelectInput
                 allImages={allImages}
-                attribute="labels"
+                attribute="room"
                 query={query}
-                selectedValues={selectedLabels}
+                selectedValues={selectedRooms}
                 setQuery={setQuery}
               />
 
               <SelectInput
                 allImages={allImages}
-                attribute="room"
+                attribute="labels"
+                label="tags"
                 query={query}
-                selectedValues={selectedRooms}
+                selectedValues={selectedLabels}
                 setQuery={setQuery}
               />
 

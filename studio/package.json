@@ -5,10 +5,11 @@
   "main": "package.json",
   "author": "Christopher Dierkens <chris@dierkens.dev>",
   "scripts": {
-    "start": "sanity start",
     "build": "sanity build",
+    "dev": "yarn start",
     "graphql-deploy": "sanity graphql deploy --no-playground",
-    "migrate": "node scripts/migrate.js"
+    "migrate": "node scripts/migrate.js",
+    "start": "sanity start"
   },
   "dependencies": {
     "@sanity/base": "2.13.0",

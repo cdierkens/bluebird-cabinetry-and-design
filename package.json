@@ -7,15 +7,16 @@
     "web"
   ],
   "scripts": {
-    "start": "lerna run start --parallel",
-    "lint": "run-s -l lint:**",
-    "lint:js:web": "eslint web/src",
-    "lint:js:studio": "eslint studio/src",
-    "lint:css:web": "stylelint web/src/**/*.css",
-    "lint:css:studio": "stylelint studio/src/**/*.css",
-    "test": "lerna run test --stream",
     "build": "lerna run build --parallel",
-    "check": "lerna run check --parallel"
+    "check": "lerna run check --parallel",
+    "dev": "yarn start",
+    "lint:css:studio": "stylelint studio/src/**/*.css",
+    "lint:css:web": "stylelint web/src/**/*.css",
+    "lint:js:studio": "eslint studio/src",
+    "lint:js:web": "eslint web/src",
+    "lint": "run-s -l lint:**",
+    "start": "lerna run start --parallel",
+    "test": "lerna run test --stream"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.28.3",

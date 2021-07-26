@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "scripts": {
     "build": "gatsby build",
+    "check": "tsc",
+    "dev": "yarn start",
     "start": "gatsby clean && gatsby develop",
-    "test": "jest",
     "test:watch": "jest --watch",
-    "check": "tsc"
+    "test": "jest"
   },
   "browserslist": [
     "defaults"

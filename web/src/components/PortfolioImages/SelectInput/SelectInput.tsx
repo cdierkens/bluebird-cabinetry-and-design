@@ -7,6 +7,7 @@ import { getQueryStringFromOption, getValuesForAttribute } from "../lib";
 interface SelectInputProps {
   allImages: Array<todo>;
   attribute: string;
+  label?: string;
   query: ParsedQuery<string>;
   selectedValues: Array<todo>;
   setQuery: (values: object) => void;
@@ -15,6 +16,7 @@ interface SelectInputProps {
 export const SelectInput: VFC<SelectInputProps> = ({
   allImages,
   attribute,
+  label,
   query,
   selectedValues,
   setQuery,
@@ -53,7 +55,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
 
   return (
     <label htmlFor="labels-select" className="mb-6 col-span-4 block">
-      <div className="capitalize mb-1">{attribute}</div>
+      <div className="capitalize mb-1">{label || attribute}</div>
       <Select
         value={selectedValues.map((label: todo) => ({
           id: label,
