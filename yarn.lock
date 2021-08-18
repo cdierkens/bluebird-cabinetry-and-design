@@ -19154,10 +19154,10 @@ react-remove-scroll@^2.4.1:
     use-callback-ref "^1.2.3"
     use-sidecar "^1.0.1"
 
-react-responsive-carousel@3.2.20:
-  version "3.2.20"
-  resolved "https://registry.yarnpkg.com/react-responsive-carousel/-/react-responsive-carousel-3.2.20.tgz#767e8c4a352e8bf60498657081a3743274cda8e4"
-  integrity sha512-uSiNzZOqvn6f40y0zbXyUMuf9Ypgy4UUczOPdUnWfT2vAL2tCeSBQ7viN8GgwiHz4UfUqoAvDbjvbbZFe3TpHA==
+react-responsive-carousel@3.2.21:
+  version "3.2.21"
+  resolved "https://registry.yarnpkg.com/react-responsive-carousel/-/react-responsive-carousel-3.2.21.tgz#a464a93c33f9fc29e3bbd1944ce885a0a343a996"
+  integrity sha512-y2ueGqv/yo6HQJi9IbrJVRJobp4EOrNe6BQOC61CoADg3wUjq0gqAcrtSsLQIRLtbt6nCo7cTPRX4wAkSwdiTA==
   dependencies:
     classnames "^2.2.5"
     prop-types "^15.5.8"
