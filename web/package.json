@@ -50,7 +50,7 @@
     "jest": "27.2.4",
     "lodash": "4.17.21",
     "plop": "2.7.4",
-    "postcss": "8.3.8",
+    "postcss": "8.3.9",
     "postcss-import": "14.0.2",
     "postcss-preset-env": "6.7.0",
     "query-string": "7.0.1",
