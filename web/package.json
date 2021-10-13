@@ -61,7 +61,7 @@
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.21",
     "react-select": "4.3.1",
-    "tailwindcss": "2.2.16",
+    "tailwindcss": "2.2.17",
     "use-query-string": "2.3.0",
     "yup": "0.32.11"
   },
