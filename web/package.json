@@ -66,6 +66,6 @@
     "yup": "0.32.11"
   },
   "devDependencies": {
-    "ts-jest": "27.0.5"
+    "ts-jest": "27.0.6"
   }
 }
