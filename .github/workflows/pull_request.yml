@@ -66,7 +66,7 @@ jobs:
       - name: Deploy Studio Graphql Server
         run: |
           yarn install --prefer-offline --frozen-lockfile --non-interactive
-          npx sanity graphql deploy --no-playground --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
+          yarn sanity graphql deploy --no-playground --tag "$GATSBY_SANITY_TAG" --dataset "$GATSBY_SANITY_DATASET"
         working-directory: ./studio
 
   deploy-web:
