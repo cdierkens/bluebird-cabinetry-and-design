@@ -78,7 +78,7 @@ const ContactForm: React.FC = () => {
                   status: "success",
                   message: data,
                 });
-              } catch (error) {
+              } catch (error: any) {
                 if (error.response) {
                   const { data } = error.response;
 
