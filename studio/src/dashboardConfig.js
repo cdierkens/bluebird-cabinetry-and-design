@@ -1,4 +1,4 @@
-export default {
+const config = {
   widgets: [
     { name: "structure-menu" },
     {
@@ -44,3 +44,5 @@ export default {
     { name: "project-users", layout: { height: "auto" } },
   ],
 };
+
+export default config;

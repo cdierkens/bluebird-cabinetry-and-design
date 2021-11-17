@@ -1,5 +1,5 @@
 import { throttle } from "lodash";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const isClient = typeof window === "object";
 
@@ -7,18 +7,22 @@ export default function useScrollPosition({
   wait = 200,
   element = isClient ? window : null,
 } = {}) {
-  const getPosition = () => ({
-    x: element ? element.pageXOffset : null,
-    y: element ? element.pageYOffset : null,
-  });
+  const getPosition = useCallback(
+    () => ({
+      x: element ? element.pageXOffset : null,
+      y: element ? element.pageYOffset : null,
+    }),
+    [element]
+  );
 
-  let [position, setPosition] = useState(getPosition());
+  const [position, setPosition] = useState(getPosition());
 
-  const callback = useCallback(
-    throttle(() => {
-      setPosition(getPosition());
-    }, wait),
-    [element, wait]
+  const callback = useMemo(
+    () =>
+      throttle(() => {
+        setPosition(getPosition());
+      }, wait),
+    [wait, getPosition, setPosition]
   );
 
   useEffect(() => {
