@@ -1,4 +1,4 @@
-import { OptionsType } from "react-select";
+import { Options } from "react-select";
 import { builder } from "../../lib/image-url";
 import { todo } from "../../migration.types";
 
@@ -70,7 +70,7 @@ export const getArrayFromQueryParam = (
   }
 };
 
-export const getQueryStringFromOption = (values: OptionsType<any>): string => {
+export const getQueryStringFromOption = (values: Options<any>): string => {
   return values
     .map(({ value }) => value)
     .sort()
