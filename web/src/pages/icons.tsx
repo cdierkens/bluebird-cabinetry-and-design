@@ -5,7 +5,7 @@ import Layout from "../Layout";
 const Icons: React.FC = () => (
   <Layout title="Icons">
     {Object.entries(icons).map(([name, Icon]) => (
-      <div className="max-w-screen-lg mx-auto">
+      <div key={name} className="max-w-screen-lg mx-auto">
         <h2>{name}</h2>
         <div className="grid gap-3 grid-cols-6 items-center p-2">
           <Icon className="h-6" />

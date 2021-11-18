@@ -55,9 +55,8 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
   },
   errors,
 }) => {
-  const [imageSize, setImageSize] = useState<
-    ReturnType<typeof useWindowSize>
-  >();
+  const [imageSize, setImageSize] =
+    useState<ReturnType<typeof useWindowSize>>();
   const windowSize = useWindowSize();
 
   useEffect(() => {
@@ -114,7 +113,7 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
           Are You Interested In Connecting With Us?
         </span>
         <Button type="link" variant="blue" to="/contact" className="mb-5 mx-5">
-          Let's Talk
+          Let&apos;s Talk
         </Button>
       </div>
 

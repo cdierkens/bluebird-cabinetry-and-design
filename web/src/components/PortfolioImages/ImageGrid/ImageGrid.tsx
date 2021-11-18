@@ -56,7 +56,10 @@ const ImageGrid: React.FC<todo> = ({ images, selectedPage, onClick }) => {
                     ]
                       .sort()
                       .map((value) => (
-                        <span className="text-xs p-1 bg-blue-dark rounded text-white whitespace-nowrap m-0.5">
+                        <span
+                          key={value}
+                          className="text-xs p-1 bg-blue-dark rounded text-white whitespace-nowrap m-0.5"
+                        >
                           {value}
                         </span>
                       ))}
