@@ -22,6 +22,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-root-import",
     "gatsby-plugin-react-svg",
+    "gatsby-plugin-image",
     {
       resolve: "gatsby-source-sanity",
       options: {
