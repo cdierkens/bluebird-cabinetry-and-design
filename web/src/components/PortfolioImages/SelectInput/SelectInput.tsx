@@ -1,6 +1,6 @@
 import { ParsedQuery } from "query-string";
 import React, { useCallback, useMemo, VFC } from "react";
-import Select, { ActionMeta, OptionsType } from "react-select";
+import Select, { ActionMeta, Options } from "react-select";
 import { todo } from "../../../migration.types";
 import { getQueryStringFromOption, getValuesForAttribute } from "../lib";
 
@@ -27,7 +27,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
   );
 
   const handleChange = useCallback(
-    (values: OptionsType<todo>, event: ActionMeta<todo>) => {
+    (values: Options<todo>, event: ActionMeta<todo>) => {
       // If there are no values, remove attribute from the query
       if (!values || !values.length) {
         setQuery({
