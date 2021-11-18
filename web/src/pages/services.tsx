@@ -118,7 +118,7 @@ const ServicesPage: React.FC = () => (
         </DesignProcessItem>
 
         <DesignProcessItem title="Final Design Review" number="4">
-          This appointment happens at the client's home or the cabinetry
+          This appointment happens at the client&apos;s home or the cabinetry
           showroom. We will comb through the intricate details of the design. If
           desired, we can look at each space and decide how we can use specialty
           storage and accessories, what fits, and what can be forgotten. We will
@@ -140,7 +140,7 @@ const ServicesPage: React.FC = () => (
           Are You Interested In Connecting With Us?
         </span>
         <Button variant="white" type="link" to="/contact" className="mb-5 mx-5">
-          Let's Talk
+          Let&apos;s Talk
         </Button>
       </Container>
     </div>

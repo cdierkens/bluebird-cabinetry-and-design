@@ -11,7 +11,7 @@ const NotFoundPage: React.FC = () => (
         <BirdIcon className="h-48 text-blue-dark stroke-none mr-4" />
         <div className="flex items-center flex-col">
           <p className="text-xl text-blue-dark">
-            Sorry! We can't seem to find the page you were looking for.
+            Sorry! We can&apos;t seem to find the page you were looking for.
           </p>
           <p className=" text-blue-dark">
             Please visit our{" "}

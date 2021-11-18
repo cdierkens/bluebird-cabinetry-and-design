@@ -16,7 +16,7 @@ const PortfolioPage: React.FC<PagePropsWithErrors> = ({ location }) => {
           Are You Interested In Connecting With Us?
         </span>
         <Button variant="white" type="link" to="/contact" className="mb-5 mx-5">
-          Let's Talk
+          Let&apos;s Talk
         </Button>
       </div>
 
