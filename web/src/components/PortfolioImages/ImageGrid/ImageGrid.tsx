@@ -1,6 +1,5 @@
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
-// import { builder } from "../../../lib/image-url";
 import { todo } from "../../../migration.types";
 import { PAGE_SIZE } from "../constants";
 
