@@ -1,5 +1,6 @@
 import { useWindowSize } from "@react-typed-hooks/use-window-size";
 import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -9,7 +10,6 @@ import KindWords from "../components/KindWords";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
 import Layout from "../Layout";
-import { builder } from "../lib/image-url";
 import { PagePropsWithErrors, todo } from "../migration.types";
 import * as styles from "./Index.module.css";
 
@@ -22,6 +22,12 @@ export const query = graphql`
           file {
             asset {
               id
+              gatsbyImageData(
+                fit: CROP
+                width: 1920
+                height: 1080
+                placeholder: BLURRED
+              )
             }
           }
         }
@@ -80,18 +86,17 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
 
   return (
     <Layout errors={errors} title="Home" hidePageTitle>
-      {imageSize ? (
-        <Carousel
-          autoPlay
-          infiniteLoop
-          showStatus={false}
-          showThumbs={false}
-          swipeable
-          useKeyboardArrows
-        >
-          {carouselImages.map(({ image }: { image: todo }) => (
-            <div key={image.file.asset.id}>
-              <img
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showThumbs={false}
+        swipeable
+        useKeyboardArrows
+      >
+        {carouselImages.map(({ image }: { image: todo }) => (
+          <div key={image.file.asset.id}>
+            {/* <img
                 src={
                   builder
                     .image(image.file.asset.id)
@@ -100,13 +105,14 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
                     .url() || ""
                 }
                 alt={image.description}
-              />
-            </div>
-          ))}
-        </Carousel>
-      ) : (
-        <Carousel showStatus={false} showThumbs={false} />
-      )}
+              /> */}
+            <GatsbyImage
+              image={image.file.asset.gatsbyImageData}
+              alt={image.description}
+            />
+          </div>
+        ))}
+      </Carousel>
 
       <div className={styles.GetStartedContainer}>
         <span className={styles.GetStartedText}>
