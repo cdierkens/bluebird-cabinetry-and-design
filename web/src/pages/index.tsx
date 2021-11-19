@@ -1,7 +1,6 @@
-import { useWindowSize } from "@react-typed-hooks/use-window-size";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Button from "../components/Button";
@@ -61,29 +60,6 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
   },
   errors,
 }) => {
-  const [imageSize, setImageSize] =
-    useState<ReturnType<typeof useWindowSize>>();
-  const windowSize = useWindowSize();
-
-  useEffect(() => {
-    if (!windowSize) {
-      return;
-    }
-
-    if (!imageSize) {
-      setImageSize(windowSize);
-      return;
-    }
-
-    const tolerance = 100;
-    if (
-      Math.abs(windowSize.height - imageSize.height) > tolerance ||
-      Math.abs(windowSize.width - imageSize.width) > tolerance
-    ) {
-      setImageSize(windowSize);
-    }
-  }, [windowSize, imageSize]);
-
   return (
     <Layout errors={errors} title="Home" hidePageTitle>
       <Carousel
@@ -96,16 +72,6 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
       >
         {carouselImages.map(({ image }: { image: todo }) => (
           <div key={image.file.asset.id}>
-            {/* <img
-                src={
-                  builder
-                    .image(image.file.asset.id)
-                    .size(imageSize.width, imageSize.height - 102)
-                    .fit("clip")
-                    .url() || ""
-                }
-                alt={image.description}
-              /> */}
             <GatsbyImage
               image={image.file.asset.gatsbyImageData}
               alt={image.description}
