@@ -1,6 +1,6 @@
-import { useWindowSize } from "@react-typed-hooks/use-window-size";
 import { graphql } from "gatsby";
-import React, { useEffect, useState } from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Button from "../components/Button";
@@ -9,7 +9,6 @@ import KindWords from "../components/KindWords";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
 import Layout from "../Layout";
-import { builder } from "../lib/image-url";
 import { PagePropsWithErrors, todo } from "../migration.types";
 import * as styles from "./Index.module.css";
 
@@ -22,6 +21,12 @@ export const query = graphql`
           file {
             asset {
               id
+              gatsbyImageData(
+                fit: CROP
+                width: 1920
+                height: 1080
+                placeholder: BLURRED
+              )
             }
           }
         }
@@ -55,58 +60,25 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
   },
   errors,
 }) => {
-  const [imageSize, setImageSize] =
-    useState<ReturnType<typeof useWindowSize>>();
-  const windowSize = useWindowSize();
-
-  useEffect(() => {
-    if (!windowSize) {
-      return;
-    }
-
-    if (!imageSize) {
-      setImageSize(windowSize);
-      return;
-    }
-
-    const tolerance = 100;
-    if (
-      Math.abs(windowSize.height - imageSize.height) > tolerance ||
-      Math.abs(windowSize.width - imageSize.width) > tolerance
-    ) {
-      setImageSize(windowSize);
-    }
-  }, [windowSize, imageSize]);
-
   return (
     <Layout errors={errors} title="Home" hidePageTitle>
-      {imageSize ? (
-        <Carousel
-          autoPlay
-          infiniteLoop
-          showStatus={false}
-          showThumbs={false}
-          swipeable
-          useKeyboardArrows
-        >
-          {carouselImages.map(({ image }: { image: todo }) => (
-            <div key={image.file.asset.id}>
-              <img
-                src={
-                  builder
-                    .image(image.file.asset.id)
-                    .size(imageSize.width, imageSize.height - 102)
-                    .fit("clip")
-                    .url() || ""
-                }
-                alt={image.description}
-              />
-            </div>
-          ))}
-        </Carousel>
-      ) : (
-        <Carousel showStatus={false} showThumbs={false} />
-      )}
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showThumbs={false}
+        swipeable
+        useKeyboardArrows
+      >
+        {carouselImages.map(({ image }: { image: todo }) => (
+          <div key={image.file.asset.id}>
+            <GatsbyImage
+              image={image.file.asset.gatsbyImageData}
+              alt={image.description}
+            />
+          </div>
+        ))}
+      </Carousel>
 
       <div className={styles.GetStartedContainer}>
         <span className={styles.GetStartedText}>

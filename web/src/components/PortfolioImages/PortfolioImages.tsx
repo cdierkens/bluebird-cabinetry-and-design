@@ -241,6 +241,12 @@ export const portfolioImagesQuery = graphql`
       file {
         asset {
           id
+          gatsbyImageData(
+            height: 360
+            width: 640
+            fit: CROP
+            placeholder: BLURRED
+          )
         }
       }
     }
