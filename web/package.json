@@ -49,7 +49,7 @@
     "gatsby-transformer-sharp": "^4.2.0",
     "identity-obj-proxy": "3.0.0",
     "inquirer-fuzzy-path": "2.3.0",
-    "jest": "27.4.2",
+    "jest": "27.4.3",
     "lodash": "4.17.21",
     "plop": "2.7.6",
     "postcss": "8.4.4",
