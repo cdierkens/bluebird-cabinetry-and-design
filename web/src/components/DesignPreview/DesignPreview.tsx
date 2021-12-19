@@ -1,6 +1,5 @@
 import React from "react";
 import { builder } from "../../lib/image-url";
-import { UNSAFE_ANY } from "../../migration.types";
 import Container from "../Container";
 import * as styles from "./DesignPreview.module.css";
 
@@ -9,7 +8,7 @@ const BASE_IMAGE_SIZE = 300;
 interface DesignPreviewProps {
   title: string;
   description: string;
-  images: UNSAFE_ANY[];
+  images: SanityDesignPreviewImage[];
 }
 
 const DesignPreview: React.FC<DesignPreviewProps> = ({

@@ -8,8 +8,13 @@ import DesignPreview from "../components/DesignPreview";
 import KindWords from "../components/KindWords";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
+import {
+  IndexPageQueryQuery,
+  SanityDesignPreviewImage,
+} from "../graphql-types";
 import Layout from "../Layout";
-import { PagePropsWithErrors, UNSAFE_ANY } from "../migration.types";
+import { invariant } from "../lib/invariant";
+import { PagePropsWithErrors } from "../migration.types";
 import * as styles from "./Index.module.css";
 
 export const query = graphql`
@@ -53,13 +58,21 @@ export const query = graphql`
   }
 `;
 
-const IndexPage: React.FC<PagePropsWithErrors> = ({
-  data: {
-    carousel: { images: carouselImages },
-    designPreview: { title, description, images: designPreviewImages },
-  },
+const IndexPage: React.FC<PagePropsWithErrors<IndexPageQueryQuery>> = ({
+  data: { carousel, designPreview },
   errors,
 }) => {
+  const carouselNodes = carousel?.images;
+  const designPreviewImages = designPreview?.images;
+
+  const title = designPreview?.title;
+  const description = designPreview?.description;
+
+  invariant(carouselNodes);
+  invariant(designPreviewImages);
+  invariant(title);
+  invariant(description);
+
   return (
     <Layout errors={errors} title="Home" hidePageTitle>
       <Carousel
@@ -70,14 +83,22 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
         swipeable
         useKeyboardArrows
       >
-        {carouselImages.map(({ image }: { image: UNSAFE_ANY }) => (
-          <div key={image.file.asset.id}>
-            <GatsbyImage
-              image={image.file.asset.gatsbyImageData}
-              alt={image.description}
-            />
-          </div>
-        ))}
+        {carouselNodes.map((node) => {
+          const image = node?.image;
+
+          invariant(image?.file?.asset?.gatsbyImageData);
+          invariant(image?.file?.asset?.id);
+          invariant(image?.description);
+
+          return (
+            <div key={image.file.asset.id}>
+              <GatsbyImage
+                image={image.file.asset.gatsbyImageData}
+                alt={image.description}
+              />
+            </div>
+          );
+        })}
       </Carousel>
 
       <div className={styles.GetStartedContainer}>
@@ -90,7 +111,7 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
       </div>
 
       <DesignPreview
-        images={designPreviewImages}
+        images={designPreviewImages as SanityDesignPreviewImage[]}
         title={title}
         description={description}
       />
