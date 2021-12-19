@@ -1,5 +1,7 @@
-.Button {
-  @apply font-body font-medium rounded-md border py-2 px-9 text-lg inline-block cursor-pointer shadow-md;
+@layer components {
+  .Button {
+    @apply font-body font-medium rounded-md border py-2 px-9 text-lg inline-block cursor-pointer shadow-md;
+  }
 }
 
 .ButtonWhite {
