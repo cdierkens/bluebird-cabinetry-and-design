@@ -9,7 +9,7 @@ import KindWords from "../components/KindWords";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
 import Layout from "../Layout";
-import { PagePropsWithErrors, todo } from "../migration.types";
+import { PagePropsWithErrors, UNSAFE_ANY } from "../migration.types";
 import * as styles from "./Index.module.css";
 
 export const query = graphql`
@@ -70,7 +70,7 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
         swipeable
         useKeyboardArrows
       >
-        {carouselImages.map(({ image }: { image: todo }) => (
+        {carouselImages.map(({ image }: { image: UNSAFE_ANY }) => (
           <div key={image.file.asset.id}>
             <GatsbyImage
               image={image.file.asset.gatsbyImageData}

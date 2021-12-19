@@ -1,7 +1,7 @@
 import React from "react";
-import { todo } from "../../../../migration.types";
+import { UNSAFE_ANY } from "../../../../migration.types";
 
-const Header: React.FC<todo> = ({
+const Header: React.FC<UNSAFE_ANY> = ({
   currentView: { title },
   modalProps: { onClose, toggleFullscreen, isFullscreen },
 }) => {

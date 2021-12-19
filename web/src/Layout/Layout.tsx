@@ -1,6 +1,6 @@
 import React from "react";
 import PageTitle from "../components/PageTitle";
-import { todo } from "../migration.types";
+import { UNSAFE_ANY } from "../migration.types";
 import Footer from "./Footer";
 import GraphQLErrors from "./GraphQLErrors";
 import Head from "./Head";
@@ -8,7 +8,7 @@ import Header from "./Header";
 import "./Layout.css";
 
 interface Props {
-  errors?: todo;
+  errors?: UNSAFE_ANY;
   hidePageTitle?: boolean;
   title: string;
 }

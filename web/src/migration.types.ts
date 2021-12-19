@@ -1,5 +1,7 @@
 import { PageProps } from "gatsby";
 
-export type todo = any;
+export type UNSAFE_ANY = any;
 
-export type PagePropsWithErrors = PageProps<todo> & { errors?: todo };
+export type PagePropsWithErrors = PageProps<UNSAFE_ANY> & {
+  errors?: UNSAFE_ANY;
+};

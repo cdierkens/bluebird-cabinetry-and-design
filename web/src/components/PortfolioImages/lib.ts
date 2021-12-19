@@ -1,10 +1,10 @@
 import { Options } from "react-select";
 import { builder } from "../../lib/image-url";
-import { todo } from "../../migration.types";
+import { UNSAFE_ANY } from "../../migration.types";
 
 interface GetValuesForAttributeOptions {
   attr: string;
-  allImages: todo[];
+  allImages: UNSAFE_ANY[];
 }
 
 export const getValuesForAttribute = ({
@@ -12,7 +12,7 @@ export const getValuesForAttribute = ({
   allImages,
 }: GetValuesForAttributeOptions) => {
   return Array.from(
-    allImages.reduce((keys: Set<string>, node: todo) => {
+    allImages.reduce((keys: Set<string>, node: UNSAFE_ANY) => {
       const prop = node[attr];
       if (Array.isArray(prop)) {
         prop.forEach((value) => keys.add(value));
@@ -35,7 +35,7 @@ export const mapPortfolioImageToCarouselImage = ({
   furnitureRefinishing,
   interiorDesigner,
   software,
-}: todo) => ({
+}: UNSAFE_ANY) => ({
   source: {
     download: builder.image(image.file.asset.id).url(),
     fullscreen: builder

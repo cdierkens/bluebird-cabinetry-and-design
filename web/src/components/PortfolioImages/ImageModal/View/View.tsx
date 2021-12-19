@@ -1,7 +1,7 @@
 import React from "react";
-import { todo } from "../../../../migration.types";
+import { UNSAFE_ANY } from "../../../../migration.types";
 
-const View: React.FC<todo> = ({
+const View: React.FC<UNSAFE_ANY> = ({
   views,
   index,
   modalProps: { isFullscreen },

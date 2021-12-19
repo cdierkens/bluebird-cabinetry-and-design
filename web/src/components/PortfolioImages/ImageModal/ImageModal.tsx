@@ -1,12 +1,12 @@
 import React from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { theme } from "../../../lib/tailwind";
-import { todo } from "../../../migration.types";
+import { UNSAFE_ANY } from "../../../migration.types";
 import Footer from "./Footer";
 import Header from "./Header";
 import View from "./View";
 
-const ImageModal: React.FC<todo> = ({
+const ImageModal: React.FC<UNSAFE_ANY> = ({
   lightboxIsOpen,
   closeLightbox,
   selectedIndex,
@@ -46,7 +46,7 @@ const ImageModal: React.FC<todo> = ({
   );
 };
 
-const navButtonStyles = (base: todo) => ({
+const navButtonStyles = (base: UNSAFE_ANY) => ({
   ...base,
   backgroundColor: theme.colors.white,
   boxShadow: theme.boxShadow.md,
@@ -63,7 +63,7 @@ const navButtonStyles = (base: todo) => ({
 });
 
 const carouselStyles = {
-  container: (base: todo) => ({
+  container: (base: UNSAFE_ANY) => ({
     ...base,
     height: "100vh",
   }),

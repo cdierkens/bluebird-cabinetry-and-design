@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { todo } from "../../../migration.types";
+import { UNSAFE_ANY } from "../../../migration.types";
 import Container from "../../Container";
 import { ImageGrid } from "../ImageGrid";
 import { ImageModal } from "../ImageModal";
 import { mapPortfolioImageToCarouselImage } from "../lib";
 
-const AlbumImages: React.FC<todo> = ({ title, images }) => {
+const AlbumImages: React.FC<UNSAFE_ANY> = ({ title, images }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
 

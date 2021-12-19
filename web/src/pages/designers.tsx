@@ -5,54 +5,57 @@ import React from "react";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import Grid from "../components/Grid";
+import { DesignersQueryQuery } from "../graphql-types";
 import Layout from "../Layout";
 import { builder } from "../lib";
-import { todo } from "../migration.types";
+import { invariant } from "../lib/invariant";
 
 const DesignersPage: React.FC = () => {
   const {
     allSanityDesigner: { nodes: designers },
-  } = useStaticQuery(query);
+  } = useStaticQuery<DesignersQueryQuery>(query);
 
   return (
     <Layout title="Designers">
       <Container className="pb-12">
-        {designers.map(
-          ({ id, image, name, role, description }: todo, index: todo) => {
-            return (
-              <section key={id}>
-                <Grid>
-                  <div
-                    className={clsx("col-span-6 col-start-1 md:col-span-2", {
-                      "md:col-start-7 md:row-start-1": index % 2 !== 0,
-                    })}
-                  >
-                    <img
-                      src={
-                        builder.image(image.file.asset.id).url() ?? undefined
-                      }
-                      className="w-full p-1 shadow-md"
-                      alt={image.description}
-                    />
-                    <p className="text-center text-3xl text-blue-dark mb-0">
-                      {name}
-                    </p>
-                    <p className="text-center mt-0">{role}</p>
-                  </div>
-                  <div
-                    className={clsx("col-span-6 px-4 text-justify", {
-                      "md:col-start-1": index % 2 !== 0,
-                    })}
-                  >
-                    <BlockContent blocks={description} />
-                  </div>
-                </Grid>
+        {designers.map(({ id, image, name, role, description }, index) => {
+          const assetId = image?.file?.asset?.id;
 
-                <hr className="my-6 text-blue-dark" />
-              </section>
-            );
-          }
-        )}
+          invariant(assetId, "missing asset id");
+          invariant(image?.description, "missing asset id");
+
+          assetId;
+          return (
+            <section key={id}>
+              <Grid>
+                <div
+                  className={clsx("col-span-6 col-start-1 md:col-span-2", {
+                    "md:col-start-7 md:row-start-1": index % 2 !== 0,
+                  })}
+                >
+                  <img
+                    src={builder.image(assetId).url() ?? undefined}
+                    className="w-full p-1 shadow-md"
+                    alt={image?.description}
+                  />
+                  <p className="text-center text-3xl text-blue-dark mb-0">
+                    {name}
+                  </p>
+                  <p className="text-center mt-0">{role}</p>
+                </div>
+                <div
+                  className={clsx("col-span-6 px-4 text-justify", {
+                    "md:col-start-1": index % 2 !== 0,
+                  })}
+                >
+                  <BlockContent blocks={description} />
+                </div>
+              </Grid>
+
+              <hr className="my-6 text-blue-dark" />
+            </section>
+          );
+        })}
       </Container>
 
       <div className="bg-blue-dark text-center">

@@ -1,15 +1,15 @@
 import { ParsedQuery } from "query-string";
 import React, { useCallback, useMemo, VFC } from "react";
 import Select, { ActionMeta, Options } from "react-select";
-import { todo } from "../../../migration.types";
+import { UNSAFE_ANY } from "../../../migration.types";
 import { getQueryStringFromOption, getValuesForAttribute } from "../lib";
 
 interface SelectInputProps {
-  allImages: Array<todo>;
+  allImages: Array<UNSAFE_ANY>;
   attribute: string;
   label?: string;
   query: ParsedQuery<string>;
-  selectedValues: Array<todo>;
+  selectedValues: Array<UNSAFE_ANY>;
   setQuery: (values: object) => void;
 }
 
@@ -27,7 +27,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
   );
 
   const handleChange = useCallback(
-    (values: Options<todo>, event: ActionMeta<todo>) => {
+    (values: Options<UNSAFE_ANY>, event: ActionMeta<UNSAFE_ANY>) => {
       // If there are no values, remove attribute from the query
       if (!values || !values.length) {
         setQuery({
@@ -57,7 +57,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
     <label htmlFor="labels-select" className="mb-6 col-span-4 block">
       <div className="capitalize mb-1">{label || attribute}</div>
       <Select
-        value={selectedValues.map((label: todo) => ({
+        value={selectedValues.map((label: UNSAFE_ANY) => ({
           id: label,
           value: label,
           label: label,
@@ -72,7 +72,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
           },
           {
             label: "",
-            options: allValues.map((label: todo) => ({
+            options: allValues.map((label: UNSAFE_ANY) => ({
               id: label,
               value: label,
               label: label,

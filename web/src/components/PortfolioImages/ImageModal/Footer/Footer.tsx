@@ -1,7 +1,7 @@
 import React from "react";
-import { todo } from "../../../../migration.types";
+import { UNSAFE_ANY } from "../../../../migration.types";
 
-const Footer: React.FC<todo> = ({
+const Footer: React.FC<UNSAFE_ANY> = ({
   currentIndex,
   views,
   currentView: {
