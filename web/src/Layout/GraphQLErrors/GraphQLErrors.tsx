@@ -1,10 +1,12 @@
 import React from "react";
 import * as styles from "./GraphQLErrors.module.css";
 
+export interface GraphQLError {
+  message: string;
+}
+
 interface GraphQLErrorsProps {
-  errors?: Array<{
-    message: string;
-  }>;
+  errors?: Array<GraphQLError>;
 }
 
 const GraphQLErrors: React.FC<GraphQLErrorsProps> = ({ errors = [] }) => (

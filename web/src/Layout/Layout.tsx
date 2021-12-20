@@ -1,14 +1,14 @@
 import React from "react";
 import PageTitle from "../components/PageTitle";
-import { UNSAFE_ANY } from "../migration.types";
 import Footer from "./Footer";
 import GraphQLErrors from "./GraphQLErrors";
+import { GraphQLError } from "./GraphQLErrors/GraphQLErrors";
 import Head from "./Head";
 import Header from "./Header";
 import "./Layout.css";
 
 interface Props {
-  errors?: UNSAFE_ANY;
+  errors?: Array<GraphQLError>;
   hidePageTitle?: boolean;
   title: string;
 }

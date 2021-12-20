@@ -1,3 +1,4 @@
+import { WindowLocation } from "@reach/router";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -6,7 +7,7 @@ import {
   MdKeyboardArrowUp,
 } from "react-icons/md";
 import useQueryString from "use-query-string";
-import { PortfolioImagesQuery } from "../../graphql-types";
+import { PortfolioImagesQuery } from "../../../graphql-types";
 import { UNSAFE_ANY } from "../../migration.types";
 import Button from "../Button";
 import Container from "../Container";
@@ -22,7 +23,11 @@ import {
 import { Pagination } from "./Pagination/Pagination";
 import { SelectInput } from "./SelectInput";
 
-const PortfolioImages: React.FC<UNSAFE_ANY> = ({ location }) => {
+interface PortfolioImagesProps {
+  location: WindowLocation<unknown>;
+}
+
+const PortfolioImages: React.FC<PortfolioImagesProps> = ({ location }) => {
   const {
     allSanityPortfolioImage: { nodes: allImages },
     allSanityAlbum: { nodes: albums },

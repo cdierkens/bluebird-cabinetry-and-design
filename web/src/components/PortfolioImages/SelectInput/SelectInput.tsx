@@ -9,7 +9,7 @@ interface SelectInputProps {
   attribute: string;
   label?: string;
   query: ParsedQuery<string>;
-  selectedValues: Array<UNSAFE_ANY>;
+  selectedValues: Array<string>;
   setQuery: (values: object) => void;
 }
 
@@ -57,7 +57,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
     <label htmlFor="labels-select" className="mb-6 col-span-4 block">
       <div className="capitalize mb-1">{label || attribute}</div>
       <Select
-        value={selectedValues.map((label: UNSAFE_ANY) => ({
+        value={selectedValues.map((label) => ({
           id: label,
           value: label,
           label: label,
@@ -72,7 +72,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
           },
           {
             label: "",
-            options: allValues.map((label: UNSAFE_ANY) => ({
+            options: allValues.map((label) => ({
               id: label,
               value: label,
               label: label,

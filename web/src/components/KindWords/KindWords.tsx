@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { KindWordsQueryQuery } from "../../graphql-types";
+import { KindWordsQueryQuery } from "../../../graphql-types";
 import { invariant } from "../../lib/invariant";
 import Button from "../Button";
 import Container from "../Container";

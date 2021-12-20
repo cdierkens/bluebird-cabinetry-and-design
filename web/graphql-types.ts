@@ -5516,6 +5516,10 @@ export type DefaultSeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type DefaultSeoQueryQuery = { site?: { title?: string | null | undefined, description?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined } | null | undefined };
 
+export type DesignPreviewFragment = { title?: string | null | undefined, description?: string | null | undefined, images?: Array<{ colSpan?: string | null | undefined, rowSpan?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+
+export type DesignPreviewImageFragment = { colSpan?: string | null | undefined, rowSpan?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string } | null | undefined } | null | undefined } | null | undefined };
+
 export type KindWordsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 

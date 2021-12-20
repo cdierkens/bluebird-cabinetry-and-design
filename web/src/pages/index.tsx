@@ -3,15 +3,15 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {
+  DesignPreviewImageFragment,
+  IndexPageQueryQuery,
+} from "../../graphql-types";
 import Button from "../components/Button";
 import DesignPreview from "../components/DesignPreview";
 import KindWords from "../components/KindWords";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
-import {
-  IndexPageQueryQuery,
-  SanityDesignPreviewImage,
-} from "../graphql-types";
 import Layout from "../Layout";
 import { invariant } from "../lib/invariant";
 import { PagePropsWithErrors } from "../migration.types";
@@ -40,20 +40,7 @@ export const query = graphql`
     designPreview: sanityDesignPreview(
       _id: { regex: "/(drafts.|)designPreview/" }
     ) {
-      title
-      description
-      images {
-        colSpan
-        rowSpan
-        image {
-          description
-          file {
-            asset {
-              id
-            }
-          }
-        }
-      }
+      ...DesignPreview
     }
   }
 `;
@@ -111,7 +98,7 @@ const IndexPage: React.FC<PagePropsWithErrors<IndexPageQueryQuery>> = ({
       </div>
 
       <DesignPreview
-        images={designPreviewImages as SanityDesignPreviewImage[]}
+        images={designPreviewImages as Array<DesignPreviewImageFragment>}
         title={title}
         description={description}
       />

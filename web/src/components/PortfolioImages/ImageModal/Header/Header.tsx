@@ -1,11 +1,11 @@
 import React from "react";
-import { UNSAFE_ANY } from "../../../../migration.types";
+import { CommonProps } from "react-images";
+import { CarouselImage } from "../../lib";
 
-const Header: React.FC<UNSAFE_ANY> = ({
-  currentView: { title },
-  modalProps: { onClose, toggleFullscreen, isFullscreen },
-}) => {
-  if (isFullscreen) {
+const Header: React.FC<CommonProps> = ({ currentView, modalProps }) => {
+  const { title } = currentView as any as CarouselImage;
+
+  if (modalProps?.isFullscreen) {
     return (
       <div>
         {title && (
@@ -16,7 +16,7 @@ const Header: React.FC<UNSAFE_ANY> = ({
 
         <div>
           <button
-            onClick={toggleFullscreen}
+            onClick={modalProps?.toggleFullscreen}
             className="fixed z-50 top-0 right-0 inline-block p-4 m-2 text-gray-light hover:text-gold focus:outline-none focus:ring bg-black bg-opacity-25 rounded"
           >
             <span className="sr-only">Close</span>
@@ -42,7 +42,7 @@ const Header: React.FC<UNSAFE_ANY> = ({
       </div>
       <div>
         <button
-          onClick={toggleFullscreen}
+          onClick={modalProps?.toggleFullscreen}
           className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Fullscreen</span>
@@ -55,7 +55,7 @@ const Header: React.FC<UNSAFE_ANY> = ({
           </svg>
         </button>
         <button
-          onClick={onClose}
+          onClick={modalProps?.onClose}
           className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Close</span>

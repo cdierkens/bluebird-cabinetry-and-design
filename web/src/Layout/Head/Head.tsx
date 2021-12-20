@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { DefaultSeoQueryQuery } from "../../graphql-types";
+import { DefaultSeoQueryQuery } from "../../../graphql-types";
 import favicon from "../../images/favicon.jpg";
 
 const query = graphql`

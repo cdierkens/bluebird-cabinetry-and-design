@@ -1,14 +1,15 @@
 import React from "react";
-import { UNSAFE_ANY } from "../../../../migration.types";
+import { CommonProps } from "react-images";
+import { CarouselImage } from "../../lib";
 
-const View: React.FC<UNSAFE_ANY> = ({
-  views,
-  index,
-  modalProps: { isFullscreen },
+const View: React.FC<CommonProps> = ({
+  views = [],
+  currentIndex = 0,
+  modalProps,
 }) => {
-  const { source, alt } = views[index];
+  const { source, alt } = views[currentIndex] as any as CarouselImage;
 
-  const height = isFullscreen ? "100vh" : "calc(100vh - 90px)";
+  const height = modalProps?.isFullscreen ? "100vh" : "calc(100vh - 90px)";
 
   return (
     <div
@@ -18,7 +19,7 @@ const View: React.FC<UNSAFE_ANY> = ({
       <img
         className="h-auto max-h-full max-w-full m-auto select-none"
         src={source.regular}
-        alt={alt}
+        alt={alt ?? undefined}
       />
     </div>
   );
