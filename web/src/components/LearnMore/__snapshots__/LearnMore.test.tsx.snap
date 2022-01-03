@@ -11,7 +11,7 @@ exports[`matches snapshot 1`] = `
       Interested in learning more?
     </span>
     <a
-      class="ButtonBlue focus:outline-none focus:ring LearnMoreLink"
+      class="Button ButtonBlue focus:outline-none focus:ring LearnMoreLink"
       href="/contact"
     >
       Contact Us

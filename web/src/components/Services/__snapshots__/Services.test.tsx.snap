@@ -81,7 +81,7 @@ exports[`matches snapshot 1`] = `
       class="Container text-center pb-8 pt-4"
     >
       <a
-        class="ButtonBlue focus:outline-none focus:ring"
+        class="Button ButtonBlue focus:outline-none focus:ring"
         href="/services"
       >
         Services

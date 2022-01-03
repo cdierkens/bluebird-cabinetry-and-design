@@ -3,7 +3,7 @@
 exports[`matches snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="ButtonWhite focus:outline-none focus:ring"
+    class="Button ButtonWhite focus:outline-none focus:ring"
     type="button"
   />
 </DocumentFragment>

@@ -29,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
   variant = "white",
 }) => {
   const fullClassName = clsx(
+    styles.Button,
     {
       [styles.ButtonWhite]: variant === "white",
       [styles.ButtonBlue]: variant === "blue",

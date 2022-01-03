@@ -68,7 +68,7 @@ exports[`matches snapshot 1`] = `
         To The Trade Services
       </a>
       <a
-        class="ButtonWhite focus:outline-none focus:ring mb-5 mx-5 my-6"
+        class="Button ButtonWhite focus:outline-none focus:ring mb-5 mx-5 my-6"
         href="/contact"
       >
         Contact Us
