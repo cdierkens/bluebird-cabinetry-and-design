@@ -141,7 +141,7 @@ exports[`matches snapshot 1`] = `
           class="flex items-center justify-center mt-4"
         >
           <button
-            class="ButtonBlue focus:outline-none focus:ring"
+            class="Button ButtonBlue focus:outline-none focus:ring"
             type="submit"
           >
             Send

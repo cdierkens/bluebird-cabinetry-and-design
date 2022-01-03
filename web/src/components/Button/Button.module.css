@@ -3,7 +3,6 @@
 }
 
 .ButtonWhite {
-  @apply Button;
   @apply border-white text-white;
 }
 
@@ -17,7 +16,6 @@
 }
 
 .ButtonBlue {
-  @apply Button;
   @apply border-blue-dark text-blue-dark;
 }
 
