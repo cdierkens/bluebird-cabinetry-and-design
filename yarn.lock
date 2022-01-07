@@ -18081,10 +18081,20 @@ query-string@^4.3.2:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-query-string@^6.13.7, query-string@^6.13.8, query-string@^6.14.1:
+query-string@^6.13.8, query-string@^6.14.1:
   version "6.14.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.14.1.tgz#7ac2dca46da7f309449ba0f86b1fd28255b0c86a"
   integrity sha512-XDxAeVmpfu1/6IjyT/gXHOl+S0vQ9owggJ30hhWKdHAsNPOcasn5o9BW0eejZqL2e4vMjhAxoW3jVHcD6mbcYw==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    filter-obj "^1.1.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
+query-string@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-7.1.0.tgz#96b88f27b39794f97b8c8ccd060bc900495078ef"
+  integrity sha512-wnJ8covk+S9isYR5JIXPt93kFUmI2fQ4R/8130fuq+qwLiGVTurg7Klodgfw4NSz/oe7xnyi09y3lSrogUeM3g==
   dependencies:
     decode-uri-component "^0.2.0"
     filter-obj "^1.1.0"
@@ -21784,12 +21794,12 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
-use-query-string@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/use-query-string/-/use-query-string-2.3.0.tgz#09f05a342e90df0dd24c7954a0c576689a3e9d91"
-  integrity sha512-H5a4tHUEWUvYKoUGriOdfptgROj7EcMCWb7tATIbZmzBV3Wj6IIAn3gbmZkX4GelSjyArx6HB5MKUTDI4vjhhg==
+use-query-string@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/use-query-string/-/use-query-string-2.4.0.tgz#c88cec85bcceb5d935afc3aaf9026ce1a97e2358"
+  integrity sha512-dCP78LNXW58nWtb+CGCNsce5Nvma85htNnUyXOurH5RBShH910BdHCbJW+qUU/TeiKRp4wJPhLJxToEWPsI9zQ==
   dependencies:
-    query-string "^6.13.7"
+    query-string "^7.1.0"
 
 use-sidecar@^1.0.1, use-sidecar@^1.0.5:
   version "1.0.5"
