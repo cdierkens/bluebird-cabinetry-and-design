@@ -2,13 +2,11 @@ import React from "react";
 import { CommonProps } from "react-images";
 import { CarouselImage } from "../../lib";
 
-const View: React.FC<CommonProps> = ({
-  views = [],
-  currentIndex = 0,
-  modalProps,
-}) => {
-  const { source, alt } = views[currentIndex] as any as CarouselImage;
+interface ViewProps extends CommonProps {
+  data: CarouselImage;
+}
 
+const View: React.FC<ViewProps> = ({ modalProps, data: { source, alt } }) => {
   const height = modalProps?.isFullscreen ? "100vh" : "calc(100vh - 90px)";
 
   return (
