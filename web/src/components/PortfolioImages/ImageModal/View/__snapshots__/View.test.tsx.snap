@@ -9,6 +9,7 @@ exports[`matches snapshot 1`] = `
     <img
       alt=""
       class="h-auto max-h-full max-w-full m-auto select-none"
+      src="regular"
     />
   </div>
 </DocumentFragment>

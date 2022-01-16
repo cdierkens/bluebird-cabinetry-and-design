@@ -2,7 +2,11 @@ import React from "react";
 import { CommonProps } from "react-images";
 import { CarouselImage } from "../../lib";
 
-const Footer: React.FC<CommonProps> = ({
+interface FooterProps extends CommonProps {
+  currentView: CarouselImage;
+}
+
+const Footer: React.FC<FooterProps> = ({
   currentIndex = 0,
   views,
   currentView,
@@ -18,7 +22,7 @@ const Footer: React.FC<CommonProps> = ({
     furnitureRefinishing,
     interiorDesigner,
     software,
-  } = currentView as any as CarouselImage;
+  } = currentView;
 
   return (
     <div>

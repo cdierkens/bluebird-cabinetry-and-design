@@ -2,8 +2,12 @@ import React from "react";
 import { CommonProps } from "react-images";
 import { CarouselImage } from "../../lib";
 
-const Header: React.FC<CommonProps> = ({ currentView, modalProps }) => {
-  const { title } = currentView as any as CarouselImage;
+interface HeaderProps extends CommonProps {
+  currentView: CarouselImage;
+}
+
+const Header: React.FC<HeaderProps> = ({ currentView, modalProps }) => {
+  const { title } = currentView;
 
   if (modalProps?.isFullscreen) {
     return (

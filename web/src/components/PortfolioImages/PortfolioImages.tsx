@@ -1,4 +1,3 @@
-import { WindowLocation } from "@reach/router";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -24,7 +23,7 @@ import { Pagination } from "./Pagination/Pagination";
 import { SelectInput } from "./SelectInput";
 
 interface PortfolioImagesProps {
-  location: WindowLocation<unknown>;
+  location: Location;
 }
 
 const PortfolioImages: React.FC<PortfolioImagesProps> = ({ location }) => {
@@ -221,15 +220,17 @@ const PortfolioImages: React.FC<PortfolioImagesProps> = ({ location }) => {
 
 export const portfolioImagesQuery = graphql`
   fragment Image on SanityPortfolioImage {
+    cabinetry
+    caption
     contractor
     decorator
+    finish
     furnitureRefinishing
     interiorDesigner
-    software
     labels
     room
-    cabinetry
-    finish
+    software
+    title
     image {
       description
       file {
@@ -244,7 +245,6 @@ export const portfolioImagesQuery = graphql`
         }
       }
     }
-    title
   }
   query PortfolioImages {
     allSanityPortfolioImage {
