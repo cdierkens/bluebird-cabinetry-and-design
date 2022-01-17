@@ -46,7 +46,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
           <Carousel
             hideControlsWhenIdle={false}
             currentIndex={selectedIndex}
-            components={{ Header, View, Footer }}
+            components={{ Header, View, Footer } as any}
             views={carouselImages as any as Array<ViewType>}
             trackProps={{
               onViewChange: setSelectedIndex,
