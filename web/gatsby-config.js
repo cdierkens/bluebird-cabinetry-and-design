@@ -18,6 +18,7 @@ module.exports = {
     siteUrl: "https://bluebirdcabinetryanddesign.com/",
   },
   plugins: [
+    "gatsby-plugin-graphql-codegen",
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-root-import",

@@ -1,10 +1,11 @@
 import { Options } from "react-select";
+import { PortfolioImagesQuery } from "../../../graphql-types";
 import { builder } from "../../lib/image-url";
-import { todo } from "../../migration.types";
+import { invariant } from "../../lib/invariant";
 
 interface GetValuesForAttributeOptions {
   attr: string;
-  allImages: todo[];
+  allImages: PortfolioImage[];
 }
 
 export const getValuesForAttribute = ({
@@ -12,11 +13,16 @@ export const getValuesForAttribute = ({
   allImages,
 }: GetValuesForAttributeOptions) => {
   return Array.from(
-    allImages.reduce((keys: Set<string>, node: todo) => {
-      const prop = node[attr];
+    allImages.reduce((keys: Set<string>, node: PortfolioImage) => {
+      const prop = node[attr as keyof PortfolioImage];
+
       if (Array.isArray(prop)) {
-        prop.forEach((value) => keys.add(value));
-      } else {
+        prop.forEach((value) => {
+          invariant(value);
+
+          keys.add(value);
+        });
+      } else if (typeof prop === "string") {
         keys.add(prop);
       }
 
@@ -27,6 +33,26 @@ export const getValuesForAttribute = ({
     .sort();
 };
 
+export type PortfolioImage =
+  PortfolioImagesQuery["allSanityPortfolioImage"]["nodes"][number];
+export type CarouselImage = Pick<
+  PortfolioImage,
+  | "title"
+  | "contractor"
+  | "decorator"
+  | "furnitureRefinishing"
+  | "interiorDesigner"
+  | "software"
+> & {
+  source: {
+    download: string;
+    fullscreen: string;
+    regular: string;
+    thumbnail: string;
+  };
+  alt?: string | null;
+};
+
 export const mapPortfolioImageToCarouselImage = ({
   image,
   title,
@@ -35,25 +61,33 @@ export const mapPortfolioImageToCarouselImage = ({
   furnitureRefinishing,
   interiorDesigner,
   software,
-}: todo) => ({
-  source: {
-    download: builder.image(image.file.asset.id).url(),
-    fullscreen: builder
-      .image(image.file.asset.id)
-      .height(1080)
-      .fit("clip")
-      .url(),
-    regular: builder.image(image.file.asset.id).height(900).fit("clip").url(),
-    thumbnail: builder.image(image.file.asset.id).height(400).fit("clip").url(),
-  },
-  title,
-  contractor,
-  decorator,
-  furnitureRefinishing,
-  interiorDesigner,
-  software,
-  alt: image.description,
-});
+}: PortfolioImage): CarouselImage => {
+  invariant(image?.file?.asset?.id);
+
+  return {
+    source: {
+      download: builder.image(image.file.asset.id).url(),
+      fullscreen: builder
+        .image(image.file.asset.id)
+        .height(1080)
+        .fit("clip")
+        .url(),
+      regular: builder.image(image.file.asset.id).height(900).fit("clip").url(),
+      thumbnail: builder
+        .image(image.file.asset.id)
+        .height(400)
+        .fit("clip")
+        .url(),
+    },
+    title,
+    contractor,
+    decorator,
+    furnitureRefinishing,
+    interiorDesigner,
+    software,
+    alt: image?.description,
+  };
+};
 
 export const getArrayFromQueryParam = (
   value: string | string[] | null

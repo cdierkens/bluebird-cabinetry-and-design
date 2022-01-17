@@ -3,13 +3,18 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {
+  DesignPreviewImageFragment,
+  IndexPageQueryQuery,
+} from "../../graphql-types";
 import Button from "../components/Button";
 import DesignPreview from "../components/DesignPreview";
 import KindWords from "../components/KindWords";
 import Publications from "../components/Publications";
 import Services from "../components/Services";
 import Layout from "../Layout";
-import { PagePropsWithErrors, todo } from "../migration.types";
+import { invariant } from "../lib/invariant";
+import { PagePropsWithErrors } from "../migration.types";
 import * as styles from "./Index.module.css";
 
 export const query = graphql`
@@ -35,31 +40,26 @@ export const query = graphql`
     designPreview: sanityDesignPreview(
       _id: { regex: "/(drafts.|)designPreview/" }
     ) {
-      title
-      description
-      images {
-        colSpan
-        rowSpan
-        image {
-          description
-          file {
-            asset {
-              id
-            }
-          }
-        }
-      }
+      ...DesignPreview
     }
   }
 `;
 
-const IndexPage: React.FC<PagePropsWithErrors> = ({
-  data: {
-    carousel: { images: carouselImages },
-    designPreview: { title, description, images: designPreviewImages },
-  },
+const IndexPage: React.FC<PagePropsWithErrors<IndexPageQueryQuery>> = ({
+  data: { carousel, designPreview },
   errors,
 }) => {
+  const carouselNodes = carousel?.images;
+  const designPreviewImages = designPreview?.images;
+
+  const title = designPreview?.title;
+  const description = designPreview?.description;
+
+  invariant(carouselNodes);
+  invariant(designPreviewImages);
+  invariant(title);
+  invariant(description);
+
   return (
     <Layout errors={errors} title="Home" hidePageTitle>
       <Carousel
@@ -70,14 +70,22 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
         swipeable
         useKeyboardArrows
       >
-        {carouselImages.map(({ image }: { image: todo }) => (
-          <div key={image.file.asset.id}>
-            <GatsbyImage
-              image={image.file.asset.gatsbyImageData}
-              alt={image.description}
-            />
-          </div>
-        ))}
+        {carouselNodes.map((node) => {
+          const image = node?.image;
+
+          invariant(image?.file?.asset?.gatsbyImageData);
+          invariant(image?.file?.asset?.id);
+          invariant(image?.description);
+
+          return (
+            <div key={image.file.asset.id}>
+              <GatsbyImage
+                image={image.file.asset.gatsbyImageData}
+                alt={image.description}
+              />
+            </div>
+          );
+        })}
       </Carousel>
 
       <div className={styles.GetStartedContainer}>
@@ -90,7 +98,7 @@ const IndexPage: React.FC<PagePropsWithErrors> = ({
       </div>
 
       <DesignPreview
-        images={designPreviewImages}
+        images={designPreviewImages as Array<DesignPreviewImageFragment>}
         title={title}
         description={description}
       />

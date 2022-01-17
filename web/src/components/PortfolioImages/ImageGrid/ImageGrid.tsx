@@ -1,17 +1,17 @@
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
-import { todo } from "../../../migration.types";
+import { UNSAFE_ANY } from "../../../migration.types";
 import { PAGE_SIZE } from "../constants";
 
 interface Image {
-  image: todo;
-  room: todo;
-  cabinetry: todo;
-  finish: todo;
-  labels: todo;
+  image: UNSAFE_ANY;
+  room: UNSAFE_ANY;
+  cabinetry: UNSAFE_ANY;
+  finish: UNSAFE_ANY;
+  labels: UNSAFE_ANY;
 }
 
-const ImageGrid: React.FC<todo> = ({ images, selectedPage, onClick }) => {
+const ImageGrid: React.FC<UNSAFE_ANY> = ({ images, selectedPage, onClick }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       {images

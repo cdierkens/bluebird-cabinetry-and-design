@@ -5,11 +5,16 @@ import View from "./View";
 it("matches snapshot", () => {
   const { asFragment } = render(
     <View
-      isFullScreen={false}
-      modalProps={{}}
-      index={0}
-      views={[{ source: "", alt: "" }]}
-      label="mock label"
+      modalProps={{ isFullscreen: false }}
+      data={{
+        source: {
+          download: "download",
+          fullscreen: "fullscreen",
+          regular: "regular",
+          thumbnail: "thumbnail",
+        },
+        alt: "",
+      }}
     />
   );
 

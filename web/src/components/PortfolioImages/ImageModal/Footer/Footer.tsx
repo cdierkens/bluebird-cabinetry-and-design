@@ -1,21 +1,28 @@
 import React from "react";
-import { todo } from "../../../../migration.types";
+import { CommonProps } from "react-images";
+import { CarouselImage } from "../../lib";
 
-const Footer: React.FC<todo> = ({
-  currentIndex,
+interface FooterProps extends CommonProps {
+  currentView: CarouselImage;
+}
+
+const Footer: React.FC<FooterProps> = ({
+  currentIndex = 0,
   views,
-  currentView: {
+  currentView,
+  modalProps,
+}) => {
+  const styles = modalProps?.isFullscreen
+    ? "bg-black text-gray-light bg-opacity-25"
+    : "bg-gray-light";
+
+  const {
     contractor,
     decorator,
     furnitureRefinishing,
     interiorDesigner,
     software,
-  },
-  modalProps: { isFullscreen },
-}) => {
-  const styles = isFullscreen
-    ? "bg-black text-gray-light bg-opacity-25"
-    : "bg-gray-light";
+  } = currentView;
 
   return (
     <div>
@@ -42,7 +49,7 @@ const Footer: React.FC<todo> = ({
         className={`inline absolute bottom-2 right-2 text-right px-2 py-1 text-sm rounded ${styles}`}
       >
         <span>
-          {currentIndex + 1} of {views.length}
+          {currentIndex + 1} of {views?.length}
         </span>
       </div>
     </div>

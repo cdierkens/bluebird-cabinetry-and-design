@@ -1,14 +1,14 @@
 import React from "react";
 import PageTitle from "../components/PageTitle";
-import { todo } from "../migration.types";
 import Footer from "./Footer";
 import GraphQLErrors from "./GraphQLErrors";
+import { GraphQLError } from "./GraphQLErrors/GraphQLErrors";
 import Head from "./Head";
 import Header from "./Header";
 import "./Layout.css";
 
 interface Props {
-  errors?: todo;
+  errors?: Array<GraphQLError>;
   hidePageTitle?: boolean;
   title: string;
 }

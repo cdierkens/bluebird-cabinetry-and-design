@@ -8,7 +8,12 @@ it("matches snapshot", () => {
       currentIndex={1}
       views={[]}
       currentView={{
-        caption: "",
+        source: {
+          download: "download",
+          fullscreen: "fullscreen",
+          regular: "regular",
+          thumbnail: "thumbnail",
+        },
         contractor: "",
         furnitureRefinishing: "",
         interiorDesigner: "",
@@ -17,7 +22,6 @@ it("matches snapshot", () => {
       modalProps={{
         isFullscreen: false,
       }}
-      label="mock label"
     />
   );
 

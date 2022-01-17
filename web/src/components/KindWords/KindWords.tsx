@@ -1,7 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { todo } from "../../migration.types";
+import { KindWordsQueryQuery } from "../../../graphql-types";
+import { invariant } from "../../lib/invariant";
 import Button from "../Button";
 import Container from "../Container";
 
@@ -45,28 +46,34 @@ const KindWords = () => {
   const [showReadMore, setShowMore] = useState(true);
   const {
     allSanityClientReview: { nodes: kindWords },
-  } = useStaticQuery<{
-    allSanityClientReview: {
-      nodes: todo[];
-    };
-  }>(query);
+  } = useStaticQuery<KindWordsQueryQuery>(query);
 
   return (
     <Container className="py-6">
       <h2 className="text-center">Kind Words</h2>
 
-      {kindWords.slice(0, 3).map(({ title, clientName, text, _id }) => (
-        <KindWordsItem title={title} name={clientName} key={_id}>
-          {text}
-        </KindWordsItem>
-      ))}
+      {kindWords.slice(0, 3).map(({ title, clientName, text, _id }) => {
+        invariant(title, "missing title");
+        invariant(clientName, "missing client name");
 
-      {!showReadMore &&
-        kindWords.slice(3).map(({ title, clientName, text, _id }) => (
+        return (
           <KindWordsItem title={title} name={clientName} key={_id}>
             {text}
           </KindWordsItem>
-        ))}
+        );
+      })}
+
+      {!showReadMore &&
+        kindWords.slice(3).map(({ title, clientName, text, _id }) => {
+          invariant(title, "missing title");
+          invariant(clientName, "missing client name");
+
+          return (
+            <KindWordsItem title={title} name={clientName} key={_id}>
+              {text}
+            </KindWordsItem>
+          );
+        })}
 
       {showReadMore && (
         <div className="text-center">

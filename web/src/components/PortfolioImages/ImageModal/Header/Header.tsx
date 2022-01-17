@@ -1,11 +1,15 @@
 import React from "react";
-import { todo } from "../../../../migration.types";
+import { CommonProps } from "react-images";
+import { CarouselImage } from "../../lib";
 
-const Header: React.FC<todo> = ({
-  currentView: { title },
-  modalProps: { onClose, toggleFullscreen, isFullscreen },
-}) => {
-  if (isFullscreen) {
+interface HeaderProps extends CommonProps {
+  currentView: CarouselImage;
+}
+
+const Header: React.FC<HeaderProps> = ({ currentView, modalProps }) => {
+  const { title } = currentView;
+
+  if (modalProps?.isFullscreen) {
     return (
       <div>
         {title && (
@@ -16,7 +20,7 @@ const Header: React.FC<todo> = ({
 
         <div>
           <button
-            onClick={toggleFullscreen}
+            onClick={modalProps?.toggleFullscreen}
             className="fixed z-50 top-0 right-0 inline-block p-4 m-2 text-gray-light hover:text-gold focus:outline-none focus:ring bg-black bg-opacity-25 rounded"
           >
             <span className="sr-only">Close</span>
@@ -42,7 +46,7 @@ const Header: React.FC<todo> = ({
       </div>
       <div>
         <button
-          onClick={toggleFullscreen}
+          onClick={modalProps?.toggleFullscreen}
           className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Fullscreen</span>
@@ -55,7 +59,7 @@ const Header: React.FC<todo> = ({
           </svg>
         </button>
         <button
-          onClick={onClose}
+          onClick={modalProps?.onClose}
           className="inline-block p-2 hover:text-black text-gray-darker focus:outline-none focus:ring"
         >
           <span className="sr-only">Close</span>

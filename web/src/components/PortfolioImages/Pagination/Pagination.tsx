@@ -1,10 +1,10 @@
 import React, { VFC } from "react";
 import { LeftArrowIcon, RightArrowIcon } from "../../../icons";
-import { todo } from "../../../migration.types";
+import { UNSAFE_ANY } from "../../../migration.types";
 import { PAGE_SIZE } from "../constants";
 
 interface PaginationProps {
-  images: Array<todo>;
+  images: Array<UNSAFE_ANY>;
   selectedIndex: number;
   handlePagination: (index: number) => void;
 }

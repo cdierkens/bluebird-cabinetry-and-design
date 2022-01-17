@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
+import { DefaultSeoQueryQuery } from "../../../graphql-types";
 import favicon from "../../images/favicon.jpg";
 
 const query = graphql`
@@ -19,7 +20,7 @@ interface Props {
 }
 
 const Head: React.FC<Props> = ({ title, lang = "en" }) => {
-  const { site } = useStaticQuery(query);
+  const { site } = useStaticQuery<DefaultSeoQueryQuery>(query);
 
   const description = site?.description || "";
   const siteTitle = site?.title || "";

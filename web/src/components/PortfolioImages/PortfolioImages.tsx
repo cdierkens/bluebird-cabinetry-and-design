@@ -6,7 +6,8 @@ import {
   MdKeyboardArrowUp,
 } from "react-icons/md";
 import useQueryString from "use-query-string";
-import { todo } from "../../migration.types";
+import { PortfolioImagesQuery } from "../../../graphql-types";
+import { UNSAFE_ANY } from "../../migration.types";
 import Button from "../Button";
 import Container from "../Container";
 import { AlbumImages } from "./AlbumImages";
@@ -21,11 +22,15 @@ import {
 import { Pagination } from "./Pagination/Pagination";
 import { SelectInput } from "./SelectInput";
 
-const PortfolioImages: React.FC<todo> = ({ location }) => {
+interface PortfolioImagesProps {
+  location: Location;
+}
+
+const PortfolioImages: React.FC<PortfolioImagesProps> = ({ location }) => {
   const {
     allSanityPortfolioImage: { nodes: allImages },
     allSanityAlbum: { nodes: albums },
-  } = useStaticQuery(portfolioImagesQuery);
+  } = useStaticQuery<PortfolioImagesQuery>(portfolioImagesQuery);
 
   // Note: Library author typed this as an interface instead of a tuple.
   const { 0: query, 1: setQuery } = useQueryString(location, navigate);
@@ -62,32 +67,20 @@ const PortfolioImages: React.FC<todo> = ({ location }) => {
   }, [query.room]);
 
   const selectedImages = useMemo(() => {
-    return allImages.filter(
-      ({
-        labels,
-        room,
-        cabinetry,
-        finish,
-      }: {
-        labels: string[];
-        room: string;
-        cabinetry: string[];
-        finish: string[];
-      }) => {
-        return (
-          selectedLabels.find((selected) =>
-            labels.find((value) => value === selected)
-          ) ||
-          selectedRooms.find((selected) => selected === room) ||
-          selectedCabinetry.find((selected) =>
-            cabinetry.find((value) => value === selected)
-          ) ||
-          selectedFinish.find((selected) =>
-            finish.find((value) => value === selected)
-          )
-        );
-      }
-    );
+    return allImages.filter(({ labels, room, cabinetry, finish }) => {
+      return (
+        selectedLabels.find((selected) =>
+          labels?.find((value) => value === selected)
+        ) ||
+        selectedRooms.find((selected) => selected === room) ||
+        selectedCabinetry.find((selected) =>
+          cabinetry?.find((value) => value === selected)
+        ) ||
+        selectedFinish.find((selected) =>
+          finish?.find((value) => value === selected)
+        )
+      );
+    });
   }, [
     selectedLabels,
     selectedCabinetry,
@@ -216,7 +209,7 @@ const PortfolioImages: React.FC<todo> = ({ location }) => {
       {albums.length ? (
         <Container>
           <h2>Project Photos</h2>
-          {albums.map(({ title, images }: todo) => {
+          {albums.map(({ title, images }: UNSAFE_ANY) => {
             return <AlbumImages key={title} images={images} title={title} />;
           })}
         </Container>
@@ -227,15 +220,17 @@ const PortfolioImages: React.FC<todo> = ({ location }) => {
 
 export const portfolioImagesQuery = graphql`
   fragment Image on SanityPortfolioImage {
+    cabinetry
+    caption
     contractor
     decorator
+    finish
     furnitureRefinishing
     interiorDesigner
-    software
     labels
     room
-    cabinetry
-    finish
+    software
+    title
     image {
       description
       file {
@@ -250,7 +245,6 @@ export const portfolioImagesQuery = graphql`
         }
       }
     }
-    title
   }
   query PortfolioImages {
     allSanityPortfolioImage {

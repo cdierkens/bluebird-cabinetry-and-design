@@ -1,14 +1,13 @@
 import React from "react";
-import { todo } from "../../../../migration.types";
+import { CommonProps } from "react-images";
+import { CarouselImage } from "../../lib";
 
-const View: React.FC<todo> = ({
-  views,
-  index,
-  modalProps: { isFullscreen },
-}) => {
-  const { source, alt } = views[index];
+interface ViewProps extends CommonProps {
+  data: CarouselImage;
+}
 
-  const height = isFullscreen ? "100vh" : "calc(100vh - 90px)";
+const View: React.FC<ViewProps> = ({ modalProps, data: { source, alt } }) => {
+  const height = modalProps?.isFullscreen ? "100vh" : "calc(100vh - 90px)";
 
   return (
     <div
@@ -18,7 +17,7 @@ const View: React.FC<todo> = ({
       <img
         className="h-auto max-h-full max-w-full m-auto select-none"
         src={source.regular}
-        alt={alt}
+        alt={alt ?? undefined}
       />
     </div>
   );

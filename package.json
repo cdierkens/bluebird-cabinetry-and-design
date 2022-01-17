@@ -53,7 +53,8 @@
           "**/*.tsx"
         ],
         "rules": {
-          "react/prop-types": "off"
+          "react/prop-types": "off",
+          "jsx-a11y/img-redundant-alt": "off"
         }
       }
     ],

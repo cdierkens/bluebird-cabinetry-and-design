@@ -1,12 +1,25 @@
 import React from "react";
-import Carousel, { Modal, ModalGateway } from "react-images";
+import Carousel, {
+  CarouselStyles,
+  Modal,
+  ModalGateway,
+  ViewType,
+} from "react-images";
 import { theme } from "../../../lib/tailwind";
-import { todo } from "../../../migration.types";
+import { CarouselImage } from "../lib";
 import Footer from "./Footer";
 import Header from "./Header";
 import View from "./View";
 
-const ImageModal: React.FC<todo> = ({
+interface ImageModalProps {
+  lightboxIsOpen: boolean;
+  closeLightbox: () => void;
+  selectedIndex: number;
+  carouselImages: Array<CarouselImage>;
+  setSelectedIndex: (index: number) => void;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({
   lightboxIsOpen,
   closeLightbox,
   selectedIndex,
@@ -33,8 +46,8 @@ const ImageModal: React.FC<todo> = ({
           <Carousel
             hideControlsWhenIdle={false}
             currentIndex={selectedIndex}
-            components={{ Header, View, Footer }}
-            views={carouselImages}
+            components={{ Header, View, Footer } as any}
+            views={carouselImages as any as Array<ViewType>}
             trackProps={{
               onViewChange: setSelectedIndex,
             }}
@@ -46,7 +59,7 @@ const ImageModal: React.FC<todo> = ({
   );
 };
 
-const navButtonStyles = (base: todo) => ({
+const navButtonStyles = (base: React.CSSProperties) => ({
   ...base,
   backgroundColor: theme.colors.white,
   boxShadow: theme.boxShadow.md,
@@ -62,8 +75,8 @@ const navButtonStyles = (base: todo) => ({
   },
 });
 
-const carouselStyles = {
-  container: (base: todo) => ({
+const carouselStyles: CarouselStyles = {
+  container: (base) => ({
     ...base,
     height: "100vh",
   }),

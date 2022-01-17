@@ -7,13 +7,18 @@ it("matches snapshot", () => {
     <Header
       modalProps={{}}
       currentView={{
+        source: {
+          download: "download",
+          fullscreen: "fullscreen",
+          regular: "regular",
+          thumbnail: "thumbnail",
+        },
         title: "",
         contractor: "",
         furnitureRefinishing: "",
         interiorDesigner: "",
         software: "",
       }}
-      label="mock label"
     />
   );
 
