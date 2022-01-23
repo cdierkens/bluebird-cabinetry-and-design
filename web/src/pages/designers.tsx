@@ -72,7 +72,7 @@ const DesignersPage: React.FC = () => {
 
 export const query = graphql`
   query DesignersQuery {
-    allSanityDesigner {
+    allSanityDesigner(sort: { fields: [_createdAt] }) {
       nodes {
         name
         id

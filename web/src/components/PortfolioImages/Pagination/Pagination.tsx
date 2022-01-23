@@ -1,10 +1,12 @@
 import React, { VFC } from "react";
+import { ImageFragment } from "../../../../graphql-types";
 import { LeftArrowIcon, RightArrowIcon } from "../../../icons";
-import { UNSAFE_ANY } from "../../../migration.types";
 import { PAGE_SIZE } from "../constants";
 
+type Images = ImageFragment[];
+
 interface PaginationProps {
-  images: Array<UNSAFE_ANY>;
+  images: Images;
   selectedIndex: number;
   handlePagination: (index: number) => void;
 }

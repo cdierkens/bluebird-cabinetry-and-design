@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { UNSAFE_ANY } from "../../../migration.types";
+import { ImageFragment } from "../../../../graphql-types";
 import Container from "../../Container";
 import { ImageGrid } from "../ImageGrid";
 import { ImageModal } from "../ImageModal";
 import { mapPortfolioImageToCarouselImage } from "../lib";
 
-const AlbumImages: React.FC<UNSAFE_ANY> = ({ title, images }) => {
+type Images = ImageFragment[];
+
+interface AlbumImagesProps {
+  title: string;
+  images: Images;
+}
+
+const AlbumImages: React.FC<AlbumImagesProps> = ({ title, images }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
 
