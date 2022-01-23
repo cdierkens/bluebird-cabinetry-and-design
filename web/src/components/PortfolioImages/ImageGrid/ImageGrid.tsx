@@ -1,26 +1,34 @@
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
-import { UNSAFE_ANY } from "../../../migration.types";
+import { ImageFragment } from "../../../../graphql-types";
+import { invariant } from "../../../lib/invariant";
 import { PAGE_SIZE } from "../constants";
 
-interface Image {
-  image: UNSAFE_ANY;
-  room: UNSAFE_ANY;
-  cabinetry: UNSAFE_ANY;
-  finish: UNSAFE_ANY;
-  labels: UNSAFE_ANY;
+type Images = ImageFragment[];
+
+interface ImageGridProps {
+  images: Images;
+  selectedPage: number;
+  onClick: (index: number) => void;
 }
 
-const ImageGrid: React.FC<UNSAFE_ANY> = ({ images, selectedPage, onClick }) => {
+const ImageGrid: React.FC<ImageGridProps> = ({
+  images,
+  selectedPage,
+  onClick,
+}) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
       {images
         .slice(PAGE_SIZE * selectedPage, PAGE_SIZE * selectedPage + PAGE_SIZE)
-        .map(
-          (
-            { image, labels, room, cabinetry, finish }: Image,
-            index: number
-          ) => (
+        .map(({ image, labels, room, cabinetry, finish }, index: number) => {
+          invariant(image?.file?.asset);
+          invariant(image.description);
+          invariant(labels);
+          invariant(cabinetry);
+          invariant(finish);
+
+          return (
             <div key={image.file.asset.id} className="relative">
               <button
                 className="transform hover:scale-105 focus:scale-105 duration-300 p-1 shadow-md focus:outline-none focus:ring bg-white min-w-full"
@@ -37,8 +45,8 @@ const ImageGrid: React.FC<UNSAFE_ANY> = ({ images, selectedPage, onClick }) => {
                   {[
                     ...labels,
                     room,
-                    ...cabinetry.map((value: string) => `${value} Cabinetry`),
-                    ...finish.map((value: string) => `${value} Finish`),
+                    ...cabinetry.map((value) => `${value} Cabinetry`),
+                    ...finish.map((value) => `${value} Finish`),
                   ]
                     .sort()
                     .map((value) => (
@@ -52,8 +60,8 @@ const ImageGrid: React.FC<UNSAFE_ANY> = ({ images, selectedPage, onClick }) => {
                 </div>
               </button>
             </div>
-          )
-        )}
+          );
+        })}
     </div>
   );
 };

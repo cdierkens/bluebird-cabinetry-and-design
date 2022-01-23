@@ -1,16 +1,22 @@
 import { ParsedQuery } from "query-string";
 import React, { useCallback, useMemo, VFC } from "react";
 import Select, { ActionMeta, Options } from "react-select";
-import { UNSAFE_ANY } from "../../../migration.types";
+import { ImageFragment } from "../../../../graphql-types";
 import { getQueryStringFromOption, getValuesForAttribute } from "../lib";
 
 interface SelectInputProps {
-  allImages: Array<UNSAFE_ANY>;
+  allImages: Array<ImageFragment>;
   attribute: string;
   label?: string;
   query: ParsedQuery<string>;
   selectedValues: Array<string>;
   setQuery: (values: object) => void;
+}
+
+interface Option {
+  id: string;
+  value: string;
+  label: string;
 }
 
 export const SelectInput: VFC<SelectInputProps> = ({
@@ -27,7 +33,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
   );
 
   const handleChange = useCallback(
-    (values: Options<UNSAFE_ANY>, event: ActionMeta<UNSAFE_ANY>) => {
+    (values: Options<Option>, event: ActionMeta<Option>) => {
       // If there are no values, remove attribute from the query
       if (!values || !values.length) {
         setQuery({
@@ -38,7 +44,7 @@ export const SelectInput: VFC<SelectInputProps> = ({
         return;
       }
 
-      if (event.action === "select-option" && event.option.value === "all") {
+      if (event.action === "select-option" && event.option?.value === "all") {
         setQuery({
           ...query,
           [attribute]: allValues.join(","),

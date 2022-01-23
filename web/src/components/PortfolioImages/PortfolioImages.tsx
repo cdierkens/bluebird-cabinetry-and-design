@@ -7,7 +7,8 @@ import {
 } from "react-icons/md";
 import useQueryString from "use-query-string";
 import { PortfolioImagesQuery } from "../../../graphql-types";
-import { UNSAFE_ANY } from "../../migration.types";
+import { isDefined } from "../../lib";
+import { invariant } from "../../lib/invariant";
 import Button from "../Button";
 import Container from "../Container";
 import { AlbumImages } from "./AlbumImages";
@@ -209,8 +210,17 @@ const PortfolioImages: React.FC<PortfolioImagesProps> = ({ location }) => {
       {albums.length ? (
         <Container>
           <h2>Project Photos</h2>
-          {albums.map(({ title, images }: UNSAFE_ANY) => {
-            return <AlbumImages key={title} images={images} title={title} />;
+          {albums.map(({ title, images }) => {
+            invariant(title);
+            invariant(images);
+
+            return (
+              <AlbumImages
+                key={title}
+                images={images.filter(isDefined)}
+                title={title}
+              />
+            );
           })}
         </Container>
       ) : null}
