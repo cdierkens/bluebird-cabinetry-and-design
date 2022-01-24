@@ -22135,10 +22135,10 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
-use-query-string@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/use-query-string/-/use-query-string-2.4.0.tgz#c88cec85bcceb5d935afc3aaf9026ce1a97e2358"
-  integrity sha512-dCP78LNXW58nWtb+CGCNsce5Nvma85htNnUyXOurH5RBShH910BdHCbJW+qUU/TeiKRp4wJPhLJxToEWPsI9zQ==
+use-query-string@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/use-query-string/-/use-query-string-2.4.1.tgz#bc1374823756961e35ec8d0e0d723264bba6e838"
+  integrity sha512-9hhzhVLYhhr+Lbi2Z6d1drKc4QXAfa2MgU1gIUDivR01vd0HUjzV85MiUVRkwyq0bu+DAS1gbrryT90LskI/vw==
   dependencies:
     query-string "^7.1.0"
 
