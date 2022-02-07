@@ -33,7 +33,7 @@
     "babel-preset-gatsby": "2.6.0",
     "clsx": "1.1.1",
     "date-fns": "2.28.0",
-    "dotenv": "14.3.2",
+    "dotenv": "16.0.0",
     "formik": "2.2.9",
     "gatsby-cli": "4.6.1",
     "gatsby-plugin-graphql-codegen": "3.1.1",
