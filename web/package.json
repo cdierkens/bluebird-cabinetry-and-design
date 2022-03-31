@@ -46,7 +46,7 @@
     "gatsby": "4.11.1",
     "gatsby-plugin-sharp": "4.11.1",
     "gatsby-plugin-sitemap": "5.11.1",
-    "gatsby-source-sanity": "7.4.0",
+    "gatsby-source-sanity": "7.4.1",
     "gatsby-transformer-sharp": "4.11.0",
     "identity-obj-proxy": "3.0.0",
     "inquirer-fuzzy-path": "2.3.0",
