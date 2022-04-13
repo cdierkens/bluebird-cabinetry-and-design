@@ -6,7 +6,7 @@ interface GridProps {
   className?: string;
 }
 
-const Grid: React.FC<GridProps> = ({ className, children }) => (
+const Grid: React.FC<React.PropsWithChildren<GridProps>> = ({ className, children }) => (
   <div className={clsx(styles.Grid, className, "gap-3")}>{children}</div>
 );
 

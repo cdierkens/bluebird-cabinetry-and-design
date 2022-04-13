@@ -6,7 +6,7 @@ interface HeaderNavProps {
   className?: string;
 }
 
-const HeaderNav: React.FC<HeaderNavProps> = ({ className, children }) => (
+const HeaderNav: React.FC<React.PropsWithChildren<HeaderNavProps>> = ({ className, children }) => (
   <div className={clsx(styles.HeaderNav, className)}>{children}</div>
 );
 

@@ -20,7 +20,7 @@ type ButtonProps = {
     }
 );
 
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   children,
   className,
   onClick,

@@ -6,7 +6,7 @@ interface ViewProps extends CommonProps {
   data: CarouselImage;
 }
 
-const View: React.FC<ViewProps> = ({ modalProps, data: { source, alt } }) => {
+const View: React.FC<React.PropsWithChildren<ViewProps>> = ({ modalProps, data: { source, alt } }) => {
   const height = modalProps?.isFullscreen ? "100vh" : "calc(100vh - 90px)";
 
   return (

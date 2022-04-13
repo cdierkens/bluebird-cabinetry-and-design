@@ -1,5 +1,6 @@
 import { Options } from "react-select";
 import { PortfolioImagesQuery } from "../../../graphql-types";
+import { isDefined } from "../../lib";
 import { builder } from "../../lib/image-url";
 import { invariant } from "../../lib/invariant";
 
@@ -90,10 +91,10 @@ export const mapPortfolioImageToCarouselImage = ({
 };
 
 export const getArrayFromQueryParam = (
-  value: string | string[] | null
+  value: string | (string | null)[] | null
 ): string[] => {
   if (Array.isArray(value)) {
-    return value;
+    return value.filter(isDefined);
   }
 
   switch (typeof value) {

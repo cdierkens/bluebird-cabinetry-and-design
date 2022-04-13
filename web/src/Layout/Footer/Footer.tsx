@@ -9,7 +9,7 @@ import {
   NkbaIcon,
 } from "../../icons";
 
-const Footer: React.FC = () => (
+const Footer: React.FC<React.PropsWithChildren<unknown>> = () => (
   <>
     <div className="bg-gray-darker text-center text-gray-light p-5 text-sm leading-loose">
       <div className="my-6">

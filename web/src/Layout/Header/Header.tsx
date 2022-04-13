@@ -6,7 +6,7 @@ import DesktopNav from "./DesktopNav";
 import * as styles from "./Header.module.css";
 import MobileNav from "./MobileNav";
 
-const Links: React.FC = () => (
+const Links: React.FC<React.PropsWithChildren<unknown>> = () => (
   <>
     <Link className={styles.Link} activeClassName={styles.LinkActive} to="/">
       Home
@@ -49,7 +49,7 @@ const Links: React.FC = () => (
   </>
 );
 
-const Header: React.FC = () => {
+const Header: React.FC<React.PropsWithChildren<unknown>> = () => {
   const isMobile = useMatchMedia(`(max-width: ${theme.screens.md})`);
 
   return (

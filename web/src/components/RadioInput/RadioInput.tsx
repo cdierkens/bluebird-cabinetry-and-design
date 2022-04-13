@@ -7,7 +7,7 @@ interface RadioInputProps {
   value: string;
 }
 
-const RadioInput: React.FC<RadioInputProps> = ({ label, ...props }) => {
+const RadioInput: React.FC<React.PropsWithChildren<RadioInputProps>> = ({ label, ...props }) => {
   const [field] = useField({
     ...props,
     type: "radio",

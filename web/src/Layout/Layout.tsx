@@ -13,7 +13,7 @@ interface Props {
   title: string;
 }
 
-const Layout: React.FC<Props> = ({
+const Layout: React.FC<React.PropsWithChildren<Props>> = ({
   errors,
   title,
   hidePageTitle,
