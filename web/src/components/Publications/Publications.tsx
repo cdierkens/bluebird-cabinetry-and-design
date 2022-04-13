@@ -2,7 +2,7 @@ import React from "react";
 import { BestIcon, ShilowCabinetryIcon } from "../../icons";
 import Container from "../Container";
 
-const Publications: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Publications: React.FC = () => {
   return (
     <div className="bg-blue-dark py-6">
       <Container>

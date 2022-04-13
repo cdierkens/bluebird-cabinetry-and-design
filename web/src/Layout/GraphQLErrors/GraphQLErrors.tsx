@@ -9,7 +9,7 @@ interface GraphQLErrorsProps {
   errors?: Array<GraphQLError>;
 }
 
-const GraphQLErrors: React.FC<React.PropsWithChildren<GraphQLErrorsProps>> = ({ errors = [] }) => (
+const GraphQLErrors: React.FC<GraphQLErrorsProps> = ({ errors = [] }) => (
   <div className={styles.GraphQLErrors}>
     <h1>GraphQL Error</h1>
     {errors.map((error) => (

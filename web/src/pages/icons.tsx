@@ -2,7 +2,7 @@ import React from "react";
 import * as icons from "../icons";
 import Layout from "../Layout";
 
-const Icons: React.FC<React.PropsWithChildren<unknown>> = () => (
+const Icons: React.FC = () => (
   <Layout title="Icons">
     {Object.entries(icons).map(([name, Icon]) => (
       <div key={name} className="max-w-screen-lg mx-auto">

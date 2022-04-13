@@ -27,7 +27,7 @@ interface PortfolioImagesProps {
   location: Location;
 }
 
-const PortfolioImages: React.FC<React.PropsWithChildren<PortfolioImagesProps>> = ({ location }) => {
+const PortfolioImages: React.FC<PortfolioImagesProps> = ({ location }) => {
   const {
     allSanityPortfolioImage: { nodes: allImages },
     allSanityAlbum: { nodes: albums },

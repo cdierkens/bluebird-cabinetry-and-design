@@ -2,7 +2,7 @@ import React from "react";
 import Carousel, {
   CarouselStyles,
   Modal,
-  ModalGateway as _ModelGateway,
+  ModalGateway,
   ViewType,
 } from "react-images";
 import { theme } from "../../../lib/tailwind";
@@ -19,11 +19,7 @@ interface ImageModalProps {
   setSelectedIndex: (index: number) => void;
 }
 
-const ModalGateway = _ModelGateway as React.ComponentType<
-  React.PropsWithChildren<{}>
->;
-
-const ImageModal: React.FC<React.PropsWithChildren<ImageModalProps>> = ({
+const ImageModal: React.FC<ImageModalProps> = ({
   lightboxIsOpen,
   closeLightbox,
   selectedIndex,

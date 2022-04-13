@@ -11,7 +11,7 @@ import Button from "../Button";
 import Container from "../Container";
 import * as styles from "./Services.module.css";
 
-const Services: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Services: React.FC = () => {
   return (
     <div className={styles.ServicesContainer}>
       <Container className={styles.ServicesGrid}>

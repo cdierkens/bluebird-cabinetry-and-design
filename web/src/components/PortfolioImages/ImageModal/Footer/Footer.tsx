@@ -6,7 +6,7 @@ interface FooterProps extends CommonProps {
   currentView: CarouselImage;
 }
 
-const Footer: React.FC<React.PropsWithChildren<FooterProps>> = ({
+const Footer: React.FC<FooterProps> = ({
   currentIndex = 0,
   views,
   currentView,
