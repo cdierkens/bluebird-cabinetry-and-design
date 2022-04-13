@@ -11,7 +11,7 @@ interface InputProps {
   type?: "text" | "email" | "password" | "textarea";
 }
 
-const Input: React.FC<InputProps> = ({ label, type = "text", ...props }) => {
+const Input: React.FC<React.PropsWithChildren<InputProps>> = ({ label, type = "text", ...props }) => {
   const [field] = useField({
     ...props,
     type: type === "textarea" ? "text" : type,

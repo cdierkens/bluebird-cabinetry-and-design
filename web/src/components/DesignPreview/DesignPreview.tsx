@@ -36,7 +36,7 @@ interface DesignPreviewProps {
   images: Array<DesignPreviewImageFragment>;
 }
 
-const DesignPreview: React.FC<DesignPreviewProps> = ({
+const DesignPreview: React.FC<React.PropsWithChildren<DesignPreviewProps>> = ({
   title,
   description,
   images,

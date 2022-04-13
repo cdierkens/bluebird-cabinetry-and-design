@@ -16,7 +16,7 @@ interface ListItemProp {
   title: string;
 }
 
-const ListItem: React.FC<ListItemProp> = ({ title, children }) => (
+const ListItem: React.FC<React.PropsWithChildren<ListItemProp>> = ({ title, children }) => (
   <li>
     <span className="text-blue-dark text-2xl font-medium">{title}</span>
     <p>{children}</p>
@@ -28,7 +28,7 @@ interface DesignProcessItemProps {
   number: string;
 }
 
-const DesignProcessItem: React.FC<DesignProcessItemProps> = ({
+const DesignProcessItem: React.FC<React.PropsWithChildren<DesignProcessItemProps>> = ({
   title,
   number,
   children,
@@ -46,7 +46,7 @@ const DesignProcessItem: React.FC<DesignProcessItemProps> = ({
   );
 };
 
-const ServicesPage: React.FC = () => (
+const ServicesPage: React.FC<React.PropsWithChildren<unknown>> = () => (
   <Layout title="Services">
     <Container className="pb-16">
       <Grid>

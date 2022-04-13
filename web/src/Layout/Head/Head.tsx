@@ -19,7 +19,7 @@ interface Props {
   lang?: string;
 }
 
-const Head: React.FC<Props> = ({ title, lang = "en" }) => {
+const Head: React.FC<React.PropsWithChildren<Props>> = ({ title, lang = "en" }) => {
   const { site } = useStaticQuery<DefaultSeoQueryQuery>(query);
 
   const description = site?.description || "";

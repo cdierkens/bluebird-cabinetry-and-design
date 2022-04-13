@@ -29,7 +29,7 @@ interface Response {
   message: string;
 }
 
-const ToTheTradeForm: React.FC = () => {
+const ToTheTradeForm: React.FC<React.PropsWithChildren<unknown>> = () => {
   const [response, setResponse] = useState<Response>({
     status: "init",
     message: "",

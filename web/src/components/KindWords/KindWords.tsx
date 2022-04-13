@@ -24,7 +24,7 @@ interface KindWordsItemProps {
   name: string;
 }
 
-const KindWordsItem: React.FC<KindWordsItemProps> = ({
+const KindWordsItem: React.FC<React.PropsWithChildren<KindWordsItemProps>> = ({
   title,
   children,
   name,

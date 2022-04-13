@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import logo from "../../../images/logo.png";
 import * as styles from "./MobileNav.module.css";
 
-const MobileNav: React.FC = ({ children }) => {
+const MobileNav: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (

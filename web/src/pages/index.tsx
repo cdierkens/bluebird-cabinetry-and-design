@@ -45,7 +45,7 @@ export const query = graphql`
   }
 `;
 
-const IndexPage: React.FC<PagePropsWithErrors<IndexPageQueryQuery>> = ({
+const IndexPage: React.FC<React.PropsWithChildren<PagePropsWithErrors<IndexPageQueryQuery>>> = ({
   data: { carousel, designPreview },
   errors,
 }) => {
