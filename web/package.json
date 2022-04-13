@@ -14,6 +14,7 @@
     "defaults"
   ],
   "dependencies": {
+    "@babel/core": "^7.17.9",
     "@react-typed-hooks/use-key-press": "1.0.5",
     "@react-typed-hooks/use-window-size": "1.0.5",
     "@sanity/block-content-to-react": "3.0.0",
@@ -35,6 +36,7 @@
     "date-fns": "2.28.0",
     "dotenv": "16.0.0",
     "formik": "2.2.9",
+    "gatsby": "4.12.1",
     "gatsby-cli": "4.12.1",
     "gatsby-plugin-graphql-codegen": "3.1.1",
     "gatsby-plugin-image": "2.12.1",
@@ -43,11 +45,11 @@
     "gatsby-plugin-react-helmet": "5.12.1",
     "gatsby-plugin-react-svg": "3.1.0",
     "gatsby-plugin-root-import": "2.0.8",
-    "gatsby": "4.12.1",
     "gatsby-plugin-sharp": "4.12.1",
     "gatsby-plugin-sitemap": "5.12.1",
     "gatsby-source-sanity": "7.4.2",
     "gatsby-transformer-sharp": "4.12.1",
+    "graphql": "15.8.0",
     "identity-obj-proxy": "3.0.0",
     "inquirer-fuzzy-path": "2.3.0",
     "jest": "27.5.1",
