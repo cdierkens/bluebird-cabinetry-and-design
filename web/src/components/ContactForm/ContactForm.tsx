@@ -31,7 +31,7 @@ interface Response {
   message: string;
 }
 
-const ContactForm: React.FC<React.PropsWithChildren<unknown>> = () => {
+const ContactForm: React.FC = () => {
   const [response, setResponse] = useState<Response>({
     status: "init",
     message: "",

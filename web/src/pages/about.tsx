@@ -9,7 +9,7 @@ import portrait from "../images/dana-portrait.jpg";
 import kitchen from "../images/farmhouse-kitchen.jpg";
 import Layout from "../Layout";
 
-const AboutPage: React.FC<React.PropsWithChildren<unknown>> = () => (
+const AboutPage: React.FC = () => (
   <Layout title="About">
     <Container className="pb-20">
       <Grid className="gap-8 gap-y-8 items-center">

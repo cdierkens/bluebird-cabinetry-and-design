@@ -7,7 +7,7 @@ interface OptionProps {
   value: string;
 }
 
-const Option: React.FC<React.PropsWithChildren<OptionProps>> = ({
+const Option: React.FC<OptionProps> = ({
   children,
   disabled = false,
   value,
@@ -22,7 +22,7 @@ interface SelectProps {
   name: string;
 }
 
-const Select: React.FC<React.PropsWithChildren<SelectProps>> & {
+const Select: React.FC<SelectProps> & {
   Option: typeof Option;
 } = ({ children, label, name }) => {
   const [field] = useField(name);

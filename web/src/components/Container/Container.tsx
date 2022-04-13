@@ -6,7 +6,7 @@ interface ContainerProps {
   className?: string;
 }
 
-const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({ className, children }) => {
+const Container: React.FC<ContainerProps> = ({ className, children }) => {
   return <div className={clsx(styles.Container, className)}>{children}</div>;
 };
 

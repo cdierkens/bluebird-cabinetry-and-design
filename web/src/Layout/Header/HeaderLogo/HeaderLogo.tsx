@@ -9,7 +9,7 @@ interface HeaderLogoProps {
   className?: string;
 }
 
-const HeaderLogo: React.FC<React.PropsWithChildren<HeaderLogoProps>> = ({ className }) => {
+const HeaderLogo: React.FC<HeaderLogoProps> = ({ className }) => {
   const position = useScrollPosition();
 
   return (

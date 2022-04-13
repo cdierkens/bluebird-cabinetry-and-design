@@ -10,7 +10,7 @@ import Layout from "../Layout";
 import { builder } from "../lib";
 import { invariant } from "../lib/invariant";
 
-const DesignersPage: React.FC<React.PropsWithChildren<unknown>> = () => {
+const DesignersPage: React.FC = () => {
   const {
     allSanityDesigner: { nodes: designers },
   } = useStaticQuery<DesignersQueryQuery>(query);

@@ -12,7 +12,7 @@ interface ImageGridProps {
   onClick: (index: number) => void;
 }
 
-const ImageGrid: React.FC<React.PropsWithChildren<ImageGridProps>> = ({
+const ImageGrid: React.FC<ImageGridProps> = ({
   images,
   selectedPage,
   onClick,

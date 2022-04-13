@@ -12,7 +12,7 @@ interface AlbumImagesProps {
   images: Images;
 }
 
-const AlbumImages: React.FC<React.PropsWithChildren<AlbumImagesProps>> = ({ title, images }) => {
+const AlbumImages: React.FC<AlbumImagesProps> = ({ title, images }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
 

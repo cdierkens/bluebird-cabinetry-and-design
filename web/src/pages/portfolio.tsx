@@ -6,7 +6,7 @@ import Publications from "../components/Publications";
 import Layout from "../Layout";
 import { PagePropsWithErrors } from "../migration.types";
 
-const PortfolioPage: React.FC<React.PropsWithChildren<PagePropsWithErrors>> = ({ location }) => {
+const PortfolioPage: React.FC<PagePropsWithErrors> = ({ location }) => {
   return (
     <Layout title="Portfolio">
       <PortfolioImages location={location} />

@@ -13,7 +13,7 @@ interface AlertProps {
   onClose?: () => void;
 }
 
-const Alert: React.FC<React.PropsWithChildren<AlertProps>> = ({ status, children, onClose = noop }) => {
+const Alert: React.FC<AlertProps> = ({ status, children, onClose = noop }) => {
   const isEscapePressed = useKeyPress({ targetKey: "Escape" });
   const closeRef = useRef<HTMLButtonElement>(null);
 

@@ -4,7 +4,7 @@ import Container from "../components/Container";
 import { BirdIcon } from "../icons";
 import Layout from "../Layout";
 
-const NotFoundPage: React.FC<React.PropsWithChildren<unknown>> = () => (
+const NotFoundPage: React.FC = () => (
   <Layout title="Page not found">
     <Container>
       <div className="flex items-center justify-center my-8">

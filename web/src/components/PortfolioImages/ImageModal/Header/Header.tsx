@@ -6,7 +6,7 @@ interface HeaderProps extends CommonProps {
   currentView: CarouselImage;
 }
 
-const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({ currentView, modalProps }) => {
+const Header: React.FC<HeaderProps> = ({ currentView, modalProps }) => {
   const { title } = currentView;
 
   if (modalProps?.isFullscreen) {

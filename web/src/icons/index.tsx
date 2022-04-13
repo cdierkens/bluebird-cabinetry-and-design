@@ -25,9 +25,9 @@ import Rendering from "./rendering.svg";
 import Shield from "./shield.svg";
 import ShilowCabinetry from "./shilow-cabinetry.svg";
 
-type Icon = React.FC<React.PropsWithChildren<{
+type Icon = React.FC<{
   className?: string;
-}>>;
+}>;
 
 const baseClass = tw`p-1 fill-current stroke-current inline-block`;
 const iconBaseClass = tw`fill-none stroke-3`;
