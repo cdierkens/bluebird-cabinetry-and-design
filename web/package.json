@@ -54,7 +54,7 @@
     "inquirer-fuzzy-path": "2.3.0",
     "jest": "27.5.1",
     "lodash": "4.17.21",
-    "plop": "3.0.5",
+    "plop": "3.0.6",
     "postcss": "8.4.12",
     "postcss-import": "14.1.0",
     "postcss-preset-env": "7.4.3",
