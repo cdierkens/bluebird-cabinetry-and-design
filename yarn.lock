@@ -4450,10 +4450,10 @@
     "@types/react" "^17.0.42"
     rxjs "^6.5.3"
 
-"@sanity/ui@0.37.8":
-  version "0.37.8"
-  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.37.8.tgz#4742031b591218c1674d6dedff71652698c7d281"
-  integrity sha512-NT8Z1bsQyo6X/bVv8QU5y7wx4GqwyQ4wGh3JG62VJn9L1Ij0CPaBBcFxQfm6sCnDoUmK4WanAiw6P4NHxrx0dg==
+"@sanity/ui@0.37.9":
+  version "0.37.9"
+  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.37.9.tgz#ab2fc9c06f856f38403cd364628ff26d8ff00f77"
+  integrity sha512-Gyj7tC/0jKLYwJY/s1I7pU6fhzgP/jB7u2Xi20ZxLukWUioS95ccZ1bRcOBNk4aBqmroRs9IPT97fsRiiFhe2Q==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
     "@popperjs/core" "^2.11.5"
