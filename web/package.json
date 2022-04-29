@@ -36,7 +36,7 @@
     "date-fns": "2.28.0",
     "dotenv": "16.0.0",
     "formik": "2.2.9",
-    "gatsby": "4.13.0",
+    "gatsby": "4.13.1",
     "gatsby-cli": "4.13.0",
     "gatsby-plugin-graphql-codegen": "3.1.1",
     "gatsby-plugin-image": "2.13.0",
