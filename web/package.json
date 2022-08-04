@@ -20,7 +20,7 @@
     "@sanity/block-content-to-react": "3.0.0",
     "@sanity/image-url": "1.0.1",
     "@sendgrid/mail": "7.7.0",
-    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "12.1.5",
     "@types/jest": "27.5.2",
     "@types/react": "17.0.48",
