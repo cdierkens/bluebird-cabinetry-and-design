@@ -33,7 +33,7 @@
     "babel-jest": "27.5.1",
     "babel-preset-gatsby": "2.21.0",
     "clsx": "1.2.1",
-    "date-fns": "2.29.1",
+    "date-fns": "2.29.2",
     "dotenv": "16.0.1",
     "formik": "2.2.9",
     "gatsby": "4.21.0",
