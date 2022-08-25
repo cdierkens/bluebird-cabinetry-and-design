@@ -22,7 +22,7 @@
     "@sanity/default-login": "2.31.0",
     "@sanity/desk-tool": "2.31.0",
     "@sanity/studio-hints": "2.29.8",
-    "@sanity/ui": "0.37.20",
+    "@sanity/ui": "0.38.0",
     "@sanity/vision": "2.31.0",
     "@types/prop-types": "15.7.5",
     "@types/react": "17.0.48",
