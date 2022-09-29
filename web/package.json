@@ -34,7 +34,7 @@
     "babel-preset-gatsby": "2.24.0",
     "clsx": "1.2.1",
     "date-fns": "2.29.3",
-    "dotenv": "16.0.2",
+    "dotenv": "16.0.3",
     "formik": "2.2.9",
     "gatsby": "4.24.0",
     "gatsby-cli": "4.24.0",
