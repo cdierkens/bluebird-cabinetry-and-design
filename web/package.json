@@ -14,7 +14,7 @@
     "defaults"
   ],
   "dependencies": {
-    "@babel/core": "7.19.3",
+    "@babel/core": "7.19.6",
     "@react-typed-hooks/use-key-press": "1.0.5",
     "@react-typed-hooks/use-window-size": "1.0.5",
     "@sanity/block-content-to-react": "3.0.0",
