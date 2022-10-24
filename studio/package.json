@@ -38,7 +38,7 @@
     "styled-components": "5.3.6"
   },
   "devDependencies": {
-    "inquirer": "8.2.4",
+    "inquirer": "8.2.5",
     "mkdirp": "1.0.4"
   }
 }
