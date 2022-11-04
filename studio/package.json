@@ -12,7 +12,7 @@
     "start": "sanity start"
   },
   "dependencies": {
-    "@babel/core": "7.19.6",
+    "@babel/core": "7.20.2",
     "@sanity/base": "2.35.0",
     "@sanity/cli": "2.35.0",
     "@sanity/components": "2.14.0",
