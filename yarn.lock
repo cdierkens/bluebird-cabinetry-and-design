@@ -20559,10 +20559,10 @@ sanity-plugin-dashboard-widget-document-list@0.0.13:
     prop-types "^15.7.2"
     rxjs "^6.0.0"
 
-sanity-plugin-dashboard-widget-netlify@1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-netlify/-/sanity-plugin-dashboard-widget-netlify-1.3.1.tgz#680515aab9d4f2debff9467cacf3cf0d58ec9083"
-  integrity sha512-NCBa5RELjKb/gor0OP8t0MfnuLZMy2HtCMQsOzwW1DDDLDHc2qYcLiFHjAeP2NHnGVObrPqfeeq7Wh3CKcaBHw==
+sanity-plugin-dashboard-widget-netlify@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-netlify/-/sanity-plugin-dashboard-widget-netlify-1.3.2.tgz#ea2ff87d7eb87ec2e5ab07aa486aabdb3e51b1d7"
+  integrity sha512-QGMzoSZIaKlC+DWAulom2QkhYFZ1yd4wWyK2XPVB6AYiCCskQKy7qbvJ8ozVol+xZYhVhR/V5IHxmZD2kk6OzA==
   dependencies:
     abort-controller "^2.0.3"
     react-props-stream "^1.0.0"
