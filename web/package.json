@@ -65,7 +65,7 @@
     "react-icons": "4.8.0",
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.23",
-    "react-select": "5.6.0",
+    "react-select": "5.7.2",
     "tailwindcss": "3.1.6",
     "use-query-string": "2.4.1",
     "yup": "0.32.11"
