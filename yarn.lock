@@ -21040,10 +21040,10 @@ sanity-diff-patch@^1.0.9:
   dependencies:
     diff-match-patch "^1.0.5"
 
-sanity-plugin-dashboard-widget-document-list@0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-document-list/-/sanity-plugin-dashboard-widget-document-list-0.0.13.tgz#a2839d82d3ce3ee3d08735877cc13f3ad890de7a"
-  integrity sha512-nePwppkIZ7deU05O+tHqh+tdJ5uCD9bVn/Q/XB1s6z0e93JMGJ5eZAggqPTmCH9GRETUAFthhS5GE4idTQwAfA==
+sanity-plugin-dashboard-widget-document-list@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-dashboard-widget-document-list/-/sanity-plugin-dashboard-widget-document-list-0.1.0.tgz#4a2b5ad2d301f121b2e615d37004161dd157cf23"
+  integrity sha512-+/Pw5Y2Iix3RpvUWsCaqjawKz+XXyVguVhvHXnne9G57RQXjbBhjHTMuFbmrWERtLjggN2tunZJ6t6LcZADB0Q==
   dependencies:
     lodash "^4.17.15"
     prop-types "^15.7.2"
