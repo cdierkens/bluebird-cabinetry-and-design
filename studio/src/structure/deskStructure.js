@@ -1,11 +1,10 @@
-import S from "@sanity/desk-tool/structure-builder";
 import {
   MdSettings,
   MdViewCarousel as viewCarouselIcon,
   MdViewQuilt as viewQuiltIcon,
 } from "react-icons/md";
 
-export const getDefaultDocumentNode = (props) => {
+export const defaultDocumentNode = (S, { schemaType }) => {
   /**
    * Here you can define fallback views for document types without
    * a structure definition for the document node. If you want different
@@ -25,7 +24,7 @@ export const getDefaultDocumentNode = (props) => {
  * - https://www.sanity.io/docs/structure-builder-reference
  */
 
-const deskStructure = () =>
+export const structure = (S) =>
   S.list()
     .title("Content")
     .items([
@@ -70,5 +69,3 @@ const deskStructure = () =>
           )
       ),
     ]);
-
-export default deskStructure;

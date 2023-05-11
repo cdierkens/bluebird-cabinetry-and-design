@@ -1,5 +1,5 @@
-import { withRouterHOC } from "part:@sanity/base/router";
 import { withPropsStream } from "react-props-stream";
+import { withRouterHOC } from "sanity/router";
 import { StructureMenuWidget } from "./components";
 import { toPropsStream } from "./props";
 

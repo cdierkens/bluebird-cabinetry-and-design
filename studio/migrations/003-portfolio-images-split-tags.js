@@ -1,5 +1,5 @@
+import client from "@sanity/client";
 import groq from "groq";
-import client from "part:@sanity/base/client";
 
 const migrateNextBatch = async () => {
   const documents = await client.fetch(

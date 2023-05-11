@@ -1,5 +1,5 @@
+import sanityClient from "@sanity/client";
 import groq from "groq";
-import sanityClient from "part:@sanity/base/client";
 
 const client = sanityClient.withConfig({ apiVersion: "v1" });
 

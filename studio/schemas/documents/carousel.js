@@ -1,22 +1,22 @@
 import { MdViewCarousel as ViewCarouselIcon } from "react-icons/md";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
-export default {
+export default defineType({
   name: "carousel",
   type: "document",
   title: "Carousel",
   icon: ViewCarouselIcon,
-  // __experimental_actions: ["update", /* 'create', 'delete', */ "publish"],
-  fields: [
+  fields: defineField([
     {
       title: "Images",
       name: "images",
       type: "array",
-      of: [
+      of: defineArrayMember([
         {
           type: "reference",
           to: [{ type: "portfolioImage" }],
         },
-      ],
+      ]),
     },
-  ],
-};
+  ]),
+});

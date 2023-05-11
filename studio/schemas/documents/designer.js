@@ -1,6 +1,7 @@
 import { MdPerson as DesignerIcon } from "react-icons/md";
+import { defineField } from "sanity";
 
-const document = {
+const document = defineField({
   name: "designer",
   type: "document",
   title: "Designer",
@@ -13,30 +14,31 @@ const document = {
     },
   },
   fields: [
-    {
+    defineField({
       name: "name",
       type: "string",
       title: "Full Name",
-    },
-    {
+    }),
+    defineField({
       name: "role",
       type: "string",
       title: "Role",
-      descripion: "Role to display (e.g., Owner / Kitchen & Bathroom Designer)",
-    },
-    {
+      description:
+        "Role to display (e.g., Owner / Kitchen & Bathroom Designer)",
+    }),
+    defineField({
       name: "image",
       title: "Image",
       type: "webImage",
-    },
-    {
+    }),
+    defineField({
       name: "description",
       title: "Description",
-      descripion: "Rich text description of the designer.",
+      description: "Rich text description of the designer.",
       type: "array",
       of: [{ type: "block" }],
-    },
+    }),
   ],
-};
+});
 
 export default document;

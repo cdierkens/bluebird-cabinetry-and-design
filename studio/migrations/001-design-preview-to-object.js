@@ -1,5 +1,5 @@
+import client from "@sanity/client";
 import groq from "groq";
-import client from "part:@sanity/base/client";
 
 // Run this script with: `sanity exec --with-user-token migrations/design-preview-to-object.js`
 
