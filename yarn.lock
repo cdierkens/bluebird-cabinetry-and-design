@@ -4415,17 +4415,17 @@
   resolved "https://registry.yarnpkg.com/@sanity/color/-/color-2.2.5.tgz#6b28578573859495ed1ffd5491322cb8e90b3e07"
   integrity sha512-tTi22KoKuER3sldXYl4c1Dq2zU7tMLDkljFiaUKVkBbu4PBvRGCFw75kXZnD2b4Bsp6vin+7sI+AKdCKRhfRuw==
 
-"@sanity/dashboard@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@sanity/dashboard/-/dashboard-3.1.4.tgz#edefd6abd1676481fb327d029178bde72a17097c"
-  integrity sha512-JUWE9Rew8yFr7DqqPE+1AK69eWgy0zng4/OxreauQYunhu1Zauon73WPMQPafRkWzCRDMMWxCitOUkrNQoZEJQ==
+"@sanity/dashboard@3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@sanity/dashboard/-/dashboard-3.1.6.tgz#e2110b1834e9ba7df4eaee9b6b5e961f659d5582"
+  integrity sha512-Ebz+K4h6bXN0xuj3EJylTMXc2O3WBU5rSimngJPuASXjYhOPRqOTQJcLT5lgQ/yxVN4U9CDN0JBmQDOrmFNXew==
   dependencies:
     "@sanity/icons" "^2.0.0"
     "@sanity/image-url" "^1.0.1"
     "@sanity/incompatible-plugin" "^1.0.4"
     "@sanity/ui" "^1.0.0"
     lodash "^4.17.21"
-    rxjs "^6.6.7"
+    rxjs "^7.0.0"
 
 "@sanity/diff@3.10.1":
   version "3.10.1"
