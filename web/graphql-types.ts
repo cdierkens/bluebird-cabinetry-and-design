@@ -19,6 +19,7 @@ export type Scalars = {
   Date: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
+  GatsbyImageData: any;
 };
 
 export type File = Node & {
@@ -134,6 +135,7 @@ export type Internal = {
   mediaType?: Maybe<Scalars['String']>;
   owner: Scalars['String'];
   type: Scalars['String'];
+  contentFilePath?: Maybe<Scalars['String']>;
 };
 
 export type Directory = Node & {
@@ -240,6 +242,8 @@ export type Site = Node & {
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
+  trailingSlash?: Maybe<Scalars['String']>;
+  graphqlTypegen?: Maybe<Scalars['Boolean']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -456,6 +460,15 @@ export type SanityClientReview_UpdatedAtArgs = {
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
+};
+
+export type SanityCrossDatasetReference = {
+  _key?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars['String']>;
+  _ref?: Maybe<Scalars['String']>;
+  _weak?: Maybe<Scalars['Boolean']>;
+  _dataset?: Maybe<Scalars['String']>;
+  _projectId?: Maybe<Scalars['String']>;
 };
 
 export type SanityDesigner = SanityDocument & Node & {
@@ -716,7 +729,7 @@ export type SanityFileAsset_RawSourceArgs = {
   resolveReferences?: InputMaybe<SanityResolveReferencesConfiguration>;
 };
 
-export type SanityImageAsset = SanityDocument & Node & {
+export type SanityImageAsset = SanityDocument & Node & RemoteFile & {
   _id?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   _createdAt?: Maybe<Scalars['Date']>;
@@ -730,7 +743,7 @@ export type SanityImageAsset = SanityDocument & Node & {
   altText?: Maybe<Scalars['String']>;
   sha1hash?: Maybe<Scalars['String']>;
   extension?: Maybe<Scalars['String']>;
-  mimeType?: Maybe<Scalars['String']>;
+  mimeType: Scalars['String'];
   size?: Maybe<Scalars['Float']>;
   assetId?: Maybe<Scalars['String']>;
   uploadId?: Maybe<Scalars['String']>;
@@ -740,11 +753,19 @@ export type SanityImageAsset = SanityDocument & Node & {
   source?: Maybe<SanityAssetSourceData>;
   _rawMetadata?: Maybe<Scalars['JSON']>;
   _rawSource?: Maybe<Scalars['JSON']>;
-  gatsbyImageData: Scalars['JSON'];
+  gatsbyImageData: Scalars['GatsbyImageData'];
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  filename: Scalars['String'];
+  filesize?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  publicUrl: Scalars['String'];
+  resize?: Maybe<RemoteFileResize>;
+  /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
+  gatsbyImage?: Maybe<Scalars['GatsbyImageData']>;
 };
 
 
@@ -787,6 +808,118 @@ export type SanityImageAssetGatsbyImageDataArgs = {
   backgroundColor?: InputMaybe<Scalars['String']>;
   fit?: InputMaybe<SanityImageFit>;
 };
+
+
+export type SanityImageAssetResizeArgs = {
+  width?: InputMaybe<Scalars['Int']>;
+  height?: InputMaybe<Scalars['Int']>;
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  fit?: InputMaybe<RemoteFileFit>;
+  format?: InputMaybe<RemoteFileFormat>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  quality?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type SanityImageAssetGatsbyImageArgs = {
+  layout?: InputMaybe<RemoteFileLayout>;
+  width?: InputMaybe<Scalars['Int']>;
+  height?: InputMaybe<Scalars['Int']>;
+  placeholder?: InputMaybe<RemoteFilePlaceholder>;
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  sizes?: InputMaybe<Scalars['String']>;
+  backgroundColor?: InputMaybe<Scalars['String']>;
+  fit?: InputMaybe<RemoteFileFit>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  quality?: InputMaybe<Scalars['Int']>;
+};
+
+/** Remote Interface */
+export type RemoteFile = {
+  id: Scalars['ID'];
+  mimeType: Scalars['String'];
+  filename: Scalars['String'];
+  filesize?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  publicUrl: Scalars['String'];
+  resize?: Maybe<RemoteFileResize>;
+  /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
+  gatsbyImage?: Maybe<Scalars['GatsbyImageData']>;
+};
+
+
+/** Remote Interface */
+export type RemoteFileResizeArgs = {
+  width?: InputMaybe<Scalars['Int']>;
+  height?: InputMaybe<Scalars['Int']>;
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  fit?: InputMaybe<RemoteFileFit>;
+  format?: InputMaybe<RemoteFileFormat>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  quality?: InputMaybe<Scalars['Int']>;
+};
+
+
+/** Remote Interface */
+export type RemoteFileGatsbyImageArgs = {
+  layout?: InputMaybe<RemoteFileLayout>;
+  width?: InputMaybe<Scalars['Int']>;
+  height?: InputMaybe<Scalars['Int']>;
+  placeholder?: InputMaybe<RemoteFilePlaceholder>;
+  aspectRatio?: InputMaybe<Scalars['Float']>;
+  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  sizes?: InputMaybe<Scalars['String']>;
+  backgroundColor?: InputMaybe<Scalars['String']>;
+  fit?: InputMaybe<RemoteFileFit>;
+  cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  quality?: InputMaybe<Scalars['Int']>;
+};
+
+export type RemoteFileResize = {
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  src?: Maybe<Scalars['String']>;
+};
+
+export type RemoteFileFit =
+  | 'COVER'
+  | 'FILL'
+  | 'OUTSIDE'
+  | 'CONTAIN';
+
+export type RemoteFileFormat =
+  | 'AUTO'
+  | 'JPG'
+  | 'PNG'
+  | 'WEBP'
+  | 'AVIF';
+
+export type RemoteFileCropFocus =
+  | 'CENTER'
+  | 'TOP'
+  | 'RIGHT'
+  | 'BOTTOM'
+  | 'LEFT'
+  | 'ENTROPY'
+  | 'EDGES'
+  | 'FACES';
+
+export type RemoteFileLayout =
+  | 'FIXED'
+  | 'FULL_WIDTH'
+  | 'CONSTRAINED';
+
+export type RemoteFilePlaceholder =
+  | 'DOMINANT_COLOR'
+  | 'BLURRED'
+  | 'TRACED_SVG'
+  | 'NONE';
 
 export type SanityGatsbyImagePlaceholder =
   | 'DOMINANT_COLOR'
@@ -957,6 +1090,7 @@ export type SanitySlug = {
   _key?: Maybe<Scalars['String']>;
   _type?: Maybe<Scalars['String']>;
   current?: Maybe<Scalars['String']>;
+  source?: Maybe<Scalars['String']>;
 };
 
 export type SanitySpan = {
@@ -1122,6 +1256,8 @@ export type QuerySiteArgs = {
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -1449,11 +1585,18 @@ export type QuerySanityImageAssetArgs = {
   source?: InputMaybe<SanityAssetSourceDataFilterInput>;
   _rawMetadata?: InputMaybe<JsonQueryOperatorInput>;
   _rawSource?: InputMaybe<JsonQueryOperatorInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
+  filename?: InputMaybe<StringQueryOperatorInput>;
+  filesize?: InputMaybe<IntQueryOperatorInput>;
+  width?: InputMaybe<IntQueryOperatorInput>;
+  height?: InputMaybe<IntQueryOperatorInput>;
+  publicUrl?: InputMaybe<StringQueryOperatorInput>;
+  resize?: InputMaybe<RemoteFileResizeFilterInput>;
+  gatsbyImage?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
 };
 
 
@@ -1551,6 +1694,7 @@ export type InternalFilterInput = {
   mediaType?: InputMaybe<StringQueryOperatorInput>;
   owner?: InputMaybe<StringQueryOperatorInput>;
   type?: InputMaybe<StringQueryOperatorInput>;
+  contentFilePath?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type BooleanQueryOperatorInput = {
@@ -1663,6 +1807,7 @@ export type FileFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -1678,6 +1823,7 @@ export type FileFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -1686,6 +1832,7 @@ export type FileFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -1702,6 +1849,7 @@ export type FileFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -1717,6 +1865,7 @@ export type FileFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -1725,6 +1874,7 @@ export type FileFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -1732,7 +1882,8 @@ export type FileFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type FileGroupConnection = {
   totalCount: Scalars['Int'];
@@ -1915,6 +2066,7 @@ export type DirectoryFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -1930,6 +2082,7 @@ export type DirectoryFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -1938,6 +2091,7 @@ export type DirectoryFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -1954,6 +2108,7 @@ export type DirectoryFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -1969,6 +2124,7 @@ export type DirectoryFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -1977,6 +2133,7 @@ export type DirectoryFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -1984,7 +2141,8 @@ export type DirectoryFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type DirectoryGroupConnection = {
   totalCount: Scalars['Int'];
@@ -2131,6 +2289,8 @@ export type SiteFieldsEnum =
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
+  | 'trailingSlash'
+  | 'graphqlTypegen'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2147,6 +2307,7 @@ export type SiteFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -2162,6 +2323,7 @@ export type SiteFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -2170,6 +2332,7 @@ export type SiteFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -2186,6 +2349,7 @@ export type SiteFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -2201,6 +2365,7 @@ export type SiteFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -2209,6 +2374,7 @@ export type SiteFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -2216,7 +2382,8 @@ export type SiteFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SiteGroupConnection = {
   totalCount: Scalars['Int'];
@@ -2267,6 +2434,8 @@ export type SiteFilterInput = {
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
+  trailingSlash?: InputMaybe<StringQueryOperatorInput>;
+  graphqlTypegen?: InputMaybe<BooleanQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
@@ -2347,6 +2516,7 @@ export type SiteFunctionFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -2362,6 +2532,7 @@ export type SiteFunctionFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -2370,6 +2541,7 @@ export type SiteFunctionFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -2386,6 +2558,7 @@ export type SiteFunctionFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -2401,6 +2574,7 @@ export type SiteFunctionFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -2409,6 +2583,7 @@ export type SiteFunctionFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -2416,7 +2591,8 @@ export type SiteFunctionFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SiteFunctionGroupConnection = {
   totalCount: Scalars['Int'];
@@ -2579,6 +2755,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___parent___internal___mediaType'
   | 'pluginCreator___parent___internal___owner'
   | 'pluginCreator___parent___internal___type'
+  | 'pluginCreator___parent___internal___contentFilePath'
   | 'pluginCreator___children'
   | 'pluginCreator___children___id'
   | 'pluginCreator___children___parent___id'
@@ -2594,6 +2771,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___children___internal___mediaType'
   | 'pluginCreator___children___internal___owner'
   | 'pluginCreator___children___internal___type'
+  | 'pluginCreator___children___internal___contentFilePath'
   | 'pluginCreator___internal___content'
   | 'pluginCreator___internal___contentDigest'
   | 'pluginCreator___internal___description'
@@ -2602,6 +2780,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___internal___mediaType'
   | 'pluginCreator___internal___owner'
   | 'pluginCreator___internal___type'
+  | 'pluginCreator___internal___contentFilePath'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2618,6 +2797,7 @@ export type SitePageFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -2633,6 +2813,7 @@ export type SitePageFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -2641,6 +2822,7 @@ export type SitePageFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -2657,6 +2839,7 @@ export type SitePageFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -2672,6 +2855,7 @@ export type SitePageFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -2680,6 +2864,7 @@ export type SitePageFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -2687,7 +2872,8 @@ export type SitePageFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SitePageGroupConnection = {
   totalCount: Scalars['Int'];
@@ -2820,6 +3006,7 @@ export type SitePluginFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -2835,6 +3022,7 @@ export type SitePluginFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -2843,6 +3031,7 @@ export type SitePluginFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -2859,6 +3048,7 @@ export type SitePluginFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -2874,6 +3064,7 @@ export type SitePluginFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -2882,6 +3073,7 @@ export type SitePluginFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -2889,7 +3081,8 @@ export type SitePluginFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SitePluginGroupConnection = {
   totalCount: Scalars['Int'];
@@ -3000,6 +3193,7 @@ export type SiteBuildMetadataFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -3015,6 +3209,7 @@ export type SiteBuildMetadataFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -3023,6 +3218,7 @@ export type SiteBuildMetadataFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -3039,6 +3235,7 @@ export type SiteBuildMetadataFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -3054,6 +3251,7 @@ export type SiteBuildMetadataFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -3062,6 +3260,7 @@ export type SiteBuildMetadataFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -3069,7 +3268,8 @@ export type SiteBuildMetadataFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SiteBuildMetadataGroupConnection = {
   totalCount: Scalars['Int'];
@@ -3199,11 +3399,18 @@ export type SanityImageAssetFilterInput = {
   source?: InputMaybe<SanityAssetSourceDataFilterInput>;
   _rawMetadata?: InputMaybe<JsonQueryOperatorInput>;
   _rawSource?: InputMaybe<JsonQueryOperatorInput>;
-  gatsbyImageData?: InputMaybe<JsonQueryOperatorInput>;
+  gatsbyImageData?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
+  filename?: InputMaybe<StringQueryOperatorInput>;
+  filesize?: InputMaybe<IntQueryOperatorInput>;
+  width?: InputMaybe<IntQueryOperatorInput>;
+  height?: InputMaybe<IntQueryOperatorInput>;
+  publicUrl?: InputMaybe<StringQueryOperatorInput>;
+  resize?: InputMaybe<RemoteFileResizeFilterInput>;
+  gatsbyImage?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
 };
 
 export type SanityImageMetadataFilterInput = {
@@ -3271,6 +3478,19 @@ export type SanityAssetSourceDataFilterInput = {
   name?: InputMaybe<StringQueryOperatorInput>;
   id?: InputMaybe<StringQueryOperatorInput>;
   url?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type GatsbyImageDataQueryOperatorInput = {
+  eq?: InputMaybe<Scalars['GatsbyImageData']>;
+  ne?: InputMaybe<Scalars['GatsbyImageData']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+  nin?: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+};
+
+export type RemoteFileResizeFilterInput = {
+  width?: InputMaybe<IntQueryOperatorInput>;
+  height?: InputMaybe<IntQueryOperatorInput>;
+  src?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SanityImageHotspotFilterInput = {
@@ -3388,6 +3608,7 @@ export type SanityAlbumFieldsEnum =
   | 'images___parent___internal___mediaType'
   | 'images___parent___internal___owner'
   | 'images___parent___internal___type'
+  | 'images___parent___internal___contentFilePath'
   | 'images___children'
   | 'images___children___id'
   | 'images___children___parent___id'
@@ -3403,6 +3624,7 @@ export type SanityAlbumFieldsEnum =
   | 'images___children___internal___mediaType'
   | 'images___children___internal___owner'
   | 'images___children___internal___type'
+  | 'images___children___internal___contentFilePath'
   | 'images___internal___content'
   | 'images___internal___contentDigest'
   | 'images___internal___description'
@@ -3411,6 +3633,7 @@ export type SanityAlbumFieldsEnum =
   | 'images___internal___mediaType'
   | 'images___internal___owner'
   | 'images___internal___type'
+  | 'images___internal___contentFilePath'
   | '_rawImages'
   | 'id'
   | 'parent___id'
@@ -3428,6 +3651,7 @@ export type SanityAlbumFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -3443,6 +3667,7 @@ export type SanityAlbumFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -3451,6 +3676,7 @@ export type SanityAlbumFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -3467,6 +3693,7 @@ export type SanityAlbumFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -3482,6 +3709,7 @@ export type SanityAlbumFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -3490,6 +3718,7 @@ export type SanityAlbumFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -3497,7 +3726,8 @@ export type SanityAlbumFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanityAlbumGroupConnection = {
   totalCount: Scalars['Int'];
@@ -3657,6 +3887,7 @@ export type SanityCarouselFieldsEnum =
   | 'images___parent___internal___mediaType'
   | 'images___parent___internal___owner'
   | 'images___parent___internal___type'
+  | 'images___parent___internal___contentFilePath'
   | 'images___children'
   | 'images___children___id'
   | 'images___children___parent___id'
@@ -3672,6 +3903,7 @@ export type SanityCarouselFieldsEnum =
   | 'images___children___internal___mediaType'
   | 'images___children___internal___owner'
   | 'images___children___internal___type'
+  | 'images___children___internal___contentFilePath'
   | 'images___internal___content'
   | 'images___internal___contentDigest'
   | 'images___internal___description'
@@ -3680,6 +3912,7 @@ export type SanityCarouselFieldsEnum =
   | 'images___internal___mediaType'
   | 'images___internal___owner'
   | 'images___internal___type'
+  | 'images___internal___contentFilePath'
   | '_rawImages'
   | 'id'
   | 'parent___id'
@@ -3697,6 +3930,7 @@ export type SanityCarouselFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -3712,6 +3946,7 @@ export type SanityCarouselFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -3720,6 +3955,7 @@ export type SanityCarouselFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -3736,6 +3972,7 @@ export type SanityCarouselFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -3751,6 +3988,7 @@ export type SanityCarouselFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -3759,6 +3997,7 @@ export type SanityCarouselFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -3766,7 +4005,8 @@ export type SanityCarouselFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanityCarouselGroupConnection = {
   totalCount: Scalars['Int'];
@@ -3900,6 +4140,7 @@ export type SanityClientReviewFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -3915,6 +4156,7 @@ export type SanityClientReviewFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -3923,6 +4165,7 @@ export type SanityClientReviewFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -3939,6 +4182,7 @@ export type SanityClientReviewFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -3954,6 +4198,7 @@ export type SanityClientReviewFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -3962,6 +4207,7 @@ export type SanityClientReviewFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -3969,7 +4215,8 @@ export type SanityClientReviewFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanityClientReviewGroupConnection = {
   totalCount: Scalars['Int'];
@@ -4139,6 +4386,12 @@ export type SanityDesignerFieldsEnum =
   | 'image___file___asset___gatsbyImageData'
   | 'image___file___asset___id'
   | 'image___file___asset___children'
+  | 'image___file___asset___filename'
+  | 'image___file___asset___filesize'
+  | 'image___file___asset___width'
+  | 'image___file___asset___height'
+  | 'image___file___asset___publicUrl'
+  | 'image___file___asset___gatsbyImage'
   | 'image___file___hotspot____key'
   | 'image___file___hotspot____type'
   | 'image___file___hotspot___x'
@@ -4185,6 +4438,7 @@ export type SanityDesignerFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -4200,6 +4454,7 @@ export type SanityDesignerFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -4208,6 +4463,7 @@ export type SanityDesignerFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -4224,6 +4480,7 @@ export type SanityDesignerFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -4239,6 +4496,7 @@ export type SanityDesignerFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -4247,6 +4505,7 @@ export type SanityDesignerFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -4254,7 +4513,8 @@ export type SanityDesignerFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanityDesignerGroupConnection = {
   totalCount: Scalars['Int'];
@@ -4424,6 +4684,7 @@ export type SanityDesignPreviewFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -4439,6 +4700,7 @@ export type SanityDesignPreviewFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -4447,6 +4709,7 @@ export type SanityDesignPreviewFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -4463,6 +4726,7 @@ export type SanityDesignPreviewFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -4478,6 +4742,7 @@ export type SanityDesignPreviewFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -4486,6 +4751,7 @@ export type SanityDesignPreviewFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -4493,7 +4759,8 @@ export type SanityDesignPreviewFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanityDesignPreviewGroupConnection = {
   totalCount: Scalars['Int'];
@@ -4639,6 +4906,12 @@ export type SanityPortfolioImageFieldsEnum =
   | 'image___file___asset___gatsbyImageData'
   | 'image___file___asset___id'
   | 'image___file___asset___children'
+  | 'image___file___asset___filename'
+  | 'image___file___asset___filesize'
+  | 'image___file___asset___width'
+  | 'image___file___asset___height'
+  | 'image___file___asset___publicUrl'
+  | 'image___file___asset___gatsbyImage'
   | 'image___file___hotspot____key'
   | 'image___file___hotspot____type'
   | 'image___file___hotspot___x'
@@ -4684,6 +4957,7 @@ export type SanityPortfolioImageFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -4699,6 +4973,7 @@ export type SanityPortfolioImageFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -4707,6 +4982,7 @@ export type SanityPortfolioImageFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -4723,6 +4999,7 @@ export type SanityPortfolioImageFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -4738,6 +5015,7 @@ export type SanityPortfolioImageFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -4746,6 +5024,7 @@ export type SanityPortfolioImageFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -4753,7 +5032,8 @@ export type SanityPortfolioImageFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanityPortfolioImageGroupConnection = {
   totalCount: Scalars['Int'];
@@ -4887,6 +5167,7 @@ export type SanityFileAssetFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -4902,6 +5183,7 @@ export type SanityFileAssetFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -4910,6 +5192,7 @@ export type SanityFileAssetFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -4926,6 +5209,7 @@ export type SanityFileAssetFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -4941,6 +5225,7 @@ export type SanityFileAssetFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -4949,6 +5234,7 @@ export type SanityFileAssetFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -4956,7 +5242,8 @@ export type SanityFileAssetFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanityFileAssetGroupConnection = {
   totalCount: Scalars['Int'];
@@ -5190,6 +5477,7 @@ export type SanityImageAssetFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -5205,6 +5493,7 @@ export type SanityImageAssetFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -5213,6 +5502,7 @@ export type SanityImageAssetFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -5229,6 +5519,7 @@ export type SanityImageAssetFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -5244,6 +5535,7 @@ export type SanityImageAssetFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -5252,6 +5544,7 @@ export type SanityImageAssetFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -5259,7 +5552,17 @@ export type SanityImageAssetFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath'
+  | 'filename'
+  | 'filesize'
+  | 'width'
+  | 'height'
+  | 'publicUrl'
+  | 'resize___width'
+  | 'resize___height'
+  | 'resize___src'
+  | 'gatsbyImage';
 
 export type SanityImageAssetGroupConnection = {
   totalCount: Scalars['Int'];
@@ -5378,6 +5681,7 @@ export type SanitySiteSettingsFieldsEnum =
   | 'parent___parent___internal___mediaType'
   | 'parent___parent___internal___owner'
   | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
   | 'parent___children'
   | 'parent___children___id'
   | 'parent___children___parent___id'
@@ -5393,6 +5697,7 @@ export type SanitySiteSettingsFieldsEnum =
   | 'parent___children___internal___mediaType'
   | 'parent___children___internal___owner'
   | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
   | 'parent___internal___content'
   | 'parent___internal___contentDigest'
   | 'parent___internal___description'
@@ -5401,6 +5706,7 @@ export type SanitySiteSettingsFieldsEnum =
   | 'parent___internal___mediaType'
   | 'parent___internal___owner'
   | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
   | 'children'
   | 'children___id'
   | 'children___parent___id'
@@ -5417,6 +5723,7 @@ export type SanitySiteSettingsFieldsEnum =
   | 'children___parent___internal___mediaType'
   | 'children___parent___internal___owner'
   | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
   | 'children___children'
   | 'children___children___id'
   | 'children___children___parent___id'
@@ -5432,6 +5739,7 @@ export type SanitySiteSettingsFieldsEnum =
   | 'children___children___internal___mediaType'
   | 'children___children___internal___owner'
   | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
   | 'children___internal___content'
   | 'children___internal___contentDigest'
   | 'children___internal___description'
@@ -5440,6 +5748,7 @@ export type SanitySiteSettingsFieldsEnum =
   | 'children___internal___mediaType'
   | 'children___internal___owner'
   | 'children___internal___type'
+  | 'children___internal___contentFilePath'
   | 'internal___content'
   | 'internal___contentDigest'
   | 'internal___description'
@@ -5447,7 +5756,8 @@ export type SanitySiteSettingsFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'internal___contentFilePath';
 
 export type SanitySiteSettingsGroupConnection = {
   totalCount: Scalars['Int'];
@@ -5514,30 +5824,30 @@ export type SanitySiteSettingsSortInput = {
 export type DefaultSeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DefaultSeoQueryQuery = { site?: { title?: string | null | undefined, description?: string | null | undefined, keywords?: Array<string | null | undefined> | null | undefined } | null | undefined };
+export type DefaultSeoQueryQuery = { site?: { title?: string | null, description?: string | null, keywords?: Array<string | null> | null } | null };
 
-export type DesignPreviewFragment = { title?: string | null | undefined, description?: string | null | undefined, images?: Array<{ colSpan?: string | null | undefined, rowSpan?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type DesignPreviewFragment = { title?: string | null, description?: string | null, images?: Array<{ colSpan?: string | null, rowSpan?: string | null, image?: { description?: string | null, file?: { asset?: { id: string } | null } | null } | null } | null> | null };
 
-export type DesignPreviewImageFragment = { colSpan?: string | null | undefined, rowSpan?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string } | null | undefined } | null | undefined } | null | undefined };
+export type DesignPreviewImageFragment = { colSpan?: string | null, rowSpan?: string | null, image?: { description?: string | null, file?: { asset?: { id: string } | null } | null } | null };
 
 export type KindWordsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type KindWordsQueryQuery = { allSanityClientReview: { nodes: Array<{ _id?: string | null | undefined, clientName?: string | null | undefined, text?: string | null | undefined, title?: string | null | undefined }> } };
+export type KindWordsQueryQuery = { allSanityClientReview: { nodes: Array<{ _id?: string | null, clientName?: string | null, text?: string | null, title?: string | null }> } };
 
-export type ImageFragment = { cabinetry?: Array<string | null | undefined> | null | undefined, caption?: string | null | undefined, contractor?: string | null | undefined, decorator?: string | null | undefined, finish?: Array<string | null | undefined> | null | undefined, furnitureRefinishing?: string | null | undefined, interiorDesigner?: string | null | undefined, labels?: Array<string | null | undefined> | null | undefined, room?: string | null | undefined, software?: string | null | undefined, title?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string, gatsbyImageData: any } | null | undefined } | null | undefined } | null | undefined };
+export type ImageFragment = { cabinetry?: Array<string | null> | null, caption?: string | null, contractor?: string | null, decorator?: string | null, finish?: Array<string | null> | null, furnitureRefinishing?: string | null, interiorDesigner?: string | null, labels?: Array<string | null> | null, room?: string | null, software?: string | null, title?: string | null, image?: { description?: string | null, file?: { asset?: { id: string, gatsbyImageData: any } | null } | null } | null };
 
 export type PortfolioImagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PortfolioImagesQuery = { allSanityPortfolioImage: { nodes: Array<{ cabinetry?: Array<string | null | undefined> | null | undefined, caption?: string | null | undefined, contractor?: string | null | undefined, decorator?: string | null | undefined, finish?: Array<string | null | undefined> | null | undefined, furnitureRefinishing?: string | null | undefined, interiorDesigner?: string | null | undefined, labels?: Array<string | null | undefined> | null | undefined, room?: string | null | undefined, software?: string | null | undefined, title?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string, gatsbyImageData: any } | null | undefined } | null | undefined } | null | undefined }> }, allSanityAlbum: { nodes: Array<{ title?: string | null | undefined, images?: Array<{ cabinetry?: Array<string | null | undefined> | null | undefined, caption?: string | null | undefined, contractor?: string | null | undefined, decorator?: string | null | undefined, finish?: Array<string | null | undefined> | null | undefined, furnitureRefinishing?: string | null | undefined, interiorDesigner?: string | null | undefined, labels?: Array<string | null | undefined> | null | undefined, room?: string | null | undefined, software?: string | null | undefined, title?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string, gatsbyImageData: any } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined }> } };
+export type PortfolioImagesQuery = { allSanityPortfolioImage: { nodes: Array<{ cabinetry?: Array<string | null> | null, caption?: string | null, contractor?: string | null, decorator?: string | null, finish?: Array<string | null> | null, furnitureRefinishing?: string | null, interiorDesigner?: string | null, labels?: Array<string | null> | null, room?: string | null, software?: string | null, title?: string | null, image?: { description?: string | null, file?: { asset?: { id: string, gatsbyImageData: any } | null } | null } | null }> }, allSanityAlbum: { nodes: Array<{ title?: string | null, images?: Array<{ cabinetry?: Array<string | null> | null, caption?: string | null, contractor?: string | null, decorator?: string | null, finish?: Array<string | null> | null, furnitureRefinishing?: string | null, interiorDesigner?: string | null, labels?: Array<string | null> | null, room?: string | null, software?: string | null, title?: string | null, image?: { description?: string | null, file?: { asset?: { id: string, gatsbyImageData: any } | null } | null } | null } | null> | null }> } };
 
 export type DesignersQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DesignersQueryQuery = { allSanityDesigner: { nodes: Array<{ name?: string | null | undefined, id: string, role?: string | null | undefined, description?: Array<{ list?: string | null | undefined, style?: string | null | undefined, _type?: string | null | undefined, _key?: string | null | undefined, children?: Array<{ text?: string | null | undefined, marks?: Array<string | null | undefined> | null | undefined, _key?: string | null | undefined, _type?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string } | null | undefined } | null | undefined } | null | undefined }> } };
+export type DesignersQueryQuery = { allSanityDesigner: { nodes: Array<{ name?: string | null, id: string, role?: string | null, description?: Array<{ list?: string | null, style?: string | null, _type?: string | null, _key?: string | null, children?: Array<{ text?: string | null, marks?: Array<string | null> | null, _key?: string | null, _type?: string | null } | null> | null } | null> | null, image?: { description?: string | null, file?: { asset?: { id: string } | null } | null } | null }> } };
 
 export type IndexPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQueryQuery = { carousel?: { images?: Array<{ image?: { description?: string | null | undefined, file?: { asset?: { id: string, gatsbyImageData: any } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined, designPreview?: { title?: string | null | undefined, description?: string | null | undefined, images?: Array<{ colSpan?: string | null | undefined, rowSpan?: string | null | undefined, image?: { description?: string | null | undefined, file?: { asset?: { id: string } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+export type IndexPageQueryQuery = { carousel?: { images?: Array<{ image?: { description?: string | null, file?: { asset?: { id: string, gatsbyImageData: any } | null } | null } | null } | null> | null } | null, designPreview?: { title?: string | null, description?: string | null, images?: Array<{ colSpan?: string | null, rowSpan?: string | null, image?: { description?: string | null, file?: { asset?: { id: string } | null } | null } | null } | null> | null } | null };
