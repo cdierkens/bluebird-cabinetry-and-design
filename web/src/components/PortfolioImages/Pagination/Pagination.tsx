@@ -40,19 +40,36 @@ export const Pagination: VFC<PaginationProps> = ({
         <span className="sr-only">Previous Page</span>
       </button>
 
-      {Array.from({
-        length: pageCount,
-      }).map((_, index) => (
-        <button
-          key={index}
-          onClick={() => handlePagination(index * PAGE_SIZE)}
-          className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring ${
-            index === selectedPage ? "bg-gold" : "bg-blue-dark"
-          }`}
-        >
-          {index + 1}
-        </button>
-      ))}
+      {selectedPage > 0 ? (
+        <NumberButton index={0} handlePagination={handlePagination} />
+      ) : null}
+
+      {selectedPage > 1 ? (
+        <NumberButton
+          index={selectedPage - 1}
+          handlePagination={handlePagination}
+        />
+      ) : null}
+
+      <NumberButton
+        index={selectedPage}
+        handlePagination={handlePagination}
+        isSelected={true}
+      />
+
+      {selectedPage + 1 < pageCount ? (
+        <NumberButton
+          index={selectedPage + 1}
+          handlePagination={handlePagination}
+        />
+      ) : null}
+
+      {selectedPage + 1 < pageCount - 1 ? (
+        <NumberButton
+          index={pageCount - 1}
+          handlePagination={handlePagination}
+        />
+      ) : null}
 
       <button
         onClick={handleNextPageClick}
@@ -64,3 +81,26 @@ export const Pagination: VFC<PaginationProps> = ({
     </div>
   ) : null;
 };
+
+interface NumberButtonProps {
+  index: number;
+  isSelected?: boolean;
+  handlePagination: (index: number) => void;
+}
+
+function NumberButton({
+  index,
+  handlePagination,
+  isSelected,
+}: NumberButtonProps) {
+  return (
+    <button
+      onClick={() => handlePagination(index * PAGE_SIZE)}
+      className={`text-white rounded-full text-center font-medium p-1 inline-block w-8 h-8 mr-3 hover:bg-gold cursor-pointer focus:outline-none focus:ring ${
+        isSelected ? "bg-gold" : "bg-blue-dark"
+      }`}
+    >
+      {index + 1}
+    </button>
+  );
+}
