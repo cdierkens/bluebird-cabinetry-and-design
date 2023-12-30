@@ -47,7 +47,7 @@
     "gatsby-plugin-root-import": "2.0.9",
     "gatsby-plugin-sharp": "4.25.1",
     "gatsby-plugin-sitemap": "5.25.0",
-    "gatsby-source-sanity": "7.5.1",
+    "gatsby-source-sanity": "7.9.1",
     "gatsby-transformer-sharp": "4.25.0",
     "graphql": "15.8.0",
     "identity-obj-proxy": "3.0.0",
