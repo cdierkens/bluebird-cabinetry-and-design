@@ -29,7 +29,7 @@
     "@types/react-select": "5.0.0",
     "@types/tailwindcss": "3.0.11",
     "@types/yup": "0.29.14",
-    "axios": "0.27.2",
+    "axios": "0.28.0",
     "babel-jest": "27.5.1",
     "babel-preset-gatsby": "2.25.0",
     "clsx": "1.2.1",
