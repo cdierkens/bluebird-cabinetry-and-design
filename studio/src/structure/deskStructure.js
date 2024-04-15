@@ -1,4 +1,5 @@
 import {
+  MdRoomService,
   MdSettings,
   MdViewCarousel as viewCarouselIcon,
   MdViewQuilt as viewQuiltIcon,
@@ -39,6 +40,16 @@ export const structure = (S) =>
         ),
       S.divider(),
       S.listItem()
+        .title("Services Page")
+        .icon(MdRoomService)
+        .child(
+          S.editor()
+            .id("servicesPage")
+            .schemaType("servicesPage")
+            .documentId("servicesPage")
+        ),
+      S.divider(),
+      S.listItem()
         .title("Home Carousel")
         .icon(viewCarouselIcon)
         .child(
@@ -64,8 +75,11 @@ export const structure = (S) =>
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !["siteSettings", "carousel", "designPreview"].includes(
-            listItem.getId()
-          )
+          ![
+            "siteSettings",
+            "carousel",
+            "designPreview",
+            "servicesPage",
+          ].includes(listItem.getId())
       ),
     ]);

@@ -4,7 +4,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const mkdirp = require("mkdirp");
 const path = require("path");
-const sanityClient = require("@sanity/client");
+const { createClient } = require("@sanity/client");
 const sanityExport = require("@sanity/export");
 const sanityImport = require("@sanity/import");
 
@@ -50,10 +50,12 @@ async function main() {
       choices: [
         "album",
         "carousel",
+        "certification",
         "clientReview",
         "designer",
         "designPreview",
         "portfolioImage",
+        "servicesPage",
         "siteSettings",
       ],
       validate: function (answer) {
@@ -96,7 +98,7 @@ async function main() {
     process.exit();
   }
 
-  const exportClient = sanityClient({
+  const exportClient = createClient({
     projectId: SANITY_PROJECT_ID,
     dataset: exportDataset,
     token: SANITY_WRITE_TOKEN,
@@ -104,7 +106,7 @@ async function main() {
     apiVersion: "v1",
   });
 
-  const importClient = sanityClient({
+  const importClient = createClient({
     projectId: SANITY_PROJECT_ID,
     dataset: importDataset,
     token: SANITY_WRITE_TOKEN,
@@ -139,6 +141,8 @@ async function main() {
     {
       client: importClient,
       operation: "createOrReplace",
+      allowFailingAssets: true,
+      replaceAssets: true,
     }
   );
 
