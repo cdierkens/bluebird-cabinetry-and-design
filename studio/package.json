@@ -19,7 +19,7 @@
     "@sanity/icons": "2.10.3",
     "@sanity/ui": "1.9.3",
     "@sanity/vision": "3.10.1",
-    "@types/prop-types": "15.7.11",
+    "@types/prop-types": "15.7.12",
     "@types/react": "17.0.75",
     "@types/react-dom": "18.2.19",
     "date-fns": "2.30.0",
