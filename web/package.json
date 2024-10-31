@@ -27,6 +27,7 @@
     "@types/react-dom": "18.3.0",
     "@types/react-helmet": "6.1.11",
     "@types/react-select": "5.0.1",
+    "@types/tailwindcss": "3.0.11",
     "@types/yup": "0.29.14",
     "axios": "0.28.1",
     "babel-jest": "27.5.1",
@@ -65,7 +66,7 @@
     "react-images": "1.1.7",
     "react-responsive-carousel": "3.2.23",
     "react-select": "5.8.0",
-    "tailwindcss": "3.4.14",
+    "tailwindcss": "3.1.6",
     "use-query-string": "2.4.1",
     "yup": "0.32.11"
   },
