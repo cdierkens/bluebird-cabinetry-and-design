@@ -9,7 +9,7 @@
   "scripts": {
     "build": "lerna run build --parallel",
     "check": "lerna run check --parallel",
-    "dev": "yarn start",
+    "dev": "lerna run dev --parallel",
     "lint:css:studio": "stylelint studio/src/**/*.css",
     "lint:css:web": "stylelint web/src/**/*.css",
     "lint:js:studio": "eslint studio/src",
