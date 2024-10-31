@@ -46,7 +46,7 @@ const DesignPreview: React.FC<DesignPreviewProps> = ({
       <Container className={styles.DesignContainer}>
         <h2 className={styles.DesignH2}>{!title || "Design Process"}</h2>
         <p className={styles.DesignText}>
-          {!description ||
+          {description ||
             "The process we use is transparent and we will deliver on our promises. Most people have had a bad experience with remodeling, or know someone who has. We are upfront about expectations, pricing, and treat clients the way we want to be treated."}
         </p>
       </Container>
