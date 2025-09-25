@@ -28,7 +28,7 @@
     "@types/react-helmet": "6.1.11",
     "@types/react-select": "5.0.1",
     "@types/tailwindcss": "3.0.11",
-    "@types/yup": "0.29.14",
+    "@types/yup": "0.32.0",
     "axios": "0.28.1",
     "babel-jest": "27.5.1",
     "babel-preset-gatsby": "2.25.0",
